@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing');
 });
+Route::get('/concours', function () {
+    return view('concours.index');
+});
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/concours', function () {
-    return view('concours.concours');
-});
 Route::get('/profiles', function () {
-    return view('profiles.profiles');
+    return view('concurrentes.index');
 });
 
 Route::get('/dashboard', function () {
