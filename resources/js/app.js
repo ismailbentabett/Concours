@@ -66,3 +66,4 @@ function goPrev() {
     slider.style.transform = "translateX(" + defaultTransform + "px)";
 }
 prev.addEventListener("click", goPrev);
+

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ProfileController extends Controller
 {
@@ -57,4 +58,22 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function upload(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($request->hasFile('avatar')) {
+            // Upload the file to Cloudinary
+            $result = Cloudinary::upload($request->file('avatar')->getRealPath());
+
+            // Update the user's profile picture URL
+            $user->avatar = $result->getSecurePath();
+            $user->save();
+        }
+
+        return redirect()->back();
+
+    }
+
 }

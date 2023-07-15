@@ -40,9 +40,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/user', function () {
         return view('user.index');
     });
+
     Route::get('/concours', function () {
         return view('concours.index');
     });
 });
+
+Route::post('/user/upload', [ProfileController::class, 'upload'])->name('user.upload');
+
 
 require __DIR__.'/auth.php';
