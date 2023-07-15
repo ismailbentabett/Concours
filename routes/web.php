@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing');
 });
-Route::get('/concours', function () {
-    return view('concours.index');
-});
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -27,14 +25,24 @@ Route::get('/profiles', function () {
     return view('concurrentes.index');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return redirect('/user');
+    });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/user', function () {
+        return view('user.index');
+    });
+    Route::get('/concours', function () {
+        return view('concours.index');
+    });
 });
 
 require __DIR__.'/auth.php';

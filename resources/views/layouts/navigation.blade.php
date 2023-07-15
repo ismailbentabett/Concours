@@ -3,7 +3,7 @@
         <div class="relative h-16 flex justify-between">
             <div class="relative z-10 px-2 flex lg:px-0">
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                    <img class="block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-bittersweet-500.svg"
                         alt="Workflow">
                 </div>
             </div>
@@ -58,62 +58,83 @@
                     </svg>
                 </button>
             </div>
-            <div class="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
-                <button
-                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-gray-800 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                    {{--   <div>{{ Auth::user()->name }}</div> --}} name placeholder
-                </button>
 
-                <!-- Profile dropdown -->
-                <div class="flex-shrink-0 relative ml-4">
-                    <div>
-                        <button type="button"
-                            class="bg-gray-800 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                            <span class="sr-only">Open user menu</span>
-                            <img class="h-8 w-8 rounded-full"
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                alt="">
-                        </button>
-                    </div>
-
-                    <!--
-              Dropdown menu, show/hide based on menu state.
-
-              Entering: "transition ease-out duration-100"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-            -->
-                    <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
-                        role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                        <!-- Active: "bg-gray-100", Not Active: "" -->
-                        <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                            id="user-menu-item-2" href="{{ url('profile') }}">{{ __('Profile') }}
-                        </a>
-                        <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                            id="user-menu-item-1">Settings</a>
+            @if (Route::has('login'))
+                <div class="space-x-3 z-10 flex items-center">
+                    @auth
 
 
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                        <div class="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
+                            <button
+                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-gray-800 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                <div>{{ Auth::user()->name }}</div>
+                            </button>
 
-                            <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                                id="user-menu-item-2" :href="route('logout')"
-                                onclick="event.preventDefault();
+                            <!-- Profile dropdown -->
+                            <div class="flex-shrink-0 relative ml-4">
+                                <div>
+                                    <button type="button"
+                                        class="bg-gray-800 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                        <span class="sr-only">Open user menu</span>
+                                        <img class="h-8 w-8 rounded-full"
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            alt="">
+                                    </button>
+                                </div>
+
+                                <!--
+                              Dropdown menu, show/hide based on menu state.
+
+                              Entering: "transition ease-out duration-100"
+                                From: "transform opacity-0 scale-95"
+                                To: "transform opacity-100 scale-100"
+                              Leaving: "transition ease-in duration-75"
+                                From: "transform opacity-100 scale-100"
+                                To: "transform opacity-0 scale-95"
+                            -->
+                                <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
+                                    tabindex="-1">
+                                    <!-- Active: "bg-gray-100", Not Active: "" -->
+                                    <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
+                                        id="user-menu-item-2" href="{{ url('profile') }}">{{ __('Profile') }}
+                                    </a>
+                                    <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
+                                        id="user-menu-item-1">Settings</a>
+
+
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
+                                            id="user-menu-item-2" :href="route('logout')"
+                                            onclick="event.preventDefault();
                             this.closest('form').submit();">
 
-                                {{ __('Log Out') }}
-                            </a>
+                                            {{ __('Log Out') }}
+                                        </a>
 
-                        </form>
+                                    </form>
 
 
-                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        @if (Route::current()->getName() !== 'login')
+                            <a href="{{ route('login') }}"
+                                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
+                                in</a>
+                        @endif
+
+                        @if (Route::has('register') && Route::current()->getName() !== 'register')
+                            <a href="{{ route('register') }}"
+                                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Register</a>
+                        @endif
+                    @endauth
                 </div>
-            </div>
+            @endif
         </div>
         <nav class="hidden lg:py-2 lg:flex lg:space-x-8" aria-label="Global">
 
