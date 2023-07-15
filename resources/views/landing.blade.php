@@ -33,8 +33,8 @@
     theme: {
       extend: {
         colors: {
-          teal: colors.teal,
-          cyan: colors.cyan,
+          bittersweet: colors.bittersweet,
+          bittersweet: colors.bittersweet,
         },
       },
     },
@@ -61,7 +61,7 @@
                                             <a href="#">
                                                 <span class="sr-only">Workflow</span>
                                                 <img class="h-8 w-auto sm:h-10"
-                                                    src="https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg"
+                                                    src="https://tailwindui.com/img/logos/workflow-mark-bittersweet-200-bittersweet-400.svg"
                                                     alt="">
                                             </a>
                                             <div class="-mr-2 flex items-center md:hidden">
@@ -119,12 +119,12 @@
                                     <div class="px-5 pt-4 flex items-center justify-between">
                                         <div>
                                             <img class="h-8 w-auto"
-                                                src="https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg"
+                                                src="https://tailwindui.com/img/logos/workflow-mark-bittersweet-500-bittersweet-600.svg"
                                                 alt="">
                                         </div>
                                         <div class="-mr-2">
                                             <button type="button"
-                                                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600">
+                                                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-bittersweet-600">
                                                 <span class="sr-only">Close menu</span>
                                                 <!-- Heroicon name: outline/x -->
                                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -151,7 +151,7 @@
                                         </div>
                                         <div class="mt-6 px-5">
                                             <a href="#"
-                                                class="block text-center w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700">Sign
+                                                class="block text-center w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 text-white font-medium hover:from-bittersweet-600 hover:to-bittersweet-700">Sign
                                                 Up
                                             </a>
                                         </div>
@@ -172,7 +172,7 @@
                                         <a href="#"
                                             class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
                                             <span
-                                                class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full">We're
+                                                class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 rounded-full">We're
                                                 hiring</span>
                                             <span class="ml-4 text-sm">Visit our careers page</span>
                                             <!-- Heroicon name: solid/chevron-right -->
@@ -189,7 +189,7 @@
 
                                             </span>
                                             <span
-                                                class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
+                                                class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-bittersweet-200 to-bittersweet-400 sm:pb-5">
                                                 IT'S NICE TO MEET
                                                 YOU</span>
                                         </h1>
@@ -201,11 +201,11 @@
                                                         <label for="email" class="sr-only">Email address</label>
                                                         <input id="email" type="email"
                                                             placeholder="Enter your email"
-                                                            class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
+                                                            class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">
                                                     </div>
                                                     <div class="mt-3 sm:mt-0 sm:ml-3">
                                                         <button type="submit"
-                                                            class="block w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">INSCRIRE</button>
+                                                            class="block w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 text-white font-medium hover:from-bittersweet-600 hover:to-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">INSCRIRE</button>
                                                     </div>
                                                 </div>
 
