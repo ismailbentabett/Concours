@@ -13,6 +13,8 @@ class ConcourController extends Controller
 
 
 
+        // Process the data and submit it
+
         $concour = new Concour();
         $concour->category_id = $request->input('category_id');
         $concour->profession = $request->input('profession');
@@ -20,5 +22,5 @@ class ConcourController extends Controller
         $concour->save();
 
 
-        return  $request;   }
+        return redirect()->route('user.index')->with('success', 'Concour created successfully.');    }
 }
