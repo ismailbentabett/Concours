@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource('posts', PostController::class);
-    Route::post('/contest/submit', [ConcourController::class, 'submit'])->name('contest.submit');
+    Route::post('/concour', [ConcourController::class, 'submit'])->name('concour.submit');
 
 
 

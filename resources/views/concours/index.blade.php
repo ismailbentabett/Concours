@@ -22,10 +22,10 @@
                                     </p>
                                 </div>
                                 <div class="mt-5 md:mt-0 md:col-span-2">
-                                    <form class="space-y-6" action="{{ route('contest.submit') }}" method="POST">
 
+                                        <form class="relative"   action="{{ route('concour.submit') }}" method="POST"  enctype="multipart/form-data">
 
-                                        @csrf
+                                            @csrf
 
 
                                         <div>
@@ -67,10 +67,10 @@
                                                             stroke-linejoin="round" />
                                                     </svg>
                                                     <div class="flex text-sm text-gray-600">
-                                                        <label for="file-upload"
+                                                        <label for="images"
                                                             class="relative cursor-pointer bg-bg-gray-900 rounded-md font-medium text-bittersweet-600 hover:text-bittersweet-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-bittersweet-500">
                                                             <span>Upload a file</span>
-                                                            <input id="file-upload" name="file-upload" type="file"
+                                                            <input id="images" name="images" type="file"
                                                                 class="sr-only">
                                                         </label>
                                                         <p class="pl-1">or drag and drop</p>
@@ -84,7 +84,7 @@
                                         <div class="flex justify-end">
 
                                             <button type="submit"
-                                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-gray-900 bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                                            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-gray-900 bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
                                                 Save
                                             </button>
                                         </div>

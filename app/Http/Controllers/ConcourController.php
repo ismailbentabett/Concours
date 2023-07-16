@@ -12,12 +12,6 @@ class ConcourController extends Controller
     {
 
 
-        $this->validate($request, [
-            'category_id' => 'required',
-            'user_id' => 'required',
-        ]);
-
-        // Process the data and submit it
 
         $concour = new Concour();
         $concour->category_id = $request->input('category_id');
@@ -26,5 +20,5 @@ class ConcourController extends Controller
         $concour->save();
 
 
-        return redirect()->route('user.index')->with('success', 'Concour created successfully.');    }
+        return  $request;   }
 }
