@@ -15,10 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->string('profession')->nullable();
-
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('user_id');
-
-
             $table->timestamps();
         });
     }

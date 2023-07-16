@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
 
 class Concour extends Model
 {
-    use HasFactory;
+    use HasFactory , MediaAlly;
 
     public function category()
     {

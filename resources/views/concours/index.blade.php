@@ -67,10 +67,10 @@
                                                             stroke-linejoin="round" />
                                                     </svg>
                                                     <div class="flex text-sm text-gray-600">
-                                                        <label for="images"
+                                                        <label for="image"
                                                             class="relative cursor-pointer bg-bg-gray-900 rounded-md font-medium text-bittersweet-600 hover:text-bittersweet-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-bittersweet-500">
                                                             <span>Upload a file</span>
-                                                            <input id="images" name="images" type="file"
+                                                            <input id="image" name="image" type="file"
                                                                 class="sr-only">
                                                         </label>
                                                         <p class="pl-1">or drag and drop</p>
