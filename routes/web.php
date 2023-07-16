@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ConcourController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,11 +42,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/user', function () {
         return view('user.index');
-    });
+    })-> name('user.index');
 
     Route::get('/concours', function () {
-        return view('concours.index');
+
+        $categories = Category::all();
+    return view('concours.index', compact('categories'));
     });
+
+
+    Route::resource('posts', PostController::class);
+    Route::post('/contest/submit', [ConcourController::class, 'submit'])->name('contest.submit');
+
+
+
+
 });
 
 Route::post('/user/upload', [ProfileController::class, 'upload'])->name('user.upload');

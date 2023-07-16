@@ -67,3 +67,52 @@ function goPrev() {
 }
 prev.addEventListener("click", goPrev);
 
+const imageInput = document.getElementById('images');
+const imagePreviewContainer = document.querySelector('.images-preview-div');
+
+imageInput.addEventListener('change', function(event) {
+  const files = event.target.files;
+
+  // Clear the existing preview
+  imagePreviewContainer.innerHTML = '';
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const imageUrl = e.target.result;
+
+      const imageElement = document.createElement('img');
+      imageElement.src = imageUrl;
+      imageElement.alt = 'Image';
+      imageElement.classList.add('preview-image');
+
+      // Append a delete button for each image
+      const deleteButton = document.createElement('button');
+      deleteButton.innerText = 'Delete';
+      deleteButton.classList.add('delete-image');
+      deleteButton.dataset.index = i;
+
+      // Attach event listener to delete button
+      deleteButton.addEventListener('click', function() {
+        const index = this.dataset.index;
+
+        // Remove the image element from the preview
+        imagePreviewContainer.removeChild(imagePreviewContainer.childNodes[index]);
+
+        // Remove the corresponding file from the input's file list
+        files.splice(index, 1);
+      });
+
+      // Append the image and delete button to the preview container
+      const imageWrapper = document.createElement('div');
+      imageWrapper.classList.add('image-wrapper');
+      imageWrapper.appendChild(imageElement);
+      imageWrapper.appendChild(deleteButton);
+      imagePreviewContainer.appendChild(imageWrapper);
+    };
+
+    reader.readAsDataURL(file);
+  }
+});

@@ -22,17 +22,17 @@
                                     </p>
                                 </div>
                                 <div class="mt-5 md:mt-0 md:col-span-2">
-                                    <form class="space-y-6" action="#" method="POST">
+                                    <form class="space-y-6" action="{{ route('contest.submit') }}" method="POST">
 
 
-
+                                        @csrf
 
 
                                         <div>
                                             <label for="location" class="block text-sm font-medium bg-gray-8000">Vous
                                                 etes
                                                 ?</label>
-                                            <select id="location" name="location"
+                                            <select id="profession" name="profession"
                                                 class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bittersweet-500 focus:border-bittersweet-500 sm:text-sm rounded-md bg-gray-900">
                                                 <option>Professional</option>
                                                 <option selected>Artisan</option>
@@ -43,11 +43,11 @@
                                         <div>
                                             <label for="location"
                                                 class="block text-sm font-medium bg-gray-8000">Category</label>
-                                            <select id="location" name="location"
+                                            <select id="category_id" name="category_id"
                                                 class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bittersweet-500 focus:border-bittersweet-500 sm:text-sm rounded-md bg-gray-900">
-                                                <option>Men</option>
-                                                <option selected>Women</option>
-                                                <option>Kids</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
 
@@ -81,22 +81,20 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="flex justify-end">
+
+                                            <button type="submit"
+                                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-gray-900 bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                                                Save
+                                            </button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
 
 
-                        <div class="flex justify-end">
-                            <button type="button"
-                                class="bg-bg-gray-900 py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium bg-gray-8000 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
-                                Cancel
-                            </button>
-                            <button type="submit"
-                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-gray-900 bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
-                                Save
-                            </button>
-                        </div>
+
                     </div>
 
                 </div>
