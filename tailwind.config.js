@@ -37,5 +37,9 @@ export default {
         require("@tailwindcss/typography"),
         require("@tailwindcss/aspect-ratio"),
         require("@tailwindcss/line-clamp"),
+        require('tailwindcss-plugins/pagination')({
+            /* Customizations here... */
+
+        }),
     ],
 };
