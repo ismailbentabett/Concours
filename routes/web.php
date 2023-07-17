@@ -48,7 +48,9 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/user/concours', function () {
-        return view('user.concours');
+
+        $categories = Category::all();
+        return view('user.concours', compact('categories'));
     })-> name('user.concours');
 
     Route::get('/concours', function () {
