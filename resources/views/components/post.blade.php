@@ -1,3 +1,5 @@
+@props(['post' , 'user'])
+
 <main class="lg:col-span-9 xl:col-span-6">
 
     <div class="mt-4">
@@ -13,11 +15,15 @@
                             </div>
                             <div class="min-w-0 flex-1">
                                 <p class="text-sm font-medium text-white">
-                                    <a href="#" class="hover:underline">Dries Vincent</a>
+                                    <a href="#" class="hover:underline">{{
+                                            $user->name
+                                        }}</a>
                                 </p>
                                 <p class="text-sm text-gray-500">
                                     <a href="#" class="hover:underline">
-                                        <time datetime="2020-12-09T11:43:00">December 9 at 11:43 AM</time>
+                                        <time datetime="2020-12-09T11:43:00">{{
+                                            $post->created_at
+                                            }}</time>
                                     </a>
                                 </p>
                             </div>
@@ -38,16 +44,6 @@
                                         </button>
                                     </div>
 
-                                    <!--
-                      Dropdown menu, show/hide based on menu state.
-
-                      Entering: "transition ease-out duration-100"
-                        From: "transform opacity-0 scale-95"
-                        To: "transform opacity-100 scale-100"
-                      Leaving: "transition ease-in duration-75"
-                        From: "transform opacity-100 scale-100"
-                        To: "transform opacity-0 scale-95"
-                    -->
                                     <div class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                         role="menu" aria-orientation="vertical"
                                         aria-labelledby="options-menu-0-button" tabindex="-1">
@@ -97,7 +93,7 @@
                         {{-- img --}}
 
                         <h2 id="question-title-81614" class="mt-4 text-base font-medium text-white">
-                            What would you have done differently if you ran Jurassic Park?
+                            {{ $post->title }}
                         </h2>
                     </div>
                     <div class="aspect-w-3 aspect-h-1 my-5">
@@ -105,12 +101,8 @@
                             src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
                             alt="">
                     </div>
-                    <div class="mt-2 text-sm text-gray-700 space-y-4">
-                        <p>Jurassic Park was an incredible idea and a magnificent feat of engineering, but poor
-                            protocols and a disregard for human safety killed what could have otherwise been one of the
-                            best businesses of our generation.</p>
-                        <p>Ultimately, I think that if you wanted to run the park successfully and keep visitors safe,
-                            the most important thing to prioritize would be&hellip;</p>
+                    <div class="mt-2 text-sm text-gray-500 space-y-4">
+                      {{ $post->content }}
                     </div>
                     <div class="mt-6 flex justify-between space-x-8">
                         <div class="flex space-x-6">

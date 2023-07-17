@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -47,7 +49,7 @@ class PostController extends Controller
             }
         }
 
-        return redirect()->route('user.concours')->with('success', 'Post created successfully.');
+        return redirect()->route('user.posts')->with('success', 'Post created successfully.');
     }
 
 
@@ -84,5 +86,16 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
+    }
+
+
+
+    //get user posts
+    public function userPosts()
+    {
+        $user = User::find(Auth::user()->id);
+        $posts = Post::where('user_id', $user->id)->paginate (5);
+        return view('user.posts', compact('posts' , 'user'));
+
     }
 }

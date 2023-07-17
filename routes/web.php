@@ -41,9 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/user/posts', function () {
-        return view('user.posts');
-    })-> name('user.posts');
 
 
     Route::get('/user', function () {
@@ -63,6 +60,10 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('posts', PostController::class);
     Route::post('/concour', [ConcourController::class, 'submit'])->name('concour.submit');
+
+
+
+    Route::get('/user/posts', [PostController::class, 'userPosts'])-> name('user.posts');
 
 
 
