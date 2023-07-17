@@ -113,13 +113,8 @@
         <div class="col-span-12 sm:col-span-8">
             <div class="bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-10">
-
-                    @for ($i = 0; $i < 10; $i++)
-                        <x-post></x-post>
-                    @endfor
-
+                        @yield('content')
                 </div>
-
             </div>
         </div>
     </div>

@@ -40,9 +40,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/user/posts', function () {
+        return view('user.posts');
+    })-> name('user.posts');
+
+
     Route::get('/user', function () {
-        return view('user.index');
-    })-> name('user.index');
+        return redirect('/user/concours');
+    });
+
+    Route::get('/user/concours', function () {
+        return view('user.concours');
+    })-> name('user.concours');
 
     Route::get('/concours', function () {
 

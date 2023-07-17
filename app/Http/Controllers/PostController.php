@@ -47,7 +47,7 @@ class PostController extends Controller
             }
         }
 
-        return redirect()->route('user.index')->with('success', 'Post created successfully.');
+        return redirect()->route('user.concours')->with('success', 'Post created successfully.');
     }
 
 

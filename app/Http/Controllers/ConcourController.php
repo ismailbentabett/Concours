@@ -35,6 +35,6 @@ class ConcourController extends Controller
         $concour->save();
 
 
-        return redirect()->route('user.index')->with('success', 'Concour created successfully.');
+        return redirect()->route('user.concours')->with('success', 'Concour created successfully.');
     }
 }
