@@ -68,7 +68,7 @@
                                                     </svg>
                                                     <div class="flex text-sm text-gray-600">
                                                         <label for="image"
-                                                            class="relative cursor-pointer bg-bg-gray-900 rounded-md font-medium text-bittersweet-600 hover:text-bittersweet-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-bittersweet-500">
+                                                            class="relative cursor-pointer bg-gray-900 rounded-md font-medium text-bittersweet-600 hover:text-bittersweet-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-bittersweet-500">
                                                             <span>Upload a file</span>
                                                             <input id="image" name="image" type="file"
                                                                 class="sr-only">

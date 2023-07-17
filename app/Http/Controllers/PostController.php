@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Post;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Foundation\Auth\User;
@@ -42,12 +43,13 @@ class PostController extends Controller
                 $uploadResult = Cloudinary::upload($image->getRealPath(), [
                     'folder' => 'posts',
                 ]);
-
-                $imageUrl = Arr::get($uploadResult->getSecurePath(), 'url');
-
-                $post->images()->create(['url' => $imageUrl]);
+                $image = new Image();
+                $image->url = $uploadResult->getSecurePath();
+                $image->post_id = $post->id;
+                $image->save();
             }
         }
+
 
         return redirect()->route('user.posts')->with('success', 'Post created successfully.');
     }
@@ -95,7 +97,15 @@ class PostController extends Controller
     {
         $user = User::find(Auth::user()->id);
         $posts = Post::where('user_id', $user->id)->paginate (5);
-        return view('user.posts', compact('posts' , 'user'));
+
+    //add images to each post
+    foreach ($posts as $post) {
+        $images = Image::where('post_id', $post->id)->get();
+        $post->images = $images;
+
+    }
+
+        return view('user.posts', compact('posts' , 'user'  ));
 
     }
 }

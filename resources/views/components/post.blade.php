@@ -1,4 +1,6 @@
-@props(['post' , 'user'])
+@props(['post', 'user'])
+
+
 
 <main class="lg:col-span-9 xl:col-span-6">
 
@@ -9,21 +11,19 @@
                     <div>
                         <div class="flex space-x-3">
                             <div class="flex-shrink-0">
+
+
                                 <img class="h-10 w-10 rounded-full"
                                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                     alt="">
                             </div>
                             <div class="min-w-0 flex-1">
                                 <p class="text-sm font-medium text-white">
-                                    <a href="#" class="hover:underline">{{
-                                            $user->name
-                                        }}</a>
+                                    <a href="#" class="hover:underline">{{ $user->name }}</a>
                                 </p>
                                 <p class="text-sm text-gray-500">
                                     <a href="#" class="hover:underline">
-                                        <time datetime="2020-12-09T11:43:00">{{
-                                            $post->created_at
-                                            }}</time>
+                                        <time datetime="2020-12-09T11:43:00">{{ $post->created_at }}</time>
                                     </a>
                                 </p>
                             </div>
@@ -91,23 +91,75 @@
                         </div>
 
                         {{-- img --}}
+                        @if (count($post->images) > 0)
+
+                        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                            <!-- Carousel wrapper -->
+                            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                                @foreach ($post->images as $slide)
+                                    <!-- Item 1 -->
+                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                        <img src="{{ $slide['url'] }}"
+                                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                            alt="...">
+                                    </div>
+
+                                    <!-- Item 6 -->
+                                @endforeach
+                            </div>
+
+                            <!-- Slider controls -->
+                            <button type="button"
+                                class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                                data-carousel-prev>
+                                <span
+                                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M5 1 1 5l4 4" />
+                                    </svg>
+                                    <span class="sr-only">Previous</span>
+                                </span>
+                            </button>
+                            <button type="button"
+                                class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                                data-carousel-next>
+                                <span
+                                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 9 4-4-4-4" />
+                                    </svg>
+                                    <span class="sr-only">Next</span>
+                                </span>
+                            </button>
+                        </div>
+                        @endif
+
+
 
                         <h2 id="question-title-81614" class="mt-4 text-base font-medium text-white">
-                            {{ $post->title }}
+                            {{ $post->title }} {{count($post->images)}}
+
+
                         </h2>
                     </div>
-                    <div class="aspect-w-3 aspect-h-1 my-5">
-                        <img class="object-cover 1-lg rounded-lg"
-                            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-                            alt="">
+                    <div>
+                        <div class="z-50">
+
+                        </div>
                     </div>
+
                     <div class="mt-2 text-sm text-gray-500 space-y-4">
-                      {{ $post->content }}
+                        {{ $post->content }}
                     </div>
                     <div class="mt-6 flex justify-between space-x-8">
                         <div class="flex space-x-6">
                             <span class="inline-flex items-center text-sm">
-                                <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <button type="button"
+                                    class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                                     <!-- Heroicon name: solid/thumb-up -->
                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                         fill="currentColor" aria-hidden="true">
@@ -119,7 +171,8 @@
                                 </button>
                             </span>
                             <span class="inline-flex items-center text-sm">
-                                <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <button type="button"
+                                    class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                                     <!-- Heroicon name: solid/chat-alt -->
                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                         fill="currentColor" aria-hidden="true">

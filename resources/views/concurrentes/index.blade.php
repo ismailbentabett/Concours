@@ -38,105 +38,49 @@
 
                                         <!-- Filters -->
                                         <section aria-labelledby="filter-heading"
-                                            class="relative z-10 border-t border-b border-gray-200 grid items-center">
+                                            class="relative z-10  grid items-center">
                                             <h2 id="filter-heading" class="sr-only">Filters</h2>
-                                            <div class="relative col-start-1 row-start-1 py-4">
-                                                <div
-                                                    class="max-w-7xl mx-auto flex justify-end space-x-6 divide-x divide-gray-200 text-sm px-4 sm:px-6 lg:px-8">
-                                                    <div>
-                                                        <button type="button "
-                                                            class="group text-white font-medium flex items-center"
-                                                            aria-controls="disclosure-1" aria-expanded="false">
-                                                            <!-- Heroicon name: solid/filter -->
-                                                            <svg class="flex-none w-5 h-5 mr-2 text-gray-400 group-hover:text-gray-500"
-                                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 20 20" fill="currentColor">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
-                                                                    clip-rule="evenodd" />
-                                                            </svg>
-                                                            2 Filters
-                                                        </button>
+                                            <form action="{{ route('profiles.profiles') }}" method="GET">
+                                                <div class="mt-3 sm:mt-2">
+                                                    <div class="md:hidden">
+                                                        <label for="tabs" class="sr-only">Select a tab</label>
+                                                        <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
+                                                        <select id="tabs" name="tabs"
+                                                            class="text-white bg-gray-800 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
+                                                            onchange="this.form.submit()">
+                                                            <option selected>All</option>
+                                                            @foreach ($categories as $category)
+                                                                <option value="{{ $category->id }}">
+                                                                    {{ $category->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
-                                                    <div class="pl-6">
-                                                        <button type="button" class="text-white">Clear all</button>
-                                                    </div>
+                                                    <div class="hidden md:block">
+                                                        <div class="flex items-center border-b border-gray-600">
+                                                            <nav class="-mb-px flex flex-wrap flex-1 space-x-6 xl:space-x-8"
+                                                                aria-label="Tabs">
+                                                                <!-- Current: "border-bittersweet-500 text-bittersweet-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-600" -->
+                                                                <a href="#" aria-current="page"
+                                                                    class="whitespace-nowrap border-b-2 border-bittersweet-500 px-1 py-4 text-sm font-medium text-bittersweet-600">
+                                                                    All </a>
 
-                                                    <div class="">
-                                                        <div class="flex justify-end ">
-                                                            <div class="relative inline-block">
-                                                                <div class="flex">
-                                                                    <button type="button"
-                                                                        class="group inline-flex justify-center text-sm font-medium text-white hover:text-gray-900"
-                                                                        id="menu-button" aria-expanded="false"
-                                                                        aria-haspopup="true">
-                                                                        Category
-                                                                        <!-- Heroicon name: solid/chevron-down -->
-                                                                        <svg class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            viewBox="0 0 20 20" fill="currentColor"
-                                                                            aria-hidden="true">
-                                                                            <path fill-rule="evenodd"
-                                                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                                                clip-rule="evenodd" />
-                                                                        </svg>
-                                                                    </button>
-                                                                </div>
+                                                                @foreach ($categories as $category)
+                                                                    <a href="#"
+                                                                        class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-600 hover:text-gray-700">
+                                                                        {{ $category->name }} </a>
+                                                                @endforeach
+                                                            </nav>
 
-                                                                <!--
-                      Dropdown menu, show/hide based on menu state.
-
-                      Entering: "transition ease-out duration-100"
-                        From: "transform opacity-0 scale-95"
-                        To: "transform opacity-100 scale-100"
-                      Leaving: "transition ease-in duration-75"
-                        From: "transform opacity-100 scale-100"
-                        To: "transform opacity-0 scale-95"
-                    -->
-                                                                <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                                                    role="menu" aria-orientation="vertical"
-                                                                    aria-labelledby="menu-button" tabindex="-1">
-                                                                    <div class="py-1" role="none">
-                                                                        <!--
-                          Active: "bg-gray-100", Not Active: ""
-
-                          Selected: "font-medium text-gray-900", Not Selected: "text-gray-500"
-                        -->
-                                                                        <a href="#"
-                                                                            class="font-medium text-white block px-4 py-2 text-sm"
-                                                                            role="menuitem" tabindex="-1"
-                                                                            id="menu-item-0">
-                                                                            Most Popular
-                                                                        </a>
-
-                                                                        <a href="#"
-                                                                            class="text-white block px-4 py-2 text-sm"
-                                                                            role="menuitem" tabindex="-1"
-                                                                            id="menu-item-1">
-                                                                            Best Rating
-                                                                        </a>
-
-                                                                        <a href="#"
-                                                                            class="text-white block px-4 py-2 text-sm"
-                                                                            role="menuitem" tabindex="-1"
-                                                                            id="menu-item-2">
-                                                                            Newest
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
+                                            </form>
 
+{{$concours}}
 
-
-                                            </div>
-
-
-
-                                            <div class="border-t border-gray-200 py-10" id="disclosure-1">
+                                            <div class=" py-10" id="disclosure-1">
                                                 <div class="bg-gray-900">
                                                     <div
                                                         class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">

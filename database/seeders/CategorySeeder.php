@@ -16,19 +16,10 @@ class CategorySeeder extends Seeder
         $categories = [
             ['name' => 'Homme'],
             ['name' => 'Femme'],
-            ['name' => 'Vêtements'],
-            ['name' => 'Chaussures'],
+
             ['name' => 'Accessoires'],
-            ['name' => 'Sacs'],
-            ['name' => 'Bijoux'],
-            ['name' => 'Maillots de bain'],
-            ['name' => 'Lingerie'],
-            ['name' => 'Montres'],
-            ['name' => 'Chapeaux'],
-            ['name' => 'Gants'],
-            ['name' => 'Cravates'],
-            ['name' => 'Bottes'],
-            ['name' => 'Jupes'],
+            ['name' => 'Haute Couture'],
+
             ['name' => 'Enfants'],
 
         ];

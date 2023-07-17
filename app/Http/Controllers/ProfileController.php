@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Category;
+use App\Models\Concour;
 use App\Models\User;
 use App\Models\Post;
 
@@ -77,6 +79,38 @@ class ProfileController extends Controller
         return redirect()->back();
 
     }
+
+
+    public function profiles(Request $request)
+    {
+
+        // Retrieve the selected category from the request
+        $category = $request->input('category');
+
+        // Query the user's posts with category filtering
+        $concours = Concour::all();
+
+        if ($category) {
+            if ($category === 'all') {
+
+                $concours = $concours->paginate (5);
+                // Do nothing, retrieve all posts
+            } else {
+
+
+                $concours->whereHas('category', function ($query) use ($category) {
+                    $query->where('name', $category);
+                });
+                $concours = $concours->paginate (5);
+
+            }
+        }
+
+
+        $categories = Category::all();
+
+
+        return view('concurrentes.index' , compact('categories', 'concours'));    }
 
 
 

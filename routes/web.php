@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ConcourController;
 use App\Models\Category;
+use App\Models\Concour;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,16 +18,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-});
+
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/profiles', function () {
-    return view('concurrentes.index');
-});
+    $categories = Category::all();
+    $concours = Concour::all();
+
+    return view('concurrentes.index' , compact('categories', 'concours'));
+})->name('profiles.index');
+
+
+Route::get('/profiles/data',  [ProfileController ::class, 'profiles'])->name('profiles.profiles');
+
+
 
 
 Route::get('/dashboard', function () {
@@ -68,7 +75,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/posts', [PostController::class, 'userPosts'])-> name('user.posts');
 
 
-
+    Route::get('/', function () {
+        return view('landing');
+    });
 
 });
 
