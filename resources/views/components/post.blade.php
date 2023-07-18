@@ -28,13 +28,11 @@
                                 </p>
                             </div>
 
-                            <div class="flex-shrink-0 self-center flex"  x-data="{ open: false }" @click.outside="open = false"
-                            @close.stop="open = false">
+                            <div class="flex-shrink-0 self-center flex" x-data="{ open: false }"
+                                @click.outside="open = false" @close.stop="open = false">
                                 <div class="relative inline-block text-left">
                                     <div>
-                                        <button
-                                        @click="open = ! open"
-                                        type="button"
+                                        <button @click="open = ! open" type="button"
                                             class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600"
                                             id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
                                             <span class="sr-only">Open options</span>
@@ -47,9 +45,8 @@
                                         </button>
                                     </div>
 
-                                    <div
-                                    x-show="open" style="display: none;" @click="open = false"
-                                    class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    <div x-show="open" style="display: none;" @click="open = false"
+                                        class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                         role="menu" aria-orientation="vertical"
                                         aria-labelledby="options-menu-0-button" tabindex="-1">
                                         <div class="py-1" role="none">
@@ -104,7 +101,7 @@
                                     @foreach ($post->images as $slide)
                                         <!-- Item 1 -->
                                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                            <img src="{{ $slide['url'] }}"
+                                            <img src="{{ asset('storage/' . $slide['url']) }}"
                                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                                 alt="...">
                                         </div>
@@ -121,8 +118,8 @@
                                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                         <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="M5 1 1 5l4 4" />
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
                                         </svg>
                                         <span class="sr-only">Previous</span>
                                     </span>

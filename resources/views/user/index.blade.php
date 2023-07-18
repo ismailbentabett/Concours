@@ -12,7 +12,8 @@
                     <div class="overflow-hidden rounded-lg bg-gray-800 shadow">
                         <h2 class="sr-only" id="profile-overview-title">Profile Overview</h2>
                         <div class="bg-gray-800 p-6">
-                            <div class="">
+                            <div class="text-white">
+
                                 <div class="">
                                     <form id="profileForm" action="{{ route('user.upload') }}" method="POST"
                                         enctype="multipart/form-data">
@@ -20,13 +21,15 @@
                                         <div class="flex justify-center flex-shrink-0">
                                             <div class="relative w-40 overflow-hidden rounded-full lg:block">
                                                 @if (Auth::user()->avatar)
-                                                    <img class="relative h-40 w-40 rounded-full"
-                                                        src="{{ Auth::user()->avatar }}" alt="" />
+                                                <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                                    class="relative h-40 w-40 rounded-full" alt="" />
+
                                                 @else
                                                     <img class="relative h-40 w-40 rounded-full"
                                                         src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
                                                         alt="" />
                                                 @endif
+
                                                 <label for="avatar"
                                                     class="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75 text-sm font-medium text-white opacity-0 focus-within:opacity-100 hover:opacity-100">
                                                     <span>Change</span>

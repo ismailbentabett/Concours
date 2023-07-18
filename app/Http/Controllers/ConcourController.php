@@ -8,14 +8,13 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ConcourController extends Controller
 {
+
     public function submit(Request $request)
     {
-
-
-
         // Process the data and submit it
 
         $concour = new Concour();
@@ -24,24 +23,23 @@ class ConcourController extends Controller
         $concour->user_id = auth()->user()->id;
 
         if ($request->hasFile('image')) {
-            // Upload the file to Cloudinary
-            $result = Cloudinary::upload($request->file('image')->getRealPath());
+            $image = $request->file('image');
 
-            $concour->image = $result->getSecurePath();
+            // Store the file in local storage
+            $path = $image->store('concours', 'public');
 
-
-
-            // Update the user's profile picture URL
+            $concour->image = $path;
         }
 
         $concour->save();
+
         $user = User::find(auth()->user()->id);
         $user->role = 'condidate';
         $user->save();
 
-
         return redirect()->route('user.concours')->with('success', 'Concour created successfully.');
     }
+
 
 
     public function concours(Request $request)

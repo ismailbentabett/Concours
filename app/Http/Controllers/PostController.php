@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -23,6 +24,7 @@ class PostController extends Controller
     {
         return view('post.create');
     }
+
 
     public function store(Request $request)
     {
@@ -40,19 +42,19 @@ class PostController extends Controller
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                $uploadResult = Cloudinary::upload($image->getRealPath(), [
-                    'folder' => 'posts',
-                ]);
-                $image = new Image();
-                $image->url = $uploadResult->getSecurePath();
-                $image->post_id = $post->id;
-                $image->save();
+                // Store the image in local storage
+                $path = $image->store('posts', 'public');
+
+                $imageModel = new Image();
+                $imageModel->url = $path;
+                $imageModel->post_id = $post->id;
+                $imageModel->save();
             }
         }
 
-
         return redirect()->route('user.posts')->with('success', 'Post created successfully.');
     }
+
 
 
     // Show method for displaying a specific post

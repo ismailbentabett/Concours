@@ -64,20 +64,24 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
+
     public function upload(Request $request)
     {
         $user = User::find(Auth::user()->id);
         if ($request->hasFile('avatar')) {
-            // Upload the file to Cloudinary
-            $result = Cloudinary::upload($request->file('avatar')->getRealPath());
+            $avatar = $request->file('avatar');
+
+            // Store the file in local storage
+            $path = $avatar->store('avatars', 'public');
 
             // Update the user's profile picture URL
-            $user->avatar = $result->getSecurePath();
+            $user->avatar = $path;
             $user->save();
         }
 
         return redirect()->back();
     }
+
 
 
     public function profiles(Request $request)
