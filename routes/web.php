@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ConcourController;
 use App\Models\Category;
 use App\Models\Concour;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,7 +32,12 @@ Route::get('/welcome', function () {
 Route::get('/profiles', [ProfileController::class, 'profiles'])->name('concurrentes.index');
 
 
+Route::get('/', function () {
+    $categories = Category::all();
 
+    $users = User::orderBy('views', 'desc')->take(6)->get();
+    return view('landing', compact('categories' , 'users'));
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -57,6 +63,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/visituser/{id}', function () {
         $id = request()->route('id');
+        $user = User::findOrFail($id);
+        $user->views++;
+        $user->save();
         $authuser = Auth::user();
         if ($id == $authuser->id) {
             return redirect('/user/concours');
@@ -72,7 +81,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/concours', function () {
 
         $categories = Category::all();
-        return view('concours.index', compact('categories'));
+        $users = User::orderBy('views', 'desc')->take(6)->get();
+
+        return view('concours.index', compact('categories', 'users'));
     });
 
 
@@ -84,9 +95,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('/', function () {
-        return view('landing');
-    });
+
 });
 
 Route::post('/user/upload', [ProfileController::class, 'upload'])->name('user.upload');

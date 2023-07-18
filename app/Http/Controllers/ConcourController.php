@@ -35,6 +35,9 @@ class ConcourController extends Controller
         }
 
         $concour->save();
+        $user = User::find(auth()->user()->id);
+        $user->role = 'condidate';
+        $user->save();
 
 
         return redirect()->route('user.concours')->with('success', 'Concour created successfully.');
@@ -56,7 +59,7 @@ class ConcourController extends Controller
         $categories = Category::all();
 
 
-        return view('user.concours', compact('concours', 'categories' , 'currentUser'));
+        return view('user.concours', compact('concours', 'categories', 'currentUser'));
     }
     public function getUserConcours(Request $request)
     {
@@ -73,7 +76,6 @@ class ConcourController extends Controller
         $categories = Category::all();
 
 
-        return view('visituser.concours', compact('concours', 'categories' , 'user'));
+        return view('visituser.concours', compact('concours', 'categories', 'user'));
     }
-
 }

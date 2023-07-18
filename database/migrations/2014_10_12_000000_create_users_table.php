@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('avatar')->nullable();
+            $table->unsignedInteger('views')->default(0);
             $table->string('password');
             $table->enum('role', [
-                'admin', 'moderator', 'user'
+                'admin', 'moderator', 'user', 'condidate'
             ])->default('user');
             $table->rememberToken();
             $table->timestamps();

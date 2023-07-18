@@ -1,14 +1,19 @@
-<header class="bg-gray-800"
-
-    x-data="{ opennav: false }"
-    @keydown.window.escape="opennav = false"
-    >
+<header class="bg-gray-800" x-data="{ opennav: false }" @keydown.window.escape="opennav = false">
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
         <div class="relative h-16 flex justify-between">
             <div class="relative z-10 px-2 flex lg:px-0">
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-bittersweet-500.svg"
-                        alt="Workflow">
+                    <a href="{{ url('/')  }}">
+                        <svg id="logo-54" width="170" height="41" viewBox="0 0 170 41" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+
+
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M20.6841 40.138C31.7298 40.138 40.6841 31.1837 40.6841 20.138C40.6841 9.09234 31.7298 0.138031 20.6841 0.138031C9.63837 0.138031 0.684082 9.09234 0.684082 20.138C0.684082 31.1837 9.63837 40.138 20.6841 40.138ZM26.9234 9.45487C27.2271 8.37608 26.1802 7.73816 25.2241 8.41933L11.8772 17.9276C10.8403 18.6663 11.0034 20.138 12.1222 20.138L15.6368 20.138V20.1108H22.4866L16.9053 22.0801L14.4448 30.8212C14.1411 31.9 15.1879 32.5379 16.1441 31.8567L29.491 22.3485C30.5279 21.6098 30.3647 20.138 29.246 20.138L23.9162 20.138L26.9234 9.45487Z"
+                                class="ccustom" fill="#F15757"></path>
+                        </svg>
+                    </a>
+
                 </div>
             </div>
             <div class="relative z-0 flex-1 px-2 flex items-center justify-center sm:absolute sm:inset-0">
@@ -74,17 +79,19 @@
 
                 <div class="space-x-3 z-10 flex items-center">
                     @auth
-                    <div class="flex-shrink-0">
-                        <a
-                            href="{{ url('posts/create') }}"
-                        type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                          <!-- Heroicon name: solid/plus-sm -->
-                          <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                          </svg>
-                          <span>New Post</span>
-                        </a>
-                      </div>
+                        <div class="flex-shrink-0">
+                            <a href="{{ url('posts/create') }}" type="button"
+                                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bittersweet-600 shadow-sm hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                                <!-- Heroicon name: solid/plus-sm -->
+                                <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                    fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span>New Post</span>
+                            </a>
+                        </div>
 
                         <div class="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
                             <button
@@ -109,15 +116,15 @@
                                 </div>
 
                                 <!--
-                                                      Dropdown menu, show/hide based on menu state.
+                                                                  Dropdown menu, show/hide based on menu state.
 
-                                                      Entering: "transition ease-out duration-100"
-                                                        From: "transform opacity-0 scale-95"
-                                                        To: "transform opacity-100 scale-100"
-                                                      Leaving: "transition ease-in duration-75"
-                                                        From: "transform opacity-100 scale-100"
-                                                        To: "transform opacity-0 scale-95"
-                                                    -->
+                                                                  Entering: "transition ease-out duration-100"
+                                                                    From: "transform opacity-0 scale-95"
+                                                                    To: "transform opacity-100 scale-100"
+                                                                  Leaving: "transition ease-in duration-75"
+                                                                    From: "transform opacity-100 scale-100"
+                                                                    To: "transform opacity-0 scale-95"
+                                                                -->
                                 <div x-show="open" style="display: none;" @click="open = false"
                                     class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
@@ -189,16 +196,10 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <nav class="lg:hidden" aria-label="Global" id="mobile-menu"
-
-        x-show="opennav"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0 scale-95"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-75"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-95"
-        >
+    <nav class="lg:hidden" aria-label="Global" id="mobile-menu" x-show="opennav"
+        x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
         <div class="pt-2 pb-3 px-2 space-y-1">
 
 
