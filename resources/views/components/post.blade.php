@@ -9,7 +9,7 @@
             <li class="bg-gray-900 px-4 py-6 shadow sm:p-6 sm:rounded-lg">
                 <article aria-labelledby="question-title-81614">
                     <div>
-                        <div class="flex space-x-3">
+                        <div class="flex space-x-3 mb-5">
                             <div class="flex-shrink-0">
 
 
@@ -28,10 +28,13 @@
                                 </p>
                             </div>
 
-                            <div class="flex-shrink-0 self-center flex">
+                            <div class="flex-shrink-0 self-center flex"  x-data="{ open: false }" @click.outside="open = false"
+                            @close.stop="open = false">
                                 <div class="relative inline-block text-left">
                                     <div>
-                                        <button type="button"
+                                        <button
+                                        @click="open = ! open"
+                                        type="button"
                                             class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600"
                                             id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
                                             <span class="sr-only">Open options</span>
@@ -44,7 +47,9 @@
                                         </button>
                                     </div>
 
-                                    <div class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    <div
+                                    x-show="open" style="display: none;" @click="open = false"
+                                    class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                         role="menu" aria-orientation="vertical"
                                         aria-labelledby="options-menu-0-button" tabindex="-1">
                                         <div class="py-1" role="none">

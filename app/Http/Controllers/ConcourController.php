@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Concour;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,6 +57,23 @@ class ConcourController extends Controller
 
 
         return view('user.concours', compact('concours', 'categories' , 'currentUser'));
+    }
+    public function getUserConcours(Request $request)
+    {
+        $user = User::find($request->id);
+
+        $category = $request->input('tabs') ?? 'all';
+
+        $cat = Category::where('name', $category)->first() ?? null;
+
+        $concours = $cat
+            ? Concour::where('category_id', $cat->id)->where('user_id', $user->id)->paginate(10)
+            : Concour::where('user_id', $user->id)->paginate(10);
+
+        $categories = Category::all();
+
+
+        return view('visituser.concours', compact('concours', 'categories' , 'user'));
     }
 
 }

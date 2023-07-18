@@ -108,4 +108,19 @@ class PostController extends Controller
         return view('user.posts', compact('posts' , 'user'  ));
 
     }
+    public function getUserPosts(Request $request)
+    {
+        $user = User::find($request->id);
+        $posts = Post::where('user_id', $user->id)->paginate (5);
+
+    //add images to each post
+    foreach ($posts as $post) {
+        $images = Image::where('post_id', $post->id)->get();
+        $post->images = $images;
+
+    }
+
+        return view('visituser.posts', compact('posts' , 'user'  ));
+
+    }
 }

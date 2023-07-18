@@ -6,6 +6,7 @@ use App\Http\Controllers\ConcourController;
 use App\Models\Category;
 use App\Models\Concour;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,23 @@ Route::middleware('auth')->group(function () {
         return redirect('/user/concours');
     });
 
+    Route::get('/user/concours', [ConcourController::class, 'concours'])->name('user.concours');
+    Route::get('/user/posts', [PostController::class, 'userPosts'])->name('user.posts');
 
+
+    Route::get('/visituser/{id}', function () {
+        $id = request()->route('id');
+        $authuser = Auth::user();
+        if ($id == $authuser->id) {
+            return redirect('/user/concours');
+        } else {
+            return redirect('/visituser/' . $id . '/concours');
+        }
+    });
+
+    Route::get('/visituser/{id}/posts', [PostController::class, 'getUserPosts'])->name('visituser.posts');
+
+    Route::get('/visituser/{id}/concours', [ConcourController::class, 'getUserConcours'])->name('visituser.concours');
 
     Route::get('/concours', function () {
 
@@ -58,7 +75,6 @@ Route::middleware('auth')->group(function () {
         return view('concours.index', compact('categories'));
     });
 
-    Route::get('/user/concours', [ConcourController::class, 'concours'])->name('user.concours');
 
 
     Route::resource('posts', PostController::class);
@@ -66,7 +82,6 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('/user/posts', [PostController::class, 'userPosts'])->name('user.posts');
 
 
     Route::get('/', function () {

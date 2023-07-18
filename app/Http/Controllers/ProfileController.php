@@ -90,10 +90,12 @@ class ProfileController extends Controller
 
         $categories = Category::all();
 
-foreach ($concours as $concour) {
-    $concour->user = User::find($concour->user_id);
-}
+        foreach ($concours as $concour) {
+            $concour->user = User::find($concour->user_id);
+        }
 
         return view('concurrentes.index', compact('concours', 'categories'));
     }
+
+
 }
