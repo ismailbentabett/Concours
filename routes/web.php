@@ -28,7 +28,6 @@ Route::get('/welcome', function () {
 
 
 Route::get('/profiles', [ProfileController::class, 'profiles'])->name('concurrentes.index');
-Route::post('/profiles', [ProfileController::class, 'profiles'])->name('concurrentes.data');
 
 
 
@@ -51,17 +50,15 @@ Route::middleware('auth')->group(function () {
         return redirect('/user/concours');
     });
 
-    Route::get('/user/concours', function () {
 
-        $categories = Category::all();
-        return view('user.concours', compact('categories'));
-    })->name('user.concours');
 
     Route::get('/concours', function () {
 
         $categories = Category::all();
         return view('concours.index', compact('categories'));
     });
+
+    Route::get('/user/concours', [ConcourController::class, 'concours'])->name('user.concours');
 
 
     Route::resource('posts', PostController::class);

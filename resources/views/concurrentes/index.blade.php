@@ -56,7 +56,7 @@
                                                                 <a href="{{ route('concurrentes.index', ['tabs' => 'all']) }}"
                                                                     aria-current="page"
                                                                     class="whitespace-nowrap   px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
-                                                                    @if (Request::input('tabs') == 'all') border-b-2 border-bittersweet-500  text-bittersweet-600 @endif
+                                                                    @if (Request::input('tabs') == 'all' && Route::currentRouteName() === 'concurrentes.index') border-b-2 border-bittersweet-500  text-bittersweet-600 @endif
                                                                     ">
 
 
