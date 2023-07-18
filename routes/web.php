@@ -27,21 +27,8 @@ Route::get('/welcome', function () {
 
 
 
-Route::get(
-    '/profiles',
-    function () {
-        $categories = Category::all();
-$concours = null;
-        return view('concurrentes.index' , compact('categories','concours'));
-    }
-
-)->name('concurrentes.index');
-
-Route::post('/profiles',  [ProfileController::class, 'profiles']
-
-)->name('concurrentes.data');
-
-
+Route::get('/profiles', [ProfileController::class, 'profiles'])->name('concurrentes.index');
+Route::post('/profiles', [ProfileController::class, 'profiles'])->name('concurrentes.data');
 
 
 

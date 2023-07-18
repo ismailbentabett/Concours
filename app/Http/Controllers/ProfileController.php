@@ -82,15 +82,17 @@ class ProfileController extends Controller
 
     public function profiles(Request $request)
     {
-
         $category = $request->input('tabs') ?? 'all';
 
         $cat = Category::where('name', $category)->first() ?? null;
 
         $concours = $cat ? Concour::where('category_id', $cat->id)->paginate(10) : Concour::paginate(10);
 
-
         $categories = Category::all();
+
+foreach ($concours as $concour) {
+    $concour->user = User::find($concour->user_id);
+}
 
         return view('concurrentes.index', compact('concours', 'categories'));
     }
