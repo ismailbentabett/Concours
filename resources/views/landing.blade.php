@@ -80,16 +80,17 @@
                                             </div>
                                         </div>
                                         <div class="hidden space-x-8 md:flex md:ml-10  items-center">
-                                            <a href="#"
+                                            <a href="{{ url('') }}"
                                                 class="text-base font-medium text-white hover:text-white">ACCUEIL</a>
 
-                                            <a href="#"
+
+                                                <a href="{{ url('concours') }}"
                                                 class="text-base font-medium text-white hover:text-white">CONCOURS</a>
 
-                                            <a href="#"
+                                            <a href="{{ url('profiles') }}"
                                                 class="text-base font-medium text-white hover:text-white">PROFILES</a>
 
-                                            <a href="#"
+                                            <a href="{{ url('profiles') }}"
                                                 class="text-base font-medium text-white hover:text-white">CONTACT</a>
                                             @if (Route::has('login'))
                                                 <div class="space-x-3 z-10 flex items-start">
@@ -149,16 +150,16 @@
                                     </div>
                                     <div class="pt-5 pb-6">
                                         <div class="px-2 space-y-1">
-                                            <a href="#"
+                                            <a href="{{ url('') }}"
                                                 class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50">ACCUEIL</a>
 
-                                            <a href="#"
+                                            <a href="{{ url('concours') }}"
                                                 class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50">CONCOURS</a>
 
-                                            <a href="#"
+                                            <a href="{{ url('profiles') }}"
                                                 class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50">PROFILES</a>
 
-                                            <a href="#"
+                                            <a href="{{ url('') }}"
                                                 class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-50">CONTACT</a>
                                         </div>
                                         <div class="mt-6 px-5">

@@ -9,18 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-
-
-
-
-
-
-
-
-
-
-
-
                     <div class="py-12">
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                             <div class="bg-bg-gray-900 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -37,10 +25,20 @@
                                         </div>
 
                                         <!-- Filters -->
+
+                                        {{
+                                            $concours
+                                        }}
                                         <section aria-labelledby="filter-heading"
                                             class="relative z-10  grid items-center">
                                             <h2 id="filter-heading" class="sr-only">Filters</h2>
-                                            <form action="{{ route('profiles.profiles') }}" method="GET">
+
+                                            <form action="{{ route('concurrentes.data') }}" method="GET">
+
+
+
+
+
                                                 <div class="mt-3 sm:mt-2">
                                                     <div class="md:hidden">
                                                         <label for="tabs" class="sr-only">Select a tab</label>
@@ -48,14 +46,17 @@
                                                         <select id="tabs" name="tabs"
                                                             class="text-white bg-gray-800 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
                                                             onchange="this.form.submit()">
-                                                            <option selected>All</option>
+                                                            <option selected value="all">All</option>
                                                             @foreach ($categories as $category)
-                                                                <option value="{{ $category->id }}">
+                                                                <option value="{{ $category->name }}">
                                                                     {{ $category->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
+
+
+
                                                     <div class="hidden md:block">
                                                         <div class="flex items-center border-b border-gray-600">
                                                             <nav class="-mb-px flex flex-wrap flex-1 space-x-6 xl:space-x-8"
@@ -77,8 +78,6 @@
                                                 </div>
 
                                             </form>
-
-{{$concours}}
 
                                             <div class=" py-10" id="disclosure-1">
                                                 <div class="bg-gray-900">

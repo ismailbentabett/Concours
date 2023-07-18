@@ -14,12 +14,14 @@
                         <div class="bg-gray-800 p-6">
                             <div class="">
                                 <div class="">
-                                    <form id="profileForm" action="{{ route('user.upload') }}" method="POST" enctype="multipart/form-data">
+                                    <form id="profileForm" action="{{ route('user.upload') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex justify-center flex-shrink-0">
                                             <div class="relative w-40 overflow-hidden rounded-full lg:block">
                                                 @if (Auth::user()->avatar)
-                                                    <img class="relative h-40 w-40 rounded-full" src="{{ Auth::user()->avatar }}" alt="" />
+                                                    <img class="relative h-40 w-40 rounded-full"
+                                                        src="{{ Auth::user()->avatar }}" alt="" />
                                                 @else
                                                     <img class="relative h-40 w-40 rounded-full"
                                                         src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
@@ -29,7 +31,9 @@
                                                     class="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75 text-sm font-medium text-white opacity-0 focus-within:opacity-100 hover:opacity-100">
                                                     <span>Change</span>
                                                     <span class="sr-only">user photo</span>
-                                                    <input type="file" name="avatar" id="avatar" onchange="form.submit()" class="absolute inset-0 h-full w-full cursor-pointer rounded-md border-gray-300 opacity-0" />
+                                                    <input type="file" name="avatar" id="avatar"
+                                                        onchange="form.submit()"
+                                                        class="absolute inset-0 h-full w-full cursor-pointer rounded-md border-gray-300 opacity-0" />
                                                 </label>
                                             </div>
                                         </div>
@@ -74,8 +78,25 @@
                         </div>
                         <div
                             class="grid grid-cols-1 divide-y  divide-white border-t border-gray-600 bg-gray-800  sm:divide-x sm:divide-y-0">
-                            <a href="#"
-                                class="text-bittersweet-100 hover:bg-bittersweet-600 group  px-2 py-10 text-base font-medium rounded-md flex justify-center items-center">
+                            <a href="{{ route('user.concours') }}"
+                                class="text-bittersweet-100 hover:bg-bittersweet-600 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md
+    @if (Route::currentRouteName() === 'user.concours') bg-bittersweet-600 @endif">
+
+                                <!-- Heroicon name: outline/users -->
+                                <svg class="mr-4 flex-shrink-0 h-6 w-6 text-bittersweet-300"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-6 h-6">
+                                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                    <path fill-rule="evenodd"
+                                        d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+
+                                Concours
+                            </a>
+                            <a href="{{ route('user.posts') }}"
+                                class="text-bittersweet-100 hover:bg-bittersweet-600 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md
+@if (Route::currentRouteName() === 'user.posts') bg-bittersweet-600 @endif">
                                 <!-- Heroicon name: outline/users -->
                                 <svg class="mr-4 flex-shrink-0 h-6 w-6 text-bittersweet-300"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -90,20 +111,7 @@
                                 Posts
                             </a>
 
-                            <a href="#"
-                                class="text-bittersweet-100 hover:bg-bittersweet-600 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md">
-                                <!-- Heroicon name: outline/users -->
-                                <svg class="mr-4 flex-shrink-0 h-6 w-6 text-bittersweet-300"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="w-6 h-6">
-                                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                                    <path fill-rule="evenodd"
-                                        d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
 
-                                Concours
-                            </a>
                         </div>
                     </div>
                 </section>
@@ -113,7 +121,7 @@
         <div class="col-span-12 sm:col-span-8">
             <div class="bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-10">
-                        @yield('content')
+                    @yield('content')
                 </div>
             </div>
         </div>

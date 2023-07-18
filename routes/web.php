@@ -23,15 +23,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/profiles', function () {
-    $categories = Category::all();
-    $concours = Concour::all();
-
-    return view('concurrentes.index' , compact('categories', 'concours'));
-})->name('profiles.index');
 
 
-Route::get('/profiles/data',  [ProfileController ::class, 'profiles'])->name('profiles.profiles');
+
+
+Route::get(
+    '/profiles',
+    function () {
+        $categories = Category::all();
+$concours = null;
+        return view('concurrentes.index' , compact('categories','concours'));
+    }
+
+)->name('concurrentes.index');
+
+Route::post('/profiles',  [ProfileController::class, 'profiles']
+
+)->name('concurrentes.data');
+
+
 
 
 
@@ -58,12 +68,12 @@ Route::middleware('auth')->group(function () {
 
         $categories = Category::all();
         return view('user.concours', compact('categories'));
-    })-> name('user.concours');
+    })->name('user.concours');
 
     Route::get('/concours', function () {
 
         $categories = Category::all();
-    return view('concours.index', compact('categories'));
+        return view('concours.index', compact('categories'));
     });
 
 
@@ -72,16 +82,15 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('/user/posts', [PostController::class, 'userPosts'])-> name('user.posts');
+    Route::get('/user/posts', [PostController::class, 'userPosts'])->name('user.posts');
 
 
     Route::get('/', function () {
         return view('landing');
     });
-
 });
 
 Route::post('/user/upload', [ProfileController::class, 'upload'])->name('user.upload');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

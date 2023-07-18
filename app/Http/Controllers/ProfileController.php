@@ -77,41 +77,21 @@ class ProfileController extends Controller
         }
 
         return redirect()->back();
-
     }
 
 
     public function profiles(Request $request)
     {
 
-        // Retrieve the selected category from the request
-        $category = $request->input('category');
+        $category = $request->input('tabs') ?? 'all';
 
-        // Query the user's posts with category filtering
-        $concours = Concour::all();
+        $cat = Category::where('name', $category)->first() ?? null;
 
-        if ($category) {
-            if ($category === 'all') {
-
-                $concours = $concours->paginate (5);
-                // Do nothing, retrieve all posts
-            } else {
-
-
-                $concours->whereHas('category', function ($query) use ($category) {
-                    $query->where('name', $category);
-                });
-                $concours = $concours->paginate (5);
-
-            }
-        }
+        $concours = $cat ? Concour::where('category_id', $cat->id)->paginate(10) : Concour::paginate(10);
 
 
         $categories = Category::all();
 
-
-        return view('concurrentes.index' , compact('categories', 'concours'));    }
-
-
-
+        return view('concurrentes.index', compact('concours', 'categories'));
+    }
 }
