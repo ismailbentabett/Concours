@@ -35,7 +35,7 @@
                                             <a href="#">
                                                 <h1 class="font-bold text-xl text-white hover:text-yellow-500">
                                                     Concours De Mode
-                                                   </h1>
+                                                </h1>
                                             </a>
                                             <div class="-mr-2 flex items-center md:hidden">
                                                 <button type="button"
@@ -68,7 +68,6 @@
                                             @if (Route::has('login'))
                                                 <div class="space-x-3 z-10 flex items-start">
                                                     @auth
-
                                                     @else
                                                         <a href="{{ route('login') }}"
                                                             class="inline-flex items-start px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
@@ -78,6 +77,147 @@
                                                             <a href="{{ route('register') }}"
                                                                 class="inline-flex items-start px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Register</a>
                                                         @endif
+                                                    @endauth
+                                                </div>
+                                            @endif
+
+                                            @if (Route::has('login'))
+
+                                                <div class="space-x-3 z-10 flex items-center">
+                                                    <div class="relative z-50 flex items-center ">
+                                                        <!-- Mobile menu button -->
+
+
+
+                                                        <button type="button" @click="opennav = ! opennav"
+                                                            class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                                                            aria-controls="mobile-menu" aria-expanded="false">
+                                                            <span class="sr-only">Open menu</span>
+                                                            <!--
+                      Icon when menu is closed.
+
+                      Heroicon name: outline/menu
+
+                      Menu open: "hidden", Menu closed: "block"
+                    -->
+
+
+
+                                                            <svg x-show="!opennav" class="md:hidden block h-6 w-6"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor"
+                                                                aria-hidden="true">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                                            </svg>
+                                                            <!--
+                      Icon when menu is open.
+
+                      Heroicon name: outline/x
+
+                      Menu open: "block", Menu closed: "hidden"
+                    -->
+                                                            <svg x-show="opennav" class="md:hidden block h-6 w-6"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor"
+                                                                aria-hidden="true">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                    @auth
+                                                        <div class="hidden lg:flex flex-shrink-0">
+                                                            <a href="{{ url('posts/create') }}" type="button"
+                                                                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bittersweet-400 shadow-sm hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                                                                <!-- Heroicon name: solid/plus-sm -->
+                                                                <svg class="-ml-1 mr-2 h-5 w-5"
+                                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                    fill="currentColor" aria-hidden="true">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                                                        clip-rule="evenodd" />
+                                                                </svg>
+                                                                <span>New Post</span>
+                                                            </a>
+                                                        </div>
+
+                                                        <div
+                                                            class="hidden md:relative md:z-10 md:ml-4 md:flex md:items-center">
+                                                            <a href="{{ url('user') }}"
+                                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-concgreen-600 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                                                <div>{{ Auth::user()->name }}</div>
+                                                            </a>
+
+
+                                                            <!-- Profile dropdown -->
+                                                            <div class="flex-shrink-0 relative ml-4" x-data="{ open: false }"
+                                                                @click.outside="open = false" @close.stop="open = false">
+                                                                <div>
+                                                                    <button type="button"
+                                                                        class="bg-concgreen-600 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                                                        id="user-menu-button" aria-expanded="false"
+                                                                        aria-haspopup="true" @click="open = ! open">
+                                                                        <span class="sr-only">Open user menu</span>
+                                                                        @if (Auth::user()->avatar)
+                                                                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                                                                class="h-8 w-8 rounded-full"
+                                                                                alt="" />
+                                                                        @else
+                                                                            <img class="h-8 w-8 rounded-full"
+                                                                                src="{{ URL('image/profileplaceholder.jpg') }}"
+                                                                                alt="1" alt="" />
+                                                                        @endif
+                                                                    </button>
+                                                                </div>
+
+                                                                <!--
+                                                                      Dropdown menu, show/hide based on menu state.
+
+                                                                      Entering: "transition ease-out duration-100"
+                                                                        From: "transform opacity-0 scale-95"
+                                                                        To: "transform opacity-100 scale-100"
+                                                                      Leaving: "transition ease-in duration-75"
+                                                                        From: "transform opacity-100 scale-100"
+                                                                        To: "transform opacity-0 scale-95"
+                                                                    -->
+                                                                <div x-show="open" style="display: none;"
+                                                                    @click="open = false"
+                                                                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-concgreen-500 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                                                    role="menu" aria-orientation="vertical"
+                                                                    aria-labelledby="user-menu-button" tabindex="-1">
+                                                                    <!-- Active: "bg-gray-100", Not Active: "" -->
+                                                                    <a class="block px-4 py-2 text-sm text-white"
+                                                                        role="menuitem" tabindex="-1"
+                                                                        id="user-menu-item-2"
+                                                                        href="{{ url('user') }}">{{ __('Profile') }}
+                                                                    </a>
+                                                                    <a class="block px-4 py-2 text-sm text-white"
+                                                                        role="menuitem" tabindex="-1"
+                                                                        id="user-menu-item-1"
+                                                                        href="{{ url('profile') }}">{{ __('Settings') }}</a>
+
+
+                                                                    <form method="POST" action="{{ route('logout') }}"
+                                                                        class="cursor-pointer">
+                                                                        @csrf
+
+                                                                        <a class="block px-4 py-2 text-sm text-white"
+                                                                            role="menuitem" tabindex="-1"
+                                                                            id="user-menu-item-2" :href="route('logout')"
+                                                                            onclick="event.preventDefault();
+                            this.closest('form').submit();">
+
+                                                                            {{ __('Log Out') }}
+                                                                        </a>
+
+                                                                    </form>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @else
                                                     @endauth
                                                 </div>
                                             @endif
@@ -100,7 +240,8 @@
                     To: "opacity-0 scale-95"
                 -->
                             <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
-                                <div class="rounded-lg 1 bg-concgreen-500 ring-1 ring-black ring-opacity-5 overflow-hidden">
+                                <div
+                                    class="rounded-lg 1 bg-concgreen-500 ring-1 ring-black ring-opacity-5 overflow-hidden">
                                     <div class="px-5 pt-4 flex items-center justify-between">
                                         <div>
                                             <img class="h-8 w-auto"
@@ -112,8 +253,9 @@
                                                 class="bg-concgreen-500 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-bittersweet-600">
                                                 <span class="sr-only">Close menu</span>
                                                 <!-- Heroicon name: outline/x -->
-                                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    aria-hidden="true">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                                 </svg>
@@ -154,20 +296,22 @@
                                 <div
                                     class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
                                     <div class="lg:py-24">
-                                        <a href="#"
-                                            class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
-                                            <span
-                                                class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 rounded-full">We're
-                                                Contestant ?</span>
-                                            <span class="ml-4 text-sm">Sign In</span>
-                                            <!-- Heroicon name: solid/chevron-right -->
-                                            <svg class="ml-2 w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd"
-                                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </a>
+                                        @guest
+                                            <a href="{{ 'login' }}"
+                                                class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
+                                                <span
+                                                    class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 rounded-full">We're
+                                                    Contestant ?</span>
+                                                <span class="ml-4 text-sm">Sign In</span>
+                                                <!-- Heroicon name: solid/chevron-right -->
+                                                <svg class="ml-2 w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
+                                        @endguest
                                         <h1
                                             class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                                             <span class="block"> Concours de Mode
@@ -188,10 +332,12 @@
                                                             placeholder="Enter your email"
                                                             class="block w-full px-4 py-3 rounded-md border-0 text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">
                                                     </div>
-                                                    <div class="mt-3 sm:mt-0 sm:ml-3">
-                                                        <button type="submit"
-                                                            class="block w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 text-white font-medium hover:from-bittersweet-600 hover:to-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">INSCRIRE</button>
-                                                    </div>
+                                                    @guest
+                                                        <div class="mt-3 sm:mt-0 sm:ml-3">
+                                                            <a href="{{ url('register') }}"
+                                                                class="block w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 text-white font-medium hover:from-bittersweet-600 hover:to-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">INSCRIRE</a>
+                                                        </div>
+                                                    @endguest
                                                 </div>
 
                                             </form>
@@ -240,25 +386,7 @@
                                     </svg>
                                 </a>
 
-                                <a href="#" class="text-white hover:text-white">
-                                    <span class="sr-only">GitHub</span>
-                                    <svg class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24"
-                                        aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
 
-                                <a href="#" class="text-white hover:text-white">
-                                    <span class="sr-only">Dribbble</span>
-                                    <svg class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24"
-                                        aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -308,10 +436,12 @@
                                     </dd>
                                 </div>
                             </dl>
-                            <div class="flex justify-center items-center mt-5">
-                                <a class="block w-full py-3 px-7 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
-                                    href="#">INSCRIRE</a>
-                            </div>
+                            @guest
+                                <div class="flex justify-center items-center mt-5">
+                                    <a href="{{ url('register') }}"
+                                        class="block w-full py-3 px-7 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto">INSCRIRE</a>
+                                </div>
+                            @endguest
 
                         </div>
                     </div>
@@ -353,8 +483,7 @@
                                                         y="0" width="20" height="20"
                                                         patternUnits="userSpaceOnUse">
                                                         <rect x="0" y="0" width="4"
-                                                            height="4" class="text-white"
-                                                            fill="currentColor" />
+                                                            height="4" class="text-white" fill="currentColor" />
                                                     </pattern>
                                                 </defs>
                                                 <rect width="404" height="384"
@@ -368,26 +497,27 @@
                                                         y="0" width="20" height="20"
                                                         patternUnits="userSpaceOnUse">
                                                         <rect x="0" y="0" width="4"
-                                                            height="4" class="text-white"
-                                                            fill="currentColor" />
+                                                            height="4" class="text-white" fill="currentColor" />
                                                     </pattern>
                                                 </defs>
                                                 <rect width="404" height="384"
                                                     fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
                                             </svg>
                                         </div>
-                                        <div
-                                            class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
-                                            <h2 class="text-3xl font-extrabold text-white" id="join-heading"> LE
-                                                CONCOURS </h2>
-                                            <p class="text-lg text-white">Varius facilisi mauris sed sit. Non sed
-                                                et
-                                                duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
-                                                laoreet
-                                                diam sed lacus, fames.</p>
-                                            <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
-                                                href="#">INSCRIRE</a>
-                                        </div>
+                                        @guest
+                                            <div
+                                                class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
+                                                <h2 class="text-3xl font-extrabold text-white" id="join-heading"> LE
+                                                    CONCOURS </h2>
+                                                <p class="text-lg text-white">Varius facilisi mauris sed sit. Non sed
+                                                    et
+                                                    duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
+                                                    laoreet
+                                                    diam sed lacus, fames.</p>
+                                                <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
+                                                    href="{{ url('register') }}">INSCRIRE</a>
+                                            </div>
+                                        @endguest
                                     </div>
                                 </div>
                             </div>
@@ -454,7 +584,8 @@
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/2.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                            </div>
                                         </div>
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/3.jpg') }}" alt="1"
@@ -464,22 +595,26 @@
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                            </div>
                                         </div>
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                            </div>
                                         </div>
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                            </div>
                                         </div>
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -500,7 +635,7 @@
                     {{-- categories --}}
 
                     <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
-                    style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }})">
+                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }})">
                         <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
                             <div class="space-y-12">
                                 <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
@@ -514,14 +649,12 @@
 
                                     @foreach ($categories as $category)
                                         <li>
-                                            <div class="space-y-4" data-popover-target="{{$category->name}}" >
+                                            <div class="space-y-4" data-popover-target="{{ $category->name }}">
                                                 <div class="aspect-w-3 aspect-h-2">
-                                                    <a href={{
-                                                        url('concours')
-                                                    }}>
+                                                    <a href={{ url('concours') }}>
                                                         <img class="object-cover 1-lg rounded-lg"
-                                                        src="{{ asset('image/categories/' . $category->name . '.jpg') }}" alt="1"
-                                                        alt="">
+                                                            src="{{ asset('image/categories/' . $category->name . '.jpg') }}"
+                                                            alt="1" alt="">
                                                     </a>
 
                                                 </div>
@@ -535,22 +668,33 @@
                                                 </div>
                                             </div>
                                         </li>
-                                            <div  data-popover id="{{$category->name}}" role="tooltip" class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 max-w-7xl   dark:text-gray-400 dark:bg-concgreen-600 dark:border-gray-600">
-                                                <div class="grid grid-cols-5">
-                                                    <div class="col-span-3 p-3">
-                                                        <div class="space-y-2">
-                                                            <h3 class="font-semibold text-gray-900 dark:text-white">About Italy</h3>
-                                                            <p>Italy is located in the middle of the Mediterranean Sea, in Southern Europe it is also considered part of Western Europe. A unitary parliamentary republic with Rome as its capital and largest city.</p>
-                                                            <a href="#" class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700">Read more <svg class="w-2 h-2 ml-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                                              </svg></a>
-                                                        </div>
+                                        <div data-popover id="{{ $category->name }}" role="tooltip"
+                                            class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 max-w-7xl   dark:text-gray-400 dark:bg-concgreen-600 dark:border-gray-600">
+                                            <div class="grid grid-cols-5">
+                                                <div class="col-span-3 p-3">
+                                                    <div class="space-y-2">
+                                                        <h3 class="font-semibold text-gray-900 dark:text-white">About
+                                                            Italy</h3>
+                                                        <p>Italy is located in the middle of the Mediterranean Sea, in
+                                                            Southern Europe it is also considered part of Western
+                                                            Europe. A unitary parliamentary republic with Rome as its
+                                                            capital and largest city.</p>
+                                                        <a href="#"
+                                                            class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700">Read
+                                                            more <svg class="w-2 h-2 ml-1.5" aria-hidden="true"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 6 10">
+                                                                <path stroke="currentColor" stroke-linecap="round"
+                                                                    stroke-linejoin="round" stroke-width="2"
+                                                                    d="m1 9 4-4-4-4" />
+                                                            </svg></a>
                                                     </div>
-                                                    <img
-                                                    src="{{ URL('image/categories.jpg') }}" class="h-full col-span-2" alt="Italy map" />
                                                 </div>
-                                                <div data-popper-arrow></div>
+                                                <img src="{{ URL('image/categories.jpg') }}"
+                                                    class="h-full col-span-2" alt="Italy map" />
                                             </div>
+                                            <div data-popper-arrow></div>
+                                        </div>
                                     @endforeach
                                     <!-- More people... -->
                                 </ul>
@@ -563,7 +707,7 @@
                     {{-- top users --}}
                     <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
-                    style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }})">
+                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }})">
                         <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
                             <div class="space-y-12">
                                 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
@@ -580,13 +724,14 @@
                                                 class="space-y-6">
 
                                                 @if ($user->avatar)
-                                                <img src="{{ asset('storage/' . $user->avatar) }}"
-                                                class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" alt="" />
-                                            @else
-                                                <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
-                                                    src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
-                                                    alt="" />
-                                            @endif
+                                                    <img src="{{ asset('storage/' . $user->avatar) }}"
+                                                        class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                                                        alt="" />
+                                                @else
+                                                    <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                                                        src="{{ URL('image/profileplaceholder.jpg') }}"
+                                                        alt="1" alt="" />
+                                                @endif
                                                 <div class="space-y-2">
                                                     <div class="text-lg leading-6 font-medium space-y-1">
                                                         <h3 class="text-white">{{ $user->name }}</h3>
@@ -729,8 +874,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="text-bittersweet-200 hover:text-bittersweet-100"
-                                                    >
+                                                <a class="text-bittersweet-200 hover:text-bittersweet-100">
                                                     <span class="sr-only">Twitter</span>
                                                     <svg width="24" height="24" viewBox="0 0 24 24"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -747,8 +891,7 @@
                                     <!-- Contact form -->
                                     <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
                                         <h3 class="text-lg font-medium text-white">Send us a message</h3>
-                                        <form 
-                                            class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                                        <form class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                                             <div>
                                                 <x-input-label for="firstName" :value="__('firstName')" />
                                                 <x-text-input id="firstName" class="block mt-1 w-full" type="text"

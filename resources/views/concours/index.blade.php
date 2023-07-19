@@ -304,10 +304,20 @@
             </div>
 
             <div class="py-12">
+                
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    
                     <div
-                        class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg flex justify-center items-center">
-                        <div class="p-6 text-gray-900 dark:text-gray-100 flex justify-start items-center">
+                        class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg flex-col justify-center items-center ">
+                        <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl text-center mt-5">
+                            <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
+                                Etapes</h2>
+                            <p class="text-xl text-slate-400">Ornare sagittis, suspendisse in hendrerit
+                                quis.
+                                Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
+                        </div>
+                        
+                        <div class="p-6 text-gray-900 dark:text-gray-100 flex justify-center items-center">
 
                             <!-- This example requires Tailwind CSS v2.0+ -->
                             <nav aria-label="Progress">
@@ -329,7 +339,7 @@
                                             <span class="ml-4 min-w-0 flex flex-col">
                                                 <span class="text-xs font-semibold tracking-wide uppercase">Etap
                                                     1</span>
-                                                <span class="text-sm text-gray-500">Vitae sed mi luctus laoreet.</span>
+                                                <span class="text-sm text-text">Vitae sed mi luctus laoreet.</span>
                                             </span>
                                         </a>
 
@@ -353,7 +363,7 @@
                                             <span class="ml-4 min-w-0 flex flex-col">
                                                 <span class="text-xs font-semibold tracking-wide uppercase">Etap
                                                     2</span>
-                                                <span class="text-sm text-gray-500">Cursus semper viverra facilisis et
+                                                <span class="text-sm text-white">Cursus semper viverra facilisis et
                                                     et some
                                                     more.</span>
                                             </span>
@@ -380,7 +390,7 @@
                                             <span class="ml-4 min-w-0 flex flex-col">
                                                 <span class="text-xs font-semibold tracking-wide uppercase">Etap
                                                     3</span>
-                                                <span class="text-sm text-gray-500">Penatibus eu quis ante.</span>
+                                                <span class="text-sm text-white">Penatibus eu quis ante.</span>
                                             </span>
                                         </a>
 
@@ -400,7 +410,7 @@
                                             <span class="ml-4 min-w-0 flex flex-col">
                                                 <span class="text-xs font-semibold tracking-wide uppercase">Etap
                                                     4</span>
-                                                <span class="text-sm text-gray-500">Penatibus eu quis ante.</span>
+                                                <span class="text-sm text-white">Penatibus eu quis ante.</span>
                                             </span>
                                         </a>
                                         <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56 mt-5"
