@@ -19,33 +19,7 @@
 <body class="font-sans antialiased">
 
     <main>
-        <!--
-  This example requires Tailwind CSS v2.0+
 
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  const colors = require('tailwindcss/colors')
-
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        colors: {
-          bittersweet: colors.bittersweet,
-          bittersweet: colors.bittersweet,
-        },
-      },
-    },
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
         <div class="bg-concgreen-500">
             <div class="relative overflow-hidden">
 
@@ -59,10 +33,9 @@
                                     <div class="flex items-center flex-1 justify-between">
                                         <div class="flex items-center justify-between w-full md:w-auto">
                                             <a href="#">
-                                                <span class="sr-only">Workflow</span>
-                                                <img class="h-8 w-auto sm:h-10"
-                                                    src="https://tailwindui.com/img/logos/workflow-mark-bittersweet-200-bittersweet-400.svg"
-                                                    alt="">
+                                                <h1 class="font-bold text-xl text-white hover:text-yellow-500">
+                                                    Concours De Mode
+                                                   </h1>
                                             </a>
                                             <div class="-mr-2 flex items-center md:hidden">
                                                 <button type="button"

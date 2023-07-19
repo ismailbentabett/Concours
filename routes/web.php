@@ -36,23 +36,29 @@ Route::get('/', function () {
     return view('landing', compact('categories', 'users'));
 });
 
+Route::get('/concours/filter', [ConcourController::class, 'filter'])->name('concours.filter');
+
+
 /* concours */
 Route::get('/concours', function () {
 
     $unfilteredcategories = Category::all();
 
+    $categories = Category::all();
     // Get the authenticated user's ID
+
+    if (Auth::check()) {
+
     $userId = Auth::user()->id;
+ // Retrieve the concours for the authenticated user with the category ID
+ $concours = Concour::where('user_id', $userId)->pluck('category_id')->toArray();
 
-    // Retrieve the concours for the authenticated user with the category ID
-    $concours = Concour::where('user_id', $userId)->pluck('category_id')->toArray();
+ // Filter the categories based on the concours
+ $categories = $unfilteredcategories->filter(function ($category) use ($concours) {
+     return !in_array($category->id, $concours);
+ });
 
-    // Filter the categories based on the concours
-    $categories = $unfilteredcategories->filter(function ($category) use ($concours) {
-        return !in_array($category->id, $concours);
-    });
-
-
+    }
 
 
     $users = User::orderBy('views', 'desc')->take(6)->get();
@@ -84,7 +90,6 @@ Route::middleware('auth')->group(function () {
 
     /* concour */
     Route::post('/concour', [ConcourController::class, 'submit'])->name('concour.submit');
-    Route::get('/concours/filter', [ConcourController::class, 'filter'])->name('concours.filter');
 
 
     /* profiles */
