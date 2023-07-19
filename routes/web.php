@@ -36,14 +36,29 @@ Route::get('/', function () {
     return view('landing', compact('categories', 'users'));
 });
 
-    /* concours */
-    Route::get('/concours', function () {
+/* concours */
+Route::get('/concours', function () {
 
-        $categories = Category::all();
-        $users = User::orderBy('views', 'desc')->take(6)->get();
+    $unfilteredcategories = Category::all();
 
-        return view('concours.index', compact('categories', 'users'));
+    // Get the authenticated user's ID
+    $userId = Auth::user()->id;
+
+    // Retrieve the concours for the authenticated user with the category ID
+    $concours = Concour::where('user_id', $userId)->pluck('category_id')->toArray();
+
+    // Filter the categories based on the concours
+    $categories = $unfilteredcategories->filter(function ($category) use ($concours) {
+        return !in_array($category->id, $concours);
     });
+
+
+
+
+    $users = User::orderBy('views', 'desc')->take(6)->get();
+
+    return view('concours.index', compact('categories', 'users'));
+});
 
 
 Route::middleware('auth')->group(function () {
@@ -88,11 +103,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/visituser/{id}', function () {
 
         $authuser = Auth::user();
-            if(
-                request()->route('id') == $authuser->id
-            ){
-                return redirect('/user/concours');
-            }
+        if (
+            request()->route('id') == $authuser->id
+        ) {
+            return redirect('/user/concours');
+        }
 
         $id = request()->route('id');
         $user = User::findOrFail($id);
@@ -109,7 +124,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/visituser/{id}/concours', [ConcourController::class, 'getUserConcours'])->name('visituser.concours');
 
     Route::delete('/concour/{concour}', [ConcourController::class, 'destroy'])->name('concour.destroy');
-
 });
 
 
