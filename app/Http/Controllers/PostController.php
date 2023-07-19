@@ -112,6 +112,14 @@ class PostController extends Controller
     }
     public function getUserPosts(Request $request)
     {
+
+        $authuser = Auth::user();
+        if(
+            $request->id == $authuser->id
+        ){
+            return redirect('/user/concours');
+        }
+
         $user = User::find($request->id);
         $posts = Post::where('user_id', $user->id)->paginate (5);
 

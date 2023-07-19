@@ -7,11 +7,11 @@
 
     <div class="py-12 grid gap-4 sm:grid-cols-12">
         <div class="col-span-12 sm:col-span-4 ">
-            <div class="bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                 <section aria-labelledby="profile-overview-title ">
-                    <div class="overflow-hidden rounded-lg bg-gray-800 shadow">
+                    <div class="overflow-hidden rounded-lg bg-concgreen-600 shadow">
                         <h2 class="sr-only" id="profile-overview-title">Profile Overview</h2>
-                        <div class="bg-gray-800 p-6">
+                        <div class="bg-concgreen-600 p-6">
                             <div class="">
                                 <div class="flex flex-col  justify-center items-center">
 
@@ -63,10 +63,10 @@
                             </div>
                         </div>
                         <div
-                            class="grid grid-cols-1 divide-y  divide-white border-t border-gray-600 bg-gray-800  sm:divide-x sm:divide-y-0">
+                            class="grid grid-cols-1 divide-y  divide-white border-t border-gray-600 bg-concgreen-600  sm:divide-x sm:divide-y-0">
                             <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
-                                class="text-bittersweet-100 hover:bg-bittersweet-600 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md
-    @if (request()->is('visituser/*/concours')) bg-bittersweet-600 @endif">
+                                class="text-bittersweet-100 hover:bg-bittersweet-400 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md
+    @if (request()->is('visituser/*/concours')) bg-bittersweet-400 @endif">
 
                                 <!-- Heroicon name: outline/users -->
                                 <svg class="mr-4 flex-shrink-0 h-6 w-6 text-bittersweet-300"
@@ -81,8 +81,8 @@
                                 Concours
                             </a>
                             <a href="{{ route('visituser.posts', ['id' => $user->id]) }}"
-                                class="text-bittersweet-100 hover:bg-bittersweet-600 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md
-                                @if (request()->is('visituser/*/posts')) bg-bittersweet-600 @endif">
+                                class="text-bittersweet-100 hover:bg-bittersweet-400 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md
+                                @if (request()->is('visituser/*/posts')) bg-bittersweet-400 @endif">
                                 <!-- Heroicon name: outline/users -->
                                 <svg class="mr-4 flex-shrink-0 h-6 w-6 text-bittersweet-300"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -105,7 +105,7 @@
             </div>
         </div>
         <div class="col-span-12 sm:col-span-8">
-            <div class="bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-10">
                     @yield('content')
                 </div>

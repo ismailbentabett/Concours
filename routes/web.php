@@ -34,7 +34,16 @@ Route::get('/', function () {
 
     $users = User::orderBy('views', 'desc')->take(6)->get();
     return view('landing', compact('categories', 'users'));
-})->middleware('guest');
+});
+
+    /* concours */
+    Route::get('/concours', function () {
+
+        $categories = Category::all();
+        $users = User::orderBy('views', 'desc')->take(6)->get();
+
+        return view('concours.index', compact('categories', 'users'));
+    });
 
 
 Route::middleware('auth')->group(function () {
@@ -51,15 +60,6 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-    /* concours */
-    Route::get('/concours', function () {
-
-        $categories = Category::all();
-        $users = User::orderBy('views', 'desc')->take(6)->get();
-
-        return view('concours.index', compact('categories', 'users'));
-    });
 
 
     /* posts */
@@ -86,6 +86,14 @@ Route::middleware('auth')->group(function () {
 
     /* Visit User */
     Route::get('/visituser/{id}', function () {
+
+        $authuser = Auth::user();
+            if(
+                request()->route('id') == $authuser->id
+            ){
+                return redirect('/user/concours');
+            }
+
         $id = request()->route('id');
         $user = User::findOrFail($id);
         $user->views++;

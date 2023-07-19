@@ -6,7 +6,7 @@
 
     <div class="mt-4">
         <ul role="list" class="space-y-4">
-            <li class="bg-gray-900 px-4 py-6 shadow sm:p-6 sm:rounded-lg">
+            <li class="bg-concgreen-500 px-4 py-6 shadow sm:p-6 sm:rounded-lg">
                 <article aria-labelledby="question-title-81614">
                     <div>
                         <div class="flex space-x-3 mb-5">
@@ -25,7 +25,7 @@
                                 <p class="text-sm font-medium text-white">
                                     <a href="#" class="hover:underline">{{ $user->name }}</a>
                                 </p>
-                                <p class="text-sm text-gray-500">
+                                <p class="text-sm text-white">
                                     <a href="#" class="hover:underline">
                                         <time datetime="2020-12-09T11:43:00">{{ $post->created_at }}</time>
                                     </a>
@@ -37,7 +37,7 @@
                                 <div class="relative inline-block text-left">
                                     <div>
                                         <button @click="open = ! open" type="button"
-                                            class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600"
+                                            class="-m-2 p-2 rounded-full flex items-center text-white hover:text-gray-600"
                                             id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
                                             <span class="sr-only">Open options</span>
                                             <!-- Heroicon name: solid/dots-vertical -->
@@ -50,15 +50,15 @@
                                     </div>
 
                                     <div x-show="open" style="display: none;" @click="open = false"
-                                        class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                        class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-concgreen-500 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                         role="menu" aria-orientation="vertical"
                                         aria-labelledby="options-menu-0-button" tabindex="-1">
                                         <div class="py-1" role="none">
-                                            <!-- Active: "bg-gray-100 text-white", Not Active: "text-gray-700" -->
-                                            <a href="#" class="text-gray-700 flex px-4 py-2 text-sm"
+                                            <!-- Active: "bg-gray-100 text-white", Not Active: "text-white" -->
+                                            <a href="#" class="text-white flex px-4 py-2 text-sm"
                                                 role="menuitem" tabindex="-1" id="options-menu-0-item-0">
                                                 <!-- Heroicon name: solid/star -->
-                                                <svg class="mr-3 h-5 w-5 text-gray-400"
+                                                <svg class="mr-3 h-5 w-5 text-white"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="currentColor" aria-hidden="true">
                                                     <path
@@ -66,10 +66,10 @@
                                                 </svg>
                                                 <span>Add to favorites</span>
                                             </a>
-                                            <a href="#" class="text-gray-700 flex px-4 py-2 text-sm"
+                                            <a href="#" class="text-white flex px-4 py-2 text-sm"
                                                 role="menuitem" tabindex="-1" id="options-menu-0-item-1">
                                                 <!-- Heroicon name: solid/code -->
-                                                <svg class="mr-3 h-5 w-5 text-gray-400"
+                                                <svg class="mr-3 h-5 w-5 text-white"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="currentColor" aria-hidden="true">
                                                     <path fill-rule="evenodd"
@@ -78,10 +78,10 @@
                                                 </svg>
                                                 <span>Embed</span>
                                             </a>
-                                            <a href="#" class="text-gray-700 flex px-4 py-2 text-sm"
+                                            <a href="#" class="text-white flex px-4 py-2 text-sm"
                                                 role="menuitem" tabindex="-1" id="options-menu-0-item-2">
                                                 <!-- Heroicon name: solid/flag -->
-                                                <svg class="mr-3 h-5 w-5 text-gray-400"
+                                                <svg class="mr-3 h-5 w-5 text-white"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="currentColor" aria-hidden="true">
                                                     <path fill-rule="evenodd"
@@ -120,7 +120,7 @@
                                     class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                     data-carousel-prev>
                                     <span
-                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-concgreen-600/30 group-hover:bg-white/50 dark:group-hover:bg-concgreen-600/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                         <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                             <path stroke="currentColor" stroke-linecap="round"
@@ -133,7 +133,7 @@
                                     class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                     data-carousel-next>
                                     <span
-                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-concgreen-600/30 group-hover:bg-white/50 dark:group-hover:bg-concgreen-600/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                         <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                             <path stroke="currentColor" stroke-linecap="round"
@@ -168,14 +168,14 @@
                         </div>
                     </div>
 
-                    <div class="mt-2 text-sm text-gray-500 space-y-4">
+                    <div class="mt-2 text-sm text-white space-y-4">
                         {{ $post->content }}
                     </div>
                     <div class="mt-6 flex justify-between space-x-8">
                         <div class="flex space-x-6">
                             <span class="inline-flex items-center text-sm">
                                 <button type="button"
-                                    class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                    class="inline-flex space-x-2 text-white hover:text-gray-500">
                                     <!-- Heroicon name: solid/thumb-up -->
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
@@ -190,7 +190,7 @@
 
                             <span class="inline-flex items-center text-sm">
                                 <button type="button"
-                                    class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                    class="inline-flex space-x-2 text-white hover:text-gray-500">
                                     <!-- Heroicon name: solid/eye -->
                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                         fill="currentColor" aria-hidden="true">

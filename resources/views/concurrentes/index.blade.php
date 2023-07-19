@@ -7,13 +7,13 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="py-12">
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <div class="bg-bg-gray-900 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                                    <div class="bg-gray-800">
+                                    <div class="bg-concgreen-600">
                                         <div class="text-center py-16 px-4 sm:px-6 lg:px-8">
                                             <h1 class="text-4xl font-extrabold tracking-tight text-white">Les
                                                 Profiles
@@ -35,7 +35,7 @@
                                                         <label for="tabs" class="sr-only">Select a tab</label>
                                                         <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
                                                         <select id="tabs" name="tabs"
-                                                            class="text-white bg-gray-800 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
+                                                            class="text-white bg-concgreen-600 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
                                                             onchange="this.form.submit()">
                                                             <option
                                                                 value="all"{{ Request::input('tabs') == 'all' ? ' selected' : '' }}>
@@ -51,7 +51,7 @@
 
                                                     <div class="hidden md:block">
                                                         <div class="flex items-center border-b border-gray-600">
-                                                            <nav class="-mb-px flex flex-wrap flex-1 space-x-6 xl:space-x-8 text-gray-500 "
+                                                            <nav class="-mb-px flex flex-wrap flex-1 space-x-6 xl:space-x-8 text-white "
                                                                 aria-label="Tabs">
                                                                 <a href="{{ route('concurrentes.index', ['tabs' => 'all']) }}"
                                                                     aria-current="page"
@@ -82,7 +82,7 @@
 
 
                                             <div class=" py-10" id="disclosure-1">
-                                                <div class="bg-gray-900">
+                                                <div class="bg-concgreen-500">
                                                     <div
                                                         class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
                                                         <div class="space-y-12">
@@ -110,7 +110,7 @@
                                                                                         <h3 class="text-white">
                                                                                             {{ $concour->user->name }}
                                                                                         </h3>
-                                                                                        <p class="text-bittersweet-600">
+                                                                                        <p class="text-white">
                                                                                             {{ $concour->user->email }}
                                                                                         </p>
                                                                                     </div>

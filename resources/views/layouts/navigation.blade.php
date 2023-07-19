@@ -1,4 +1,4 @@
-<header class="bg-gray-800" x-data="{ opennav: false }" @keydown.window.escape="opennav = false">
+<header class="bg-concgreen-700" x-data="{ opennav: false }" @keydown.window.escape="opennav = false">
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
         <div class="relative h-16 flex justify-between">
             <div class="relative z-10 px-2 flex lg:px-0">
@@ -30,7 +30,7 @@
                             </svg>
                         </div>
                         <input id="search" name="search"
-                            class="block w-full bg-gray-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
+                            class="block w-full bg-concgreen-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
                             placeholder="Search" type="search">
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     @auth
                         <div class="hidden lg:flex flex-shrink-0">
                             <a href="{{ url('posts/create') }}" type="button"
-                                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bittersweet-600 shadow-sm hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bittersweet-400 shadow-sm hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
                                 <!-- Heroicon name: solid/plus-sm -->
                                 <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                     fill="currentColor" aria-hidden="true">
@@ -97,7 +97,7 @@
                         <div class="hidden md:relative md:z-10 md:ml-4 md:flex md:items-center">
                             <a
                             href="{{ url('user') }}"
-                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-gray-800 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-concgreen-600 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
                         </a>
 
@@ -107,7 +107,7 @@
                                 @close.stop="open = false">
                                 <div>
                                     <button type="button"
-                                        class="bg-gray-800 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                        class="bg-concgreen-600 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                                         id="user-menu-button" aria-expanded="false" aria-haspopup="true"
                                         @click="open = ! open">
                                         <span class="sr-only">Open user menu</span>
@@ -134,7 +134,7 @@
                                                                     To: "transform opacity-0 scale-95"
                                                                 -->
                                 <div x-show="open" style="display: none;" @click="open = false"
-                                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-concgreen-500 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                     tabindex="-1">
                                     <!-- Active: "bg-gray-100", Not Active: "" -->
@@ -165,7 +165,7 @@
                     @else
                         @if (Route::current()->getName() !== 'login')
                             <a href="{{ route('login') }}"
-                                class="hidden sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
+                                class="hidden sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
                                 in</a>
                         @endif
 
@@ -179,48 +179,46 @@
         </div>
         <nav class="hidden lg:py-2 lg:flex lg:space-x-8" aria-label="Global">
 
-            @guest
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <!-- Current: "bg-concgreen-500 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="{{ url('') }}"
             @class([
-                'bg-gray-900 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => Request::is('/') || Request::is('accueil'),
+                'bg-concgreen-500 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => Request::is('/') || Request::is('accueil'),
                 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => !Request::is('/') && !Request::is('accueil')
             ])
             aria-current="page">
             ACCUEIL
         </a>
-        @endguest
 
-        @auth
 
         <a href="{{ url('concours') }}"
         @class([
-            'bg-gray-900 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => Request::is('/concours') || Request::is('concours'),
+            'bg-concgreen-500 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => Request::is('/concours') || Request::is('concours'),
             'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => !Request::is('/concours') && !Request::is('concours')
         ])
         aria-current="page">
                 CONCOURS
             </a>
 
+            @auth
+
+
             <a href="{{ url('profiles') }}"
             @class([
-                'bg-gray-900 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => Request::is('/profiles') || Request::is('profiles'),
+                'bg-concgreen-500 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => Request::is('/profiles') || Request::is('profiles'),
                 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => !Request::is('/profiles') && !Request::is('profiles')
             ])
             aria-current="page">
                 PROFILES
             </a>
         @endauth
-        @guest
             <a href="{{ url('') }}"
             @class([
-                'bg-gray-900 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => Request::is('/') || Request::is('accueil'),
+                'bg-concgreen-500 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => Request::is('/') || Request::is('accueil'),
                 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' => !Request::is('/') && !Request::is('accueil')
             ])
             aria-current="page">
                 CONTACT
             </a>
-        @endguest
         </nav>
     </div>
 
@@ -233,36 +231,34 @@
 
 
 
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            @guest
+            <!-- Current: "bg-concgreen-500 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="{{ url('') }}"
             @class([
-                'bg-gray-900 text-white block rounded-md py-2 px-3 text-base font-medium' => Request::is('/') || Request::is('accueil'),
+                'bg-concgreen-500 text-white block rounded-md py-2 px-3 text-base font-medium' => Request::is('/') || Request::is('accueil'),
                 'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium' => !Request::is('/') && !Request::is('accueil'),
                 // Add more classes and conditions as needed
             ])
             aria-current="page">ACCUEIL</a>
-            @endguest
-            @auth
+
 
         <a
         @class([
-            'bg-gray-900 text-white block rounded-md py-2 px-3 text-base font-medium' => Request::is('/concours') || Request::is('concours'),
+            'bg-concgreen-500 text-white block rounded-md py-2 px-3 text-base font-medium' => Request::is('/concours') || Request::is('concours'),
             'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium' => !Request::is('/concours') && !Request::is('concours'),
             // Add more classes and conditions as needed
         ])
             href="{{ url('concours') }}">CONCOURS</a>
-
+            @auth
         <a href="{{ url('profiles') }}"
         @class([
-            'bg-gray-900 text-white block rounded-md py-2 px-3 text-base font-medium' => Request::is('/profiles') || Request::is('profiles'),
+            'bg-concgreen-500 text-white block rounded-md py-2 px-3 text-base font-medium' => Request::is('/profiles') || Request::is('profiles'),
             'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium' => !Request::is('/profiles') && !Request::is('profiles'),
             // Add more classes and conditions as needed
         ])
         >PROFILES</a>
         <div class="flex-shrink-0">
             <a href="{{ url('posts/create') }}" type="button"
-                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bittersweet-600 shadow-sm hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bittersweet-400 shadow-sm hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
                 <!-- Heroicon name: solid/plus-sm -->
                 <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                     fill="currentColor" aria-hidden="true">
@@ -274,15 +270,13 @@
             </a>
         </div>
         @endauth
-        @guest
         <a  href="{{ url('') }}"
         @class([
-            'bg-gray-900 text-white block rounded-md py-2 px-3 text-base font-medium' => Request::is('/') || Request::is('accueil'),
+            'bg-concgreen-500 text-white block rounded-md py-2 px-3 text-base font-medium' => Request::is('/') || Request::is('accueil'),
             'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium' => !Request::is('/') && !Request::is('accueil'),
             // Add more classes and conditions as needed
         ])
         >CONTACT</a>
-        @endguest
 
         </div>
 
@@ -355,7 +349,7 @@
 
                     @if (Route::current()->getName() !== 'login')
                         <a href="{{ route('login') }}"
-                            class="m-5 inline-flex sm:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
+                            class="m-5 inline-flex sm:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
                             in</a>
                     @endif
 

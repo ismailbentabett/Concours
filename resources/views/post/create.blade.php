@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
 
@@ -17,14 +17,14 @@
 
 
                         <div
-                            class="border border-gray-500 rounded-lg shadow-sm overflow-hidden focus-within:border-bittersweet-500 focus-within:ring-1 focus-within:ring-bittersweet-500">
+                            class="border border-whiterounded-lg shadow-sm overflow-hidden focus-within:border-bittersweet-500 focus-within:ring-1 focus-within:ring-bittersweet-500">
                             <label for="title" class="sr-only">Title</label>
                             <input type="text" name="title" id="title"
-                                class="bg-gray-800 block w-full border-0 pt-2.5 text-lg font-medium placeholder-gray-500 focus:ring-0"
+                                class="bg-concgreen-600 block w-full border-0 pt-2.5 text-lg font-medium placeholder-white focus:ring-0"
                                 placeholder="Title">
                             <label for="content" class="sr-only">Description</label>
                             <textarea rows="2" name="content" id="content"
-                                class="h-40 bg-gray-800 block w-full border-0 py-0 resize-none placeholder-gray-500 focus:ring-0 sm:text-sm"
+                                class="h-40 bg-concgreen-600 block w-full border-0 py-0 resize-none placeholder-white focus:ring-0 sm:text-sm"
                                 placeholder="Write content..."></textarea>
 
 
@@ -44,7 +44,7 @@
                                                 d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        <span class="text-sm text-gray-500 group-hover:text-gray-600 italic">Attach a
+                                        <span class="text-sm text-white group-hover:text-gray-600 italic">Attach a
                                             file</span>
                                         <input  type="file" name="images[]" id="images" multiple
                                             class="hidden" />
@@ -57,7 +57,7 @@
 
                             <div class="flex-shrink-0">
                                 <button type="submit"
-                                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
                                     Create
                                 </button>
                             </div>

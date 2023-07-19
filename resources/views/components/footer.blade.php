@@ -1,13 +1,9 @@
-<footer class="bg-gray-900" aria-labelledby="footer-heading">
+<footer class="bg-concgreen-500" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="max-w-md mx-auto pt-12 px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 xl:col-span-1">
-                <img class="h-10" src="https://tailwindui.com/img/logos/workflow-mark-gray-300.svg"
-                    alt="Company name">
-                <p class="text-white text-base">
-                    Making the world a better place through constructing elegant hierarchies.
-                </p>
+
                 <div class="flex space-x-6">
                     <a href="#" class="text-white hover:text-white">
                         <span class="sr-only">Facebook</span>
@@ -59,132 +55,7 @@
                     </a>
                 </div>
             </div>
-            <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-                <div class="md:grid md:grid-cols-2 md:gap-8">
-                    <div>
-                        <h3 class="text-sm font-semibold text-white tracking-wider uppercase">
-                            Solutions
-                        </h3>
-                        <ul role="list" class="mt-4 space-y-4">
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Marketing
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Analytics
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Commerce
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Insights
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-12 md:mt-0">
-                        <h3 class="text-sm font-semibold text-white tracking-wider uppercase">
-                            Support
-                        </h3>
-                        <ul role="list" class="mt-4 space-y-4">
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Pricing
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Documentation
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Guides
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    API Status
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="md:grid md:grid-cols-2 md:gap-8">
-                    <div>
-                        <h3 class="text-sm font-semibold text-white tracking-wider uppercase">
-                            Company
-                        </h3>
-                        <ul role="list" class="mt-4 space-y-4">
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    About
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Blog
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Jobs
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Press
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Partners
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-12 md:mt-0">
-                        <h3 class="text-sm font-semibold text-white tracking-wider uppercase">
-                            Legal
-                        </h3>
-                        <ul role="list" class="mt-4 space-y-4">
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Claim
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Privacy
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="text-base text-white hover:text-white">
-                                    Terms
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="mt-12 border-t border-gray-200 py-8">
             <p class="text-base text-white xl:text-center">

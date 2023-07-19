@@ -21,7 +21,7 @@
                                     <label for="tabs" class="sr-only">Select a tab</label>
                                     <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
                                     <select id="tabs" name="tabs"
-                                        class="text-white bg-gray-800 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
+                                        class="text-white bg-concgreen-600 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
                                         onchange="this.form.submit()">
                                         <option value="all" {{ Request::input('tabs') == 'all' ? 'selected' : '' }}>All
                                         </option>
@@ -36,7 +36,7 @@
 
                                 <div class="hidden 2xl:block">
                                     <div class="flex items-center border-b border-gray-600">
-                                        <nav class="-mb-px flex flex-wrap flex-1 space-x-4 xl:space-x-4 text-gray-500"
+                                        <nav class="-mb-px flex flex-wrap flex-1 space-x-4 xl:space-x-4 text-white"
                                             aria-label="Tabs">
                                             <a href="{{ route('user.concours', ['tabs' => 'all']) }}" aria-current="page"
                                                 class="whitespace-nowrap px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
@@ -92,7 +92,7 @@
 
                                                 {{ $concour->profession }}
                                             </p>
-                                            <p class="text-sm text-gray-500">
+                                            <p class="text-sm text-white">
                                                 <a href="#" class="hover:underline">
                                                     <time>{{ $concour->created_at->format('Y-m-d') }}</time>
 
@@ -124,7 +124,7 @@
                 </main>
 
                 <!-- Details sidebar -->
-                <aside id="sidebarimg" class="hidden w-96 overflow-y-auto border-l border-gray-600 bg-gray-800 p-8 ">
+                <aside id="sidebarimg" class="hidden w-96 overflow-y-auto border-l border-gray-600 bg-concgreen-600 p-8 ">
                     <div class="space-y-6 pb-16">
                         <div>
                             <div class="aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg">
@@ -136,10 +136,10 @@
                                 <div>
                                     <h2 id="sideimgname" class="text-lg font-medium text-white"><span class="sr-only">Details for
                                         </span></h2>
-                                    <p id="sideimgprofession" class="text-sm font-medium text-gray-500">3.9 MB</p>
+                                    <p id="sideimgprofession" class="text-sm font-medium text-white">3.9 MB</p>
                                 </div>
                                 <button type="button"
-                                    class="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
+                                    class="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-concgreen-600 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
                                     <!-- Heroicon name: outline/heart -->
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -154,18 +154,18 @@
                             <h3 class="font-medium text-white">Information</h3>
                             <dl class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-600">
                                 <div class="flex justify-between py-3 text-sm font-medium">
-                                    <dt class="text-gray-500">Uploaded by</dt>
+                                    <dt class="text-white">Uploaded by</dt>
                                     <dd id="username" class="text-white"></dd>
                                 </div>
 
                                 <div class="flex justify-between py-3 text-sm font-medium">
-                                    <dt class="text-gray-500">Created</dt>
+                                    <dt class="text-white">Created</dt>
                                     <dd id="createdat" class="text-white"></dd>
 
                                 </div>
 
                                 <div class="flex justify-between py-3 text-sm font-medium">
-                                    <dt class="text-gray-500">Last modified</dt>
+                                    <dt class="text-white">Last modified</dt>
                                     <dd id="updatedat" class="text-white"></dd>
                                 </div>
 
@@ -175,9 +175,9 @@
                         <div>
                             <h3 class="font-medium text-white">Description</h3>
                             <div class="mt-2 flex items-center justify-between">
-                                <p class="text-sm italic text-gray-500">Add a description to this image.</p>
+                                <p class="text-sm italic text-white">Add a description to this image.</p>
                                 <button type="button"
-                                    class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
+                                    class="flex h-8 w-8 items-center justify-center rounded-full bg-concgreen-600 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
                                     <!-- Heroicon name: solid/pencil -->
                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                         fill="currentColor" aria-hidden="true">
@@ -193,8 +193,15 @@
                             <ul role="list" class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-600">
                                 <li class="flex items-center justify-between py-3">
                                     <div class="flex items-center">
-                                        <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=1024&h=1024&q=80"
-                                            alt="" class="h-8 w-8 rounded-full" />
+                                        @if (Auth::user()->avatar)
+                                        <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                            class="h-8 w-8 rounded-full" alt="" />
+
+                                        @else
+                                            <img class="h-8 w-8 rounded-full"
+                                             src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
+                                                alt="" />
+                                        @endif
                                         <p id="sharedwithusername" class="ml-4 text-sm font-medium text-white"></p>
                                     </div>
                                 </li>

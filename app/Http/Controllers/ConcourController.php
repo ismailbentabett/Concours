@@ -61,6 +61,13 @@ class ConcourController extends Controller
     }
     public function getUserConcours(Request $request)
     {
+
+        $authuser = Auth::user();
+        if(
+            $request->id == $authuser->id
+        ){
+            return redirect('/user/concours');
+        }
         $user = User::find($request->id);
 
         $category = $request->input('tabs') ?? 'all';
