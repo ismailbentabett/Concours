@@ -134,7 +134,6 @@
                                 <div>
                                     <h2 id="sideimgname" class="text-lg font-medium text-white"><span class="sr-only">Details for
                                         </span></h2>
-                                    <p id="sideimgprofession" class="text-sm font-medium text-white">3.9 MB</p>
                                 </div>
                                 <button type="button"
                                     class="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-concgreen-600 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-bittersweet-500">

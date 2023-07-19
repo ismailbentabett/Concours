@@ -107,6 +107,9 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/visituser/{id}/posts', [PostController::class, 'getUserPosts'])->name('visituser.posts');
     Route::get('/visituser/{id}/concours', [ConcourController::class, 'getUserConcours'])->name('visituser.concours');
+
+    Route::delete('/concour/{concour}', [ConcourController::class, 'destroy'])->name('concour.destroy');
+
 });
 
 

@@ -41,6 +41,15 @@ class ConcourController extends Controller
     }
 
 
+    public function destroy(Concour $concour)
+    {
+
+        $concour->delete();
+
+        return redirect()->route('user.concours')->with('success', 'Concour deleted successfully.');
+
+    }
+
 
     public function concours(Request $request)
     {
@@ -63,9 +72,9 @@ class ConcourController extends Controller
     {
 
         $authuser = Auth::user();
-        if(
+        if (
             $request->id == $authuser->id
-        ){
+        ) {
             return redirect('/user/concours');
         }
         $user = User::find($request->id);

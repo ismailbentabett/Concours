@@ -12,13 +12,12 @@
                         <div class="flex space-x-3 mb-5">
                             <div class="flex-shrink-0">
                                 @if ($user->avatar)
-                                <img src="{{ asset('storage/' . $user->avatar) }}"
-                                    class="h-10 w-10 rounded-full" alt="" />
-                            @else
-                                <img class="h-10 w-10 rounded-full"
-                                    src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
-                                    alt="" />
-                            @endif
+                                    <img src="{{ asset('storage/' . $user->avatar) }}" class="h-10 w-10 rounded-full"
+                                        alt="" />
+                                @else
+                                    <img class="h-10 w-10 rounded-full" src="{{ URL('image/profileplaceholder.jpg') }}"
+                                        alt="1" alt="" />
+                                @endif
 
                             </div>
                             <div class="min-w-0 flex-1">
@@ -31,69 +30,55 @@
                                     </a>
                                 </p>
                             </div>
-
-                            <div class="flex-shrink-0 self-center flex" x-data="{ open: false }"
-                                @click.outside="open = false" @close.stop="open = false">
-                                <div class="relative inline-block text-left">
-                                    <div>
-                                        <button @click="open = ! open" type="button"
-                                            class="-m-2 p-2 rounded-full flex items-center text-white hover:text-gray-600"
-                                            id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
-                                            <span class="sr-only">Open options</span>
-                                            <!-- Heroicon name: solid/dots-vertical -->
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" aria-hidden="true">
-                                                <path
-                                                    d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <div x-show="open" style="display: none;" @click="open = false"
-                                        class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-concgreen-500 ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                        role="menu" aria-orientation="vertical"
-                                        aria-labelledby="options-menu-0-button" tabindex="-1">
-                                        <div class="py-1" role="none">
-                                            <!-- Active: "bg-gray-100 text-white", Not Active: "text-white" -->
-                                            <a href="#" class="text-white flex px-4 py-2 text-sm"
-                                                role="menuitem" tabindex="-1" id="options-menu-0-item-0">
-                                                <!-- Heroicon name: solid/star -->
-                                                <svg class="mr-3 h-5 w-5 text-white"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true">
+                            @if ($user->id == Auth::user()->id)
+                                <div class="flex-shrink-0 self-center flex" x-data="{ open: false }"
+                                    @click.outside="open = false" @close.stop="open = false">
+                                    <div class="relative inline-block text-left">
+                                        <div>
+                                            <button @click="open = ! open" type="button"
+                                                class="-m-2 p-2 rounded-full flex items-center text-white hover:text-gray-600"
+                                                id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
+                                                <span class="sr-only">Open options</span>
+                                                <!-- Heroicon name: solid/dots-vertical -->
+                                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                        d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                                                 </svg>
-                                                <span>Add to favorites</span>
-                                            </a>
-                                            <a href="#" class="text-white flex px-4 py-2 text-sm"
-                                                role="menuitem" tabindex="-1" id="options-menu-0-item-1">
-                                                <!-- Heroicon name: solid/code -->
-                                                <svg class="mr-3 h-5 w-5 text-white"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                                <span>Embed</span>
-                                            </a>
-                                            <a href="#" class="text-white flex px-4 py-2 text-sm"
-                                                role="menuitem" tabindex="-1" id="options-menu-0-item-2">
-                                                <!-- Heroicon name: solid/flag -->
-                                                <svg class="mr-3 h-5 w-5 text-white"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                                <span>Report content</span>
-                                            </a>
+                                            </button>
+                                        </div>
+
+                                        <div x-show="open" style="display: none;" @click="open = false"
+                                            class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-concgreen-500 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                            role="menu" aria-orientation="vertical"
+                                            aria-labelledby="options-menu-0-button" tabindex="-1">
+                                            <div class="py-1" role="none">
+                                                <!-- Active: "bg-gray-100 text-white", Not Active: "text-white" -->
+                                                <form action="{{ route('posts.destroy', $post) }}" method="POST" class="cursor-pointer">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button
+
+                                                    type="submit"class="text-white flex px-4 py-2 text-sm" role="menuitem"
+                                                        tabindex="-1" id="options-menu-0-item-0">
+                                                        <!-- Heroicon name: solid/star -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6 text-white">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                                        </svg>
+
+
+                                                        <span>Delete</span>
+                                                    </button>
+                                                </form>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
 
                         {{-- img --}}
@@ -103,7 +88,6 @@
                                 <!-- Carousel wrapper -->
                                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                                     @foreach ($post->images as $slide)
-
                                         <!-- Item 1 -->
                                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                             <img src="{{ asset('storage/' . $slide['url']) }}"
@@ -123,8 +107,8 @@
                                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-concgreen-600/30 group-hover:bg-white/50 dark:group-hover:bg-concgreen-600/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                         <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                            <path stroke="currentColor" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M5 1 1 5l4 4" />
                                         </svg>
                                         <span class="sr-only">Previous</span>
                                     </span>
@@ -136,19 +120,17 @@
                                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-concgreen-600/30 group-hover:bg-white/50 dark:group-hover:bg-concgreen-600/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                         <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                            <path stroke="currentColor" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 9 4-4-4-4" />
                                         </svg>
                                         <span class="sr-only">Next</span>
                                     </span>
                                 </button>
                             </div>
-
                         @elseif (count($post->images) == 1)
                             <div class="relative w-full">
                                 <img src="{{ asset('storage/' . $post->images[0]['url']) }}"
-                                    class="w-full h-96 object-cover rounded-lg"
-                                    alt="...">
+                                    class="w-full h-96 object-cover rounded-lg" alt="...">
                             </div>
 
 
@@ -174,8 +156,7 @@
                     <div class="mt-6 flex justify-between space-x-8">
                         <div class="flex space-x-6">
                             <span class="inline-flex items-center text-sm">
-                                <button type="button"
-                                    class="inline-flex space-x-2 text-white hover:text-gray-500">
+                                <button type="button" class="inline-flex space-x-2 text-white hover:text-gray-500">
                                     <!-- Heroicon name: solid/thumb-up -->
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
@@ -189,8 +170,7 @@
                             </span>
 
                             <span class="inline-flex items-center text-sm">
-                                <button type="button"
-                                    class="inline-flex space-x-2 text-white hover:text-gray-500">
+                                <button type="button" class="inline-flex space-x-2 text-white hover:text-gray-500">
                                     <!-- Heroicon name: solid/eye -->
                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                         fill="currentColor" aria-hidden="true">

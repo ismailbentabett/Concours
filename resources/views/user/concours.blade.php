@@ -73,12 +73,11 @@
                                             <div
                                                 class="aspect-w-10 aspect-h-6 group block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
                                                 <a class="block w-full h-full"
-                                                    onclick="selectImage({{ $concour->id }}, '{{ $concour->profession }}' , '{{ $concour }}' , '{{$currentUser}}' )">
+                                                    onclick="selectImage({{ $concour->id }}, '{{ $concour->profession }}' , '{{ $concour }}' , '{{ $currentUser }}' )">
                                                     <img id="image-{{ $concour->id }}"
-
-                                                    src="{{ asset('storage/' . $concour->image) }}"
-                                                        alt="" alt=""
-                                                        class=" object-cover pointer-events-non pointer-events-none group-hover:opacity-75" >
+                                                        src="{{ asset('storage/' . $concour->image) }}" alt=""
+                                                        alt=""
+                                                        class=" object-cover pointer-events-non pointer-events-none group-hover:opacity-75">
 
                                                     <button type="button" class="absolute inset-0 focus:outline-none">
                                                         <span class="sr-only">View details for {{ $concour->profession }}
@@ -87,11 +86,31 @@
                                                 </a>
                                             </div>
 
-                                            <p
+                                            <div class="flex justify-between">
+
+                                                <p
                                                 class="pointer-events-none mt-2 block truncate text-sm font-medium text-white">
 
                                                 {{ $concour->profession }}
                                             </p>
+                                                <form action="{{ route('concour.destroy', $concour) }}" method="POST" class="mt-2">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="ml-4 flex h-5 w-5 items-center justify-center rounded-full bg-concgreen-600 text-white hover:bg-concgreen-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
+                                                        <!-- Heroicon name: outline/heart -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                                        </svg>
+                                                        <span class="sr-only">Delete</span>
+                                                    </button>
+                                                </form>
+                                            </div>
+
+
+
                                             <p class="text-sm text-white">
                                                 <a href="#" class="hover:underline">
                                                     <time>{{ $concour->created_at->format('Y-m-d') }}</time>
@@ -134,10 +153,13 @@
                             </div>
                             <div class="mt-4 flex items-start justify-between">
                                 <div>
-                                    <h2 id="sideimgname" class="text-lg font-medium text-white"><span class="sr-only">Details for
+                                    <h2 id="sideimgname" class="text-lg font-medium text-white"><span
+                                            class="sr-only">Details for
                                         </span></h2>
-                                    <p id="sideimgprofession" class="text-sm font-medium text-white">3.9 MB</p>
                                 </div>
+
+
+
                                 <button type="button"
                                     class="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-concgreen-600 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
                                     <!-- Heroicon name: outline/heart -->
@@ -148,6 +170,9 @@
                                     </svg>
                                     <span class="sr-only">Favorite</span>
                                 </button>
+
+
+
                             </div>
                         </div>
                         <div>
@@ -194,12 +219,11 @@
                                 <li class="flex items-center justify-between py-3">
                                     <div class="flex items-center">
                                         @if (Auth::user()->avatar)
-                                        <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
-                                            class="h-8 w-8 rounded-full" alt="" />
-
+                                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                                class="h-8 w-8 rounded-full" alt="" />
                                         @else
                                             <img class="h-8 w-8 rounded-full"
-                                             src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
+                                                src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
                                                 alt="" />
                                         @endif
                                         <p id="sharedwithusername" class="ml-4 text-sm font-medium text-white"></p>
@@ -226,13 +250,13 @@
         return date.toLocaleDateString(undefined, options);
     }
 
-    function selectImage(imageId, profession, concour , user) {
-console.log(user)
+    function selectImage(imageId, profession, concour, user) {
+        console.log(user)
         var createdat = document.getElementById('createdat');
         var updatedat = document.getElementById('updatedat');
         var username = document.getElementById('username');
-        var sideimgname = document .getElementById('sideimgname');
-        var sharedwithusername = document .getElementById('sharedwithusername');
+        var sideimgname = document.getElementById('sideimgname');
+        var sharedwithusername = document.getElementById('sharedwithusername');
         var parsedconcour = JSON.parse(concour);
         console.log(parsedconcour)
         parseduser = JSON.parse(user);
