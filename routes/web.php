@@ -57,7 +57,9 @@ Route::get('/concours', function () {
 
     $users = User::orderBy('views', 'desc')->take(6)->get();
 
-    return view('concours.index', compact('categories', 'users'));
+    $filteredtabcategories =  Category::all();
+
+    return view('concours.index', compact('categories', 'users' , 'unfilteredcategories' , 'filteredtabcategories'));
 });
 
 
@@ -82,6 +84,8 @@ Route::middleware('auth')->group(function () {
 
     /* concour */
     Route::post('/concour', [ConcourController::class, 'submit'])->name('concour.submit');
+    Route::get('/concours/filter', [ConcourController::class, 'filter'])->name('concours.filter');
+
 
     /* profiles */
     Route::get('/profiles', [ProfileController::class, 'profiles'])->name('concurrentes.index');
@@ -96,6 +100,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/concours', [ConcourController::class, 'concours'])->name('user.concours');
     Route::get('/user/posts', [PostController::class, 'userPosts'])->name('user.posts');
     Route::post('/user/upload', [ProfileController::class, 'upload'])->name('user.upload');
+
 
 
 

@@ -11,7 +11,8 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="py-12">
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <div class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
+                            <div
+                                class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                                 <div class="p-6 text-gray-900 dark:text-gray-100">
                                     <div class="bg-concgreen-600">
                                         <div class="text-center py-16 px-4 sm:px-6 lg:px-8">
@@ -94,16 +95,19 @@
                                                                     @foreach ($concours as $concour)
                                                                         <li>
                                                                             <div class="space-y-6">
-<a href="{{ route('visituser.concours', ['id' => $concour->user->id]) }}">
-                                                @if ($concour->user->avatar)
-                                                <img src="{{ asset('storage/' . $concour->user->avatar) }}"
-                                                class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" alt="" />
-                                            @else
-                                                <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
-                                                    src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
-                                                    alt="" />
-                                            @endif
-                                        </a>
+                                                                                <a
+                                                                                    href="{{ route('visituser.concours', ['id' => $concour->user->id]) }}">
+                                                                                    @if ($concour->user->avatar)
+                                                                                        <img src="{{ asset('storage/' . $concour->user->avatar) }}"
+                                                                                            class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                                                                                            alt="" />
+                                                                                    @else
+                                                                                        <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                                                                                            src="{{ URL('image/profileplaceholder.jpg') }}"
+                                                                                            alt="1"
+                                                                                            alt="" />
+                                                                                    @endif
+                                                                                </a>
                                                                                 <div class="space-y-2">
                                                                                     <div
                                                                                         class="text-lg leading-6 font-medium space-y-1">
@@ -151,7 +155,6 @@
                                                                             </div>
                                                                         </li>
                                                                     @endforeach
-
                                                                 @else
                                                                     <!-- This example requires Tailwind CSS v2.0+ -->
                                                                     <a type="button"

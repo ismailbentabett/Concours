@@ -547,7 +547,7 @@
                                                         url('concours')
                                                     }}>
                                                         <img class="object-cover 1-lg rounded-lg"
-                                                        src="{{ URL('image/categories.jpg') }}" alt="1"
+                                                        src="{{ asset('image/categories/' . $category->name . '.jpg') }}" alt="1"
                                                         alt="">
                                                     </a>
 

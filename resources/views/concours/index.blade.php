@@ -8,9 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
-                @auth
-
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+
 
 
                     <div class="space-y-6">
@@ -18,11 +17,10 @@
                             <div class="md:grid md:grid-cols-3 md:gap-6">
                                 <div class="md:col-span-1">
                                     <h3 class="text-lg font-medium leading-6 text-white">Inscription au concours</h3>
-                                    <p class="mt-1 text-sm ttext-white">
+                                    <p class="mt-1 text-sm text-slate-400">
                                         Concours Fashion Book Paris.
                                     </p>
                                 </div>
-
                                 <div class="mt-5 md:mt-0 md:col-span-2">
 
                                     <form class="relative" action="{{ route('concour.submit') }}" method="POST"
@@ -32,7 +30,8 @@
 
 
                                         <div>
-                                            <label for="location" class="block text-sm font-medium bg-concgreen-6000">Vous
+                                            <label for="location"
+                                                class="block text-sm font-medium bg-concgreen-6000">Vous
                                                 etes
                                                 ?</label>
                                             <select id="profession" name="profession"
@@ -78,7 +77,7 @@
                                                         </label>
                                                         <p class="pl-1">or drag and drop</p>
                                                     </div>
-                                                    <p class="text-xs text-white">
+                                                    <p class="text-xs text-gray-500">
                                                         PNG, JPG, GIF up to 10MB
                                                     </p>
                                                 </div>
@@ -87,7 +86,7 @@
                                         <div class="flex justify-end">
 
                                             <button type="submit"
-                                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-concgreen-500 bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-concgreen-500 bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
                                                 Save
                                             </button>
                                         </div>
@@ -99,11 +98,9 @@
 
 
                     </div>
+
+                </div>
             </div>
-            @endauth
-
-        </div>
-
         </div>
     </div>
     {{-- categories --}}
@@ -120,36 +117,130 @@
                                     <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
                                         vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
                                 </div>
-                                <ul role="list"
-                                    class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+                                <form action="{{ route('concours.filter') }}" method="GET">
+                                    <div class="mt-3 sm:mt-2">
+                                        <div class="md:hidden">
+                                            <label for="tabs" class="sr-only">Select a tab</label>
+                                            <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
+                                            <select id="tabs" name="tabs"
+                                                class="text-white bg-concgreen-600 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
+                                                onchange="this.form.submit()">
+                                                <option
+                                                    value="all"{{ Request::input('tabs') == 'all' ? ' selected' : '' }}>
+                                                    All</option>
+                                                @foreach ($unfilteredcategories as $category)
+                                                    <option
+                                                        value="{{ $category->name }}"{{ Request::input('tabs') == $category->name ? ' selected' : '' }}>
+                                                        {{ $category->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="hidden md:block">
+                                            <div class="flex items-center border-b border-gray-600">
+                                                <nav class="-mb-px flex flex-wrap flex-1 space-x-6 xl:space-x-8 text-white "
+                                                    aria-label="Tabs">
+                                                    <a href="{{ route('concours.filter', ['tabs' => 'all']) }}"
+                                                        aria-current="page"
+                                                        class="whitespace-nowrap   px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
+                                                        @if (Request::input('tabs') == 'all' && Route::currentRouteName() === 'concours.filter') border-b-2 border-bittersweet-500  text-bittersweet-600 @endif
+                                                        ">
+
+
+                                                        All
+                                                    </a>
+
+                                                    @foreach ($unfilteredcategories as $category)
+                                                        <a href="{{ route('concours.filter', ['tabs' => $category->name]) }}
+                                                        "
+                                                            class="whitespace-nowrap  px-1 py-4 text-sm font-medium  hover:border-gray-600 hover:text-gray-700
+                                                            @if (Request::input('tabs') == $category->name) border-b-2 border-bittersweet-500  text-bittersweet-600 @endif
+                                                            ">
+                                                            {{ $category->name }}
+                                                        </a>
+                                                    @endforeach
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                @if (Request::input('tabs') !== 'all' && request()->path() !== 'concours')
+
+                                    <ul role="list"
+                                        class="space-y-12 sm:grid sm:grid-cols-1  sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-1 lg:gap-x-8">
 
 
 
-                                    @foreach ($categories as $category)
-                                        <li>
-                                            <div class="space-y-4" data-popover-target="{{$category->name}}" >
-                                                <div class="aspect-w-3 aspect-h-2">
-                                                    <img class="object-cover 1-lg rounded-lg"
-                                                        src="{{ URL('image/categories.jpg') }}" alt="1"
-                                                        alt="">
-                                                </div>
-
-                                                <div class="space-y-2">
-                                                    <div class="text-lg leading-6 font-medium space-y-1">
-
-                                                        <p class="text-white">{{ $category->name }}</p>
+                                        @foreach ($filteredtabcategories as $category)
+                                            <li>
+                                                <div class="space-y-4">
+                                                    <div class="aspect-w-3 aspect-h-2">
+                                                        <img class="object-cover 1-lg rounded-lg"
+                                                        src="{{ asset('image/categories/' . $category->name . '.jpg') }}"
+                                                            alt="">
                                                     </div>
 
+                                                    <div class="space-y-2">
+                                                        <div class="text-lg leading-6 font-medium space-y-1">
+
+                                                            <p class="text-white">{{ $category->name }}</p>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
+
+                                                @if (Request::input('tabs') !== 'all')
+                                                    <dd class=" text-sm text-white mt-5 sm:mt-0 sm:col-span-2">
+                                                        Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
+                                                        incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
+                                                        consequat sint. Sit id mollit nulla mollit nostrud in ea officia
+                                                        proident. Irure nostrud pariatur mollit ad adipisicing
+                                                        reprehenderit deserunt qui eu.
+                                                    </dd>
+                                                @endif
+                                            </li>
+                                        @endforeach
+
+                                        <!-- More people... -->
+                                    </ul>
+                                @endif
+                                @if (Request::input('tabs') === 'all' || request()->path() === 'concours')
+
+                                    <ul role="list"
+                                        class="space-y-12 sm:grid sm:grid-cols-2  sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
 
 
-                                    @endforeach
 
-                                    <!-- More people... -->
-                                </ul>
+                                        @foreach ($filteredtabcategories as $category)
+                                            <li>
+                                                <div class="space-y-4">
+                                                    <div class="aspect-w-3 aspect-h-2">
+                                                        <img class="object-cover 1-lg rounded-lg"
+                                                        src="{{ asset('image/categories/' . $category->name . '.jpg') }}" alt="1"
+                                                            alt="">
+                                                    </div>
+
+                                                    <div class="space-y-2">
+                                                        <div class="text-lg leading-6 font-medium space-y-1">
+
+                                                            <p class="text-white">{{ $category->name }}</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                            </li>
+                                        @endforeach
+
+                                        <!-- More people... -->
+                                    </ul>
+                                @endif
+
+
                             </div>
+
                         </div>
                     </div>
 
@@ -169,7 +260,7 @@
                                     <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                                         <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
                                             Contestants</h2>
-                                        <p class="text-xl ttext-white">Ornare sagittis, suspendisse in hendrerit
+                                        <p class="text-xl text-slate-400">Ornare sagittis, suspendisse in hendrerit
                                             quis.
                                             Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
                                     </div>
@@ -217,13 +308,13 @@
                             <nav aria-label="Progress">
                                 <ol role="list" class="overflow-hidden">
                                     <li class="relative pb-10">
-                                        <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-bittersweet-400"
+                                        <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-bittersweet-600"
                                             aria-hidden="true"></div>
                                         <!-- Complete Step -->
                                         <a href="#" class="relative flex items-start group">
                                             <span class="h-9 flex items-center">
                                                 <span
-                                                    class="relative z-10 w-8 h-8 flex items-center justify-center bg-bittersweet-400 rounded-full group-hover:bg-bittersweet-800">
+                                                    class="relative z-10 w-8 h-8 flex items-center justify-center bg-bittersweet-600 rounded-full group-hover:bg-bittersweet-800">
                                                     <span class="h-2.5 w-2.5 bg-concgreen-600 rounded-full"></span>
 
                                                 </span>
@@ -233,7 +324,7 @@
                                             <span class="ml-4 min-w-0 flex flex-col">
                                                 <span class="text-xs font-semibold tracking-wide uppercase">Etap
                                                     1</span>
-                                                <span class="text-sm text-white">Vitae sed mi luctus laoreet.</span>
+                                                <span class="text-sm text-gray-500">Vitae sed mi luctus laoreet.</span>
                                             </span>
                                         </a>
 
@@ -242,14 +333,14 @@
                                     </li>
 
                                     <li class="relative pb-10">
-                                        <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-bittersweet-400"
+                                        <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-bittersweet-600"
                                             aria-hidden="true"></div>
                                         <!-- Current Step -->
                                         <a href="#" class="relative flex items-start group"
                                             aria-current="step">
                                             <span class="h-9 flex items-center" aria-hidden="true">
                                                 <span
-                                                    class="relative z-10 w-8 h-8 flex items-center justify-center bg-bittersweet-400 rounded-full group-hover:bg-bittersweet-800">
+                                                    class="relative z-10 w-8 h-8 flex items-center justify-center bg-bittersweet-600 rounded-full group-hover:bg-bittersweet-800">
                                                     <span class="h-2.5 w-2.5 bg-concgreen-600 rounded-full"></span>
 
                                                 </span>
@@ -257,7 +348,7 @@
                                             <span class="ml-4 min-w-0 flex flex-col">
                                                 <span class="text-xs font-semibold tracking-wide uppercase">Etap
                                                     2</span>
-                                                <span class="text-sm text-white">Cursus semper viverra facilisis et
+                                                <span class="text-sm text-gray-500">Cursus semper viverra facilisis et
                                                     et some
                                                     more.</span>
                                             </span>
@@ -267,13 +358,13 @@
                                     </li>
 
                                     <li class="relative pb-10">
-                                        <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-bittersweet-400"
+                                        <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-bittersweet-600"
                                             aria-hidden="true"></div>
                                         <!-- Upcoming Step -->
                                         <a href="#" class="relative flex items-start group">
                                             <span class="h-9 flex items-center" aria-hidden="true">
                                                 <span
-                                                    class="relative z-10 w-8 h-8 flex items-center justify-center bg-bittersweet-400 rounded-full group-hover:bg-bittersweet-800">
+                                                    class="relative z-10 w-8 h-8 flex items-center justify-center bg-bittersweet-600 rounded-full group-hover:bg-bittersweet-800">
                                                     <span class="h-2.5 w-2.5 bg-concgreen-600 rounded-full"></span>
 
                                                 </span>
@@ -284,19 +375,19 @@
                                             <span class="ml-4 min-w-0 flex flex-col">
                                                 <span class="text-xs font-semibold tracking-wide uppercase">Etap
                                                     3</span>
-                                                <span class="text-sm text-white">Penatibus eu quis ante.</span>
+                                                <span class="text-sm text-gray-500">Penatibus eu quis ante.</span>
                                             </span>
                                         </a>
 
                                     </li>
                                     <li class="relative pb-10">
-                                        <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-bittersweet-400"
+                                        <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-bittersweet-600"
                                             aria-hidden="true"></div>
                                         <!-- Upcoming Step -->
                                         <a href="#" class="relative flex items-start group">
                                             <span class="h-9 flex items-center" aria-hidden="true">
                                                 <span
-                                                    class="relative z-10 w-8 h-8 flex items-center justify-center bg-bittersweet-400 rounded-full group-hover:bg-bittersweet-800">
+                                                    class="relative z-10 w-8 h-8 flex items-center justify-center bg-bittersweet-600 rounded-full group-hover:bg-bittersweet-800">
                                                     <span class="h-2.5 w-2.5 bg-concgreen-600 rounded-full"></span>
 
                                                 </span>
@@ -304,7 +395,7 @@
                                             <span class="ml-4 min-w-0 flex flex-col">
                                                 <span class="text-xs font-semibold tracking-wide uppercase">Etap
                                                     4</span>
-                                                <span class="text-sm text-white">Penatibus eu quis ante.</span>
+                                                <span class="text-sm text-gray-500">Penatibus eu quis ante.</span>
                                             </span>
                                         </a>
                                         <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56 mt-5"

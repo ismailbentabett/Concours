@@ -47,7 +47,6 @@ class ConcourController extends Controller
         $concour->delete();
 
         return redirect()->route('user.concours')->with('success', 'Concour deleted successfully.');
-
     }
 
 
@@ -91,5 +90,46 @@ class ConcourController extends Controller
 
 
         return view('visituser.concours', compact('concours', 'categories', 'user'));
+    }
+
+
+    //filter categories by tabs in concours page
+    public function filter(Request $request)
+    {
+
+        $unfilteredcategories = Category::all();
+
+        // Get the authenticated user's ID
+        $userId = Auth::user()->id;
+
+        // Retrieve the concours for the authenticated user with the category ID
+        $concours = Concour::where('user_id', $userId)->pluck('category_id')->toArray();
+
+        // Filter the categories based on the concours
+        $categories = $unfilteredcategories->filter(function ($category) use ($concours) {
+            return !in_array($category->id, $concours);
+        });
+
+
+
+        //get tab name
+        $tabcategories = $request->input('tabs') ?? 'all';
+
+        $cat = Category::where('name', $tabcategories)->first() ?? null;
+
+
+        $users = User::orderBy('views', 'desc')->take(6)->get();
+
+        //filter category by tab
+        $filteredtabcategories =    $unfilteredcategories->filter(function ($category) use ($tabcategories) {
+            //if all
+            if ($tabcategories == 'all') {
+                return $category;
+            }
+
+            return $category->name == $tabcategories;
+        });
+
+        return view('concours.index', compact('categories', 'users', 'unfilteredcategories', 'filteredtabcategories'));
     }
 }
