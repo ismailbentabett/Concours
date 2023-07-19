@@ -54,17 +54,17 @@
                                         </div>
                                         <div class="hidden space-x-8 md:flex md:ml-10  items-center">
                                             <a href="{{ url('') }}"
-                                                class="text-base font-medium text-white hover:text-white">ACCUEIL</a>
+                                                class="text-base font-medium text-white hover:text-yellow-500">ACCUEIL</a>
 
 
                                             <a href="{{ url('concours') }}"
-                                                class="text-base font-medium text-white hover:text-white">CONCOURS</a>
+                                                class="text-base font-medium text-white hover:text-yellow-500">CONCOURS</a>
 
                                             <a href="{{ url('profiles') }}"
-                                                class="text-base font-medium text-white hover:text-white">PROFILES</a>
+                                                class="text-base font-medium text-white hover:text-yellow-500">PROFILES</a>
 
                                             <a href="{{ url('profiles') }}"
-                                                class="text-base font-medium text-white hover:text-white">CONTACT</a>
+                                                class="text-base font-medium text-white hover:text-yellow-500">CONTACT</a>
                                             @if (Route::has('login'))
                                                 <div class="space-x-3 z-10 flex items-start">
                                                     @auth
@@ -730,7 +730,7 @@
                                             </li>
                                             <li>
                                                 <a class="text-bittersweet-200 hover:text-bittersweet-100"
-                                                    href="#">
+                                                    >
                                                     <span class="sr-only">Twitter</span>
                                                     <svg width="24" height="24" viewBox="0 0 24 24"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -747,7 +747,7 @@
                                     <!-- Contact form -->
                                     <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
                                         <h3 class="text-lg font-medium text-white">Send us a message</h3>
-                                        <form action="" method="POST"
+                                        <form 
                                             class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                                             <div>
                                                 <x-input-label for="firstName" :value="__('firstName')" />
