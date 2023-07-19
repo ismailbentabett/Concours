@@ -11,18 +11,20 @@
                 <section aria-labelledby="profile-overview-title ">
                     <div class="overflow-hidden rounded-lg bg-gray-800 shadow">
                         <h2 class="sr-only" id="profile-overview-title">Profile Overview</h2>
-                      <div class="bg-gray-800 p-6">
+                        <div class="bg-gray-800 p-6">
                             <div class="">
                                 <div class="flex flex-col  justify-center items-center">
 
-                                                @if ($user->avatar)
-                                                    <img class="relative h-40 w-40 rounded-full"
-                                                        src="{{ $user->avatar }}" alt="" />
-                                                @else
-                                                    <img class="relative h-40 w-40 rounded-full"
-                                                        src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
-                                                        alt="" />
-                                                @endif
+
+
+                                    @if ($user->avatar)
+                                        <img src="{{ asset('storage/' . $user->avatar) }}"
+                                            class="relative h-40 w-40 rounded-full" alt="" />
+                                    @else
+                                        <img class="relative h-40 w-40 rounded-full"
+                                            src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
+                                            alt="" />
+                                    @endif
 
 
                                     <div class="flex justify-center py-5">
@@ -62,7 +64,7 @@
                         </div>
                         <div
                             class="grid grid-cols-1 divide-y  divide-white border-t border-gray-600 bg-gray-800  sm:divide-x sm:divide-y-0">
-                            <a href="{{ route('visituser.concours', ['id' =>   $user->id ]) }}"
+                            <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
                                 class="text-bittersweet-100 hover:bg-bittersweet-600 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md
     @if (request()->is('visituser/*/concours')) bg-bittersweet-600 @endif">
 
@@ -78,7 +80,7 @@
 
                                 Concours
                             </a>
-                            <a href="{{ route('visituser.posts', ['id' =>   $user->id ]) }}"
+                            <a href="{{ route('visituser.posts', ['id' => $user->id]) }}"
                                 class="text-bittersweet-100 hover:bg-bittersweet-600 group flex items-center justify-center px-2 py-10 text-base font-medium rounded-md
                                 @if (request()->is('visituser/*/posts')) bg-bittersweet-600 @endif">
                                 <!-- Heroicon name: outline/users -->

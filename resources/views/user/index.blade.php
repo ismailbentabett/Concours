@@ -26,7 +26,7 @@
 
                                                 @else
                                                     <img class="relative h-40 w-40 rounded-full"
-                                                        src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
+                                                     src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
                                                         alt="" />
                                                 @endif
 

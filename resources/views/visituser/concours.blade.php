@@ -74,7 +74,7 @@
                                                 class="aspect-w-10 aspect-h-6 group block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
                                                 <a class="block w-full h-full"
                                                     onclick="selectImage({{ $concour->id }}, '{{ $concour->profession }}' , '{{ $concour }}' , '{{$user}}' )">
-                                                    <img id="image-{{ $concour->id }}" src="{{ $concour->image }}"
+                                                    <img id="image-{{ $concour->id }}"  src="{{ asset('storage/' . $concour->image) }}"
                                                         alt="" alt=""
                                                         class=" object-cover pointer-events-non pointer-events-none group-hover:opacity-75" >
 

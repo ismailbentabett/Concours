@@ -11,11 +11,15 @@
                     <div>
                         <div class="flex space-x-3 mb-5">
                             <div class="flex-shrink-0">
-
-
+                                @if ($user->avatar)
+                                <img src="{{ asset('storage/' . $user->avatar) }}"
+                                    class="h-10 w-10 rounded-full" alt="" />
+                            @else
                                 <img class="h-10 w-10 rounded-full"
-                                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
+                                    src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
+                                    alt="" />
+                            @endif
+
                             </div>
                             <div class="min-w-0 flex-1">
                                 <p class="text-sm font-medium text-white">
@@ -93,12 +97,13 @@
                         </div>
 
                         {{-- img --}}
-                        @if (count($post->images) > 0)
+                        @if (count($post->images) > 1)
 
                             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                                 <!-- Carousel wrapper -->
                                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                                     @foreach ($post->images as $slide)
+
                                         <!-- Item 1 -->
                                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                             <img src="{{ asset('storage/' . $slide['url']) }}"
@@ -138,6 +143,15 @@
                                     </span>
                                 </button>
                             </div>
+
+                        @elseif (count($post->images) == 1)
+                            <div class="relative w-full">
+                                <img src="{{ asset('storage/' . $post->images[0]['url']) }}"
+                                    class="w-full h-96 object-cover rounded-lg"
+                                    alt="...">
+                            </div>
+
+
                         @endif
 
 

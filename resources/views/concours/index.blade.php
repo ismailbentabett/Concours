@@ -23,9 +23,10 @@
                                 </div>
                                 <div class="mt-5 md:mt-0 md:col-span-2">
 
-                                        <form class="relative"   action="{{ route('concour.submit') }}" method="POST"  enctype="multipart/form-data">
+                                    <form class="relative" action="{{ route('concour.submit') }}" method="POST"
+                                        enctype="multipart/form-data">
 
-                                            @csrf
+                                        @csrf
 
 
                                         <div>
@@ -46,7 +47,6 @@
                                             <select id="category_id" name="category_id"
                                                 class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bittersweet-500 focus:border-bittersweet-500 sm:text-sm rounded-md bg-gray-900">
                                                 @foreach ($categories as $category)
-
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
@@ -85,7 +85,7 @@
                                         <div class="flex justify-end">
 
                                             <button type="submit"
-                                            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-gray-900 bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-gray-900 bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
                                                 Save
                                             </button>
                                         </div>
@@ -123,7 +123,8 @@
                                             <div class="space-y-4">
                                                 <div class="aspect-w-3 aspect-h-2">
                                                     <img class="object-cover 1-lg rounded-lg"
-                                                    src="{{ URL('image/categories.jpg') }}" alt="1"                                                        alt="">
+                                                        src="{{ URL('image/categories.jpg') }}" alt="1"
+                                                        alt="">
                                                 </div>
 
                                                 <div class="space-y-2">
@@ -166,22 +167,28 @@
                                     <ul role="list"
                                         class="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
                                         @foreach ($users as $user)
-                                        <li>
-                                            <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
-                                                class="space-y-6">
-                                                <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
-                                                    src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-                                                    alt="">
-                                                <div class="space-y-2">
-                                                    <div class="text-lg leading-6 font-medium space-y-1">
-                                                        <h3 class="text-white">{{ $user->name }}</h3>
-                                                        <p class="text-bittersweet-600">{{ $user->email }}</p>
-                                                    </div>
+                                            <li>
+                                                <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
+                                                    class="space-y-6">
+                                                    @if ($user->avatar)
+                                                        <img src="{{ asset('storage/' . $user->avatar) }}"
+                                                            class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                                                            alt="" />
+                                                    @else
+                                                        <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                                                            src="{{ URL('image/profileplaceholder.jpg') }}"
+                                                            alt="1" alt="" />
+                                                    @endif
+                                                    <div class="space-y-2">
+                                                        <div class="text-lg leading-6 font-medium space-y-1">
+                                                            <h3 class="text-white">{{ $user->name }}</h3>
+                                                            <p class="text-bittersweet-600">{{ $user->email }}</p>
+                                                        </div>
 
-                                                </div>
-                                            </a>
-                                        </li>
-                                    @endforeach
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endforeach
                                         <!-- More people... -->
                                     </ul>
                                 </div>
