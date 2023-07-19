@@ -9,7 +9,7 @@
                 <main class="flex-1 overflow-y-auto">
                     <div class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
                         <div class="flex">
-                            <h1 class="flex-1 text-2xl font-bold text-white">Photos</h1>
+                            <h1 class="flex-1 text-2xl font-bold text-white">Concours</h1>
                         </div>
 
                         <!-- Tabs -->

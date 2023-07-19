@@ -3,7 +3,9 @@
 
 @section('content')
 
-
+<div class="flex mb-5">
+    <h1 class="flex-1 text-2xl font-bold text-white">Posts</h1>
+</div>
 @if (count($posts) > 0)
 @foreach ($posts as $post)
     <!-- Display post details -->
