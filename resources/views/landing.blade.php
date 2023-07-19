@@ -493,6 +493,21 @@
                                                 class="object-cover object-center w-full sm:w-96" />
                                             <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
                                         </div>
+                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                                            <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
+                                                class="object-cover object-center w-full sm:w-96" />
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
+                                        </div>
+                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                                            <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
+                                                class="object-cover object-center w-full sm:w-96" />
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
+                                        </div>
+                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                                            <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
+                                                class="object-cover object-center w-full sm:w-96" />
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6"></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <button aria-label="slide forward"
