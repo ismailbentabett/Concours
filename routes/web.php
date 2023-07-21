@@ -49,15 +49,14 @@ Route::get('/concours', function () {
 
     if (Auth::check()) {
 
-    $userId = Auth::user()->id;
- // Retrieve the concours for the authenticated user with the category ID
- $concours = Concour::where('user_id', $userId)->pluck('category_id')->toArray();
+        $userId = Auth::user()->id;
+        // Retrieve the concours for the authenticated user with the category ID
+        $concours = Concour::where('user_id', $userId)->pluck('category_id')->toArray();
 
- // Filter the categories based on the concours
- $categories = $unfilteredcategories->filter(function ($category) use ($concours) {
-     return !in_array($category->id, $concours);
- });
-
+        // Filter the categories based on the concours
+        $categories = $unfilteredcategories->filter(function ($category) use ($concours) {
+            return !in_array($category->id, $concours);
+        });
     }
 
 
@@ -65,7 +64,7 @@ Route::get('/concours', function () {
 
     $filteredtabcategories =  Category::all();
 
-    return view('concours.index', compact('categories', 'users' , 'unfilteredcategories' , 'filteredtabcategories'));
+    return view('concours.index', compact('categories', 'users', 'unfilteredcategories', 'filteredtabcategories'));
 });
 
 
@@ -134,6 +133,32 @@ Route::middleware('auth')->group(function () {
     Route::get('/visituser/{id}/concours', [ConcourController::class, 'getUserConcours'])->name('visituser.concours');
 
     Route::delete('/concour/{concour}', [ConcourController::class, 'destroy'])->name('concour.destroy');
+
+
+
+
+    //admin
+    Route::get('/admin/categories', [AdminController::class, 'indexCategories'])->name('admin.categories.index');
+    Route::get('/admin/categories/create', [AdminController::class,  'createCategory'])->name('admin.categories.create');
+    Route::post('/admin/categories', [AdminController::class, 'storeCategory'])->name('admin.categories.store');
+    Route::get('/admin/categories/{id}/edit', [AdminController::class,  'editCategory'])->name('admin.categories.edit');
+    Route::put('/admin/categories/{id}', [AdminController::class, 'updateCategory'])->name('admin.categories.update');
+    Route::delete('/admin/categories/{id}', [AdminController::class, 'deleteCategory'])->name('admin.categories.delete');
+    Route::get('/admin/posts', [AdminController::class, 'indexPosts'])->name('admin.posts.index');
+    Route::delete('/admin/posts/{id}', [AdminController::class, 'deletePost'])->name('admin.posts.delete');
+    Route::get('/admin/users', [AdminController::class, 'indexUsers'])->name('admin.users.index');
+    Route::get('/admin/users/{id}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
+    Route::put('/admin/users/{id}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+    Route::delete('/admin/users/{id}', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
+    Route::get('/admin/candidates', [AdminController::class, 'listCandidates'])->name('admin.candidates.index');
+    Route::delete('/admin/candidates/{id}', [AdminController::class, 'deleteCandidate'])->name('admin.candidates.delete');
+    Route::get('/admin/concours', [AdminController::class, 'indexConcours'])->name('admin.concours.index');
+    Route::get('/admin/concours/{id}/edit', [AdminController::class, 'editConcours'])->name('admin.concours.edit');
+    Route::put('/admin/concours/{id}', [AdminController::class, 'updateConcours'])->name('admin.concours.update');
+    Route::delete('/admin/concours/{id}', [AdminController::class, 'destroyConcours'])->name('admin.concours.destroy');
+    Route::get('/admin/inbox', [MessageController::class, 'index'])->name('admin.inbox.index');
+    Route::get('/admin/inbox/{id}', [MessageController::class, 'show'])->name('admin.inbox.show');
+    Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])->name('admin.inbox.destroy');
 });
 
 
