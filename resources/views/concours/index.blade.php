@@ -122,127 +122,43 @@
                                     <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
                                         vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
                                 </div>
-                                <form action="{{ route('concours.filter') }}" method="GET">
-                                    <div class="mt-3 sm:mt-2">
-                                        <div class="md:hidden">
-                                            <label for="tabs" class="sr-only">Select a tab</label>
-                                            <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
-                                            <select id="tabs" name="tabs"
-                                                class="text-white bg-concgreen-600 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
-                                                onchange="this.form.submit()">
-                                                <option
-                                                    value="all"{{ Request::input('tabs') == 'all' ? ' selected' : '' }}>
-                                                    All</option>
-                                                @foreach ($unfilteredcategories as $category)
-                                                    <option
-                                                        value="{{ $category->name }}"{{ Request::input('tabs') == $category->name ? ' selected' : '' }}>
-                                                        {{ $category->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+
+
+                                <div class="bg-concgreen-600">
+                                    <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+                                      <div class="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
+
+                                        <div class="lg:col-span-2">
+                                          <ul role="list" class="space-y-12  sm:space-y-0 sm:-mt-8 lg:gap-x-8 lg:space-y-0">
+                                            @foreach ($unfilteredcategories as $category)
+
+                                            <li class="sm:py-8">
+                                              <div class="space-y-4 sm:grid sm:grid-cols-4 sm:items-start sm:gap-6 sm:space-y-0">
+                                                <div class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4 sm:col-span-2">
+                                                  <img class="object-cover shadow-lg rounded-lg"
+                                                  src="{{ asset('image/categories/' . $category->name . '.jpg') }}" alt="1"
+                                                      alt="">
+                                                </div>
+                                                <div class="sm:col-span-2">
+                                                  <div class="space-y-4">
+                                                    <div class="text-lg leading-6 font-medium space-y-1">
+                                                      <h3>{{$category->name}}</h3>
+                                                    </div>
+                                                    <div class="text-lg">
+                                                      <p class="text-white">Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.</p>
+                                                    </div>
+
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </li>
+
+                                            @endforeach
+                                        </ul>
                                         </div>
-
-                                        <div class="hidden md:block">
-                                            <div class="flex items-center border-b border-gray-600">
-                                                <nav class="-mb-px flex flex-wrap flex-1 space-x-6 xl:space-x-8 text-white "
-                                                    aria-label="Tabs">
-                                                    <a href="{{ route('concours.filter', ['tabs' => 'all']) }}"
-                                                        aria-current="page"
-                                                        class="whitespace-nowrap   px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
-                                                        @if (Request::input('tabs') == 'all' && Route::currentRouteName() === 'concours.filter') border-b-2 border-bittersweet-500  text-bittersweet-600 @endif
-                                                        ">
-
-
-                                                        All
-                                                    </a>
-
-                                                    @foreach ($unfilteredcategories as $category)
-                                                        <a href="{{ route('concours.filter', ['tabs' => $category->name]) }}
-                                                        "
-                                                            class="whitespace-nowrap  px-1 py-4 text-sm font-medium  hover:border-gray-600 hover:text-gray-700
-                                                            @if (Request::input('tabs') == $category->name) border-b-2 border-bittersweet-500  text-bittersweet-600 @endif
-                                                            ">
-                                                            {{ $category->name }}
-                                                        </a>
-                                                    @endforeach
-                                                </nav>
-                                            </div>
-                                        </div>
+                                      </div>
                                     </div>
-                                </form>
-                                @if (Request::input('tabs') !== 'all' && request()->path() !== 'concours')
-
-                                    <ul role="list"
-                                        class="space-y-12 sm:grid sm:grid-cols-1  sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-1 lg:gap-x-8">
-
-
-
-                                        @foreach ($filteredtabcategories as $category)
-                                            <li>
-                                                <div class="space-y-4">
-                                                    <div class="aspect-w-3 aspect-h-2">
-                                                        <img class="object-cover 1-lg rounded-lg"
-                                                        src="{{ asset('image/categories/' . $category->name . '.jpg') }}"
-                                                            alt="">
-                                                    </div>
-
-                                                    <div class="space-y-2">
-                                                        <div class="text-lg leading-6 font-medium space-y-1">
-
-                                                            <p class="text-white">{{ $category->name }}</p>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                                @if (Request::input('tabs') !== 'all')
-                                                    <dd class=" text-sm text-white mt-5 sm:mt-0 sm:col-span-2">
-                                                        Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                                                        incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                                                        consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                                                        proident. Irure nostrud pariatur mollit ad adipisicing
-                                                        reprehenderit deserunt qui eu.
-                                                    </dd>
-                                                @endif
-                                            </li>
-                                        @endforeach
-
-                                        <!-- More people... -->
-                                    </ul>
-                                @endif
-                                @if (Request::input('tabs') === 'all' || request()->path() === 'concours')
-
-                                    <ul role="list"
-                                        class="space-y-12 sm:grid sm:grid-cols-2  sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
-
-
-
-                                        @foreach ($filteredtabcategories as $category)
-                                            <li>
-                                                <div class="space-y-4">
-                                                    <div class="aspect-w-3 aspect-h-2">
-                                                        <img class="object-cover 1-lg rounded-lg"
-                                                        src="{{ asset('image/categories/' . $category->name . '.jpg') }}" alt="1"
-                                                            alt="">
-                                                    </div>
-
-                                                    <div class="space-y-2">
-                                                        <div class="text-lg leading-6 font-medium space-y-1">
-
-                                                            <p class="text-white">{{ $category->name }}</p>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-
-                                            </li>
-                                        @endforeach
-
-                                        <!-- More people... -->
-                                    </ul>
-                                @endif
-
+                                  </div>
 
                             </div>
 
@@ -303,9 +219,9 @@
                 </div>
             </div>
 
+            <div class="py-12">
 
-                {{-- <div class="py-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
                     <div
                         class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg flex-col justify-center items-center ">
