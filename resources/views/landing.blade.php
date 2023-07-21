@@ -354,7 +354,7 @@
                         </div>
 
 
-                        <div class="space-y-8 xl:col-span-1 w-full flex justify-center ">
+                   {{--      <div class="space-y-8 xl:col-span-1 w-full flex justify-center ">
 
                             <div class="flex space-x-6">
                                 <a href="#" class="text-white hover:text-white">
@@ -388,7 +388,7 @@
 
 
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="pt-10 bg-transparent sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden bg-fixed bg-cover bg-center bg-gradient-to-r from-red-500 to-red-500 bg-red-200"
@@ -818,7 +818,7 @@
                                                 </defs>
                                             </svg>
                                         </div>
-                                        <h3 class="text-lg font-medium text-white">Contact information</h3>
+                    {{--                     <h3 class="text-lg font-medium text-white">Contact information</h3>
                                         <p class="mt-6 text-base text-bittersweet-50 max-w-3xl">Nullam risus blandit ac
                                             aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor
                                             lacus arcu.</p>
@@ -847,8 +847,8 @@
                                                 </svg>
                                                 <span class="ml-3">support@concours.com</span>
                                             </dd>
-                                        </dl>
-                                        <ul role="list" class="mt-8 flex space-x-12">
+                                        </dl> --}}
+                                        {{-- <ul role="list" class="mt-8 flex space-x-12">
                                             <li>
                                                 <a class="text-bittersweet-200 hover:text-bittersweet-100"
                                                     href="#">
@@ -887,7 +887,7 @@
                                                     </svg>
                                                 </a>
                                             </li>
-                                        </ul>
+                                        </ul> --}}
                                     </div>
 
                                     <!-- Contact form -->
@@ -968,6 +968,7 @@
         </div>
     </main>
     </div>
+    <x-fab />
 </body>
 
 </html>

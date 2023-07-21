@@ -130,13 +130,17 @@ Route::middleware('auth')->group(function () {
         }
     });
     Route::get('/visituser/{id}/posts', [PostController::class, 'getUserPosts'])->name('visituser.posts');
-    Route::get('/visituser/{id}/concours', [ConcourController::class, 'getUserConcours'])->name('visituser.concours');
 
+    Route::get('/visituser/{id}/concours', [ConcourController::class, 'getUserConcours'])->name('visituser.concours');
     Route::delete('/concour/{concour}', [ConcourController::class, 'destroy'])->name('concour.destroy');
 
 
 
 
+
+});
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     //admin
     Route::get('/admin/categories', [AdminController::class, 'indexCategories'])->name('admin.categories.index');
     Route::get('/admin/categories/create', [AdminController::class,  'createCategory'])->name('admin.categories.create');
@@ -158,9 +162,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/concours/{id}', [AdminController::class, 'destroyConcours'])->name('admin.concours.destroy');
     Route::get('/admin/inbox', [MessageController::class, 'index'])->name('admin.inbox.index');
     Route::get('/admin/inbox/{id}', [MessageController::class, 'show'])->name('admin.inbox.show');
-    Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])->name('admin.inbox.destroy');
-});
-
-
+    Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])->name('admin.inbox.destroy');});
 
 require __DIR__ . '/auth.php';

@@ -139,7 +139,7 @@
 
 
                         <h2 id="question-title-81614" class="mt-4 text-base font-medium text-white">
-                            {{ $post->title }} {{ count($post->images) }}
+                            {{ $post->title }}
 
 
                         </h2>

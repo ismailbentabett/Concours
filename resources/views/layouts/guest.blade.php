@@ -32,6 +32,7 @@
             </div>
         </div>
         <x-footer />
+        <x-fab />
 
 
     </body>

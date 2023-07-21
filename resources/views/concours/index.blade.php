@@ -99,7 +99,7 @@
                     </div>
 
 
-                     
+
 
                 </div>
             </div>
@@ -303,10 +303,10 @@
                 </div>
             </div>
 
-            <div class="py-12">
-                
+
+                {{-- <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    
+
                     <div
                         class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg flex-col justify-center items-center ">
                         <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl  mt-5">
@@ -316,7 +316,7 @@
                                 quis.
                                 Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
                         </div>
-                        
+
                         <div class="p-6 text-gray-900 dark:text-gray-100 flex justify-center items-center">
                             <nav aria-label="Progress">
                                 <ol role="list" class="overflow-hidden">
@@ -422,5 +422,5 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
 </x-app-layout>

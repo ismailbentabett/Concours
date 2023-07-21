@@ -1,7 +1,7 @@
 <footer class="bg-concgreen-500" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="max-w-md mx-auto pt-12 px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8">
-        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+        {{-- <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 xl:col-span-1">
 
                 <div class="flex space-x-6">
@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> --}}
         <div class="mt-12 border-t border-gray-200 py-8">
             <p class="text-base text-white xl:text-center">
                 &copy; 2023 Councours, Inc. All rights reserved.
