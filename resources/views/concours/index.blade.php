@@ -260,11 +260,11 @@
                 <div class="bg-bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-800 dark:text-gray-100">
                         <div class="bg-concgreen-600">
-                            <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+                            <div class="max-w-7xl mx-auto py-12 px-4  sm:px-6 lg:px-8 lg:py-24">
                                 <div class="space-y-12">
                                     <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                                         <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-                                            Contestants</h2>
+                                            Les Profiles</h2>
                                         <p class="text-xl text-slate-400">Ornare sagittis, suspendisse in hendrerit
                                             quis.
                                             Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
@@ -285,7 +285,7 @@
                                                             alt="1" alt="" />
                                                     @endif
                                                     <div class="space-y-2">
-                                                        <div class="text-lg leading-6 font-medium space-y-1">
+                                                        <div class="text-lg leading-6 font-medium space-y-1 text-center">
                                                             <h3 class="text-white">{{ $user->name }}</h3>
                                                             <p class="text-white">{{ $user->email }}</p>
                                                         </div>
@@ -309,17 +309,15 @@
                     
                     <div
                         class="bg-bg-concgreen-500 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg flex-col justify-center items-center ">
-                        <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl text-center mt-5">
+                        <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl  mt-5">
                             <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-                                Etapes</h2>
+                               Les Etapes</h2>
                             <p class="text-xl text-slate-400">Ornare sagittis, suspendisse in hendrerit
                                 quis.
                                 Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
                         </div>
                         
                         <div class="p-6 text-gray-900 dark:text-gray-100 flex justify-center items-center">
-
-                            <!-- This example requires Tailwind CSS v2.0+ -->
                             <nav aria-label="Progress">
                                 <ol role="list" class="overflow-hidden">
                                     <li class="relative pb-10">
@@ -337,7 +335,7 @@
                                             <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56 mt-5"
                                                 src="{{ URL('image/etapes/1.jpg') }}" alt="">
                                             <span class="ml-4 min-w-0 flex flex-col">
-                                                <span class="text-xs font-semibold tracking-wide uppercase">Etap
+                                                <span class="text-lg font-bold tracking-wide uppercase">Etap
                                                     1</span>
                                                 <span class="text-sm text-text">Vitae sed mi luctus laoreet.</span>
                                             </span>
@@ -361,7 +359,7 @@
                                                 </span>
                                             </span>
                                             <span class="ml-4 min-w-0 flex flex-col">
-                                                <span class="text-xs font-semibold tracking-wide uppercase">Etap
+                                                <span class="text-lg font-semibold tracking-wide uppercase">Etap
                                                     2</span>
                                                 <span class="text-sm text-white">Cursus semper viverra facilisis et
                                                     et some
@@ -388,7 +386,7 @@
                                             <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56 mt-5"
                                                 src="{{ URL('image/etapes/3.jpg') }}" alt="">
                                             <span class="ml-4 min-w-0 flex flex-col">
-                                                <span class="text-xs font-semibold tracking-wide uppercase">Etap
+                                                <span class="text-lg font-semibold tracking-wide uppercase">Etap
                                                     3</span>
                                                 <span class="text-sm text-white">Penatibus eu quis ante.</span>
                                             </span>
@@ -408,7 +406,7 @@
                                                 </span>
                                             </span>
                                             <span class="ml-4 min-w-0 flex flex-col">
-                                                <span class="text-xs font-semibold tracking-wide uppercase">Etap
+                                                <span class="text-lg font-semibold tracking-wide uppercase">Etap
                                                     4</span>
                                                 <span class="text-sm text-white">Penatibus eu quis ante.</span>
                                             </span>

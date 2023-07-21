@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Concours de Mode') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -33,7 +33,7 @@
                                     <div class="flex items-center flex-1 justify-between">
                                         <div class="flex items-center justify-between w-full md:w-auto">
                                             <a href="#">
-                                                <h1 class="font-bold text-xl text-white hover:text-yellow-500">
+                                                <h1 class="font-bold text-4xl text-white hover:text-yellow-500">
                                                     Concours De Mode
                                                 </h1>
                                             </a>
@@ -172,15 +172,15 @@
                                                                 </div>
 
                                                                 <!--
-                                                                      Dropdown menu, show/hide based on menu state.
+                                                                              Dropdown menu, show/hide based on menu state.
 
-                                                                      Entering: "transition ease-out duration-100"
-                                                                        From: "transform opacity-0 scale-95"
-                                                                        To: "transform opacity-100 scale-100"
-                                                                      Leaving: "transition ease-in duration-75"
-                                                                        From: "transform opacity-100 scale-100"
-                                                                        To: "transform opacity-0 scale-95"
-                                                                    -->
+                                                                              Entering: "transition ease-out duration-100"
+                                                                                From: "transform opacity-0 scale-95"
+                                                                                To: "transform opacity-100 scale-100"
+                                                                              Leaving: "transition ease-in duration-75"
+                                                                                From: "transform opacity-100 scale-100"
+                                                                                To: "transform opacity-0 scale-95"
+                                                                            -->
                                                                 <div x-show="open" style="display: none;"
                                                                     @click="open = false"
                                                                     class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-concgreen-500 ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -504,20 +504,22 @@
                                                     fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
                                             </svg>
                                         </div>
-                                        @guest
-                                            <div
-                                                class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
-                                                <h2 class="text-3xl font-extrabold text-white" id="join-heading"> LE
-                                                    CONCOURS </h2>
-                                                <p class="text-lg text-white">Varius facilisi mauris sed sit. Non sed
-                                                    et
-                                                    duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
-                                                    laoreet
-                                                    diam sed lacus, fames.</p>
+
+                                        <div
+                                            class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
+                                            <h2 class="text-3xl font-extrabold text-white" id="join-heading"> LE
+                                                CONCOURS </h2>
+                                            <p class="text-lg text-white">Varius facilisi mauris sed sit. Non sed
+                                                et
+                                                duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
+                                                laoreet
+                                                diam sed lacus, fames.</p>
+                                            @guest
                                                 <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
                                                     href="{{ url('register') }}">INSCRIRE</a>
-                                            </div>
-                                        @endguest
+                                            @endguest
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -708,12 +710,12 @@
                     <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
                         style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }})">
-                        <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+                        <div class="max-w-7xl mx-auto py-12 px-4  sm:px-6 lg:px-8 lg:py-24">
                             <div class="space-y-12">
                                 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                                     <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-                                        Les Concurrents</h2>
-                                    <p class="text-xl text-slate-400">Ornare sagittis, suspendisse in hendrerit quis.
+                                        Les Profiles</h2>
+                                    <p class="text-xl text-white">Ornare sagittis, suspendisse in hendrerit quis.
                                         Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
                                 </div>
                                 <ul role="list"
@@ -733,7 +735,7 @@
                                                         alt="1" alt="" />
                                                 @endif
                                                 <div class="space-y-2">
-                                                    <div class="text-lg leading-6 font-medium space-y-1">
+                                                    <div class="text-lg leading-6 font-medium space-y-1 text-center">
                                                         <h3 class="text-white">{{ $user->name }}</h3>
                                                         <p class="text-bittersweet-600">{{ $user->email }}</p>
                                                     </div>
@@ -895,30 +897,27 @@
                                             <div>
                                                 <x-input-label for="firstName" :value="__('firstName')" />
                                                 <x-text-input id="firstName" class="block mt-1 w-full" type="text"
-                                                    name="firstName" :value="old('firstName')" required autofocus
-                                                    autocomplete="username" />
+                                                    name="firstName" :value="old('firstName')" autocomplete="username" />
                                                 <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
                                             </div>
                                             <div>
                                                 <x-input-label for="lastName" :value="__('lastName')" />
                                                 <x-text-input id="lastName" class="block mt-1 w-full" type="text"
-                                                    name="lastName" :value="old('lastName')" required autofocus
-                                                    autocomplete="username" />
+                                                    name="lastName" :value="old('lastName')" autocomplete="username" />
                                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                             </div>
                                             <div>
                                                 <x-input-label for="email" :value="__('Email')" />
                                                 <x-text-input id="email" class="block mt-1 w-full" type="email"
-                                                    name="email" :value="old('email')" required autofocus
-                                                    autocomplete="email" />
+                                                    name="email" :value="old('email')" autocomplete="email" />
                                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                             </div>
                                             <div>
                                                 <div>
                                                     <x-input-label for="phone" :value="__('phone')" />
                                                     <x-text-input id="phone" class="block mt-1 w-full"
-                                                        type="text" name="phone" :value="old('phone')" required
-                                                        autofocus autocomplete="phone" />
+                                                        type="text" name="phone" :value="old('phone')"
+                                                        autocomplete="phone" />
                                                     <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                                                 </div>
 
@@ -927,8 +926,8 @@
                                                 <div>
                                                     <x-input-label for="subject" :value="__('subject')" />
                                                     <x-text-input id="subject" class="block mt-1 w-full"
-                                                        type="text" name="subject" :value="old('subject')" required
-                                                        autofocus autocomplete="username" />
+                                                        type="text" name="subject" :value="old('subject')"
+                                                        autocomplete="username" />
                                                     <x-input-error :messages="$errors->get('subject')" class="mt-2" />
                                                 </div>
                                             </div>
