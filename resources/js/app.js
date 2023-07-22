@@ -3,6 +3,7 @@ import "./bootstrap";
 import Alpine from "alpinejs";
 
 window.Alpine = Alpine;
+Alpine.start();
 
 var owl = $(".owl-carousel");
 owl.owlCarousel({
@@ -27,7 +28,6 @@ $(".forward").on("click", function () {
     owl.trigger("next.owl.carousel");
 });
 
-Alpine.start();
 (function () {
     const second = 1000,
         minute = second * 60,

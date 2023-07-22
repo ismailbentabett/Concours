@@ -1,10 +1,9 @@
-<nav
-id="navbar"
-
-@class ([
-    'transition ease-linear duration-700 fadeIn 2s ease-in forwards navbar bg-transparent fixed z-50 w-screen' => Request::is('/') || Request::is('accueil'),
-    'navbar bg-concgreen-700 fadeIn 2s ease-in forwards fixed z-50 w-screen' => !Request::is('/') && !Request::is('accueil'),
-]) x-data="{ opennav: false }" @keydown.window.escape="opennav = false">
+<header @class ([
+    'transition ease-linear duration-700 fadeIn 2s ease-in forwards navbar bg-transparent fixed z-50 w-screen' =>
+        Request::is('/') || Request::is('accueil'),
+    'navbar bg-concgreen-700 fadeIn 2s ease-in forwards fixed z-50 w-screen' =>
+        !Request::is('/') && !Request::is('accueil'),
+]) x-data="{ opennav: false }" @keydown.window.escape="opennav = false" id="navbar">
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
             <div class="flex items-center px-2 lg:px-0">
@@ -396,4 +395,4 @@ id="navbar"
 
 
     </nav>
-</nav>
+</header>
