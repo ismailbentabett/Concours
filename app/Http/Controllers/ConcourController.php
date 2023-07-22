@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Concour;
 use App\Models\Role;
+use App\Models\User;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -34,11 +34,10 @@ class ConcourController extends Controller
 
         $concour->save();
 
-        $user = User::find(auth()->user()->id);
+        $user = \App\Models\User::find(auth()->user()->id);
         $user->roles()->attach(Role::where('name', 'candidat')->first()->id);
 
         $user->save();
-
         return redirect()->route('user.concours')->with('success', 'Concour created successfully.');
     }
 
