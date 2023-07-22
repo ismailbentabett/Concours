@@ -135,9 +135,15 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->group(function () {
+
     Route::get('/', function () {
-        return view('dashboard');
+        return redirect('/dashboard/admin');
     })->name('dashboard');
+
+
+    Route::get('/admin', function () {
+        return view('admin.index');
+    })->name('dashboard');;
     Route::get('/admin/categories', [AdminController::class, 'indexCategories'])->name('admin.categories.index');
     Route::get('/admin/categories/create', [AdminController::class,  'createCategory'])->name('admin.categories.create');
     Route::post('/admin/categories', [AdminController::class, 'storeCategory'])->name('admin.categories.store');

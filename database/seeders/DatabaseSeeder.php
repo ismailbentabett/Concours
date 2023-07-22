@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
 
        // Seed roles
        \App\Models\Role::create(['name' => 'admin', 'description' => 'Administrator role']);
-       \App\Models\Role::create(['name' => 'moderator', 'description' => 'Moderator role']);
        \App\Models\Role::create(['name' => 'user', 'description' => 'Regular user role']);
        \App\Models\Role::create(['name' => 'candidat', 'description' => 'Candidate role']);
 
