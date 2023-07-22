@@ -68,7 +68,7 @@ Route::get('/concours', function () {
 });
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     /* dashboard */
     Route::get('/dashboard', function () {
@@ -140,8 +140,8 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    //admin
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+
     Route::get('/admin/categories', [AdminController::class, 'indexCategories'])->name('admin.categories.index');
     Route::get('/admin/categories/create', [AdminController::class,  'createCategory'])->name('admin.categories.create');
     Route::post('/admin/categories', [AdminController::class, 'storeCategory'])->name('admin.categories.store');

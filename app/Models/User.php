@@ -46,7 +46,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
+    public function roles()
+    {
+        return $this
+            ->belongsToMany(Role::class)
+            ->withTimestamps();
+    }
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -56,4 +61,7 @@ class User extends Authenticatable
 {
     return $this->hasMany(Concour::class);
 }
+
+
+
 }

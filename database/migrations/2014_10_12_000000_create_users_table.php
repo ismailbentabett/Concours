@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->unsignedInteger('views')->default(0);
             $table->string('password');
-            $table->enum('role', [
+         /*    $table->enum('role', [
                 'admin', 'moderator', 'user', 'condidate'
-            ])->default('user');
+            ])->default(['user']); */
             $table->rememberToken();
             $table->timestamps();
         });

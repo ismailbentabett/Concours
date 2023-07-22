@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Concour;
+use App\Models\Role;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -34,7 +35,8 @@ class ConcourController extends Controller
         $concour->save();
 
         $user = User::find(auth()->user()->id);
-        $user->role = 'condidate';
+        $user->roles()->attach(Role::where('name', 'candidat')->first()->id);
+
         $user->save();
 
         return redirect()->route('user.concours')->with('success', 'Concour created successfully.');
@@ -101,7 +103,7 @@ class ConcourController extends Controller
         $categories = Category::all();
 
         // Get the authenticated user's ID
-     
+
 
 
         if (Auth::check()) {
@@ -109,13 +111,13 @@ class ConcourController extends Controller
 
             // Retrieve the concours for the authenticated user with the category ID
             $concours = Concour::where('user_id', $userId)->pluck('category_id')->toArray();
-    
+
             // Filter the categories based on the concours
             $categories = $unfilteredcategories->filter(function ($category) use ($concours) {
                 return !in_array($category->id, $concours);
             });
         }
-        
+
         //get tab name
         $tabcategories = $request->input('tabs') ?? 'all';
 
