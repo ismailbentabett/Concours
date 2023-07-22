@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ConcourController;
+use App\Http\Controllers\AdminController;
 use App\Models\Category;
 use App\Models\Concour;
 use Illuminate\Foundation\Auth\User;
@@ -71,9 +72,7 @@ Route::get('/concours', function () {
 Route::middleware(['auth'])->group(function () {
 
     /* dashboard */
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
 
     /* profile */
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -133,15 +132,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/visituser/{id}/concours', [ConcourController::class, 'getUserConcours'])->name('visituser.concours');
     Route::delete('/concour/{concour}', [ConcourController::class, 'destroy'])->name('concour.destroy');
-
-
-
-
-
 });
 
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
-
+Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
     Route::get('/admin/categories', [AdminController::class, 'indexCategories'])->name('admin.categories.index');
     Route::get('/admin/categories/create', [AdminController::class,  'createCategory'])->name('admin.categories.create');
     Route::post('/admin/categories', [AdminController::class, 'storeCategory'])->name('admin.categories.store');
@@ -162,6 +158,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::delete('/admin/concours/{id}', [AdminController::class, 'destroyConcours'])->name('admin.concours.destroy');
     Route::get('/admin/inbox', [MessageController::class, 'index'])->name('admin.inbox.index');
     Route::get('/admin/inbox/{id}', [MessageController::class, 'show'])->name('admin.inbox.show');
-    Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])->name('admin.inbox.destroy');});
+    Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])->name('admin.inbox.destroy');
+});
 
 require __DIR__ . '/auth.php';
