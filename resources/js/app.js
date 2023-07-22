@@ -1,8 +1,32 @@
 import "./bootstrap";
 
+
 import Alpine from "alpinejs";
 
 window.Alpine = Alpine;
+
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:4,
+    loop:true,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:500,
+    autoplayHoverPause:true
+});
+$('.play').on('click',function(){
+    owl.trigger('play.owl.autoplay',[1000])
+})
+$('.stop').on('click',function(){
+    owl.trigger('stop.owl.autoplay')
+})
+$('.backward').on('click',function(){
+    owl.trigger('prev.owl.carousel');
+})
+// Go to the previous item
+$('.forward').on('click',function(){
+    owl.trigger('next.owl.carousel');
+})
 
 Alpine.start();
 (function () {

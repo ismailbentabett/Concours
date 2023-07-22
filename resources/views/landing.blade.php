@@ -172,15 +172,15 @@
                                                                 </div>
 
                                                                 <!--
-                                                                              Dropdown menu, show/hide based on menu state.
+                                                                                      Dropdown menu, show/hide based on menu state.
 
-                                                                              Entering: "transition ease-out duration-100"
-                                                                                From: "transform opacity-0 scale-95"
-                                                                                To: "transform opacity-100 scale-100"
-                                                                              Leaving: "transition ease-in duration-75"
-                                                                                From: "transform opacity-100 scale-100"
-                                                                                To: "transform opacity-0 scale-95"
-                                                                            -->
+                                                                                      Entering: "transition ease-out duration-100"
+                                                                                        From: "transform opacity-0 scale-95"
+                                                                                        To: "transform opacity-100 scale-100"
+                                                                                      Leaving: "transition ease-in duration-75"
+                                                                                        From: "transform opacity-100 scale-100"
+                                                                                        To: "transform opacity-0 scale-95"
+                                                                                    -->
                                                                 <div x-show="open" style="display: none;"
                                                                     @click="open = false"
                                                                     class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-concgreen-500 ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -354,7 +354,7 @@
                         </div>
 
 
-                   {{--      <div class="space-y-8 xl:col-span-1 w-full flex justify-center ">
+                        {{--      <div class="space-y-8 xl:col-span-1 w-full flex justify-center ">
 
                             <div class="flex space-x-6">
                                 <a href="#" class="text-white hover:text-white">
@@ -567,51 +567,41 @@
                         <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
                             <div class="w-full relative flex items-center justify-center">
                                 <button aria-label="slide backward"
-                                    class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
-                                    id="prev">
-                                    <svg class="dark:text-white" width="8" height="14" viewBox="0 0 8 14"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                                <div class=" mx-auto overflow-x-hidden overflow-y-hidden">
-                                    <div id="slider"
-                                        class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
+                                class="backward absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
+                                id="prev">
+                                <svg class="dark:text-white w-7 h-7" width="8" height="14" viewBox="0 0 8 14"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                                <div class="owl-carousel owl-theme mt-5">
 
+                                    <div class="item">
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/1.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
+                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="item">
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/2.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
                                             <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="item">
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/3.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute h-48 w-96 p-6"></div>
-                                        </div>
-                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                            <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
-                                                class="object-cover object-center w-full sm:w-96" />
                                             <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
                                             </div>
                                         </div>
-                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                            <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
-                                                class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                            <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
-                                                class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <div class="item">
                                         <div class="flex flex-shrink-0 relative w-full sm:w-auto">
                                             <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
                                                 class="object-cover object-center w-full sm:w-96" />
@@ -619,16 +609,21 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
                                 </div>
+
                                 <button aria-label="slide forward"
-                                    class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                                    id="next">
-                                    <svg class="dark:text-white" width="8" height="14" viewBox="0 0 8 14"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
+                                class="forward absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                                id="next">
+                                <svg class="dark:text-white w-7 h-7" width="8" height="14" viewBox="0 0 8 14"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
                             </div>
                         </div>
                     </div>
@@ -708,8 +703,7 @@
 
                     {{-- top users --}}
                     <!-- This example requires Tailwind CSS v2.0+ -->
-                    <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
-                   >
+                    <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between ">
                         <div class="max-w-7xl mx-auto py-12 px-4  sm:px-6 lg:px-8 lg:py-24">
                             <div class="space-y-12">
                                 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
@@ -818,7 +812,7 @@
                                                 </defs>
                                             </svg>
                                         </div>
-                    {{--                     <h3 class="text-lg font-medium text-white">Contact information</h3>
+                                        {{--                     <h3 class="text-lg font-medium text-white">Contact information</h3>
                                         <p class="mt-6 text-base text-bittersweet-50 max-w-3xl">Nullam risus blandit ac
                                             aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor
                                             lacus arcu.</p>
@@ -969,6 +963,44 @@
     </main>
     </div>
     <x-fab />
+
+    <style>
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css" />
+    <script>
+
+
+
+
+
+
+        jQuery(document).ready(function($) {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

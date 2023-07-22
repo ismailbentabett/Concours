@@ -19,6 +19,7 @@
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/line-clamp": "^0.4.4",
         "@tailwindcss/typography": "^0.5.9",
-        "flowbite": "^1.7.0"
+        "flowbite": "^1.7.0",
+        "owl.carousel": "^2.3.4"
     }
 }
