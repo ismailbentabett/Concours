@@ -59,7 +59,7 @@
                                                 IT'S NICE TO MEET
                                                 YOU</span>
                                         </h1>
-
+                                        @guest
                                         <div class="mt-10 sm:mt-12">
                                             <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
                                                 <div class="sm:flex">
@@ -69,16 +69,16 @@
                                                             placeholder="Enter your email"
                                                             class="block w-full px-4 py-3 rounded-md border-0 text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">
                                                     </div>
-                                                    @guest
+
                                                         <div class="mt-3 sm:mt-0 sm:ml-3">
                                                             <a href="{{ url('register') }}"
                                                                 class="block w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 text-white font-medium hover:from-bittersweet-600 hover:to-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">INSCRIRE</a>
                                                         </div>
-                                                    @endguest
                                                 </div>
 
                                             </form>
                                         </div>
+                                        @endguest
 
 
 
