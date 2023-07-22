@@ -1,4 +1,10 @@
-<nav class="bg-concgreen-700" x-data="{ opennav: false }" @keydown.window.escape="opennav = false">
+<nav
+id="navbar"
+
+@class ([
+    'transition ease-linear duration-700 fadeIn 2s ease-in forwards navbar bg-transparent fixed z-50 w-screen' => Request::is('/') || Request::is('accueil'),
+    'navbar bg-concgreen-700 fadeIn 2s ease-in forwards fixed z-50 w-screen' => !Request::is('/') && !Request::is('accueil'),
+]) x-data="{ opennav: false }" @keydown.window.escape="opennav = false">
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
             <div class="flex items-center px-2 lg:px-0">
@@ -16,9 +22,9 @@
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ url('') }}" @class([
-                            'bg-concgreen-500 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
+                            ' text-yellow-500 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
                                 Request::is('/') || Request::is('accueil'),
-                            'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
+                            'text-gray-300 hover:bg-gray-700 hover:text-yellow-500  rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
                                 !Request::is('/') && !Request::is('accueil'),
                         ]) aria-current="page">
                             ACCUEIL
@@ -26,9 +32,9 @@
 
 
                         <a href="{{ url('concours') }}" @class([
-                            'bg-concgreen-500 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
+                            ' text-yellow-500 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
                                 Request::is('/concours') || Request::is('concours'),
-                            'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
+                            'text-white hover:bg-gray-700 hover:text-yellow-500  rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
                                 !Request::is('/concours') && !Request::is('concours'),
                         ]) aria-current="page">
                             CONCOURS
@@ -38,22 +44,15 @@
 
 
                             <a href="{{ url('profiles') }}" @class([
-                                'bg-concgreen-500 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
+                                ' text-yellow-500 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
                                     Request::is('/profiles') || Request::is('profiles'),
-                                'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
+                                'text-white hover:bg-gray-700 hover:text-yellow-500  rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
                                     !Request::is('/profiles') && !Request::is('profiles'),
                             ]) aria-current="page">
                                 PROFILES
                             </a>
                         @endauth
-                        <a href="{{ url('') }}" @class([
-                            'bg-concgreen-500 text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
-                                Request::is('/') || Request::is('accueil'),
-                            'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium' =>
-                                !Request::is('/') && !Request::is('accueil'),
-                        ]) aria-current="page">
-                            CONTACT
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -182,7 +181,8 @@
 
 
                                     <!-- Profile dropdown -->
-                                    <div class="flex-shrink-0 relative ml-4" x-data="{ opendrop: false }" @keydown.window.escape="opennav = false">
+                                    <div class="flex-shrink-0 relative ml-4" x-data="{ opendrop: false }"
+                                        @keydown.window.escape="opennav = false">
                                         <div>
                                             <button type="button"
                                                 class="bg-concgreen-600 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
@@ -256,7 +256,7 @@
     <!-- Mobile menu, show/hide based on menu state. -->
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <nav class="lg:hidden" aria-label="Global" id="mobile-menu" x-show="opennav"
+    <nav class="lg:hidden bg-concgreen-500" aria-label="Global" id="mobile-menu" x-show="opennav"
         x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95"
         x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
         x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">

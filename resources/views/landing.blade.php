@@ -716,6 +716,12 @@
 
 
 
+window.onscroll = () => {
+    const nav = document.querySelector("#navbar");
+    if (this.scrollY <= 10) nav.className = "fadeIn 2s ease-in forwards navbar bg-transparent fixed z-50 w-screen"
+    else nav.className = "fadeIn 2s ease-in forwards bg-concgreen-700 navbar  fixed z-50 w-screen";
+};
+
 
 
 

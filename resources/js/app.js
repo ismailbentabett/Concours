@@ -1,32 +1,31 @@
 import "./bootstrap";
 
-
 import Alpine from "alpinejs";
 
 window.Alpine = Alpine;
 
-var owl = $('.owl-carousel');
+var owl = $(".owl-carousel");
 owl.owlCarousel({
-    items:4,
-    loop:true,
-    margin:10,
-    autoplay:true,
-    autoplayTimeout:500,
-    autoplayHoverPause:true
+    items: 4,
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 500,
+    autoplayHoverPause: true,
 });
-$('.play').on('click',function(){
-    owl.trigger('play.owl.autoplay',[1000])
-})
-$('.stop').on('click',function(){
-    owl.trigger('stop.owl.autoplay')
-})
-$('.backward').on('click',function(){
-    owl.trigger('prev.owl.carousel');
-})
+$(".play").on("click", function () {
+    owl.trigger("play.owl.autoplay", [1000]);
+});
+$(".stop").on("click", function () {
+    owl.trigger("stop.owl.autoplay");
+});
+$(".backward").on("click", function () {
+    owl.trigger("prev.owl.carousel");
+});
 // Go to the previous item
-$('.forward').on('click',function(){
-    owl.trigger('next.owl.carousel');
-})
+$(".forward").on("click", function () {
+    owl.trigger("next.owl.carousel");
+});
 
 Alpine.start();
 (function () {
@@ -91,97 +90,88 @@ function goPrev() {
 }
 prev.addEventListener("click", goPrev);
 
-const imageInput = document.getElementById('images');
-const imagePreviewContainer = document.querySelector('.images-preview-div');
+const imageInput = document.getElementById("images");
+const imagePreviewContainer = document.querySelector(".images-preview-div");
 
-imageInput.addEventListener('change', function(event) {
-  const files = event.target.files;
+imageInput.addEventListener("change", function (event) {
+    const files = event.target.files;
 
-  // Clear the existing preview
-  imagePreviewContainer.innerHTML = '';
+    // Clear the existing preview
+    imagePreviewContainer.innerHTML = "";
 
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i];
-    const reader = new FileReader();
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
 
-    reader.onload = function(e) {
-      const imageUrl = e.target.result;
+        reader.onload = function (e) {
+            const imageUrl = e.target.result;
 
-      const imageElement = document.createElement('img');
-      imageElement.src = imageUrl;
-      imageElement.alt = 'Image';
-      imageElement.classList.add('preview-image');
+            const imageElement = document.createElement("img");
+            imageElement.src = imageUrl;
+            imageElement.alt = "Image";
+            imageElement.classList.add("preview-image");
 
-      // Append a delete button for each image
-      const deleteButton = document.createElement('button');
-      deleteButton.innerText = 'Delete';
-      deleteButton.classList.add('delete-image');
-      deleteButton.dataset.index = i;
+            // Append a delete button for each image
+            const deleteButton = document.createElement("button");
+            deleteButton.innerText = "Delete";
+            deleteButton.classList.add("delete-image");
+            deleteButton.dataset.index = i;
 
-      // Attach event listener to delete button
-      deleteButton.addEventListener('click', function() {
-        const index = this.dataset.index;
+            // Attach event listener to delete button
+            deleteButton.addEventListener("click", function () {
+                const index = this.dataset.index;
 
-        // Remove the image element from the preview
-        imagePreviewContainer.removeChild(imagePreviewContainer.childNodes[index]);
+                // Remove the image element from the preview
+                imagePreviewContainer.removeChild(
+                    imagePreviewContainer.childNodes[index]
+                );
 
-        // Remove the corresponding file from the input's file list
-        files.splice(index, 1);
-      });
+                // Remove the corresponding file from the input's file list
+                files.splice(index, 1);
+            });
 
-      // Append the image and delete button to the preview container
-      const imageWrapper = document.createElement('div');
-      imageWrapper.classList.add('image-wrapper');
-      imageWrapper.appendChild(imageElement);
-      imageWrapper.appendChild(deleteButton);
-      imagePreviewContainer.appendChild(imageWrapper);
-    };
+            // Append the image and delete button to the preview container
+            const imageWrapper = document.createElement("div");
+            imageWrapper.classList.add("image-wrapper");
+            imageWrapper.appendChild(imageElement);
+            imageWrapper.appendChild(deleteButton);
+            imagePreviewContainer.appendChild(imageWrapper);
+        };
 
-    reader.readAsDataURL(file);
-  }
+        reader.readAsDataURL(file);
+    }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 let slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+    showSlides((slideIndex += n));
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+    showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
 }
-
-
 
