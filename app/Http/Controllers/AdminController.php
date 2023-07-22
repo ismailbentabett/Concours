@@ -92,7 +92,7 @@ class AdminController extends Controller
     }
     public function listCandidates()
     {
-        $candidates = User::whereHas('role', function ($query) {
+        $candidates = User::whereHas('roles', function ($query) {
             $query->where('name', 'candidate');
         })->paginate(10); // Adjust the pagination limit as per your preference
 
