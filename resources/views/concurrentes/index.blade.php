@@ -184,7 +184,7 @@
                                             <!-- Pagination links -->
                                             <div class=" px-4 py-3  border-t border-gray-200 sm:px-6 mt-10">
 
-                                                {{ $posts->links('pagination::tailwind') }}
+                                                {{ $concours->links('pagination::tailwind') }}
                                                 </div>                                        </section>
                                     </div>
                                 </div>

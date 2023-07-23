@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ConcourController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\LikeController;
 use App\Models\Category;
 use App\Models\Concour;
 use Illuminate\Foundation\Auth\User;
@@ -87,6 +88,9 @@ Route::middleware(['auth'])->group(function () {
 
     /* posts */
     Route::resource('posts', PostController::class);
+    Route::post('/like-post/{id}', [LikeController::class, 'likePost'])->name('like.post');
+    Route::post('/unlike-post/{id}', [LikeController::class, 'unlikePost'])->name('unlike.post');
+
 
     /* concour */
     Route::post('/concour', [ConcourController::class, 'submit'])->name('concour.submit');
@@ -166,7 +170,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->group(function (
     Route::get('/admin/inbox', [MessageController::class, 'index'])->name('admin.inbox.index');
     Route::get('/admin/inbox/{id}', [MessageController::class, 'show'])->name('admin.inbox.show');
     Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])->name('admin.inbox.destroy');
-
 });
 
 require __DIR__ . '/auth.php';

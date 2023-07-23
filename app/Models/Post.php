@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
+use Conner\Likeable\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory , MediaAlly;
+    use HasFactory , MediaAlly , Likeable;
     protected $with = ['images'];
 
 
