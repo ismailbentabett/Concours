@@ -23,6 +23,7 @@ class ConcourController extends Controller
         $concour->profession = $request->input('profession');
         $concour->user_id = auth()->user()->id;
 
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
 
@@ -53,8 +54,11 @@ class ConcourController extends Controller
 
     public function concours(Request $request)
     {
-        $currentUser = Auth::user();
+        //check params for concourId
 
+
+        $currentUser = Auth::user();
+        $data = null;
         $category = $request->input('tabs') ?? 'all';
 
         $cat = Category::where('name', $category)->first() ?? null;
@@ -64,9 +68,21 @@ class ConcourController extends Controller
             : Concour::where('user_id', $currentUser->id)->paginate(10);
 
         $categories = Category::all();
+        if ($request->has('concourId')) {
 
 
-        return view('user.concours', compact('concours', 'categories', 'currentUser'));
+            $concourId = $request->input('concourId');
+
+
+
+            $data = Concour::find($concourId);
+
+
+
+            return view('user.concours', compact('concours', 'categories', 'currentUser', 'data'));
+        } else {
+            return view('user.concours', compact('concours', 'categories', 'currentUser', 'data'));
+        }
     }
     public function getUserConcours(Request $request)
     {
@@ -78,6 +94,7 @@ class ConcourController extends Controller
             return redirect('/user/concours');
         }
         $user = User::find($request->id);
+        $data = null;
 
         $category = $request->input('tabs') ?? 'all';
 
@@ -89,8 +106,21 @@ class ConcourController extends Controller
 
         $categories = Category::all();
 
+        if ($request->has('concourId')) {
 
-        return view('visituser.concours', compact('concours', 'categories', 'user'));
+
+            $concourId = $request->input('concourId');
+
+
+
+            $data = Concour::find($concourId);
+
+
+
+            return view('user.concours', compact('concours', 'categories', 'user', 'data'));
+        } else {
+            return view('visituser.concours', compact('concours', 'categories', 'user'));
+        }
     }
 
 

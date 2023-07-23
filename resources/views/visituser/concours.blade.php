@@ -38,13 +38,14 @@
                                     <div class="flex items-center border-b border-gray-600">
                                         <nav class="-mb-px flex flex-wrap flex-1 space-x-4 xl:space-x-4 text-white"
                                             aria-label="Tabs">
-                                            <a href="{{ route('visituser.concours',['id' => $user->id, 'tabs' => 'all']) }}" aria-current="page"
+                                            <a href="{{ route('visituser.concours', ['id' => $user->id, 'tabs' => 'all']) }}"
+                                                aria-current="page"
                                                 class="whitespace-nowrap px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
                                                     {{ Request::input('tabs') == 'all' ? 'border-b-2 border-bittersweet-500 text-bittersweet-600' : '' }}">
                                                 All
                                             </a>
                                             @foreach ($categories as $category)
-                                                <a href="{{ route('visituser.concours',['id' => $user->id, 'tabs' => $category->name]) }}"
+                                                <a href="{{ route('visituser.concours', ['id' => $user->id, 'tabs' => $category->name]) }}"
                                                     class="whitespace-nowrap px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
                                                         {{ Request::input('tabs') == $category->name ? 'border-b-2 border-bittersweet-500 text-bittersweet-600' : '' }}">
                                                     {{ $category->name }}
@@ -73,10 +74,12 @@
                                             <div
                                                 class="aspect-w-10 aspect-h-6 group block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
                                                 <a class="block w-full h-full"
-                                                    onclick="selectImage({{ $concour->id }}, '{{ $concour->profession }}' , '{{ $concour }}' , '{{$user}}' )">
-                                                    <img id="image-{{ $concour->id }}"  src="{{ asset('storage/' . $concour->image) }}"
-                                                        alt="" alt=""
-                                                        class=" object-cover pointer-events-non pointer-events-none group-hover:opacity-75" >
+                                                    href="{{ request()->fullUrlWithQuery(['concourId' => $concour->id]) }}">
+
+                                                    <img id="image-{{ $concour->id }}"
+                                                        src="{{ asset('storage/' . $concour->image) }}" alt=""
+                                                        alt=""
+                                                        class=" object-cover pointer-events-non pointer-events-none group-hover:opacity-75">
 
                                                     <button type="button" class="absolute inset-0 focus:outline-none">
                                                         <span class="sr-only">View details for {{ $concour->profession }}
@@ -121,143 +124,10 @@
                     </div>
                 </main>
 
-                <!-- Details sidebar -->
-                <aside id="sidebarimg" class="hidden w-96 overflow-y-auto border-l border-gray-600 bg-concgreen-600 p-8 ">
-                    <div class="space-y-6 pb-16">
-                        <div>
-                            <div class="aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg">
-                                <img id="thesidebarimg"
-                                    src="https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80"
-                                    alt="" class="object-cover" />
-                            </div>
-                            <div class="mt-4 flex items-start justify-between">
-                                <div>
-                                    <h2 id="sideimgname" class="text-lg font-medium text-white"><span class="sr-only">Details for
-                                        </span></h2>
-                                </div>
-                                <button type="button"
-                                    class="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-concgreen-600 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
-                                    <!-- Heroicon name: outline/heart -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                    </svg>
-                                    <span class="sr-only">Favorite</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="font-medium text-white">Information</h3>
-                            <dl class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-600">
-                                <div class="flex justify-between py-3 text-sm font-medium">
-                                    <dt class="text-white">Uploaded by</dt>
-                                    <dd id="username" class="text-white"></dd>
-                                </div>
-
-                                <div class="flex justify-between py-3 text-sm font-medium">
-                                    <dt class="text-white">Created</dt>
-                                    <dd id="createdat" class="text-white"></dd>
-
-                                </div>
-
-                                <div class="flex justify-between py-3 text-sm font-medium">
-                                    <dt class="text-white">Last modified</dt>
-                                    <dd id="updatedat" class="text-white"></dd>
-                                </div>
-
-
-                            </dl>
-                        </div>
-                        <div>
-                            <h3 class="font-medium text-white">Description</h3>
-                            <div class="mt-2 flex items-center justify-between">
-                                <p class="text-sm italic text-white">Add a description to this image.</p>
-                                <button type="button"
-                                    class="flex h-8 w-8 items-center justify-center rounded-full bg-concgreen-600 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
-                                    <!-- Heroicon name: solid/pencil -->
-                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                        fill="currentColor" aria-hidden="true">
-                                        <path
-                                            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                                    </svg>
-                                    <span class="sr-only">Add description</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="font-medium text-white">Shared with</h3>
-                            <ul role="list" class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-600">
-                                <li class="flex items-center justify-between py-3">
-                                    <div class="flex items-center">
-                                        @if ($user->avatar)
-                                        <img src="{{ asset('storage/' . $user->avatar) }}"
-                                            class="h-8 w-8 rounded-full" alt="" />
-
-                                        @else
-                                            <img class="h-8 w-8 rounded-full"
-                                             src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
-                                                alt="" />
-                                        @endif
-                                        <p id="sharedwithusername" class="ml-4 text-sm font-medium text-white"></p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
+                @if (request()->has('concourId'))
+                    <x-concour :concour="$data" />
+                @endif
             </div>
         </div>
     </div>
 @endsection
-
-
-<script>
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        const options = {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        };
-        return date.toLocaleDateString(undefined, options);
-    }
-
-    function selectImage(imageId, profession, concour , user) {
-        var createdat = document.getElementById('createdat');
-        var updatedat = document.getElementById('updatedat');
-        var username = document.getElementById('username');
-        var sideimgname = document .getElementById('sideimgname');
-        var sharedwithusername = document .getElementById('sharedwithusername');
-        var parsedconcour = JSON.parse(concour);
-        parseduser = JSON.parse(user);
-        createdat.innerHTML = formatDate(parsedconcour.created_at)
-        updatedat.innerHTML = formatDate(parsedconcour.updated_at)
-        username.innerHTML = parseduser.name
-        sharedwithusername.innerHTML = parseduser.name
-        sideimgname.innerHTML = parsedconcour.profession
-        event.preventDefault();
-
-        // Update the selected image source
-        var selectedImage = document.getElementById(`image-${imageId}`);
-
-
-
-        // Show the sidebar
-        var sidebar = document.getElementById('sidebarimg');
-        var thesidebarimg = document.getElementById('thesidebarimg');
-
-        sidebar.style.display = 'block';
-
-        thesidebarimg.src = selectedImage.src;
-    }
-
-    function deselectImage(event) {
-        event.preventDefault();
-
-
-
-        // Hide the sidebar
-
-    }
-</script>

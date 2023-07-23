@@ -92,8 +92,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/unlike-post/{id}', [LikeController::class, 'unlikePost'])->name('unlike.post');
 
 
+
+
     /* concour */
     Route::post('/concour', [ConcourController::class, 'submit'])->name('concour.submit');
+
+    Route::post('/like-concour/{id}', [LikeController::class, 'likeConcour'])->name('like.concour');
+    Route::post('/unlike-concour/{id}', [LikeController::class, 'unlikeConcour'])->name('unlike.concour');
+
 
 
     /* profiles */

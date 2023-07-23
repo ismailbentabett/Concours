@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Conner\Likeable\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
 
 class Concour extends Model
 {
-    use HasFactory , MediaAlly;
+    use HasFactory, MediaAlly,  Likeable;
 
     public function category()
     {
