@@ -224,14 +224,12 @@
     }
 
     function selectImage(imageId, profession, concour , user) {
-console.log(user)
         var createdat = document.getElementById('createdat');
         var updatedat = document.getElementById('updatedat');
         var username = document.getElementById('username');
         var sideimgname = document .getElementById('sideimgname');
         var sharedwithusername = document .getElementById('sharedwithusername');
         var parsedconcour = JSON.parse(concour);
-        console.log(parsedconcour)
         parseduser = JSON.parse(user);
         createdat.innerHTML = formatDate(parsedconcour.created_at)
         updatedat.innerHTML = formatDate(parsedconcour.updated_at)
