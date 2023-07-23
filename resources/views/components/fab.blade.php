@@ -2,7 +2,9 @@
     <a
     href="{{ url('concours') }}"
     onclick="buttonHandler()" title="Contact Sale"
-        class="fixed z-90 bottom-10 right-8 bg-bittersweet-600 w-16 h-16 rounded-full drop-shadow-xl flex justify-center items-center text-white text-4xl hover:bg-bittersweet-700 hover:drop-shadow-2xl hover:animate-bounce duration-300"><svg
+        class="fixed z-90 bottom-10 right-8 bg-bittersweet-600 w-16 h-16 rounded-full drop-shadow-xl flex justify-center items-center text-white text-4xl hover:bg-bittersweet-700 hover:drop-shadow-2xl hover:animate-bounce duration-300"
+        style="z-index: 2147483647"
+        ><svg
             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"

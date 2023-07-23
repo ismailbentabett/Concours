@@ -139,8 +139,7 @@
                     <main class="mt-16 col-span-9 w-full">
                         <div class="bg-concgreen-700 shadow mt-10">
                             <div class="px-4 sm:px-6 lg:max-w-7xl lg:mx-auto lg:px-8">
-                                <div
-                                    class="py-6 md:flex md:items-center md:justify-between ">
+                                <div class="py-6 md:flex md:items-center md:justify-between ">
                                     <div class="flex-1 min-w-0">
                                         <!-- Profile -->
                                         <div class="flex items-center">
@@ -154,22 +153,25 @@
                                                         alt="">
                                                     <h1
                                                         class="ml-3 text-2xl font-bold leading-7 text-white sm:leading-9 sm:truncate">
-                                                        Good morning, Emilia Birch
+                                                        Good morning, {{ Auth::user()->name }}
                                                     </h1>
                                                 </div>
-                                                <dl class="text-white mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
+                                                <dl
+                                                    class="text-white mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
                                                     <dt class="sr-only">Company</dt>
                                                     <dd
                                                         class="flex items-center text-sm text-white font-medium capitalize sm:mr-6">
                                                         <!-- Heroicon name: solid/office-building -->
-                                                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-white"
-                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                            fill="currentColor" aria-hidden="true">
-                                                            <path fill-rule="evenodd"
-                                                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
-                                                                clip-rule="evenodd" />
+
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor"
+                                                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-white">
+                                                            <path stroke-linecap="round"
+                                                                d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
                                                         </svg>
-                                                        Duke street studio
+
+                                                        {{ Auth::user()->email }}
                                                     </dd>
 
                                                 </dl>
@@ -178,10 +180,10 @@
                                     </div>
                                     <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
 
-                                        <button type="button"
+                                        <a type="button" href="{{ url('/user/concours') }}"
                                             class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
-                                            Send money
-                                        </button>
+                                            View Profile
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -236,10 +238,10 @@
                             </div>
                         </div>
 
-                            <div>
-                                @yield('content')
+                        <div>
+                            @yield('content')
 
-                            </div>
+                        </div>
                     </main>
                 </div>
             </div>
