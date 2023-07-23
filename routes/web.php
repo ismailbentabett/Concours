@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+Route::post('/contact', [MessageController::class, 'store'])->name('contact.store');
 
 /* landing */
 
@@ -107,7 +108,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
     /* Visit User */
     Route::get('/visituser/{id}', function () {
 
@@ -166,6 +166,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->group(function (
     Route::get('/admin/inbox', [MessageController::class, 'index'])->name('admin.inbox.index');
     Route::get('/admin/inbox/{id}', [MessageController::class, 'show'])->name('admin.inbox.show');
     Route::delete('/admin/inbox/{id}', [MessageController::class, 'destroy'])->name('admin.inbox.destroy');
+
 });
 
 require __DIR__ . '/auth.php';

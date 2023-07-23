@@ -7,18 +7,18 @@
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
+            <thead class="bg-concgreen-700">
               <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Name
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Likes
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Status
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Role
                 </th>
                 <th scope="col" class="relative px-6 py-3">
@@ -26,14 +26,14 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                @foreach ($concours as $concour)
+            <tbody class="bg-concgreen-700 divide-y divide-gray-200">
+                @foreach ($posts as $post)
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
-                        @if ($user->avatar)
-                        <img src="{{ asset('storage/' . $concour->image) }}"
+                        @if ($post->$user->avatar)
+                        <img src="{{ asset('storage/' . $post->images[0]) }}"
                             class="h-10 w-10 rounded-full" alt="" />
                     @else
                         <img class="h-10 w-10 rounded-full"
@@ -42,14 +42,12 @@
                     @endif                    </div>
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900">
-                   {{--      {{
-                            $user->name
-                        }} --}}
+               {{
+                $post->title
+               }}
                       </div>
-                      <div class="text-sm text-gray-500">
-                     {{--    {{
-                                $user->email
-                        }} --}}
+                      <div class="text-sm text-white">
+                 {{$post->content}}
                       </div>
                     </div>
                   </div>
@@ -62,7 +60,7 @@
                     Active
                   </span>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
                   User
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -73,6 +71,11 @@
 
               <!-- More people... -->
             </tbody>
+
+            <div class=" px-4 py-3   sm:px-6 mt-10 bg-concgreen-700">
+
+                {{ $posts->links('pagination::tailwind') }}
+                </div>
           </table>
         </div>
       </div>

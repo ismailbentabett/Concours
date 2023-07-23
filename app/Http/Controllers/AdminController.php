@@ -14,7 +14,7 @@ class AdminController extends Controller
     // Show all categories
     public function indexCategories()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(10); // Adjust the pagination limit as per your preference
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -35,6 +35,20 @@ class AdminController extends Controller
         // Create and save the category
         $category = new Category();
         $category->name = $request->input('name');
+        $category->description =  $request->input('description');
+
+        if ($request->hasFile('image')) {
+            $avatar = $request->file('image');
+
+            // Store the file in local storage
+            $path = $avatar->store('categories', 'public');
+
+            // Update the user's profile picture URL
+            $category->image = $path;
+        }
+
+
+
         $category->save();
 
         return redirect()->route('admin.categories.index')
@@ -69,10 +83,18 @@ class AdminController extends Controller
     public function deleteCategory($id)
     {
         $category = Category::findOrFail($id);
+
+        // Find all Concours related to the category and delete them
+        $concours = Concour::where('category_id', $category->id)->get();
+        foreach ($concours as $concour) {
+            $concour->delete();
+        }
+
+        // Delete the category itself
         $category->delete();
 
         return redirect()->route('admin.categories.index')
-            ->with('success', 'Category deleted successfully.');
+            ->with('success', 'Category and related Concours deleted successfully.');
     }
 
     public function indexPosts()
@@ -93,20 +115,10 @@ class AdminController extends Controller
     public function listCandidates()
     {
 
-        //filter users by role
-        //roles and user has many to many relashionship
-        /*
-        Schema::create('role_user', function (Blueprint $table) {
-            $table->id();
-            $table->integer('role_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->timestamps();
-        });
-        */
 
         $users = User::whereHas('roles', function ($query) {
             $query->where('name', '=', 'candidat');
-        })->get();
+        })->paginate(10);
 
         return view('admin.candidates.index', compact('users'));
     }
@@ -116,6 +128,17 @@ class AdminController extends Controller
     {
         $candidate = User::findOrFail($id);
         $candidate->delete();
+
+        //get all concours and posts by user id and delete them
+        $concours = Concour::where('user_id', $id)->get();
+        foreach ($concours as $concour) {
+            $concour->delete();
+        }
+
+        $posts = Post::where('user_id', $id)->get();
+        foreach ($posts as $post) {
+            $post->delete();
+        }
 
         return redirect()->route('admin.candidates.index')
             ->with('success', 'Candidate deleted successfully.');
@@ -159,6 +182,17 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
+
+            $concours = Concour::where('user_id', $id)->get();
+            foreach ($concours as $concour) {
+                $concour->delete();
+            }
+
+            $posts = Post::where('user_id', $id)->get();
+            foreach ($posts as $post) {
+                $post->delete();
+            }
+
 
         return redirect()->route('admin.users.index')
             ->with('success', 'User deleted successfully.');

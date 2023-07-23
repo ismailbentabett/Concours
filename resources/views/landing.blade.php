@@ -60,24 +60,24 @@
                                                 YOU</span>
                                         </h1>
                                         @guest
-                                        <div class="mt-10 sm:mt-12">
-                                            <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
-                                                <div class="sm:flex">
-                                                    <div class="min-w-0 flex-1">
-                                                        <label for="email" class="sr-only">Email address</label>
-                                                        <input id="email" type="email"
-                                                            placeholder="Enter your email"
-                                                            class="block w-full px-4 py-3 rounded-md border-0 text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">
-                                                    </div>
+                                            <div class="mt-10 sm:mt-12">
+                                                <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
+                                                    <div class="sm:flex">
+                                                        <div class="min-w-0 flex-1">
+                                                            <label for="email" class="sr-only">Email address</label>
+                                                            <input id="email" type="email"
+                                                                placeholder="Enter your email"
+                                                                class="block w-full px-4 py-3 rounded-md border-0 text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">
+                                                        </div>
 
                                                         <div class="mt-3 sm:mt-0 sm:ml-3">
                                                             <a href="{{ url('register') }}"
                                                                 class="block w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 text-white font-medium hover:from-bittersweet-600 hover:to-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">INSCRIRE</a>
                                                         </div>
-                                                </div>
+                                                    </div>
 
-                                            </form>
-                                        </div>
+                                                </form>
+                                            </div>
                                         @endguest
 
 
@@ -265,7 +265,7 @@
                     </div>
 
                     <!-- This example requires Tailwind CSS v2.0+ -->
-                   {{--  <div class="bg-concgreen-600 mt-10">
+                    {{--  <div class="bg-concgreen-600 mt-10">
                         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                             <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
                                 <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
@@ -304,14 +304,14 @@
                         <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
                             <div class="w-full relative flex items-center justify-center">
                                 <button aria-label="slide backward"
-                                class="backward absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
-                                id="prev">
-                                <svg class="dark:text-white w-7 h-7" width="8" height="14" viewBox="0 0 8 14"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
+                                    class="backward absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
+                                    id="prev">
+                                    <svg class="dark:text-white w-7 h-7" width="8" height="14"
+                                        viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
                                 <div class="owl-carousel owl-theme mt-5">
 
                                     <div class="item">
@@ -353,14 +353,14 @@
                                 </div>
 
                                 <button aria-label="slide forward"
-                                class="forward absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                                id="next">
-                                <svg class="dark:text-white w-7 h-7" width="8" height="14" viewBox="0 0 8 14"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
+                                    class="forward absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                                    id="next">
+                                    <svg class="dark:text-white w-7 h-7" width="8" height="14"
+                                        viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -624,21 +624,25 @@
                                     <!-- Contact form -->
                                     <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
                                         <h3 class="text-lg font-medium text-white">Send us a message</h3>
-                                        <form class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                                        <form class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                                            action="{{ route('contact.store') }}" method="POST">
+
+                                            @csrf
+
                                             <div>
                                                 <x-input-label for="firstName" :value="__('firstName')" />
                                                 <x-text-input id="firstName" class="block mt-1 w-full" type="text"
-                                                    name="firstName" :value="old('firstName')" autocomplete="username" />
+                                                    name="firstName" :value="old('firstName')" autocomplete="firstName" />
                                                 <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
                                             </div>
                                             <div>
                                                 <x-input-label for="lastName" :value="__('lastName')" />
                                                 <x-text-input id="lastName" class="block mt-1 w-full" type="text"
-                                                    name="lastName" :value="old('lastName')" autocomplete="username" />
-                                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                                    name="lastName" :value="old('lastName')" autocomplete="lastName" />
+                                                <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
                                             </div>
                                             <div>
-                                                <x-input-label for="email" :value="__('Email')" />
+                                                <x-input-label for="email" :value="__('email')" />
                                                 <x-text-input id="email" class="block mt-1 w-full" type="email"
                                                     name="email" :value="old('email')" autocomplete="email" />
                                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -658,7 +662,7 @@
                                                     <x-input-label for="subject" :value="__('subject')" />
                                                     <x-text-input id="subject" class="block mt-1 w-full"
                                                         type="text" name="subject" :value="old('subject')"
-                                                        autocomplete="username" />
+                                                        autocomplete="subject" />
                                                     <x-input-error :messages="$errors->get('subject')" class="mt-2" />
                                                 </div>
                                             </div>
@@ -671,7 +675,7 @@
                                                 </div>
                                                 <div class="mt-1">
                                                     <textarea id="message" name="message" rows="4"
-                                                        class="py-3 px-4 block w-full 1 text-white bg-white focus:ring-bittersweet-500 focus:border-bittersweet-500 border border-gray-300 rounded-md"
+                                                        class="py-3 px-4 block w-full 1 text-black bg-white focus:ring-bittersweet-500 focus:border-bittersweet-500 border border-gray-300 rounded-md"
                                                         aria-describedby="message-max"></textarea>
                                                 </div>
                                             </div>
@@ -713,14 +717,12 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css" />
     <script>
-
-
-
-window.onscroll = () => {
-    const nav = document.querySelector("#navbar");
-    if (this.scrollY <= 10) nav.className = "fadeIn 2s ease-in forwards navbar bg-transparent fixed z-50 w-screen"
-    else nav.className = "fadeIn 2s ease-in forwards bg-concgreen-700 navbar  fixed z-50 w-screen";
-};
+        window.onscroll = () => {
+            const nav = document.querySelector("#navbar");
+            if (this.scrollY <= 10) nav.className =
+                "fadeIn 2s ease-in forwards navbar bg-transparent fixed z-50 w-screen"
+            else nav.className = "fadeIn 2s ease-in forwards bg-concgreen-700 navbar  fixed z-50 w-screen";
+        };
 
 
 

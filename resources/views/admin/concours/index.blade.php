@@ -7,18 +7,18 @@
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
+            <thead class="bg-concgreen-700">
               <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Submittion
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   User
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Likes
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Category
                 </th>
                 <th scope="col" class="relative px-6 py-3">
@@ -26,7 +26,7 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+            <tbody class="bg-concgreen-700 divide-y divide-gray-200">
                 @foreach ($concours as $concour)
 
               <tr>
@@ -42,12 +42,12 @@
                             alt="" />
                     @endif                    </div>
                     <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900">
+                      <div class="text-sm font-medium text-white">
                         {{
                             $concour->profession
                         }}
                       </div>
-                      <div class="text-sm text-gray-500">
+                      <div class="text-sm text-white">
                         <time datetime="2020-12-09T11:43:00">{{ $concour->created_at }}</time>
 
                       </div>
@@ -67,12 +67,12 @@
                                     alt="" />
                             @endif                    </div>
                             <div class="ml-4">
-                              <div class="text-sm font-medium text-gray-900">
+                              <div class="text-sm font-medium text-white">
                                 {{
                                     $concour->user->name
                                 }}
                               </div>
-                              <div class="text-sm text-gray-500">
+                              <div class="text-sm text-white">
                                 {{
                                     $concour->user->email
                                 }}
@@ -85,8 +85,8 @@
                     11K
                   </span>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="text-sm text-gray-500">
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <div class="text-sm text-white">
                         {{
                             $concour->category->name
                         }}
@@ -100,6 +100,10 @@
 
               <!-- More people... -->
             </tbody>
+            <div class=" px-4 py-3   sm:px-6 mt-10 bg-concgreen-700">
+
+                {{ $concours->links('pagination::tailwind') }}
+                </div>
           </table>
         </div>
       </div>

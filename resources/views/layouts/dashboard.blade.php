@@ -34,23 +34,23 @@
             <div class="min-h-full">
 
                 <nav
-                    class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-concgreen-700 dark:border-gray-700">
+                    class="fixed top-0 z-50 w-full bg-concgreen-700 border-b border-gray-200 dark:bg-concgreen-700 dark:border-gray-700">
                     @include('layouts.navigation')
 
                 </nav>
                 <div class="grid grid-cols-12  ">
-<div  class="col-span-2">
+                    <div class="col-span-2">
 
-</div>
+                    </div>
                     <aside id="logo-sidebar"
-                        class=" fixed   top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-concgreen-700 dark:border-gray-700"
+                        class=" fixed   top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-concgreen-700 border-r border-gray-200 sm:translate-x-0 dark:bg-concgreen-700 dark:border-gray-700"
                         aria-label="Sidebar">
-                        <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-concgreen-700">
+                        <div class="h-full px-3 pb-4 overflow-y-auto bg-concgreen-700 dark:bg-concgreen-700">
                             <ul class="space-y-2 font-medium">
                                 <li>
                                     <a href="{{ route('dashboard') }}"
-                                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                             viewBox="0 0 22 21">
                                             <path
@@ -62,9 +62,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.posts.index') }}"
-                                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    <a href="{{ route('admin.inbox.index') }}"
+                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                             viewBox="0 0 20 20">
                                             <path
@@ -77,8 +77,8 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('admin.users.index') }}"
-                                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                             viewBox="0 0 20 18">
                                             <path
@@ -89,8 +89,8 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('admin.concours.index') }}"
-                                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             class="w-6 h-6">
                                             <path fill-rule="evenodd"
@@ -99,13 +99,13 @@
                                         </svg>
 
 
-                                        <span class="flex-1 ml-3 whitespace-nowrap">Concurents</span>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Concours</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('admin.candidates.index') }}"
-                                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             class="w-6 h-6">
                                             <path fill-rule="evenodd"
@@ -114,13 +114,13 @@
                                         </svg>
 
 
-                                        <span class="flex-1 ml-3 whitespace-nowrap">Concours</span>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Concurents</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('admin.categories.index') }}"
-                                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             class="w-6 h-6">
                                             <path fill-rule="evenodd"
@@ -136,12 +136,110 @@
                             </ul>
                         </div>
                     </aside>
-                    <main class=" mt-16 col-span-9 w-full">
+                    <main class="mt-16 col-span-9 w-full">
+                        <div class="bg-concgreen-700 shadow mt-10">
+                            <div class="px-4 sm:px-6 lg:max-w-7xl lg:mx-auto lg:px-8">
+                                <div
+                                    class="py-6 md:flex md:items-center md:justify-between ">
+                                    <div class="flex-1 min-w-0">
+                                        <!-- Profile -->
+                                        <div class="flex items-center">
+                                            <img class="hidden h-16 w-16 rounded-full sm:block"
+                                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                                                alt="">
+                                            <div>
+                                                <div class="flex items-center">
+                                                    <img class="h-16 w-16 rounded-full sm:hidden"
+                                                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                                                        alt="">
+                                                    <h1
+                                                        class="ml-3 text-2xl font-bold leading-7 text-white sm:leading-9 sm:truncate">
+                                                        Good morning, Emilia Birch
+                                                    </h1>
+                                                </div>
+                                                <dl class="text-white mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
+                                                    <dt class="sr-only">Company</dt>
+                                                    <dd
+                                                        class="flex items-center text-sm text-white font-medium capitalize sm:mr-6">
+                                                        <!-- Heroicon name: solid/office-building -->
+                                                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-white"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                            fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                        Duke street studio
+                                                    </dd>
 
-                        <div>
-                            @yield('content')
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
 
+                                        <button type="button"
+                                            class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+                                            Send money
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="mt-8">
+                            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <div class="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                                    <!-- Card -->
+                                    @foreach (range(1, 3) as $item)
+                                        <div class="bg-concgreen-700 overflow-hidden shadow rounded-lg ">
+                                            <div class="p-5">
+                                                <div class="flex items-center">
+                                                    <div class="flex-shrink-0">
+                                                        <!-- Heroicon name: outline/scale -->
+                                                        <svg class="h-6 w-6 text-white"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke="currentColor"
+                                                            aria-hidden="true">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="ml-5 w-0 flex-1">
+                                                        <dl>
+                                                            <dt class="text-sm font-medium text-white truncate">
+                                                                Account balance
+                                                            </dt>
+                                                            <dd>
+                                                                <div class="text-lg font-medium text-white">
+                                                                    $30,659.45
+                                                                </div>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bg-concgreen-700 px-5 py-3 ">
+                                                <div class="text-sm">
+                                                    <a href="#"
+                                                        class="font-medium text-bittersweet-700 hover:text-bittersweet-900">
+                                                        View all
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                    <!-- More items... -->
+                                </div>
+                            </div>
+                        </div>
+
+                            <div>
+                                @yield('content')
+
+                            </div>
                     </main>
                 </div>
             </div>
