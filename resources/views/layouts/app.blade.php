@@ -23,6 +23,10 @@
         @include('layouts.navigation')
 
         <!-- Page Heading -->
+        <header class="">
+            <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
+            </div>
+        </header>
         @if (isset($header))
             <header class="bg-white dark:bg-concgreen-600 shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -32,7 +36,7 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main >
             {{ $slot }}
         </main>
         <x-footer />
