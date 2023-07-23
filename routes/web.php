@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ConcourController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MessageController;
 use App\Models\Category;
 use App\Models\Concour;
 use Illuminate\Foundation\Auth\User;

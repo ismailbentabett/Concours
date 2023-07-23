@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Concour;
 use App\Models\Post;
-use Illuminate\Foundation\Auth\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -92,11 +92,23 @@ class AdminController extends Controller
     }
     public function listCandidates()
     {
-        $candidates = User::whereHas('roles', function ($query) {
-            $query->where('name', 'candidate');
-        })->paginate(10); // Adjust the pagination limit as per your preference
 
-        return view('admin.candidates.index', compact('candidates'));
+        //filter users by role
+        //roles and user has many to many relashionship
+        /*
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->id();
+            $table->integer('role_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->timestamps();
+        });
+        */
+
+        $users = User::whereHas('roles', function ($query) {
+            $query->where('name', '=', 'candidat');
+        })->get();
+
+        return view('admin.candidates.index', compact('users'));
     }
 
     // Delete a candidate
