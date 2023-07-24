@@ -31,10 +31,7 @@
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                     Name
                                 </th>
-                                <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    Submittions
-                                </th>
+
 
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Delete</span>
@@ -57,14 +54,9 @@
                                         <div class="text-sm text-white truncate w-20">
                                             {{ $category->name }}
                                         </div>
-                                        <div class="text-sm text-white truncate w-20">{{ $category->description }}</div>
+                                        <div class="text-sm text-white truncate w-96">{{ $category->description }}</div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            11K
-                                        </span>
-                                    </td>
+
 
                                     <form action="{{ route('admin.categories.delete', $category->id) }}" method="POST">
                                         @csrf

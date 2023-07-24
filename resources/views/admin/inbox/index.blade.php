@@ -56,9 +56,17 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-white truncate w-20">
                                         {{ $message->message }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-3">
-                                        <a href="#" class="text-white hover:text-white">View</a>
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                                    <td class="px-6 py-6 whitespace-nowrap text-right text-sm font-medium flex justify-center items-center space-x-5">
+                                        <form action="{{ route('admin.inbox.destroy', $message->id) }}" method="POST"
+                                            class="text-red-600 hover:text-red-900">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Delete</button>
+                                        </form>
+
+                                        <a href="{{ url('/dashboard/admin/inbox/' . $message->id) }}"
+                                            class="text-cyan-500 hover:text-white">View</a>
+
                                     </td>
                                 </tr>
                             @endforeach
