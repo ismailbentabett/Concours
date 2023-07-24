@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
+            {{ __('Veillez à ce que votre compte utilise un mot de passe long et aléatoire pour rester sécurisé.') }}
         </p>
     </header>
 
@@ -14,25 +14,25 @@
         @method('put')
 
         <div>
-            <x-input-label for="current_password" :value="__('Current Password')" />
+            <x-input-label for="current_password" :value="__('Mot De Passe Actuel')" />
             <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
             <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
         </div>
 
         <div>
-            <x-input-label for="password" :value="__('New Password')" />
+            <x-input-label for="password" :value="__('Nouveau Mot De Passe')" />
             <x-text-input id="password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
             <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
         </div>
 
         <div>
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Confirmer Le Mot De Passe')" />
             <x-text-input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
             <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Enregistrer') }}</x-primary-button>
 
             @if (session('status') === 'password-updated')
                 <p

@@ -72,7 +72,7 @@
                                                         </svg>
 
 
-                                                        <span>Delete</span>
+                                                        <span>Supprimer</span>
                                                     </button>
                                                 </form>
 
@@ -93,7 +93,7 @@
 
 
 
-                                                    <span>Edit</span>
+                                                    <span>Editer</span>
                                                 </a>
 
 

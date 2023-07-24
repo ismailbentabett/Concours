@@ -237,11 +237,11 @@ $admin = $user->isAdmin();
                                             </a>
                                             <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                                                 id="user-menu-item-1"
-                                                href="{{ url('profile') }}">{{ __('Settings') }}</a>
+                                                href="{{ url('profile') }}">{{ __('Paramètres') }}</a>
                                             @if ($admin)
                                                 <a class="block px-4 py-2 text-sm text-white" role="menuitem"
                                                     tabindex="-1" id="user-menu-item-1"
-                                                    href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
+                                                    href="{{ url('dashboard') }}">{{ __('Tableau De bord') }}</a>
                                             @endif
                                             <form method="POST" action="{{ route('logout') }}" class="cursor-pointer">
                                                 @csrf
@@ -251,7 +251,7 @@ $admin = $user->isAdmin();
                                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
 
-                                                    {{ __('Log Out') }}
+                                                    {{ __('Se Déconnecter') }}
                                                 </a>
 
                                             </form>
@@ -353,11 +353,11 @@ $admin = $user->isAdmin();
                             id="user-menu-item-2" href="{{ url('user') }}">{{ __('Profile') }}
                         </a>
                             <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                                id="user-menu-item-1" href="{{ url('profile') }}">{{ __('Settings') }}</a>
+                                id="user-menu-item-1" href="{{ url('profile') }}">{{ __('Paramètres') }}</a>
                         @if ($admin)
 
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                            id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
+                            id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('Tableau De bord') }}</a>
 
                             @endif
 
@@ -369,7 +369,7 @@ $admin = $user->isAdmin();
                                 onclick="event.preventDefault();
             this.closest('form').submit();">
 
-                                {{ __('Log Out') }}
+                                {{ __('Se Déconnecter') }}
                             </a>
 
                         </form>

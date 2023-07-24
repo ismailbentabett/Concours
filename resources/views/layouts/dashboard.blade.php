@@ -248,7 +248,7 @@
 
 
 
-                                        <span class="flex-1 ml-3 whitespace-nowrap">Settings</span>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Paramètres</span>
                                     </a>
                                 </li>
                                 <li>
