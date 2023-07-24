@@ -1,6 +1,17 @@
 @extends('admin.index')
 
 @section('content')
+<header class="">
+    <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
+    </div>
+</header>
+    <header class="bg-white dark:bg-concgreen-700 shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                Categories
+            </h2>
+        </div>
+    </header>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="bg-concgreen-700 shadow sm:rounded-lg mt-5 flex justify-center items-center">

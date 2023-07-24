@@ -72,7 +72,7 @@
 
 
                                             <div
-                                                class="aspect-w-10 aspect-h-6 group block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
+                                                class="aspect-w-10 h-20 group block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
                                                 <a class="block w-full h-full"
                                                     href="{{ request()->fullUrlWithQuery(['concourId' => $concour->id]) }}">
 
