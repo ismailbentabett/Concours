@@ -26,6 +26,21 @@
             $query->where('name', '=', 'candidat');
         })->count();
         $inboxCount = App\Models\Message::count();
+
+        $users = App\Models\User::withCount(['posts', 'concours'])->get();
+
+        foreach ($users as $user) {
+            $user->postslikes = $user->posts->sum(function ($post) {
+                return $post->likes->count();
+            });
+
+            $user->concourslikes = $user->concours->sum(function ($concour) {
+                return $concour->likes->count();
+            });
+
+            $user->save();
+        }
+
     @endphp
     <div class=" min-h-screen bg-gray-100 dark:bg-concgreen-500">
 
@@ -123,7 +138,7 @@
                                         </svg>
                                         <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
                                         <span
-                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">{{$inboxCount}}</span>
+                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">{{ $inboxCount }}</span>
                                     </a>
                                 </li>
                                 <li>
