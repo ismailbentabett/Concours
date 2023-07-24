@@ -36,7 +36,7 @@
         @endif
 
         <!-- Page Content -->
-        <main >
+        <main>
             {{ $slot }}
         </main>
         <x-footer />
