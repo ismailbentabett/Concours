@@ -67,7 +67,7 @@ class PostController extends Controller
     // Edit method for displaying the edit post form
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        return view('post.edit', compact('post'));
     }
 
     // Update method for updating a post in the database
@@ -77,12 +77,25 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
-
+        $post = Post::find($post->id);
         $post->title = $request->title;
         $post->content = $request->content;
+        $post->user_id = auth()->user()->id;
         $post->save();
 
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Store the image in local storage
+                $path = $image->store('posts', 'public');
+
+                $imageModel = new Image();
+                $imageModel->url = $path;
+                $imageModel->post_id = $post->id;
+                $imageModel->save();
+            }
+        }
+
+        return redirect()->route('user.posts')->with('success', 'Post updated successfully.');
     }
 
     // Destroy method for deleting a post
@@ -103,9 +116,9 @@ class PostController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(5);
 
-            $likes = 0;
-            $postslikes = 0;
-            $concourslikes = 0;
+        $likes = 0;
+        $postslikes = 0;
+        $concourslikes = 0;
 
         //add images to each post
         foreach ($posts as $post) {
@@ -122,7 +135,7 @@ class PostController extends Controller
 
         $likes = $postslikes + $concourslikes;
 
-        return view('user.posts', compact('posts', 'user' , 'likes'));
+        return view('user.posts', compact('posts', 'user', 'likes'));
     }
     public function getUserPosts(Request $request)
     {
@@ -139,16 +152,15 @@ class PostController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(5);
 
-            $likes = 0;
-            $postslikes = 0;
-            $concourslikes = 0;
+        $likes = 0;
+        $postslikes = 0;
+        $concourslikes = 0;
 
         //add images to each post
         foreach ($posts as $post) {
             $images = Image::where('post_id', $post->id)->get();
             $post->images = $images;
             $postslikes += $post->likes->count();
-
         }
 
 
@@ -157,6 +169,6 @@ class PostController extends Controller
         }
 
         $likes = $postslikes + $concourslikes;
-        return view('visituser.posts', compact('posts', 'user' , 'likes'));
+        return view('visituser.posts', compact('posts', 'user', 'likes'));
     }
 }

@@ -22,9 +22,9 @@
                                 class="bg-concgreen-600 block w-full border-0 pt-2.5 text-lg font-medium placeholder-white focus:ring-0"
                                 placeholder="name">
                             <label for="description" class="sr-only">Description</label>
-                            <textarea value="{{ $category->description }}" rows="2" name="description" id="description"
+                            <textarea rows="2" name="description" id="description"
                                 class="h-40 bg-concgreen-600 block w-full border-0 py-0 resize-none placeholder-white focus:ring-0 sm:text-sm"
-                                placeholder="Write description..."></textarea>
+                                placeholder="Write description...">{{ $category->description }}</textarea>
 
 
                         </div>
