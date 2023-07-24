@@ -18,7 +18,11 @@
 </head>
 
 <body class="font-sans antialiased">
-
+    @php
+        $usersCount = App\Models\User::count();
+        $postsCount = App\Models\Post::count();
+        $concoursCount = App\Models\Concour::count();
+    @endphp
     <div class=" min-h-screen bg-gray-100 dark:bg-concgreen-500">
 
 
@@ -43,7 +47,7 @@
                     <div class="col-span-2">
 
                     </div>
-{{--                     <aside id="logo-sidebar"
+                    {{--                     <aside id="logo-sidebar"
                         class=" fixed   top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-concgreen-700 border-r border-gray-200 sm:translate-x-0 dark:bg-concgreen-700 dark:border-gray-700"
                         aria-label="Sidebar">
                         <div class="h-full px-3 pb-4 overflow-y-auto bg-concgreen-700 dark:bg-concgreen-700">
@@ -54,41 +58,43 @@
                     </aside> --}}
 
 
-<!-- drawer init and show -->
+                    <!-- drawer init and show -->
 
 
- <!-- drawer component -->
- <div id="drawer-navigation" class="fixed z-50 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-concgreen-700" tabindex="-1" aria-labelledby="drawer-navigation-label">
-    <div class="relative z-10 px-2 flex lg:px-0">
-        <div class="flex-shrink-0 flex items-center">
-            <div class="text-center">
+                    <!-- drawer component -->
+                    <div id="drawer-navigation"
+                        class="fixed z-50 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-concgreen-700"
+                        tabindex="-1" aria-labelledby="drawer-navigation-label">
+                        <div class="relative z-10 px-2 flex lg:px-0">
+                            <div class="flex-shrink-0 flex items-center">
+                                <div class="text-center">
 
-                <button data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
-                    class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                    aria-controls="dashboard-menu" aria-expanded="false">
-                    <span class="sr-only">Open dashboard menu</span>
+                                    <button data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
+                                        class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                                        aria-controls="dashboard-menu" aria-expanded="false">
+                                        <span class="sr-only">Open dashboard menu</span>
 
 
 
-                    <svg  class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
 
-                </button>
-            </div>
-            <a href="{{ url('/') }}">
-                <h1 class="font-bold text-xl text-white hover:text-yellow-500">
-                    Concours De Mode
-                </h1>
-            </a>
+                                    </button>
+                                </div>
+                                <a href="{{ url('/') }}">
+                                    <h1 class="font-bold text-xl text-white hover:text-yellow-500">
+                                        Concours De Mode
+                                    </h1>
+                                </a>
 
-        </div>
-    </div>
-   <div class="py-4 overflow-y-auto">
-       <ul class="space-y-2 font-medium">
-          <li>
+                            </div>
+                        </div>
+                        <div class="py-4 overflow-y-auto">
+                            <ul class="space-y-2 font-medium">
+                                <li>
                                     <a href="{{ route('dashboard') }}"
                                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
@@ -162,18 +168,21 @@
                                     <a href="{{ route('admin.categories.index') }}"
                                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                            <path fill-rule="evenodd" d="M5.25 2.25a3 3 0 00-3 3v4.318a3 3 0 00.879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 005.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 00-2.122-.879H5.25zM6.375 7.5a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" clip-rule="evenodd" />
-                                          </svg>
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-6 h-6">
+                                            <path fill-rule="evenodd"
+                                                d="M5.25 2.25a3 3 0 00-3 3v4.318a3 3 0 00.879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 005.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 00-2.122-.879H5.25zM6.375 7.5a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z"
+                                                clip-rule="evenodd" />
+                                        </svg>
 
 
 
                                         <span class="flex-1 ml-3 whitespace-nowrap">Categories</span>
                                     </a>
                                 </li>
-       </ul>
-    </div>
- </div>
+                            </ul>
+                        </div>
+                    </div>
 
                     <main class="mt-16 col-span-9 w-full">
                         <div class="bg-concgreen-700 shadow mt-10">
@@ -232,43 +241,111 @@
                             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                                 <div class="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                                     <!-- Card -->
-                                    @foreach (range(1, 3) as $item)
-                                        <div class="bg-concgreen-700 overflow-hidden shadow rounded-lg ">
-                                            <div class="p-5">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0">
-                                                        <!-- Heroicon name: outline/scale -->
-                                                        <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
-                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                        viewBox="0 0 20 18">
+                                    <div class="bg-concgreen-700 overflow-hidden shadow rounded-lg ">
+                                        <div class="p-5">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0">
+                                                    <!-- Heroicon name: outline/scale -->
+                                                    <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="currentColor" viewBox="0 0 20 18">
                                                         <path
                                                             d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
                                                     </svg>
-                                                    </div>
-                                                    <div class="ml-5 w-0 flex-1">
-                                                        <dl>
-                                                            <dt class="text-sm font-medium text-white truncate">
-                                                                Users
-                                                            </dt>
-                                                            <dd>
-                                                                <div class="text-lg font-medium text-white">
-                                                                    11k
-                                                                </div>
-                                                            </dd>
-                                                        </dl>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="bg-concgreen-700 px-5 py-3 ">
-                                                <div class="text-sm">
-                                                    <a href="#"
-                                                        class="font-medium text-bittersweet-700 hover:text-bittersweet-900">
-                                                        View all
-                                                    </a>
+                                                <div class="ml-5 w-0 flex-1">
+                                                    <dl>
+                                                        <dt class="text-sm font-medium text-white truncate">
+                                                            Users
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="text-lg font-medium text-white">
+                                                                {{ $usersCount }}
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                        <div class="bg-concgreen-700 px-5 py-3 ">
+                                            <div class="text-sm">
+                                                <a href="{{ route('admin.users.index') }}"
+                                                    class="font-medium text-bittersweet-700 hover:text-bittersweet-900">
+                                                    View all
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-concgreen-700 overflow-hidden shadow rounded-lg ">
+                                        <div class="p-5">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0">
+                                                    <!-- Heroicon name: outline/scale -->
+                                                    <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="currentColor" viewBox="0 0 20 18">
+                                                        <path
+                                                            d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="ml-5 w-0 flex-1">
+                                                    <dl>
+                                                        <dt class="text-sm font-medium text-white truncate">
+                                                            Posts
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="text-lg font-medium text-white">
+                                                                {{ $postsCount }}
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-concgreen-700 px-5 py-3 ">
+                                            <div class="text-sm">
+                                                <a href="{{ route('admin.posts.index') }}"
+                                                    class="font-medium text-bittersweet-700 hover:text-bittersweet-900">
+                                                    View all
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-concgreen-700 overflow-hidden shadow rounded-lg ">
+                                        <div class="p-5">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0">
+                                                    <!-- Heroicon name: outline/scale -->
+                                                    <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="currentColor" viewBox="0 0 20 18">
+                                                        <path
+                                                            d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="ml-5 w-0 flex-1">
+                                                    <dl>
+                                                        <dt class="text-sm font-medium text-white truncate">
+                                                            Concours
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="text-lg font-medium text-white">
+                                                                {{ $concoursCount }}
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-concgreen-700 px-5 py-3 ">
+                                            <div class="text-sm">
+                                                <a href="{{ route('admin.concours.index') }}"
+                                                    class="font-medium text-bittersweet-700 hover:text-bittersweet-900">
+                                                    View all
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <!-- More items... -->
                                 </div>

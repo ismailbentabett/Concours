@@ -7,13 +7,10 @@
         <div class="px-4 py-5 sm:p-6">
 
             <div class="mt-5 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
-                <a type="button"
-                href="{{
-                        url('/dashboard/admin/categories/create')
-                }}"
+                <a type="button" href="{{ url('/dashboard/admin/categories/create') }}"
                     class="inline-flex items-center px-20 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-bittersweet-700 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-700 sm:text-sm">
                     Add Category
-            </a>
+                </a>
             </div>
         </div>
     </div>
@@ -40,7 +37,7 @@
                                 </th>
 
                                 <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Edit</span>
+                                    <span class="sr-only">Delete</span>
                                 </th>
                             </tr>
                         </thead>
@@ -51,7 +48,7 @@
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
                                                 <img class="h-10 w-10 rounded-full"
-                                                src="{{ asset('storage/' . $category->image) }}"                                                    alt="">
+                                                    src="{{ asset('storage/' . $category->image) }}" alt="">
                                             </div>
 
                                         </div>
@@ -69,9 +66,16 @@
                                         </span>
                                     </td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-                                    </td>
+                                    <form action="{{ route('admin.categories.delete', $category->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <button
+                                            type="submit"
+                                            class="text-red-600 hover:text-red-900">Delete</button>
+                                        </td>
+                                    </form>
                                 </tr>
 
                                 <!-- More people... -->
