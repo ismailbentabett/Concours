@@ -169,7 +169,7 @@
                                                                         </svg>
                                                                         <span
                                                                             class="mt-2 block text-sm font-medium text-white">
-                                                                            No Users In This Category
+                                                                            Aucun utilisateur dans cette catégorie
                                                                         </span>
                                                                     </a>
                                                                 @endif
