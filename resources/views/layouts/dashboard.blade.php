@@ -22,6 +22,10 @@
         $usersCount = App\Models\User::count();
         $postsCount = App\Models\Post::count();
         $concoursCount = App\Models\Concour::count();
+        $candidatesCount = App\Models\User::whereHas('roles', function ($query) {
+            $query->where('name', '=', 'candidat');
+        })->count();
+        $inboxCount = App\Models\Message::count();
     @endphp
     <div class=" min-h-screen bg-gray-100 dark:bg-concgreen-500">
 
@@ -119,7 +123,7 @@
                                         </svg>
                                         <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
                                         <span
-                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">{{$inboxCount}}</span>
                                     </a>
                                 </li>
                                 <li>
@@ -191,30 +195,54 @@
                                     <div class="flex-1 min-w-0">
                                         <!-- Profile -->
                                         <div class="flex items-center">
-                                            <img class="hidden h-16 w-16 rounded-full sm:block"
-                                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
-                                                alt="">
+                                            <form class="" id="profileForm"
+                                                action="{{ route('user.upload') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="flex justify-center flex-shrink-0">
+                                                    <div class="relative w-20 overflow-hidden rounded-full lg:block">
+                                                        @if (Auth::user()->avatar)
+                                                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                                                class="relative h-20 w-20 rounded-full"
+                                                                alt="" />
+                                                        @else
+                                                            <img class="relative h-20 w-20 rounded-full"
+                                                                src="{{ URL('image/profileplaceholder.jpg') }}"
+                                                                alt="1" alt="" />
+                                                        @endif
+
+                                                        <label for="avatar"
+                                                            class="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75 text-sm font-medium text-white opacity-0 focus-within:opacity-100 hover:opacity-100">
+                                                            <span>Change</span>
+                                                            <span class="sr-only">user photo</span>
+                                                            <input type="file" name="avatar" id="avatar"
+                                                                onchange="form.submit()"
+                                                                class="absolute inset-0 h-full w-full cursor-pointer rounded-md border-gray-300 opacity-0" />
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" style="display: none;"></button>
+
+                                            </form>
                                             <div>
                                                 <div class="flex items-center">
-                                                    <img class="h-16 w-16 rounded-full sm:hidden"
-                                                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
-                                                        alt="">
+
                                                     <h1
                                                         class="ml-3 text-2xl font-bold leading-7 text-white sm:leading-9 sm:truncate">
                                                         Good morning, {{ Auth::user()->name }}
                                                     </h1>
                                                 </div>
                                                 <dl
-                                                    class="text-white mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
+                                                    class="text-white mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row break-all	flex-wrap">
                                                     <dt class="sr-only">Company</dt>
                                                     <dd
-                                                        class="flex items-center text-sm text-white font-medium capitalize sm:mr-6">
+                                                        class="flex items-center flex-wrap text-sm text-white font-medium capitalize sm:mr-6">
                                                         <!-- Heroicon name: solid/office-building -->
 
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5"
                                                             stroke="currentColor"
-                                                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-white">
+                                                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-white hidden md:block">
                                                             <path stroke-linecap="round"
                                                                 d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
                                                         </svg>
@@ -239,7 +267,7 @@
 
                         <div class="mt-8">
                             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                                <div class="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                                <div class="mt-2 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
                                     <!-- Card -->
                                     <div class="bg-concgreen-700 overflow-hidden shadow rounded-lg ">
                                         <div class="p-5">
@@ -291,6 +319,43 @@
                                                 <div class="ml-5 w-0 flex-1">
                                                     <dl>
                                                         <dt class="text-sm font-medium text-white truncate">
+                                                            Candidats
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="text-lg font-medium text-white">
+                                                                {{ $candidatesCount }}
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-concgreen-700 px-5 py-3 ">
+                                            <div class="text-sm">
+                                                <a href="{{ route('admin.candidates.index') }}"
+                                                    class="font-medium text-bittersweet-700 hover:text-bittersweet-900">
+                                                    View all
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-concgreen-700 overflow-hidden shadow rounded-lg ">
+                                        <div class="p-5">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0">
+                                                    <!-- Heroicon name: outline/scale -->
+                                                    <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                                                    </svg>
+
+                                                </div>
+                                                <div class="ml-5 w-0 flex-1">
+                                                    <dl>
+                                                        <dt class="text-sm font-medium text-white truncate">
                                                             Posts
                                                         </dt>
                                                         <dd>
@@ -316,11 +381,12 @@
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0">
                                                     <!-- Heroicon name: outline/scale -->
-                                                    <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
-                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                        fill="currentColor" viewBox="0 0 20 18">
-                                                        <path
-                                                            d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                                                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                        fill="currentColor" class="w-6 h-6">
+                                                        <path fill-rule="evenodd"
+                                                            d="M1.5 5.625c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v12.75c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 18.375V5.625zm1.5 0v1.5c0 .207.168.375.375.375h1.5a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-1.5A.375.375 0 003 5.625zm16.125-.375a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5A.375.375 0 0021 7.125v-1.5a.375.375 0 00-.375-.375h-1.5zM21 9.375A.375.375 0 0020.625 9h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5a.375.375 0 00.375-.375v-1.5zm0 3.75a.375.375 0 00-.375-.375h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5a.375.375 0 00.375-.375v-1.5zm0 3.75a.375.375 0 00-.375-.375h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5a.375.375 0 00.375-.375v-1.5zM4.875 18.75a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5zM3.375 15h1.5a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375zm0-3.75h1.5a.375.375 0 00.375-.375v-1.5A.375.375 0 004.875 9h-1.5A.375.375 0 003 9.375v1.5c0 .207.168.375.375.375zm4.125 0a.75.75 0 000 1.5h9a.75.75 0 000-1.5h-9z"
+                                                            clip-rule="evenodd" />
                                                     </svg>
                                                 </div>
                                                 <div class="ml-5 w-0 flex-1">

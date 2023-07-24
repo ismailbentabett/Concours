@@ -31,6 +31,10 @@
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                     Name
                                 </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+
+                                </th>
 
 
                                 <th scope="col" class="relative px-6 py-3">
@@ -58,11 +62,19 @@
                                     </td>
 
 
-                                    <form action="{{ route('admin.categories.delete', $category->id) }}" method="POST">
+                                        <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a
+                                            href="{{ route('admin.categories.edit', $category->id) }}"
+                                            type="submit"
+                                            class="text-cyan-600 hover:text-red-900">Edit</a>
+                                        </td>
+
+
+                             <form action="{{ route('admin.categories.delete', $category->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <button
                                             type="submit"
                                             class="text-red-600 hover:text-red-900">Delete</button>

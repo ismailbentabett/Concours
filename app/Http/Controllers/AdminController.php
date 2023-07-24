@@ -24,6 +24,8 @@ class AdminController extends Controller
         return view('admin.categories.create');
     }
 
+
+
     // Store the newly created category
     public function storeCategory(Request $request)
     {
@@ -73,6 +75,20 @@ class AdminController extends Controller
         // Find the category and update it
         $category = Category::findOrFail($id);
         $category->name = $request->input('name');
+        $category->description =  $request->input('description');
+
+        if ($request->hasFile('image')) {
+            $avatar = $request->file('image');
+
+            // Store the file in local storage
+            $path = $avatar->store('categories', 'public');
+
+            // Update the user's profile picture URL
+            $category->image = $path;
+        }
+
+
+
         $category->save();
 
         return redirect()->route('admin.categories.index')
