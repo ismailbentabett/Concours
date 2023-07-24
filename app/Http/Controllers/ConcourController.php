@@ -133,8 +133,9 @@ class ConcourController extends Controller
         $concourslikes = 0;
 
 
+
     //add images to each post
-    foreach ($posts as $post) {
+    foreach ($user->posts as $post) {
 
         $postslikes += $post->likes->count();
     }
@@ -142,6 +143,8 @@ class ConcourController extends Controller
     foreach ($user->concours as $concour) {
         $concourslikes += $concour->likes->count();
     }
+
+    $likes = $postslikes + $concourslikes;
 
 
         if ($request->has('concourId')) {

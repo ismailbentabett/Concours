@@ -46,6 +46,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    protected $postslikes; // Add this line
+
+    protected $concourslikes; // Add this line
     public function roles()
     {
         return $this

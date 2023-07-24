@@ -9,7 +9,7 @@ use App\Http\Controllers\LikeController;
 use App\Models\Category;
 use App\Models\Concour;
 use App\Models\Post;
-use Illuminate\Foundation\Auth\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,37 +37,28 @@ Route::post('/contact', [MessageController::class, 'store'])->name('contact.stor
 Route::get('/', function () {
     $categories = Category::take(6)->get();
 
-    $users = User::all();
-
-    //give me the top 6 users with the most posts and concours likes
-
-    $posts = Post::all();
-    $concours = Concour::all();
+    $users = User::withCount(['posts', 'concours'])->get();
 
     foreach ($users as $user) {
-        $user->postslikes = 0;
-        $user->concourslikes = 0;
-        foreach ($posts as $post) {
-            if ($post->user_id == $user->id) {
-                $user->postslikes += $post->likes->count();
-            }
-        }
-        foreach ($concours as $concour) {
-            if ($concour->user_id == $user->id) {
-                $user->concourslikes += $concour->likes->count();
-            }
-        }
+        $user->postslikes =  $user->posts->sum(function ($post) {
+            return $post->likes->count();
+        });
+
+        $user->concourslikes =  $user->concours->sum(function ($concour) {
+            return $concour->likes->count();
+        });
+
+        $user->save();
     }
 
-
-    //order users by the sum of their posts and concours likes
+    // Order users by the sum of their posts and concours likes
     $users = $users->sortByDesc(function ($user) {
         return $user->postslikes + $user->concourslikes;
     })->take(6);
 
-
     return view('landing', compact('categories', 'users'));
 });
+
 
 Route::get('/concours/filter', [ConcourController::class, 'filter'])->name('concours.filter');
 
