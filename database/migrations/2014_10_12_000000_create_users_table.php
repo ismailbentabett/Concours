@@ -18,10 +18,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('avatar')->nullable();
             $table->unsignedInteger('views')->default(0);
+            $table->unsignedInteger('postslikes')->default(0);
+            $table->unsignedInteger('concourslikes')->default(0);
+
             $table->string('password');
-         /*    $table->enum('role', [
-                'admin', 'moderator', 'user', 'condidate'
-            ])->default(['user']); */
+
             $table->rememberToken();
             $table->timestamps();
         });
