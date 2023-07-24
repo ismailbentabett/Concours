@@ -34,7 +34,7 @@ Route::post('/contact', [MessageController::class, 'store'])->name('contact.stor
 /* landing */
 
 Route::get('/', function () {
-    $categories = Category::all();
+    $categories = Category::take(6)->get();
 
     $users = User::orderBy('views', 'desc')->take(6)->get();
     return view('landing', compact('categories', 'users'));
@@ -48,7 +48,7 @@ Route::get('/concours', function () {
 
     $unfilteredcategories = Category::all();
 
-    $categories = Category::all();
+    $categories = Category::take(6)->get();
     // Get the authenticated user's ID
 
     if (Auth::check()) {

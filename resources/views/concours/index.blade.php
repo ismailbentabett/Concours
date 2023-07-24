@@ -136,7 +136,7 @@
                                               <div class="space-y-4 sm:grid sm:grid-cols-4 sm:items-start sm:gap-6 sm:space-y-0">
                                                 <div class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4 sm:col-span-2">
                                                   <img class="object-cover shadow-lg rounded-lg"
-                                                  src="{{ asset('image/categories/' . $category->name . '.jpg') }}" alt="1"
+                                                  src="{{ asset('storage/' . $category->image) }}" alt="1"
                                                       alt="">
                                                 </div>
                                                 <div class="sm:col-span-2">
@@ -145,7 +145,10 @@
                                                       <h3>{{$category->name}}</h3>
                                                     </div>
                                                     <div class="text-lg">
-                                                      <p class="text-white">Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.</p>
+                                                      <p class="text-white">{{
+                                                        $category->description
+                                                      }}
+                                                      </p>
                                                     </div>
 
                                                   </div>
