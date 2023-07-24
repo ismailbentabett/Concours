@@ -388,56 +388,55 @@
 
                     {{-- categories --}}
                     <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
+                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/concours.jpg') }})">
+                        <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+                            <div class="space-y-12">
+                                <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+                                    <h2
+                                        class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
+                                        Catégories</h2>
+                                    <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
+                                        vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
+                                </div>
+                                <ul role="list"
+                                    class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
 
-                    style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/concours.jpg') }})">
-                    <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
-                        <div class="space-y-12">
-                            <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-                                <h2
-                                    class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
-                                    Catégories</h2>
-                                <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
-                                    vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
-                            </div>
-                            <ul role="list"
-                                class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+                                    @foreach ($categories as $category)
+                                        <li>
+                                            <div class="space-y-4" data-popover-target="{{ $category->name }}">
+                                                <div class="aspect-w-3 aspect-h-2 hover:scale-125">
+                                                    <a href={{ url('concours') }}>
+                                                        <img class="object-cover 1-lg rounded-lg"
+                                                            src="{{ asset('image/categories/' . $category->name . '.jpg') }}"
+                                                            alt="1" alt="">
+                                                    </a>
 
-                                @foreach ($categories as $category)
-                                    <li>
-                                        <div class="space-y-4" data-popover-target="{{ $category->name }}">
-                                            <div class="aspect-w-3 aspect-h-2 hover:scale-125">
-                                                <a href={{ url('concours') }}>
-                                                    <img class="object-cover 1-lg rounded-lg"
-                                                        src="{{ asset('image/categories/' . $category->name . '.jpg') }}"
-                                                        alt="1" alt="">
-                                                </a>
-
-                                            </div>
-
-                                            <div class="space-y-2">
-                                                <div class="text-lg leading-6 font-medium space-y-1">
-
-                                                    <p class="text-white text-5xl hover:bg-pink-900">{{ $category->name }}</p>
                                                 </div>
 
-                                            </div>
-                                        </div>
-                                    </li>
+                                                <div class="space-y-2">
+                                                    <div class="text-lg leading-6 font-medium space-y-1">
 
-                                @endforeach
-                                <!-- More people... -->
-                            </ul>
+                                                        <p class="text-white text-5xl hover:bg-pink-900">
+                                                            {{ $category->name }}</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                    <!-- More people... -->
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
                     {{-- top users --}}
                     <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
-                    style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/candidates.jpg') }})">
+                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/candidates.jpg') }})">
 
-                    >
+                        >
                         <div class="max-w-7xl mx-auto py-12 px-4  sm:px-6 lg:px-8 lg:py-24">
                             <div class="space-y-12">
                                 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
@@ -671,7 +670,8 @@
                                                 <div class="flex justify-between">
                                                     <label for="message"
                                                         class="block text-sm font-medium text-white">Message</label>
-                                                    <span id="message-max" class="text-sm text-white">Max. 500 caractères</span>
+                                                    <span id="message-max" class="text-sm text-white">Max. 500
+                                                        caractères</span>
                                                 </div>
                                                 <div class="mt-1">
                                                     <textarea id="message" name="message" rows="4"
@@ -749,15 +749,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

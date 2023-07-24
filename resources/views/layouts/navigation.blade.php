@@ -94,7 +94,7 @@ $admin = $user->isAdmin();
             </div>
             <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
                 <div class="max-w-lg w-full lg:max-w-xs">
-                    <label for="search" class="sr-only">Search</label>
+                    <label for="Recherche" class="sr-only">Recherche</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <!-- Heroicon name: solid/search -->
@@ -105,9 +105,9 @@ $admin = $user->isAdmin();
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <input id="search" name="search"
+                        <input id="Recherche" name="Recherche"
                             class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-concgreen-700 text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 sm:text-sm"
-                            placeholder="Search" type="search">
+                            placeholder="Recherche" type="Recherche">
                     </div>
                 </div>
             </div>
@@ -192,7 +192,7 @@ $admin = $user->isAdmin();
                                                 d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        <span>New Post</span>
+                                        <span>Ajouter un poste</span>
                                     </a>
                                 </div>
 
@@ -330,7 +330,7 @@ $admin = $user->isAdmin();
                             d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                             clip-rule="evenodd" />
                     </svg>
-                    <span class="hidden md:block">New Post</span>
+                    <span class="hidden md:block">Ajouter un poste</span>
                 </a>
             </div>
 
