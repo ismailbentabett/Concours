@@ -50,15 +50,26 @@
                                             </a>
                                         @endguest
                                         <h1
-                                            class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                                            <span class="block"> Concours de Mode
+                                            class="mt-4 text-xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                            <span class="block mb-5"> Association Concours de Mode
 
                                             </span>
+
                                             <span
-                                                class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-bittersweet-200 text-white sm:pb-5">
-                                                IT'S NICE TO MEET
-                                                YOU</span>
+                                                class="italic underline decoration-pink-700 decoration-wavy bg-gradient-to-r from-bittersweet-900 text-white">
+                                                le 26 Septembre 2023</span>
                                         </h1>
+                                        <p class="mt-4 text-2xl bg-gradient-to-r from-bittersweet-900 text-white "> Pour
+                                            fêter cet événement qui réunira des créateurs et des passionnés de mode
+                                            venez
+                                            participer au défilé de mode !
+                                            <span class="block my-4 underline underline-offset-5 text-xl"> Les médias
+                                                seront aussi présent pour cet occasion</span>
+                                            Inscription <span
+                                                class="font-bold underline decoration-pink-700 decoration-wavy"> OFFERT
+                                            </span> auprès de l' association
+                                            Concours de Mode
+                                        </p>
                                         @guest
                                             <div class="mt-10 sm:mt-12">
                                                 <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
@@ -187,6 +198,9 @@
 
 
 
+
+
+
                     <!-- Feature section with screenshot -->
                     <div class="relative mt-10">
 
@@ -208,8 +222,8 @@
                                         </div>
                                     </div>
 
-                                    <div
-                                        class="relative bg-concgreen-600 lg:col-start-3 lg:row-start-1 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center">
+                                    <div class="relative bg-concgreen-600 lg:col-start-3 lg:row-start-1 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center"
+                                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }}); background-attachment: fixed; background-size: cover;">
                                         <div class="hidden absolute inset-0 overflow-hidden rounded-3xl lg:block"
                                             aria-hidden="true">
                                             <svg class="absolute bottom-full left-full transform translate-y-1/3 -translate-x-2/3 xl:bottom-auto xl:top-0 xl:translate-y-0"
@@ -243,14 +257,20 @@
                                         </div>
 
                                         <div
-                                            class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
-                                            <h2 class="text-3xl font-extrabold text-white" id="join-heading"> LE
-                                                CONCOURS </h2>
-                                            <p class="text-lg text-white">Varius facilisi mauris sed sit. Non sed
-                                                et
-                                                duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
-                                                laoreet
-                                                diam sed lacus, fames.</p>
+                                            class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-3 lg:col-span-6">
+                                            <h2 class="text-2xl sm:text-8xl font-extrabold text-white uppercase"
+                                                id="join-heading"> le concours</h2>
+                                            <p class="text-xl text-white">Durant 15 jours nous vous proposons d'exposer
+                                                vos modèles au sein du Palais des Arts <br> durant la Foire
+                                                Internationale de Marseille du <span class="font-bold text-2xl">22
+                                                    septembre au 2 octobre 2023</span>
+
+                                                <br>Cet évènement est organisée avec la FoireInternationale de Marseille
+                                                et <br> l 'Association Concours de Mode.
+                                                <span class="block my-2 underline underline-offset-5 text-xl"> Soyez
+                                                    visible et exposer vos plus belles créations ! </span>
+                                                La participation est libre.
+                                            </p>
                                             @guest
                                                 <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
                                                     href="{{ url('register') }}">INSCRIRE</a>
@@ -367,84 +387,62 @@
 
 
                     {{-- categories --}}
-
                     <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
-                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }})">
-                        <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
-                            <div class="space-y-12">
-                                <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-                                    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-                                        Categories</h2>
-                                    <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
-                                        vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
-                                </div>
-                                <ul role="list"
-                                    class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
 
-                                    @foreach ($categories as $category)
-                                        <li>
-                                            <div class="space-y-4" data-popover-target="{{ $category->name }}">
-                                                <div class="aspect-w-3 aspect-h-2">
-                                                    <a href={{ url('concours') }}>
-                                                        <img class="object-cover 1-lg rounded-lg h-52 w-72"
-                                                            src="{{ asset('storage/' . $category->image) }}"
-                                                            alt="1" alt="">
-                                                    </a>
-
-                                                </div>
-
-                                                <div class="space-y-2">
-                                                    <div class="text-lg leading-6 font-medium space-y-1">
-
-                                                        <p class="text-white">{{ $category->name }}</p>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <div data-popover id="{{ $category->name }}" role="tooltip"
-                                            class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 max-w-7xl   dark:text-gray-400 dark:bg-concgreen-600 dark:border-gray-600">
-                                            <div class="grid grid-cols-5">
-                                                <div class="col-span-3 p-3">
-                                                    <div class="space-y-2">
-                                                        <h3 class="font-semibold text-gray-900 dark:text-white">About
-                                                            Italy</h3>
-                                                        <p>Italy is located in the middle of the Mediterranean Sea, in
-                                                            Southern Europe it is also considered part of Western
-                                                            Europe. A unitary parliamentary republic with Rome as its
-                                                            capital and largest city.</p>
-                                                        <a href="#"
-                                                            class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700">Read
-                                                            more <svg class="w-2 h-2 ml-1.5" aria-hidden="true"
-                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                viewBox="0 0 6 10">
-                                                                <path stroke="currentColor" stroke-linecap="round"
-                                                                    stroke-linejoin="round" stroke-width="2"
-                                                                    d="m1 9 4-4-4-4" />
-                                                            </svg></a>
-                                                    </div>
-                                                </div>
-                                                <img src="{{ URL('image/categories.jpg') }}"
-                                                    class="h-full col-span-2" alt="Italy map" />
-                                            </div>
-                                            <div data-popper-arrow></div>
-                                        </div>
-                                    @endforeach
-                                    <!-- More people... -->
-                                </ul>
+                    style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/concours.jpg') }})">
+                    <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+                        <div class="space-y-12">
+                            <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+                                <h2
+                                    class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
+                                    Catégories</h2>
+                                <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
+                                    vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
                             </div>
+                            <ul role="list"
+                                class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+
+                                @foreach ($categories as $category)
+                                    <li>
+                                        <div class="space-y-4" data-popover-target="{{ $category->name }}">
+                                            <div class="aspect-w-3 aspect-h-2 hover:scale-125">
+                                                <a href={{ url('concours') }}>
+                                                    <img class="object-cover 1-lg rounded-lg"
+                                                        src="{{ asset('image/categories/' . $category->name . '.jpg') }}"
+                                                        alt="1" alt="">
+                                                </a>
+
+                                            </div>
+
+                                            <div class="space-y-2">
+                                                <div class="text-lg leading-6 font-medium space-y-1">
+
+                                                    <p class="text-white text-5xl hover:bg-pink-900">{{ $category->name }}</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                @endforeach
+                                <!-- More people... -->
+                            </ul>
                         </div>
                     </div>
-
+                </div>
 
 
                     {{-- top users --}}
                     <!-- This example requires Tailwind CSS v2.0+ -->
-                    <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between ">
+                    <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
+                    style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/candidates.jpg') }})">
+
+                    >
                         <div class="max-w-7xl mx-auto py-12 px-4  sm:px-6 lg:px-8 lg:py-24">
                             <div class="space-y-12">
                                 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-                                    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
+                                    <h2
+                                        class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
                                         Les Profiles</h2>
                                     <p class="text-xl text-white">Ornare sagittis, suspendisse in hendrerit quis.
                                         Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
@@ -487,6 +485,9 @@
                         <div class=" mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
                             <div class="relative bg-concgreen-600500 1-xl">
                                 <h2 class="sr-only">Contact us</h2>
+                                <h2
+                                    class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
+                                    Contactez-nous</h2>
 
                                 <div class="grid grid-cols-1 lg:grid-cols-3">
                                     <!-- Contact information -->
@@ -623,33 +624,33 @@
 
                                     <!-- Contact form -->
                                     <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-                                        <h3 class="text-lg font-medium text-white">Send us a message</h3>
+                                        <h3 class="text-lg font-medium text-white">Envoyez-nous un message</h3>
                                         <form class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
                                             action="{{ route('contact.store') }}" method="POST">
 
                                             @csrf
 
                                             <div>
-                                                <x-input-label for="firstName" :value="__('firstName')" />
+                                                <x-input-label for="firstName" :value="__('Prénom')" />
                                                 <x-text-input id="firstName" class="block mt-1 w-full" type="text"
                                                     name="firstName" :value="old('firstName')" autocomplete="firstName" />
                                                 <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
                                             </div>
                                             <div>
-                                                <x-input-label for="lastName" :value="__('lastName')" />
+                                                <x-input-label for="lastName" :value="__('Nom')" />
                                                 <x-text-input id="lastName" class="block mt-1 w-full" type="text"
                                                     name="lastName" :value="old('lastName')" autocomplete="lastName" />
                                                 <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
                                             </div>
                                             <div>
-                                                <x-input-label for="email" :value="__('email')" />
+                                                <x-input-label for="email" :value="__('Email')" />
                                                 <x-text-input id="email" class="block mt-1 w-full" type="email"
                                                     name="email" :value="old('email')" autocomplete="email" />
                                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                             </div>
                                             <div>
                                                 <div>
-                                                    <x-input-label for="phone" :value="__('phone')" />
+                                                    <x-input-label for="phone" :value="__('Téléphone')" />
                                                     <x-text-input id="phone" class="block mt-1 w-full"
                                                         type="text" name="phone" :value="old('phone')"
                                                         autocomplete="phone" />
@@ -659,7 +660,7 @@
                                             </div>
                                             <div class="sm:col-span-2">
                                                 <div>
-                                                    <x-input-label for="subject" :value="__('subject')" />
+                                                    <x-input-label for="subject" :value="__('Sujet')" />
                                                     <x-text-input id="subject" class="block mt-1 w-full"
                                                         type="text" name="subject" :value="old('subject')"
                                                         autocomplete="subject" />
@@ -670,8 +671,7 @@
                                                 <div class="flex justify-between">
                                                     <label for="message"
                                                         class="block text-sm font-medium text-white">Message</label>
-                                                    <span id="message-max" class="text-sm text-white">Max. 500
-                                                        characters</span>
+                                                    <span id="message-max" class="text-sm text-white">Max. 500 caractères</span>
                                                 </div>
                                                 <div class="mt-1">
                                                     <textarea id="message" name="message" rows="4"
@@ -682,7 +682,7 @@
                                             <div class="sm:col-span-2 sm:flex sm:justify-end">
                                                 <button type="submit"
                                                     class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md 1 text-base font-medium text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500 sm:w-auto">
-                                                    Submit
+                                                    Envoyer
                                                 </button>
                                             </div>
                                         </form>
@@ -749,3 +749,15 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
