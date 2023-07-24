@@ -8,7 +8,35 @@
         <div class="relative flex items-center justify-between h-16">
             <div class="flex items-center px-2 lg:px-0">
                 <div class="relative z-10 px-2 flex lg:px-0">
+
                     <div class="flex-shrink-0 flex items-center">
+                        <div @class([
+                            'block' => str_contains(request()->path(), 'dashboard'),
+                            'hidden' => !str_contains(request()->path(), 'dashboard'),
+                        ])>
+
+
+                            <button data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+                                aria-controls="drawer-navigation"
+                                class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                                aria-controls="dashboard-menu" aria-expanded="false">
+                                <span class="sr-only">Open dashboard menu</span>
+
+
+
+                                <svg x-show="!opennav" class=" block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+
+                                {{--   <svg x-show="opennav" class="lg:hidden block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg> --}}
+                            </button>
+                        </div>
                         <a href="{{ url('/') }}">
                             <h1 class="font-bold text-xl text-white hover:text-yellow-500">
                                 Concours De Mode
@@ -80,29 +108,16 @@
                     class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open menu</span>
-                    <!--
-          Icon when menu is closed.
-
-          Heroicon name: outline/menu
-
-          Menu open: "hidden", Menu closed: "block"
-        -->
 
 
 
-                    <svg x-show="!opennav" class="md:hidden block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                    <svg x-show="!opennav" class="lg:hidden block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    <!--
-          Icon when menu is open.
 
-          Heroicon name: outline/x
-
-          Menu open: "block", Menu closed: "hidden"
-        -->
-                    <svg x-show="opennav" class="md:hidden block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                    <svg x-show="opennav" class="lg:hidden block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
@@ -255,11 +270,12 @@
     <!-- Mobile menu, show/hide based on menu state. -->
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <nav class="lg:hidden bg-concgreen-500" aria-label="Global" id="mobile-menu" x-show="opennav"
-        x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95"
-        x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
-        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
-        <div class="pt-2 pb-3 px-2 space-y-1">
+    <nav class="px-10 lg:hidden bg-concgreen-700 flex justify-between items-start" aria-label="Global"
+        id="mobile-menu" x-show="opennav" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95">
+        <div class="pt-2 pb-3 px-2 space-y-1 ">
 
 
 
@@ -288,19 +304,7 @@
                         !Request::is('/profiles') && !Request::is('profiles'),
                     // Add more classes and conditions as needed
                 ])>PROFILES</a>
-                <div class="flex-shrink-0">
-                    <a href="{{ url('posts/create') }}" type="button"
-                        class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bittersweet-400 shadow-sm hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
-                        <!-- Heroicon name: solid/plus-sm -->
-                        <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                            fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span>New Post</span>
-                    </a>
-                </div>
+
             @endauth
             <a href="{{ url('') }}" @class([
                 'bg-concgreen-500 text-white block rounded-md py-2 px-3 text-base font-medium' =>
@@ -309,6 +313,20 @@
                     !Request::is('/') && !Request::is('accueil'),
                 // Add more classes and conditions as needed
             ])>CONTACT</a>
+
+            <div class="flex-shrink-0">
+                <a href="{{ url('posts/create') }}" type="button"
+                    class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bittersweet-400 shadow-sm hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
+                    <!-- Heroicon name: solid/plus-sm -->
+                    <svg class="md:-ml-1 md:mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                        fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="hidden md:block">New Post</span>
+                </a>
+            </div>
 
         </div>
 
@@ -321,30 +339,9 @@
 
 
         @if (Route::has('login'))
-            <div class="space-x-3 z-10 flex items-center">
+            <div class="space-x-3 z-10 flex-1 flex py-10 items-center justify-between ">
                 @auth
-
-                    <div class="border-t border-gray-700 pt-4 pb-3">
-                        <div class="px-4 flex items-center">
-
-                            <div class="flex-shrink-0">
-                                @if (Auth::user()->avatar)
-                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
-                                        class="h-10 w-10 rounded-full" alt="" />
-                                @else
-                                    <img class="h-10 w-10 rounded-full" src="{{ URL('image/profileplaceholder.jpg') }}"
-                                        alt="1" alt="" />
-                                @endif
-                            </div>
-                            <div class="ml-3">
-                                <div class="text-base font-medium text-white">{{ Auth::user()->name }}</div>
-                                <div class="text-sm font-medium text-gray-400">{{ Auth::user()->email }}</div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="mt-3 px-2 space-y-1">
+                    <div class="mt-3 px-2 space-y-1 flex flex-col justify-center items-center w-full divide-y">
 
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                             id="user-menu-item-2" href="{{ url('user') }}">{{ __('Profile') }}
@@ -360,7 +357,7 @@
                             <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                                 id="user-menu-item-2" :href="route('logout')"
                                 onclick="event.preventDefault();
-                this.closest('form').submit();">
+            this.closest('form').submit();">
 
                                 {{ __('Log Out') }}
                             </a>
@@ -369,6 +366,28 @@
 
 
                     </div>
+                    <div class=" pt-4 pb-3">
+                        <div class="px-4 flex items-center">
+
+                            <div class="flex-shrink-0">
+                                @if (Auth::user()->avatar)
+                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                        class="h-10 w-10 rounded-full" alt="" />
+                                @else
+                                    <img class="h-10 w-10 rounded-full" src="{{ URL('image/profileplaceholder.jpg') }}"
+                                        alt="1" alt="" />
+                                @endif
+                            </div>
+                            <div class="ml-3 hidden ">
+                                <div class="text-base font-medium text-white">{{ Auth::user()->name }}</div>
+                                <div class="text-sm font-medium text-gray-400 truncate w-20">{{ Auth::user()->email }}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
             @else
                 <div class="flex flex-wrap">
