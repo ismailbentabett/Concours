@@ -20,7 +20,7 @@
             <div class="mt-5 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
                 <a type="button" href="{{ url('/dashboard/admin/categories/create') }}"
                     class="inline-flex items-center px-20 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-bittersweet-700 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-700 sm:text-sm">
-                    Add Category
+                    Ajouter une catégorie
                 </a>
             </div>
         </div>
@@ -40,7 +40,7 @@
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    Name
+                                    Nom
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
@@ -49,7 +49,7 @@
 
 
                                 <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Delete</span>
+                                    <span class="sr-only">Supprimer</span>
                                 </th>
                             </tr>
                         </thead>
@@ -77,7 +77,7 @@
                                             <a
                                             href="{{ route('admin.categories.edit', $category->id) }}"
                                             type="submit"
-                                            class="text-cyan-600 hover:text-red-900">Edit</a>
+                                            class="text-cyan-600 hover:text-red-900">Éditer</a>
                                         </td>
 
 
@@ -88,7 +88,7 @@
                                         <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <button
                                             type="submit"
-                                            class="text-red-600 hover:text-red-900">Delete</button>
+                                            class="text-red-600 hover:text-red-900">Supprimer</button>
                                         </td>
                                     </form>
                                 </tr>

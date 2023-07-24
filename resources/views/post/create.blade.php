@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create a Post') }}
+            {{ __('Créer un Poste') }}
         </h2>
     </x-slot>
 
@@ -18,14 +18,14 @@
 
                         <div
                             class="border border-whiterounded-lg shadow-sm overflow-hidden focus-within:border-bittersweet-500 focus-within:ring-1 focus-within:ring-bittersweet-500">
-                            <label for="title" class="sr-only">Title</label>
+                            <label for="title" class="sr-only">Titre</label>
                             <input type="text" name="title" id="title"
                                 class="bg-concgreen-600 block w-full border-0 pt-2.5 text-lg font-medium placeholder-white focus:ring-0"
-                                placeholder="Title">
+                                placeholder="Titre">
                             <label for="content" class="sr-only">Description</label>
                             <textarea rows="2" name="content" id="content"
                                 class="h-40 bg-concgreen-600 block w-full border-0 py-0 resize-none placeholder-white focus:ring-0 sm:text-sm"
-                                placeholder="Write content..."></textarea>
+                                placeholder="Rédiger un contenu..."></textarea>
 
 
                         </div>
@@ -44,8 +44,7 @@
                                                 d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        <span class="text-sm text-white group-hover:text-gray-600 italic">Attach a
-                                            file</span>
+                                        <span class="text-sm text-white group-hover:text-gray-600 italic">Attacher un fichier</span>
                                         <input  type="file" name="images[]" id="images" multiple
                                             class="hidden" />
                                     </label>
@@ -58,7 +57,7 @@
                             <div class="flex-shrink-0">
                                 <button type="submit"
                                     class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
-                                    Create
+                                    Créer un poste
                                 </button>
                             </div>
                         </div>

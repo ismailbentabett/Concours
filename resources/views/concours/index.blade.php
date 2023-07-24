@@ -43,7 +43,7 @@
 
                                             <div>
                                                 <label for="location"
-                                                    class="block text-sm font-medium bg-concgreen-6000">Category</label>
+                                                    class="block text-sm font-medium bg-concgreen-6000">Catégorie</label>
                                                 <select id="category_id" name="category_id"
                                                     class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bittersweet-500 focus:border-bittersweet-500 sm:text-sm rounded-md bg-concgreen-500">
                                                     @foreach ($categories as $category)
@@ -55,8 +55,7 @@
 
                                             <div>
                                                 <label class="block text-sm font-medium bg-concgreen-6000">
-                                                    Cover photo
-                                                </label>
+                                                    Photo de couverture                                                </label>
                                                 <div
                                                     class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                                     <div class="space-y-1 text-center">
@@ -70,14 +69,14 @@
                                                         <div class="flex text-sm text-gray-600">
                                                             <label for="image"
                                                                 class="relative cursor-pointer bg-concgreen-500 rounded-md font-medium text-white hover:text-bittersweet-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-bittersweet-500">
-                                                                <span>Upload a file</span>
+                                                                <span>Télécharger un fichier</span>
                                                                 <input id="image" name="image" type="file"
                                                                     class="sr-only">
                                                             </label>
-                                                            <p class="pl-1">or drag and drop</p>
+                                                            <p class="pl-1">ou par glisser-déposer</p>
                                                         </div>
                                                         <p class="text-xs text-gray-500">
-                                                            PNG, JPG, GIF up to 10MB
+                                                            PNG, JPG, GIF jusqu'à 10MB
                                                         </p>
                                                     </div>
                                                 </div>
@@ -86,7 +85,7 @@
 
                                                 <button type="submit"
                                                     class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-bg-concgreen-500 bg-bittersweet-600 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
-                                                    Save
+                                                    Sauvegarder
                                                 </button>
                                             </div>
                                         </form>
