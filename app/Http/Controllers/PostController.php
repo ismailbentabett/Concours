@@ -102,13 +102,17 @@ class PostController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(5);
 
+            $likes = 0;
+
         //add images to each post
         foreach ($posts as $post) {
             $images = Image::where('post_id', $post->id)->get();
             $post->images = $images;
+
+            $likes += $post->likes->count();
         }
 
-        return view('user.posts', compact('posts', 'user'));
+        return view('user.posts', compact('posts', 'user' , 'likes'));
     }
     public function getUserPosts(Request $request)
     {
@@ -125,12 +129,16 @@ class PostController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(5);
 
+            $likes = 0;
+
         //add images to each post
         foreach ($posts as $post) {
             $images = Image::where('post_id', $post->id)->get();
             $post->images = $images;
+            $likes += $post->likes->count();
+
         }
 
-        return view('visituser.posts', compact('posts', 'user'));
+        return view('visituser.posts', compact('posts', 'user' , 'likes'));
     }
 }

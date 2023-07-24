@@ -109,6 +109,9 @@ Route::middleware(['auth'])->group(function () {
 
     /* user */
     Route::get('/user', function () {
+
+
+
         return redirect('/user/concours');
     });
 

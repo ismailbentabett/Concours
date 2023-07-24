@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="ml-1">
                                                 <p class="text-3xl font-medium text-white group-hover:text-white">
-                                                    11K
+                                                    {{ $likes }}
                                                 </p>
 
                                             </div>

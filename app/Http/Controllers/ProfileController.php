@@ -90,13 +90,22 @@ class ProfileController extends Controller
 
         $cat = Category::where('name', $category)->first() ?? null;
 
-        $concours = $cat ? Concour::where('category_id', $cat->id)->paginate(10) : Concour::paginate(10);
+        $concours = Concour::when($cat, function ($query) use ($cat) {
+            return $query->where('category_id', $cat->id);
+        })
+        ->when(!$cat, function ($query) {
+            return $query->selectRaw('MAX(id) as id, user_id')->groupBy('user_id');
+        })
+        ->paginate(10);
+
 
         $categories = Category::all();
 
         foreach ($concours as $concour) {
             $concour->user = User::find($concour->user_id);
         }
+
+
 
         return view('concurrentes.index', compact('concours', 'categories'));
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Concour;
+use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
@@ -68,6 +69,17 @@ class ConcourController extends Controller
             : Concour::where('user_id', $currentUser->id)->paginate(10);
 
         $categories = Category::all();
+        $posts = Post::where('user_id', $currentUser->id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(5);
+
+        $likes = 0;
+
+    //add images to each post
+    foreach ($posts as $post) {
+
+        $likes += $post->likes->count();
+    }
         if ($request->has('concourId')) {
 
 
@@ -79,9 +91,9 @@ class ConcourController extends Controller
 
 
 
-            return view('user.concours', compact('concours', 'categories', 'currentUser', 'data'));
+            return view('user.concours', compact('concours', 'categories', 'currentUser', 'data' , 'likes'));
         } else {
-            return view('user.concours', compact('concours', 'categories', 'currentUser', 'data'));
+            return view('user.concours', compact('concours', 'categories', 'currentUser', 'data' , 'likes'));
         }
     }
     public function getUserConcours(Request $request)
@@ -106,6 +118,19 @@ class ConcourController extends Controller
 
         $categories = Category::all();
 
+        $posts = Post::where('user_id', $user->id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(5);
+
+        $likes = 0;
+
+    //add images to each post
+    foreach ($posts as $post) {
+
+        $likes += $post->likes->count();
+    }
+
+
         if ($request->has('concourId')) {
 
 
@@ -117,9 +142,9 @@ class ConcourController extends Controller
 
 
 
-            return view('user.concours', compact('concours', 'categories', 'user', 'data'));
+            return view('user.concours', compact('concours', 'categories', 'user', 'data'  , 'likes'));
         } else {
-            return view('visituser.concours', compact('concours', 'categories', 'user'));
+            return view('visituser.concours', compact('concours', 'categories', 'user' , 'likes'));
         }
     }
 
