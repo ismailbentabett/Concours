@@ -1,3 +1,12 @@
+@auth
+@php
+$user = App\Models\User::find(Auth::user()->id);
+$admin = $user->isAdmin();
+
+@endphp
+@endauth
+
+
 <header @class ([
     'transition ease-linear duration-700 fadeIn 2s ease-in forwards navbar bg-transparent fixed z-50 w-screen' =>
         Request::is('/') || Request::is('accueil'),
@@ -229,8 +238,11 @@
                                             <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                                                 id="user-menu-item-1"
                                                 href="{{ url('profile') }}">{{ __('Settings') }}</a>
-
-
+                                            @if ($admin)
+                                                <a class="block px-4 py-2 text-sm text-white" role="menuitem"
+                                                    tabindex="-1" id="user-menu-item-1"
+                                                    href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
+                                            @endif
                                             <form method="POST" action="{{ route('logout') }}" class="cursor-pointer">
                                                 @csrf
 
@@ -306,13 +318,7 @@
                 ])>PROFILES</a>
 
             @endauth
-            <a href="{{ url('') }}" @class([
-                'bg-concgreen-500 text-white block rounded-md py-2 px-3 text-base font-medium' =>
-                    Request::is('/') || Request::is('accueil'),
-                'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium' =>
-                    !Request::is('/') && !Request::is('accueil'),
-                // Add more classes and conditions as needed
-            ])>CONTACT</a>
+
 
             <div class="flex-shrink-0">
                 <a href="{{ url('posts/create') }}" type="button"
@@ -346,10 +352,14 @@
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                             id="user-menu-item-2" href="{{ url('user') }}">{{ __('Profile') }}
                         </a>
+                            <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
+                                id="user-menu-item-1" href="{{ url('profile') }}">{{ __('Settings') }}</a>
+                        @if ($admin)
 
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                            id="user-menu-item-1" href="{{ url('profile') }}">{{ __('Settings') }}</a>
+                            id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
 
+                            @endif
 
                         <form method="POST" action="{{ route('logout') }}" class="cursor-pointer">
                             @csrf
@@ -390,16 +400,16 @@
 
                 </div>
             @else
-                <div class="flex flex-wrap">
+                <div class="flex flex-row justify-center items-start flex-wrap">
                     @if (Route::current()->getName() !== 'login')
                         <a href="{{ route('login') }}"
-                            class="m-5 inline-flex sm:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
+                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
                             in</a>
                     @endif
 
                     @if (Route::has('register') && Route::current()->getName() !== 'register')
                         <a href="{{ route('register') }}"
-                            class="m-5 inline-flex sm:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Register</a>
+                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Register</a>
                     @endif
                 </div>
 

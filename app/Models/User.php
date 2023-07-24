@@ -53,6 +53,21 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
+    public function isAdmin()
+    {
+        return $this->roles->contains('name', 'admin');
+    }
+
+    public function isCandidat()
+    {
+        return $this->roles->contains('name', 'candidat');
+    }
+
+    public function isUser()
+    {
+        return $this->roles->contains('name', 'user');
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);

@@ -183,15 +183,15 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-            $concours = Concour::where('user_id', $id)->get();
-            foreach ($concours as $concour) {
-                $concour->delete();
-            }
+        $concours = Concour::where('user_id', $id)->get();
+        foreach ($concours as $concour) {
+            $concour->delete();
+        }
 
-            $posts = Post::where('user_id', $id)->get();
-            foreach ($posts as $post) {
-                $post->delete();
-            }
+        $posts = Post::where('user_id', $id)->get();
+        foreach ($posts as $post) {
+            $post->delete();
+        }
 
 
         return redirect()->route('admin.users.index')
@@ -231,5 +231,15 @@ class AdminController extends Controller
 
         return redirect()->route('admin.concours.index')
             ->with('success', 'Concour deleted successfully.');
+    }
+
+    //make admin
+    public function makeAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->roles()->attach(1);
+
+        return redirect()->back()
+            ->with('success', 'User is now admin.');
     }
 }
