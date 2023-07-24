@@ -58,7 +58,8 @@ class ConcourController extends Controller
         //check params for concourId
 
 
-        $currentUser = Auth::user();
+        $currentUser = User::find(Auth::user()->id);
+
         $data = null;
         $category = $request->input('tabs') ?? 'all';
 
@@ -69,17 +70,22 @@ class ConcourController extends Controller
             : Concour::where('user_id', $currentUser->id)->paginate(10);
 
         $categories = Category::all();
-        $posts = Post::where('user_id', $currentUser->id)
-        ->orderBy('created_at', 'desc')
-        ->paginate(5);
-
         $likes = 0;
+        $postslikes = 0;
+        $concourslikes = 0;
+
 
     //add images to each post
-    foreach ($posts as $post) {
+    foreach ($currentUser->posts as $post) {
 
-        $likes += $post->likes->count();
+        $postslikes += $post->likes->count();
     }
+
+    foreach ($currentUser->concours as $concour) {
+        $concourslikes += $concour->likes->count();
+    }
+
+    $likes = $postslikes + $concourslikes;
         if ($request->has('concourId')) {
 
 
@@ -123,11 +129,18 @@ class ConcourController extends Controller
         ->paginate(5);
 
         $likes = 0;
+        $postslikes = 0;
+        $concourslikes = 0;
+
 
     //add images to each post
     foreach ($posts as $post) {
 
-        $likes += $post->likes->count();
+        $postslikes += $post->likes->count();
+    }
+
+    foreach ($user->concours as $concour) {
+        $concourslikes += $concour->likes->count();
     }
 
 

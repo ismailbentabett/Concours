@@ -8,7 +8,6 @@
 </div>
 @if (count($posts) > 0)
 @foreach ($posts as $post)
-    <!-- Display post details -->
    <x-post :post="$post" :user="$user" />
 @endforeach
 @else

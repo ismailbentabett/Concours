@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\Role;
+use App\Models\User;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -103,14 +104,23 @@ class PostController extends Controller
             ->paginate(5);
 
             $likes = 0;
+            $postslikes = 0;
+            $concourslikes = 0;
 
         //add images to each post
         foreach ($posts as $post) {
             $images = Image::where('post_id', $post->id)->get();
             $post->images = $images;
 
-            $likes += $post->likes->count();
+            $postslikes += $post->likes->count();
         }
+
+
+        foreach ($user->concours as $concour) {
+            $concourslikes += $concour->likes->count();
+        }
+
+        $likes = $postslikes + $concourslikes;
 
         return view('user.posts', compact('posts', 'user' , 'likes'));
     }
@@ -130,15 +140,23 @@ class PostController extends Controller
             ->paginate(5);
 
             $likes = 0;
+            $postslikes = 0;
+            $concourslikes = 0;
 
         //add images to each post
         foreach ($posts as $post) {
             $images = Image::where('post_id', $post->id)->get();
             $post->images = $images;
-            $likes += $post->likes->count();
+            $postslikes += $post->likes->count();
 
         }
 
+
+        foreach ($user->concours as $concour) {
+            $concourslikes += $concour->likes->count();
+        }
+
+        $likes = $postslikes + $concourslikes;
         return view('visituser.posts', compact('posts', 'user' , 'likes'));
     }
 }
