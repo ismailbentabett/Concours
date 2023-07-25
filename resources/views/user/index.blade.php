@@ -46,7 +46,7 @@
 
                                     <div class="flex justify-center py-5">
                                         <div class="flex-row justify-center items-center text-center ">
-                                            <p class="text-sm font-medium text-white">Welcome back,</p>
+                                            <p class="text-sm font-medium text-white">Bienvenue à nouveau,</p>
                                             <p class="text-xl font-bold text-white sm:text-2xl">{{ Auth::user()->name }}
                                             </p>
                                             <p class="text-sm font-medium text-white">{{ Auth::user()->email }}

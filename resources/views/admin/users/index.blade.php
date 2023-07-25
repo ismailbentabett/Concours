@@ -8,7 +8,7 @@
     <header class="bg-white dark:bg-concgreen-700 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                Users
+                Utilisateurs
             </h2>
         </div>
     </header>
@@ -22,7 +22,7 @@
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    Name
+                                    Nom
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
@@ -31,7 +31,7 @@
 
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    Role
+                                    Rôle
                                 </th>
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Edit</span>
@@ -88,7 +88,7 @@
 
                                                 <form action="{{ route('admin.makeadmin', $user->id) }}" method="GET">
                                                     @csrf
-                                                    <button type="submit">Make Admin</button>
+                                                    <button type="submit">Ajouter un admin</button>
                                                 </form>
                                             </a>
                                         @endif
@@ -98,7 +98,7 @@
                                             <form action="{{ route('admin.users.delete', $user->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit">Delete</button>
+                                                <button type="submit">Supprimer</button>
                                             </form>
                                         </a>
                                     @endif

@@ -263,13 +263,12 @@ $admin = $user->isAdmin();
                             @else
                                 @if (Route::current()->getName() !== 'login')
                                     <a href="{{ route('login') }}"
-                                        class="hidden sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
-                                        in</a>
+                                        class="hidden sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Connexion</a>
                                 @endif
 
                                 @if (Route::has('register') && Route::current()->getName() !== 'register')
                                     <a href="{{ route('register') }}"
-                                        class=" hidden sm:inline-flex  items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Register</a>
+                                        class=" hidden sm:inline-flex  items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Inscrire</a>
                                 @endif
                             @endauth
                         </div>
@@ -403,13 +402,13 @@ $admin = $user->isAdmin();
                 <div class="flex flex-row justify-center items-start flex-wrap">
                     @if (Route::current()->getName() !== 'login')
                         <a href="{{ route('login') }}"
-                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Log
-                            in</a>
+                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Connexion
+                            </a>
                     @endif
 
                     @if (Route::has('register') && Route::current()->getName() !== 'register')
                         <a href="{{ route('register') }}"
-                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Register</a>
+                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Inscrire </a>
                     @endif
                 </div>
 

@@ -67,10 +67,10 @@
          </div>
      </div>
      <div>
-         <h3 class="font-medium text-white">Information</h3>
+         <h3 class="font-medium text-white">Informations</h3>
          <dl class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-600">
              <div class="flex justify-between py-3 text-sm font-medium">
-                 <dt class="text-white">Uploaded by</dt>
+                 <dt class="text-white">Téléchargé par</dt>
                  <dd id="username" class="text-white">
                     {{
                         $concour->user->name
@@ -79,7 +79,7 @@
              </div>
 
              <div class="flex justify-between py-3 text-sm font-medium">
-                 <dt class="text-white">Created</dt>
+                 <dt class="text-white">Créé à</dt>
                  <dd id="createdat" class="text-white">
                     {{
                         $concour->created_at->diffForHumans()
@@ -89,7 +89,7 @@
              </div>
 
              <div class="flex justify-between py-3 text-sm font-medium">
-                 <dt class="text-white">Last modified</dt>
+                 <dt class="text-white">Dernière modification</dt>
                  <dd id="updatedat" class="text-white">
                     {{
                         $concour->updated_at->diffForHumans()
@@ -118,7 +118,7 @@
          </div>
      </div> --}}
      <div>
-         <h3 class="font-medium text-white mt-5">Shared with</h3>
+         <h3 class="font-medium text-white mt-5">Partagé avec</h3>
          <ul role="list" class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-600">
              <li class="flex items-center justify-between py-3">
                  <div class="flex items-center">

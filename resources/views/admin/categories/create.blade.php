@@ -1,6 +1,18 @@
 @extends('admin.index')
 
 @section('content')
+
+<header class="">
+    <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
+    </div>
+</header>
+    <header class="bg-white dark:bg-concgreen-700 shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                Créer une catégorie
+            </h2>
+        </div>
+    </header>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
@@ -18,11 +30,11 @@
                             <label for="name" class="sr-only">Name</label>
                             <input type="text" name="name" id="name"
                                 class="bg-concgreen-600 block w-full border-0 pt-2.5 text-lg font-medium placeholder-white focus:ring-0"
-                                placeholder="name">
+                                placeholder="Nom">
                             <label for="description" class="sr-only">Description</label>
                             <textarea rows="2" name="description" id="description"
                                 class="h-40 bg-concgreen-600 block w-full border-0 py-0 resize-none placeholder-white focus:ring-0 sm:text-sm"
-                                placeholder="Write description..."></textarea>
+                                placeholder="Rédiger une description..."></textarea>
 
 
                         </div>
@@ -41,8 +53,7 @@
                                                 d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        <span class="text-sm text-white group-hover:text-gray-600 italic">Attach a
-                                            file</span>
+                                        <span class="text-sm text-white group-hover:text-gray-600 italic">attacher un fichier</span>
                                         <input type="file" name="image" id="images" class="hidden" />
                                     </label>
                                 </button>
@@ -54,7 +65,7 @@
                             <div class="flex-shrink-0">
                                 <button type="submit"
                                     class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
-                                    Add Category
+                                    Créer une catégorie
                                 </button>
                             </div>
                         </div>
