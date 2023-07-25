@@ -1,10 +1,10 @@
 @extends('admin.index')
 
 @section('content')
-<header class="">
-    <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
-    </div>
-</header>
+    <header class="">
+        <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
+        </div>
+    </header>
     <header class="bg-white dark:bg-concgreen-700 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -67,16 +67,17 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-white truncate w-20">
                                         {{ $message->message }}
                                     </td>
-                                    <td class="px-6 py-6 whitespace-nowrap text-right text-sm font-medium flex justify-center items-center space-x-5">
+                                    <td
+                                        class="px-6 py-6 whitespace-nowrap text-right text-sm font-medium flex justify-center items-center space-x-5">
                                         <form action="{{ route('admin.inbox.destroy', $message->id) }}" method="POST"
                                             class="text-red-600 hover:text-red-900">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit">Delete</button>
+                                            <button type="submit">Supprimer</button>
                                         </form>
 
                                         <a href="{{ url('/dashboard/admin/inbox/' . $message->id) }}"
-                                            class="text-cyan-500 hover:text-white">View</a>
+                                            class="text-cyan-500 hover:text-white">Voir</a>
 
                                     </td>
                                 </tr>

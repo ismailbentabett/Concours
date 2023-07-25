@@ -8,7 +8,7 @@
     <header class="bg-white dark:bg-concgreen-700 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                Submittions
+                SOUMISSIONS
             </h2>
         </div>
     </header>
@@ -22,11 +22,11 @@
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    Submittion
+                                    SOUMISSIONS
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    User
+                                    Utilisateurs
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
@@ -34,7 +34,7 @@
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    Category
+                                    Catégories
                                 </th>
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Edit</span>
@@ -110,7 +110,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="text-red-600 hover:text-indigo-900">Delete</button>
+                                                class="text-red-600 hover:text-indigo-900">Supprimer</button>
                                         </form>
                                     </td>
                                 </tr>

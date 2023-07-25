@@ -17,7 +17,7 @@
                         <div class="px-4 sm:flex sm:justify-between sm:items-baseline sm:px-6 lg:px-8">
                             <div class="sm:w-0 sm:flex-1">
                                 <h1 id="message-heading" class="text-lg font-medium text-white">
-                                    Subject : {{ $message->subject }}
+                                    Sujet : {{ $message->subject }}
                                 </h1>
                                 <p class="mt-1 text-sm text-white truncate">
                                     {{ $message->email }}
@@ -28,7 +28,7 @@
                                 class="mt-4 flex items-center justify-between sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:justify-start">
                                 <span
                                     class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-bittersweet-100 text-bittersweet-800">
-                                    Open
+                                    Ouvert
                                 </span>
                                 <div class="ml-3 relative inline-block text-left">
 
@@ -50,7 +50,7 @@
                                         {{ ' ' }}
                                         {{ $message->lastName }}
                                     </span>
-                                    <span class="text-white"> wrote</span>
+                                    <span class="text-white">écrit</span>
                                 </h3>
                                 <p class="mt-1 text-sm text-white whitespace-nowrap sm:mt-0 sm:ml-3">
 

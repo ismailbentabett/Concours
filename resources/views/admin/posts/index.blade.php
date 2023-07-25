@@ -22,11 +22,11 @@
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    Post
+                                    Posts
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    User
+                                    UTILISATEURS
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
@@ -101,7 +101,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="text-red-600 hover:text-indigo-900">Delete</button>
+                                                class="text-red-600 hover:text-indigo-900">Supprimer </button>
                                         </form>
                                     </td>
                             @endforeach
