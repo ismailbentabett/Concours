@@ -445,13 +445,14 @@
                                 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                                     <h2
                                         class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
-                                        Les Profiles</h2>
+                                        Les Profiles  </h2>
+
                                     <p class="text-xl text-white">Ornare sagittis, suspendisse in hendrerit quis.
                                         Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
                                 </div>
                                 <ul role="list"
                                     class="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
-                                    @foreach ($users as $user)
+                                    @foreach ($topUsers as $user)
                                         <li>
                                             <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
                                                 class="space-y-6">

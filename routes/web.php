@@ -53,12 +53,15 @@ Route::get('/', function () {
 
     // Order users by the sum of their posts and concours likes
     $users = $users->sortByDesc(function ($user) {
-        return $user->postslikes + $user->concourslikes;
-    })->take(6);
+        return $user->postslikes + $user->concourslikes + $user->likes->count();
+    });
+
+    // Take the top 6 users
+    $topUsers = $users->take(6);
 
 
 
-    return view('landing', compact('categories', 'users'));
+    return view('landing', compact('categories', 'users', 'topUsers'));
 })->name('landing');
 
 
