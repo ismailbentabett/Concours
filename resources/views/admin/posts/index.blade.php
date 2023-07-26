@@ -100,8 +100,8 @@
                                         <form action="{{ route('admin.posts.delete', $post->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit"
-                                                class="text-red-600 hover:text-indigo-900">Supprimer </button>
+                                            <button type="submit" class="text-red-600 hover:text-indigo-900">Supprimer
+                                            </button>
                                         </form>
                                     </td>
                             @endforeach

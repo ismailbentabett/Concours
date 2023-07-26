@@ -20,7 +20,7 @@
 <body class="font-sans antialiased">
     <?php $toastr = Session::get('toastr'); ?>
     @if (isset($toastr) && is_array($toastr))
-    <x-toastr :title="$toastr['title']" :message="$toastr['message']" :type="$toastr['type']" />
+        <x-toastr :title="$toastr['title']" :message="$toastr['message']" :type="$toastr['type']" />
     @endif
     <div class="min-h-screen bg-gray-100 dark:bg-concgreen-500">
         @include('layouts.navigation')

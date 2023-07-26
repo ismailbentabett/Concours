@@ -1,9 +1,9 @@
 @auth
-@php
-$user = App\Models\User::find(Auth::user()->id);
-$admin = $user->isAdmin();
+    @php
+        $user = App\Models\User::find(Auth::user()->id);
+        $admin = $user->isAdmin();
 
-@endphp
+    @endphp
 @endauth
 
 
@@ -351,14 +351,12 @@ $admin = $user->isAdmin();
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                             id="user-menu-item-2" href="{{ url('user') }}">{{ __('Profile') }}
                         </a>
-                            <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                                id="user-menu-item-1" href="{{ url('profile') }}">{{ __('Paramètres') }}</a>
-                        @if ($admin)
-
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                            id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('Tableau De bord') }}</a>
-
-                            @endif
+                            id="user-menu-item-1" href="{{ url('profile') }}">{{ __('Paramètres') }}</a>
+                        @if ($admin)
+                            <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
+                                id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('Tableau De bord') }}</a>
+                        @endif
 
                         <form method="POST" action="{{ route('logout') }}" class="cursor-pointer">
                             @csrf
@@ -403,12 +401,13 @@ $admin = $user->isAdmin();
                     @if (Route::current()->getName() !== 'login')
                         <a href="{{ route('login') }}"
                             class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Connexion
-                            </a>
+                        </a>
                     @endif
 
                     @if (Route::has('register') && Route::current()->getName() !== 'register')
                         <a href="{{ route('register') }}"
-                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Inscrire </a>
+                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Inscrire
+                        </a>
                     @endif
                 </div>
 

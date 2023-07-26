@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory , MediaAlly , Likeable;
+    use HasFactory, MediaAlly, Likeable;
     protected $with = ['images'];
 
 

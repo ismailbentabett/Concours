@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
 
-                    <form class="relative"  action="{{ route('posts.store') }}" method="POST"  enctype="multipart/form-data">
+                    <form class="relative" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
 
                         @csrf
 
@@ -44,9 +44,9 @@
                                                 d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        <span class="text-sm text-white group-hover:text-gray-600 italic">Attacher un fichier</span>
-                                        <input  type="file" name="images[]" id="images" multiple
-                                            class="hidden" />
+                                        <span class="text-sm text-white group-hover:text-gray-600 italic">Attacher un
+                                            fichier</span>
+                                        <input type="file" name="images[]" id="images" multiple class="hidden" />
                                     </label>
                                 </button>
                             </div>

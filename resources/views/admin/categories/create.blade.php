@@ -1,11 +1,10 @@
 @extends('admin.index')
 
 @section('content')
-
-<header class="">
-    <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
-    </div>
-</header>
+    <header class="">
+        <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
+        </div>
+    </header>
     <header class="bg-white dark:bg-concgreen-700 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -53,7 +52,8 @@
                                                 d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        <span class="text-sm text-white group-hover:text-gray-600 italic">attacher un fichier</span>
+                                        <span class="text-sm text-white group-hover:text-gray-600 italic">attacher un
+                                            fichier</span>
                                         <input type="file" name="image" id="images" class="hidden" />
                                     </label>
                                 </button>

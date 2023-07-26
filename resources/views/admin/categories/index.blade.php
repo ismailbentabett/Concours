@@ -1,10 +1,10 @@
 @extends('admin.index')
 
 @section('content')
-<header class="">
-    <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
-    </div>
-</header>
+    <header class="">
+        <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
+        </div>
+    </header>
     <header class="bg-white dark:bg-concgreen-700 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -73,22 +73,19 @@
                                     </td>
 
 
-                                        <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a
-                                            href="{{ route('admin.categories.edit', $category->id) }}"
-                                            type="submit"
+                                    <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="{{ route('admin.categories.edit', $category->id) }}" type="submit"
                                             class="text-cyan-600 hover:text-red-900">Éditer</a>
-                                        </td>
+                                    </td>
 
 
-                             <form action="{{ route('admin.categories.delete', $category->id) }}" method="POST">
+                                    <form action="{{ route('admin.categories.delete', $category->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
 
                                         <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <button
-                                            type="submit"
-                                            class="text-red-600 hover:text-red-900">Supprimer</button>
+                                            <button type="submit"
+                                                class="text-red-600 hover:text-red-900">Supprimer</button>
                                         </td>
                                     </form>
                                 </tr>

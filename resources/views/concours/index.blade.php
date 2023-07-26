@@ -55,7 +55,7 @@
 
                                             <div>
                                                 <label class="block text-sm font-medium bg-concgreen-6000">
-                                                    Photo de couverture                                                </label>
+                                                    Photo de couverture </label>
                                                 <div
                                                     class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                                     <div class="space-y-1 text-center">

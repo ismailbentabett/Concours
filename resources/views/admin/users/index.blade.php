@@ -1,10 +1,10 @@
 @extends('admin.index')
 
 @section('content')
-<header class="">
-    <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
-    </div>
-</header>
+    <header class="">
+        <div class="max-w-7xl mx-auto py-7 px-4 sm:px-6 lg:px-8">
+        </div>
+    </header>
     <header class="bg-white dark:bg-concgreen-700 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -64,9 +64,7 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-white">{{
-                                                $user->postslikes + $user->concourslikes
-                                            }}</div>
+                                        <div class="text-sm text-white">{{ $user->postslikes + $user->concourslikes }}</div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
@@ -84,7 +82,7 @@
                                     <td
                                         class="px-6 py-6  whitespace-nowrap text-right text-sm font-medium flex justify-end items-center space-x-3">
                                         @if (!$user->isAdmin())
-                                            <a  class="text-cyan-600 hover:text-indigo-900">
+                                            <a class="text-cyan-600 hover:text-indigo-900">
 
                                                 <form action="{{ route('admin.makeadmin', $user->id) }}" method="GET">
                                                     @csrf
@@ -93,15 +91,15 @@
                                             </a>
                                         @endif
                                         @if (!$user->isAdmin())
-                                        <a class="text-red-600 hover:text-indigo-900">
+                                            <a class="text-red-600 hover:text-indigo-900">
 
-                                            <form action="{{ route('admin.users.delete', $user->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit">Supprimer</button>
-                                            </form>
-                                        </a>
-                                    @endif
+                                                <form action="{{ route('admin.users.delete', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit">Supprimer</button>
+                                                </form>
+                                            </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

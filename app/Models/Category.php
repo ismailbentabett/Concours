@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory, MediaAlly;
 
     public function concours()
-{
-    return $this->hasMany(Concour::class);
-}
+    {
+        return $this->hasMany(Concour::class);
+    }
 }

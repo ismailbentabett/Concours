@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    use HasFactory , MediaAlly;
+    use HasFactory, MediaAlly;
 
     protected $fillable = ['url', 'post_id'];
 

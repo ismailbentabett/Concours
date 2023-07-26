@@ -93,10 +93,10 @@ class ProfileController extends Controller
         $concours = Concour::when($cat, function ($query) use ($cat) {
             return $query->where('category_id', $cat->id);
         })
-        ->when(!$cat, function ($query) {
-            return $query->selectRaw('MAX(id) as id, user_id')->groupBy('user_id');
-        })
-        ->paginate(10);
+            ->when(!$cat, function ($query) {
+                return $query->selectRaw('MAX(id) as id, user_id')->groupBy('user_id');
+            })
+            ->paginate(10);
 
 
         $categories = Category::all();
@@ -109,6 +109,4 @@ class ProfileController extends Controller
 
         return view('concurrentes.index', compact('concours', 'categories'));
     }
-
-
 }

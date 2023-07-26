@@ -15,19 +15,19 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategorySeeder::class);
 
-       // Seed roles
-       \App\Models\Role::create(['name' => 'admin', 'description' => 'Administrator role']);
-       \App\Models\Role::create(['name' => 'user', 'description' => 'Regular user role']);
-       \App\Models\Role::create(['name' => 'candidat', 'description' => 'Candidate role']);
+        // Seed roles
+        \App\Models\Role::create(['name' => 'admin', 'description' => 'Administrator role']);
+        \App\Models\Role::create(['name' => 'user', 'description' => 'Regular user role']);
+        \App\Models\Role::create(['name' => 'candidat', 'description' => 'Candidate role']);
 
-       // Seed regular users using the User factory
-       \App\Models\User::factory(10)->create();
+        // Seed regular users using the User factory
+        \App\Models\User::factory(10)->create();
 
-       // Create an admin user using the User factory and assign the 'admin' role
-       \App\Models\User::factory()->admin()->create([
-           'name' => 'master',
-           'email' => 'master@concour.com',
-           'password' => bcrypt('master'), // Replace 'password' with the desired password for the admin user
-       ]);
+        // Create an admin user using the User factory and assign the 'admin' role
+        \App\Models\User::factory()->admin()->create([
+            'name' => 'master',
+            'email' => 'master@concour.com',
+            'password' => bcrypt('master'), // Replace 'password' with the desired password for the admin user
+        ]);
     }
 }

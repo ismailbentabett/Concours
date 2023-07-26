@@ -13,10 +13,8 @@
                  <div>
                      <h2 id="sideimgname" class="text-lg font-medium text-white"><span class="sr-only">Details for
                          </span>
-                        {{
-                            $concour->profession
-                        }}
-                        </h2>
+                         {{ $concour->profession }}
+                     </h2>
                  </div>
 
 
@@ -72,18 +70,14 @@
              <div class="flex justify-between py-3 text-sm font-medium">
                  <dt class="text-white">Téléchargé par</dt>
                  <dd id="username" class="text-white">
-                    {{
-                        $concour->user->name
-                    }}
+                     {{ $concour->user->name }}
                  </dd>
              </div>
 
              <div class="flex justify-between py-3 text-sm font-medium">
                  <dt class="text-white">Créé à</dt>
                  <dd id="createdat" class="text-white">
-                    {{
-                        $concour->created_at->diffForHumans()
-                    }}
+                     {{ $concour->created_at->diffForHumans() }}
                  </dd>
 
              </div>
@@ -91,9 +85,7 @@
              <div class="flex justify-between py-3 text-sm font-medium">
                  <dt class="text-white">Dernière modification</dt>
                  <dd id="updatedat" class="text-white">
-                    {{
-                        $concour->updated_at->diffForHumans()
-                    }}
+                     {{ $concour->updated_at->diffForHumans() }}
 
                  </dd>
              </div>
@@ -101,7 +93,7 @@
 
          </dl>
      </div>
-{{--      <div>
+     {{--      <div>
          <h3 class="font-medium text-white">Description</h3>
          <div class="mt-2 flex items-center justify-between">
              <p class="text-sm italic text-white">Add a description to this image.</p>
@@ -130,9 +122,7 @@
                              alt="1" alt="" />
                      @endif
                      <p id="sharedwithusername" class="ml-4 text-sm font-medium text-white">
-                        {{
-                            $concour->user->name
-                        }}
+                         {{ $concour->user->name }}
                      </p>
                  </div>
              </li>

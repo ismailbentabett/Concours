@@ -60,8 +60,7 @@ class PostController extends Controller
             'message' => 'Votre post a été créé avec succès'
         ];
 
-        return redirect()->route('user.posts')->with( ['toastr' => $toastr] );
-
+        return redirect()->route('user.posts')->with(['toastr' => $toastr]);
     }
 
 
@@ -109,7 +108,8 @@ class PostController extends Controller
             'message' => 'Votre post a été modifié avec succès'
         ];
 
-        return redirect()->route('user.posts')->with( ['toastr' => $toastr] );    }
+        return redirect()->route('user.posts')->with(['toastr' => $toastr]);
+    }
 
     // Destroy method for deleting a post
     public function destroy(Post $post)
@@ -122,8 +122,7 @@ class PostController extends Controller
             'message' => 'Votre post a été supprimé avec succès'
         ];
 
-        return redirect()->route('user.posts')->with( ['toastr' => $toastr] );
-
+        return redirect()->route('user.posts')->with(['toastr' => $toastr]);
     }
 
 

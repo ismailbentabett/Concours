@@ -10,13 +10,13 @@ class LikeController extends Controller
 {
     //like post
 
-  public function likePost($id)
+    public function likePost($id)
     {
         $post = Post::find($id);
         $post->like();
         $post->save();
 
-        return redirect()->back()->with('message','Post Liked successfully!');
+        return redirect()->back()->with('message', 'Post Liked successfully!');
     }
 
     public function unlikePost($id)
@@ -25,7 +25,7 @@ class LikeController extends Controller
         $post->unlike();
         $post->save();
 
-        return redirect()->back()->with('message','Post Like undo successfully!');
+        return redirect()->back()->with('message', 'Post Like undo successfully!');
     }
 
     //like concours
@@ -36,7 +36,7 @@ class LikeController extends Controller
         $concour->like();
         $concour->save();
 
-        return redirect()->back()->with('message','Concour Liked successfully!');
+        return redirect()->back()->with('message', 'Concour Liked successfully!');
     }
 
     public function unlikeConcour($id)
@@ -45,7 +45,6 @@ class LikeController extends Controller
         $concour->unlike();
         $concour->save();
 
-        return redirect()->back()->with('message','Concour Like undo successfully!');
+        return redirect()->back()->with('message', 'Concour Like undo successfully!');
     }
-
 }

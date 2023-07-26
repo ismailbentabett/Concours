@@ -42,24 +42,24 @@ class UserFactory extends Factory
      * Indicate that the user is an admin.
      */
 
-     public function configure()
-     {
+    public function configure()
+    {
         return $this->afterCreating(function (User $user) {
             // Attach the 'user' role to the created user by default
             $user->roles()->attach(\App\Models\Role::where('name', 'user')->first()->id);
         });
-     }
+    }
 
-     // Create an admin user using the 'state' method
-     public function admin()
-     {
-         return $this->state(function (array $attributes) {
-             return [];
-         })->afterCreating(function (User $user) {
-             $adminRole = \App\Models\Role::where('name', 'admin')->first();
-             if ($adminRole) {
-                 $user->roles()->attach($adminRole->id);
-             }
-         });
-     }
- }
+    // Create an admin user using the 'state' method
+    public function admin()
+    {
+        return $this->state(function (array $attributes) {
+            return [];
+        })->afterCreating(function (User $user) {
+            $adminRole = \App\Models\Role::where('name', 'admin')->first();
+            if ($adminRole) {
+                $user->roles()->attach($adminRole->id);
+            }
+        });
+    }
+}

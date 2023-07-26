@@ -20,9 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('views')->default(0);
             $table->unsignedInteger('postslikes')->default(0);
             $table->unsignedInteger('concourslikes')->default(0);
-
             $table->string('password');
-
             $table->rememberToken();
             $table->timestamps();
         });

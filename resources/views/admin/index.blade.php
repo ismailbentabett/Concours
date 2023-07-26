@@ -7,8 +7,6 @@
                 @yield('content')
 
             </div>
-
-
         </div>
     </div>
 @endsection

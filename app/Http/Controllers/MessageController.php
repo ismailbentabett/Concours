@@ -40,8 +40,6 @@ class MessageController extends Controller
 
         return redirect()->route('admin.inbox.index')
             ->with(['toastr' => $toastr]);
-
-
     }
 
     //create
@@ -83,8 +81,6 @@ class MessageController extends Controller
             'message' => 'Votre message a été envoyé avec succès',
         ];
 
-        return redirect()->route('landing')->with( ['toastr' => $toastr] );
-
-
+        return redirect()->route('landing')->with(['toastr' => $toastr]);
     }
 }

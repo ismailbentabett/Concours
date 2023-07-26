@@ -21,12 +21,11 @@
                                         <div class="flex justify-center flex-shrink-0">
                                             <div class="relative w-40 overflow-hidden rounded-full lg:block">
                                                 @if (Auth::user()->avatar)
-                                                <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
-                                                    class="relative h-40 w-40 rounded-full" alt="" />
-
+                                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                                        class="relative h-40 w-40 rounded-full" alt="" />
                                                 @else
                                                     <img class="relative h-40 w-40 rounded-full"
-                                                     src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
+                                                        src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
                                                         alt="" />
                                                 @endif
 
