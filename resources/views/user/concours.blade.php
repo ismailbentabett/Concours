@@ -7,7 +7,11 @@
         <div class="flex flex-1 flex-col overflow-hidden">
             <!-- Main content -->
             <div class="grid grid-cols-5">
-                <main class="flex-1 overflow-y-auto col-span-4 lg:col-span-3">
+                <main
+
+
+
+                class="flex-1 overflow-y-auto col-span-5 lg:col-span-3">
                     <div class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
                         <div class="flex">
                             <h1 class="flex-1 text-2xl font-bold text-white">Concours</h1>
@@ -147,7 +151,7 @@
                 </main>
 
                 <!-- Details sidebar -->
-                <div class="col-span-4 lg:col-span-2">
+                <div class="col-span-5 lg:col-span-2">
                     @if (request()->has('concourId'))
                         <x-concour :concour="$data" />
                     @endif
