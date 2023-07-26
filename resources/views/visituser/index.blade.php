@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+
     <div class="py-12 grid gap-4 sm:grid-cols-12">
         <div class="col-span-12 sm:col-span-4 ">
             <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">

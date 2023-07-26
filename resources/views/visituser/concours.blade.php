@@ -1,6 +1,9 @@
 @extends('visituser.index')
 
 @section('content')
+
+
+
     <div class="flex h-full">
         <!-- Content area -->
         <div class="flex flex-1 flex-col overflow-hidden">

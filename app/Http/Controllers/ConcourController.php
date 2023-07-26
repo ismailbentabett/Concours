@@ -120,6 +120,7 @@ class ConcourController extends Controller
     public function getUserConcours(Request $request)
     {
 
+
         $authuser = Auth::user();
         if (
             $request->id == $authuser->id
@@ -172,8 +173,7 @@ class ConcourController extends Controller
             $data = Concour::find($concourId);
 
 
-
-            return view('user.concours', compact('concours', 'categories', 'user', 'data', 'likes'));
+            return view('visituser.concours', compact('concours', 'categories', 'user', 'data', 'likes'));
         } else {
             return view('visituser.concours', compact('concours', 'categories', 'user', 'likes'));
         }
