@@ -1,7 +1,7 @@
  @props(['concour'])
 
 
- <aside id="sidebarimg" class=" w-96 overflow-y-auto lg:border-l lg:border-gray-600 bg-concgreen-600 p-8 ">
+ <aside id="sidebarimg" class=" overflow-y-auto lg:border-l lg:border-gray-600 bg-concgreen-600 p-8 ">
 
      <div class="space-y-6 pb-16">
          <div>
