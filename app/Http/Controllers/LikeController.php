@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Concour;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
@@ -46,5 +47,25 @@ class LikeController extends Controller
         $concour->save();
 
         return redirect()->back()->with('message', 'Concour Like undo successfully!');
+    }
+
+    //like user
+
+    public function likeUser($id)
+    {
+        $user = User::find($id);
+        $user->like();
+        $user->save();
+
+        return redirect()->back()->with('message', 'User Liked successfully!');
+    }
+
+    public function unlikeUser($id)
+    {
+        $user = User::find($id);
+        $user->unlike();
+        $user->save();
+
+        return redirect()->back()->with('message', 'User Like undo successfully!');
     }
 }

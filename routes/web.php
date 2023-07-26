@@ -140,7 +140,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/concours', [ConcourController::class, 'concours'])->name('user.concours');
     Route::get('/user/posts', [PostController::class, 'userPosts'])->name('user.posts');
     Route::post('/user/upload', [ProfileController::class, 'upload'])->name('user.upload');
-
+    Route::post('/like-user/{id}', [LikeController::class, 'likeUser'])->name('like.user');
+    Route::post('/unlike-user/{id}', [LikeController::class, 'unlikeUser'])->name('unlike.user');
 
 
     /* Visit User */
