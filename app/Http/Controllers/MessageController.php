@@ -81,6 +81,6 @@ class MessageController extends Controller
             'message' => 'Votre message a été envoyé avec succès',
         ];
 
-        return redirect()->route('landing')->with(['toastr' => $toastr]);
+        return redirect()->back()->with(['toastr' => $toastr]);
     }
 }

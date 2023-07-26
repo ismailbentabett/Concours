@@ -19,7 +19,7 @@
 <body class="font-sans antialiased">
     <?php $toastr = Session::get('toastr'); ?>
     @if (isset($toastr) && is_array($toastr))
-    <x-toastr :title="$toastr['title']" :message="$toastr['message']" :type="$toastr['type']" />
+        <x-toastr :title="$toastr['title']" :message="$toastr['message']" :type="$toastr['type']" />
     @endif
     <main>
 
@@ -627,7 +627,8 @@
                                     <!-- Contact form -->
                                     <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
                                         <h3 class="text-lg font-medium text-white">Envoyez-nous un message</h3>
-                                        <form class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                                        <form id="contactForm"
+                                            class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
                                             action="{{ route('contact.store') }}" method="POST">
 
                                             @csrf
@@ -688,6 +689,40 @@
                                                     Envoyer
                                                 </button>
                                             </div>
+
+                                            @if ($errors->any())
+                                                <div
+                                                    class="error-message sm:col-span-2 rounded-md bg-red-50  p-4 opacity-80">
+                                                    <div class="flex">
+                                                        <div class="flex-shrink-0">
+                                                            <!-- Heroicon name: solid/x-circle -->
+                                                            <svg class="h-5 w-5 text-red-400"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="ml-3">
+                                                            <h3 class="text-sm font-medium text-red-800">
+                                                                Il y a eu {{ $errors->count() }} erreurs dans votre
+                                                                soumission
+                                                            </h3>
+                                                            <div class="mt-2 text-sm text-red-700">
+                                                                <ul role="list" class="list-disc pl-5 space-y-1">
+
+
+                                                                    @foreach ($errors->all() as $error)
+                                                                        <li>{{ $error }}</li>
+                                                                    @endforeach
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </form>
                                     </div>
                                 </div>
@@ -748,6 +783,18 @@
                 }
             })
         })
+
+
+
+        const errors = document.querySelector('.error-message');
+        if (errors) {
+            // If there are, scroll to the first error message
+            errors.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+        }
     </script>
 </body>
 
