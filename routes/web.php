@@ -64,6 +64,10 @@ Route::get('/', function () {
     return view('landing', compact('categories', 'users', 'topUsers'));
 })->name('landing');
 
+Route::get('terms', function () {
+    return view('terms');
+})->name('terms');
+
 
 Route::get('/concours/filter', [ConcourController::class, 'filter'])->name('concours.filter');
 
