@@ -118,8 +118,26 @@
                                 <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
                                     <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
                                         Catégories</h2>
-                                    <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
-                                        vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
+                                    <p class="text-xl text-white">Cette association a pour objet la valorisation et la
+                                        représentation de l'artisanat des métiers d'arts par
+                                        le biais
+                                        de concours, défilés, présentations et expositions de mode.
+                                        L'association souhaite mettre en avant la mode : Prêt-à-porter ; accessoires, et
+                                        Haute Couture pour
+                                        les
+                                        catégories Hommes-Femmes-Enfants. Le but de l'association est de transmettre ce
+                                        patrimoine
+                                        immatériel
+                                        français qu'est la couture (techniques spécifiques de couture, broderie etc...).
+                                        En outre l'association
+                                        souhaite faire émerger de nouveaux talents et faire découvrir les techniques de
+                                        création
+                                        traditionnelles
+                                        (artisanat
+                                        local, matières utilisées etc.) de tous les pays du monde.
+                                        Enfin, l'association se veut intergénérationnelle en ce qu'elle souhaite
+                                        préserver et transmettre un
+                                        savoir-faire artisanal.</p>
                                 </div>
 
                                 <div class="bg-concgreen-600">
