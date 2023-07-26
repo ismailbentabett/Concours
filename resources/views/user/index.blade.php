@@ -69,8 +69,7 @@
                                             </div>
                                             <div class="ml-1">
                                                 <p class="text-3xl font-medium text-white group-hover:text-white">
-                                                    {{ $likes }}
-                                                </p>
+                                                    {{ $currentUser->likeCount }} </p>
 
                                             </div>
                                         </div>
