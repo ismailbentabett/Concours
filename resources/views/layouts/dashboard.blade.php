@@ -122,8 +122,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.inbox.index') }}"
-                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+
+                                    <a href="{{ route('admin.inbox.index') }}" @class([
+                                        'flex items-center p-2 text-white rounded-lg bg-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() === route('admin.inbox.index'),
+                                        'flex items-center p-2 text-white rounded-lg  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() !== route('admin.inbox.index'),
+                                    ])>
                                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                             viewBox="0 0 20 20">
@@ -136,8 +141,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.users.index') }}"
-                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <a href="{{ route('admin.users.index') }}" @class([
+                                        'flex items-center p-2 text-white rounded-lg bg-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() === route('admin.users.index'),
+                                        'flex items-center p-2 text-white rounded-lg  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() !== route('admin.users.index'),
+                                    ])>
                                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                             viewBox="0 0 20 18">
@@ -148,8 +157,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.concours.index') }}"
-                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <a href="{{ route('admin.concours.index') }}" @class([
+                                        'flex items-center p-2 text-white rounded-lg bg-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() === route('admin.concours.index'),
+                                        'flex items-center p-2 text-white rounded-lg  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() !== route('admin.concours.index'),
+                                    ])>
                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             class="w-6 h-6">
@@ -163,8 +176,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.candidates.index') }}"
-                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <a href="{{ route('admin.candidates.index') }}" @class([
+                                        'flex items-center p-2 text-white rounded-lg bg-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() === route('admin.candidates.index'),
+                                        'flex items-center p-2 text-white rounded-lg  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() !== route('admin.candidates.index'),
+                                    ])>
                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             class="w-6 h-6">
@@ -178,8 +195,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.categories.index') }}"
-                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <a href="{{ route('admin.categories.index') }}" @class([
+                                        'flex items-center p-2 text-white rounded-lg bg-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() === route('admin.categories.index'),
+                                        'flex items-center p-2 text-white rounded-lg  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() !== route('admin.categories.index'),
+                                    ])>
                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             class="w-6 h-6">
@@ -194,8 +215,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.posts.index') }}"
-                                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <a href="{{ route('admin.posts.index') }}" @class([
+                                        'flex items-center p-2 text-white rounded-lg bg-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() === route('admin.posts.index'),
+                                        'flex items-center p-2 text-white rounded-lg  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' =>
+                                            Request::url() !== route('admin.posts.index'),
+                                    ])>
                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                             fill="currentColor" class="w-6 h-6">
@@ -277,8 +302,8 @@
                         </div>
                     </div>
 
-                    <main class="mt-16 col-span-9 w-full">
-                        <div class="bg-concgreen-700 shadow mt-10">
+                    <main class="mt-16 col-span-9 w-full ">
+                        <div class="bg-concgreen-700 shadow mt-10 hadow rounded-lg">
                             <div class="px-4 sm:px-6 lg:max-w-7xl lg:mx-auto lg:px-8">
                                 <div class="py-6 md:flex md:items-center md:justify-between ">
                                     <div class="flex-1 min-w-0">
