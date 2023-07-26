@@ -29,8 +29,19 @@ class MessageController extends Controller
         $message = Message::findOrFail($id);
         $message->delete();
 
+
+        $toastr = [
+            'type' => 'success',
+            'title' => 'Message Supprimé',
+            'message' => 'Message a été Supprimé avec succès'
+        ];
+
+
+
         return redirect()->route('admin.inbox.index')
-            ->with('success', 'Message deleted successfully.');
+            ->with(['toastr' => $toastr]);
+
+
     }
 
     //create
@@ -62,6 +73,18 @@ class MessageController extends Controller
         $message->message = $request->input('message');
         $message->save();
 
-        return redirect()->back()->with('success', 'Message sent successfully.');
+
+        //if message created successfully
+
+
+        $toastr = [
+            'type' => 'success',
+            'title' => 'Message envoyé',
+            'message' => 'Votre message a été envoyé avec succès',
+        ];
+
+        return redirect()->route('landing')->with( ['toastr' => $toastr] );
+
+
     }
 }

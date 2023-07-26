@@ -56,8 +56,10 @@ Route::get('/', function () {
         return $user->postslikes + $user->concourslikes;
     })->take(6);
 
+
+
     return view('landing', compact('categories', 'users'));
-});
+})->name('landing');
 
 
 Route::get('/concours/filter', [ConcourController::class, 'filter'])->name('concours.filter');

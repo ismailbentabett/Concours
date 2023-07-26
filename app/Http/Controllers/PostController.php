@@ -53,7 +53,15 @@ class PostController extends Controller
             }
         }
 
-        return redirect()->route('user.posts')->with('success', 'Post created successfully.');
+
+        $toastr = [
+            'type' => 'success',
+            'title' => 'Post créé',
+            'message' => 'Votre post a été créé avec succès'
+        ];
+
+        return redirect()->route('user.posts')->with( ['toastr' => $toastr] );
+
     }
 
 
@@ -95,15 +103,27 @@ class PostController extends Controller
             }
         }
 
-        return redirect()->route('user.posts')->with('success', 'Post updated successfully.');
-    }
+        $toastr = [
+            'type' => 'success',
+            'title' => 'Post modifié',
+            'message' => 'Votre post a été modifié avec succès'
+        ];
+
+        return redirect()->route('user.posts')->with( ['toastr' => $toastr] );    }
 
     // Destroy method for deleting a post
     public function destroy(Post $post)
     {
         $post->delete();
 
-        return redirect()->route('user.posts')->with('success', 'Post deleted successfully.');
+        $toastr = [
+            'type' => 'success',
+            'title' => 'Post supprimé',
+            'message' => 'Votre post a été supprimé avec succès'
+        ];
+
+        return redirect()->route('user.posts')->with( ['toastr' => $toastr] );
+
     }
 
 

@@ -17,7 +17,10 @@
 </head>
 
 <body class="font-sans antialiased">
-
+    <?php $toastr = Session::get('toastr'); ?>
+    @if (isset($toastr) && is_array($toastr))
+    <x-toastr :title="$toastr['title']" :message="$toastr['message']" :type="$toastr['type']" />
+    @endif
     <main>
 
         <div class="bg-concgreen-500">
