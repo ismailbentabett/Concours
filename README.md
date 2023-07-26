@@ -1,11 +1,8 @@
 
 # Concours 
 
-Association Concours de Mode
-le 26 Septembre 2023
-Pour fêter cet événement qui réunira des créateurs et des passionnés de mode venez participer au défilé de mode !
-Les médias seront aussi présent pour cet occasion
-Inscription OFFERT auprès de l' association Concours de Mode
+
+Association Concours de Mode le 26 septembre 2023. Pour célébrer cet événement qui réunira des créateurs et des passionnés de mode, venez participer au défilé de mode ! Les médias seront également présents pour cette occasion. Inscription OFFERTE auprès de l'association Concours de Mode.
 
 
 
