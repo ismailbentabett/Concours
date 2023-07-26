@@ -49,7 +49,6 @@
     <div class=" min-h-screen bg-gray-100 dark:bg-concgreen-500">
 
 
-        <!-- Page Heading -->
 
 
 
