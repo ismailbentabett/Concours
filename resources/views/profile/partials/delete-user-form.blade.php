@@ -1,4 +1,6 @@
 <section class="space-y-6">
+    @if (!$user->isAdmin() || $user->email !== 'master@concour.com')
+
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Supprimer Le Compte') }}
@@ -9,9 +11,9 @@
         </p>
     </header>
 
-    <x-danger-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
-        {{ __('Supprimer Le Compte') }}</x-danger-button>
-
+        <x-danger-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
+            {{ __('Supprimer Le Compte') }}</x-danger-button>
+    @endif
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
             @csrf

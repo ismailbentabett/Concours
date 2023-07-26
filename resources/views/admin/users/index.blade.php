@@ -90,7 +90,10 @@
                                                 </form>
                                             </a>
                                         @endif
-                                        @if (!$user->isAdmin())
+                                        @if (
+                                            !$user->isAdmin() ||
+                                                $user->email !==
+                                                    "master@concour.com")
                                             <a class="text-red-600 hover:text-indigo-900">
 
                                                 <form action="{{ route('admin.users.delete', $user->id) }}" method="POST">
