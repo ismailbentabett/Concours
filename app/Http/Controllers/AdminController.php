@@ -30,7 +30,6 @@ class AdminController extends Controller
     // Store the newly created category
     public function storeCategory(Request $request)
     {
-        App::setLocale('fr');
         // Validate the input data
         $request->validate([
             'name' => 'required|string|unique:categories,name|max:255',
@@ -76,11 +75,10 @@ class AdminController extends Controller
     // Update the category with the provided data
     public function updateCategory(Request $request, $id)
     {
-        // Validate the input data
         $request->validate([
-            'name' => 'required|string|unique:categories,name,' . $id . '|max:255',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
-
         // Find the category and update it
         $category = Category::findOrFail($id);
         $category->name = $request->input('name');
