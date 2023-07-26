@@ -1,5 +1,5 @@
 
-# Concours :
+# Concours 
 
 Association Concours de Mode
 le 26 Septembre 2023
@@ -11,16 +11,16 @@ Inscription OFFERT auprès de l' association Concours de Mode
 
 
 
-## Documentation :
+## Documentation 
 
 
 
 
-# Installation :
+# Installation 
 
 
 
-## Server Side :
+## Server Side 
 
   ```bash
    npm install
