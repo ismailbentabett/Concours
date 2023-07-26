@@ -49,7 +49,7 @@
                                                         @csrf
 
                                                         <button type="submit"
-                                                            class="inline-flex justify-center items-center space-x-2 text-red-600 hover:text-gray-500  ">
+                                                            class="inline-flex justify-center items-center space-x-2 text-red-600 hover:text-red  ">
                                                             <!-- Heroicon name: solid/thumb-up -->
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                                 fill="currentColor" class="w-16 h-16">
@@ -73,7 +73,7 @@
                                                         @csrf
 
                                                         <button type="submit"
-                                                            class="inline-flex justify-center items-center space-x-2 text-white hover:text-gray-500">
+                                                            class="inline-flex justify-center items-center space-x-2 text-white hover:text-red">
                                                             <!-- Heroicon name: solid/thumb-up -->
                                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                                 viewBox="0 0 24 24" stroke-width="1.5"
