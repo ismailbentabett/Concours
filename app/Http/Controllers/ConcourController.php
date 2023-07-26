@@ -19,6 +19,12 @@ class ConcourController extends Controller
     {
         // Process the data and submit it
 
+        $request->validate([
+            'category_id' => 'required|integer',
+            'profession' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the mime types and max size as per your requirement
+        ]);
+
         $concour = new Concour();
         $concour->category_id = $request->input('category_id');
         $concour->profession = $request->input('profession');
