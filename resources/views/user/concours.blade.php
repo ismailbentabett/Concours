@@ -6,8 +6,8 @@
         <!-- Content area -->
         <div class="flex flex-1 flex-col overflow-hidden">
             <!-- Main content -->
-            <div class="flex flex-1 items-stretch overflow-hidden">
-                <main class="flex-1 overflow-y-auto">
+            <div class="grid grid-cols-5">
+                <main class="flex-1 overflow-y-auto col-span-4 lg:col-span-3">
                     <div class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
                         <div class="flex">
                             <h1 class="flex-1 text-2xl font-bold text-white">Concours</h1>
@@ -63,7 +63,7 @@
                         <section class="mt-8 pb-16" aria-labelledby="gallery-heading">
                             <h2 id="gallery-heading" class="sr-only">Recently viewed</h2>
                             <ul role="list"
-                                class="grid  gap-x-4 gap-y-8  sm:gap-x-6 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                                class="grid  gap-x-4 gap-y-8  sm:gap-x-6 grid-cols-1  lg:grid-cols-2 xl:grid-cols-2 xl:gap-x-8">
                                 @if (count($concours) > 0)
                                     @foreach ($concours as $concour)
                                         <li class="relative">
@@ -72,7 +72,7 @@
 
 
                                             <div
-                                                class="aspect-w-10 h-20 group block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
+                                                class=" block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
                                                 <a class="block w-full h-full"
                                                     href="{{ request()->fullUrlWithQuery(['concourId' => $concour->id]) }}">
                                                     <img id="image-{{ $concour->id }}"
@@ -86,6 +86,8 @@
                                                     </button>
                                                 </a>
                                             </div>
+
+
 
                                             <div class="flex justify-between">
 
@@ -123,7 +125,6 @@
                                         </li>
                                     @endforeach
                                 @else
-
                                     <a type="button"
                                         class="
                                     col-span-12
@@ -146,11 +147,13 @@
                 </main>
 
                 <!-- Details sidebar -->
+                <div class="col-span-4 lg:col-span-2">
+                    @if (request()->has('concourId'))
+                        <x-concour :concour="$data" />
+                    @endif
+                </div>
 
 
-                @if (request()->has('concourId'))
-                    <x-concour :concour="$data" />
-                @endif
 
             </div>
         </div>

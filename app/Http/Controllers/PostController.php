@@ -134,6 +134,7 @@ class PostController extends Controller
     public function userPosts()
     {
         $user = User::find(Auth::user()->id);
+        $currentUser = User::find(Auth::user()->id);
         $posts = Post::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->paginate(5);
@@ -157,7 +158,7 @@ class PostController extends Controller
 
         $likes = $postslikes + $concourslikes;
 
-        return view('user.posts', compact('posts', 'user', 'likes'));
+        return view('user.posts', compact('posts', 'user', 'likes', 'currentUser'));
     }
     public function getUserPosts(Request $request)
     {

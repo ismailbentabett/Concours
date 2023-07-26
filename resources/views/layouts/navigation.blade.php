@@ -286,7 +286,7 @@
         x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
         x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-95">
-        <div class="pt-2 pb-3 px-2 space-y-1 ">
+        <div class=" py-10 px-2 h-full space-y-1 flex flex-col items-center justify-center  ">
 
 
 
@@ -346,7 +346,7 @@
         @if (Route::has('login'))
             <div class="space-x-3 z-10 flex-1 flex py-10 items-center justify-between ">
                 @auth
-                    <div class="mt-3 px-2 space-y-1 flex flex-col justify-center items-center w-full divide-y">
+                    <div class=" mt-3 px-2 space-y-1 flex flex-col justify-center items-center w-full  ">
 
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                             id="user-menu-item-2" href="{{ url('user') }}">{{ __('Profile') }}
@@ -354,19 +354,21 @@
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                             id="user-menu-item-1" href="{{ url('profile') }}">{{ __('Paramètres') }}</a>
                         @if ($admin)
-                            <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                                id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('Tableau De bord') }}</a>
+                            <a class="hidden break-keep md:block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
+                                id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('Tableau De Bord') }}</a>
+                            <a class="block break-keep md:hidden px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
+                                id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('T.  D.  B') }}</a>
                         @endif
 
                         <form method="POST" action="{{ route('logout') }}" class="cursor-pointer">
                             @csrf
 
-                            <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
+                            <a class="break-keep block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                                 id="user-menu-item-2" :href="route('logout')"
                                 onclick="event.preventDefault();
             this.closest('form').submit();">
 
-                                {{ __('Se Déconnecter') }}
+                                {{ __('Déconnecter') }}
                             </a>
 
                         </form>

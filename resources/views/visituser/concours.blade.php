@@ -2,14 +2,12 @@
 
 @section('content')
 
-
-
     <div class="flex h-full">
         <!-- Content area -->
         <div class="flex flex-1 flex-col overflow-hidden">
             <!-- Main content -->
-            <div class="flex flex-1 items-stretch overflow-hidden">
-                <main class="flex-1 overflow-y-auto">
+            <div class="grid grid-cols-5">
+                <main class="flex-1 overflow-y-auto col-span-4 lg:col-span-3">
                     <div class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
                         <div class="flex">
                             <h1 class="flex-1 text-2xl font-bold text-white">Concours</h1>
@@ -41,10 +39,10 @@
                                     <div class="flex items-center border-b border-gray-600">
                                         <nav class="-mb-px flex flex-wrap flex-1 space-x-4 xl:space-x-4 text-white"
                                             aria-label="Tabs">
-                                            <a href="{{ route('visituser.concours', ['id' => $user->id, 'tabs' => 'all']) }}"
+                                            <a  href="{{ route('visituser.concours', ['id' => $user->id, 'tabs' => 'all']) }}"
                                                 aria-current="page"
                                                 class="whitespace-nowrap px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
-                                                    {{ Request::input('tabs') == 'all' ? 'border-b-2 border-bittersweet-500 text-bittersweet-600' : '' }}">
+                                                    {{ Request::input('tabs') == 'all' && Route::currentRouteName() === 'visituser.concours' ? 'border-b-2 border-bittersweet-500 text-bittersweet-600' : '' }}">
                                                 All
                                             </a>
                                             @foreach ($categories as $category)
@@ -66,7 +64,7 @@
                         <section class="mt-8 pb-16" aria-labelledby="gallery-heading">
                             <h2 id="gallery-heading" class="sr-only">Recently viewed</h2>
                             <ul role="list"
-                                class="grid  gap-x-4 gap-y-8  sm:gap-x-6 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                                class="grid  gap-x-4 gap-y-8  sm:gap-x-6 grid-cols-1  lg:grid-cols-2 xl:grid-cols-2 xl:gap-x-8">
                                 @if (count($concours) > 0)
                                     @foreach ($concours as $concour)
                                         <li class="relative">
@@ -75,10 +73,9 @@
 
 
                                             <div
-                                                class="aspect-w-10 h-20 group block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
+                                                class=" block w-full overflow-hidden rounded-lg bg-gray-100 ring-2 ring-bittersweet-500 ring-offset-2">
                                                 <a class="block w-full h-full"
                                                     href="{{ request()->fullUrlWithQuery(['concourId' => $concour->id]) }}">
-
                                                     <img id="image-{{ $concour->id }}"
                                                         src="{{ asset('storage/' . $concour->image) }}" alt=""
                                                         alt=""
@@ -91,11 +88,35 @@
                                                 </a>
                                             </div>
 
-                                            <p
-                                                class="pointer-events-none mt-2 block truncate text-sm font-medium text-white">
 
-                                                {{ $concour->profession }}
-                                            </p>
+
+                                            <div class="flex justify-between">
+
+                                                <p
+                                                    class="pointer-events-none mt-2 block truncate text-sm font-medium text-white">
+
+                                                    {{ $concour->profession }}
+                                                </p>
+                                                <form action="{{ route('concour.destroy', $concour) }}" method="POST"
+                                                    class="mt-2">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="ml-4 flex h-5 w-5 items-center justify-center rounded-full bg-concgreen-600 text-white hover:bg-concgreen-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-bittersweet-500">
+                                                        <!-- Heroicon name: outline/heart -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                                        </svg>
+                                                        <span class="sr-only">Delete</span>
+                                                    </button>
+                                                </form>
+                                            </div>
+
+
+
                                             <p class="text-sm text-white">
                                                 <a href="#" class="hover:underline">
                                                     <time>{{ $concour->created_at->format('Y-m-d') }}</time>
@@ -105,7 +126,6 @@
                                         </li>
                                     @endforeach
                                 @else
-
                                     <a type="button"
                                         class="
                                     col-span-12
@@ -127,9 +147,15 @@
                     </div>
                 </main>
 
-                @if (request()->has('concourId'))
-                    <x-concour :concour="$data" />
-                @endif
+                <!-- Details sidebar -->
+                <div class="col-span-4 lg:col-span-2">
+                    @if (request()->has('concourId'))
+                        <x-concour :concour="$data" />
+                    @endif
+                </div>
+
+
+
             </div>
         </div>
     </div>
