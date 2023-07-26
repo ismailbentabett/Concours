@@ -29,9 +29,10 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -81,9 +82,11 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
         $post = Post::find($post->id);
         $post->title = $request->title;
         $post->content = $request->content;
