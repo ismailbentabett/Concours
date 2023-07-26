@@ -40,4 +40,11 @@ Association Concours de Mode le 26 septembre 2023. Pour célébrer cet événeme
 
 
 
+## Master Admin User
+
+
+`Email :`  `master@concour.com`
+
+`Password :`  `master`
+
 
