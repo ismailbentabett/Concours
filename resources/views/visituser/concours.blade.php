@@ -39,7 +39,7 @@
                                     <div class="flex items-center border-b border-gray-600">
                                         <nav class="-mb-px flex flex-wrap flex-1 space-x-4 xl:space-x-4 text-white"
                                             aria-label="Tabs">
-                                            <a  href="{{ route('visituser.concours', ['id' => $user->id, 'tabs' => 'all']) }}"
+                                            <a href="{{ route('visituser.concours', ['id' => $user->id, 'tabs' => 'all']) }}"
                                                 aria-current="page"
                                                 class="whitespace-nowrap px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
                                                     {{ Request::input('tabs') == 'all' && Route::currentRouteName() === 'visituser.concours' ? 'border-b-2 border-bittersweet-500 text-bittersweet-600' : '' }}">

@@ -354,10 +354,12 @@
                         <a class="block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
                             id="user-menu-item-1" href="{{ url('profile') }}">{{ __('Paramètres') }}</a>
                         @if ($admin)
-                            <a class="hidden break-keep md:block px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                                id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('Tableau De Bord') }}</a>
-                            <a class="block break-keep md:hidden px-4 py-2 text-sm text-white" role="menuitem" tabindex="-1"
-                                id="user-menu-item-1" href="{{ url('dashboard') }}">{{ __('T.  D.  B') }}</a>
+                            <a class="hidden break-keep md:block px-4 py-2 text-sm text-white" role="menuitem"
+                                tabindex="-1" id="user-menu-item-1"
+                                href="{{ url('dashboard') }}">{{ __('Tableau De Bord') }}</a>
+                            <a class="block break-keep md:hidden px-4 py-2 text-sm text-white" role="menuitem"
+                                tabindex="-1" id="user-menu-item-1"
+                                href="{{ url('dashboard') }}">{{ __('T.  D.  B') }}</a>
                         @endif
 
                         <form method="POST" action="{{ route('logout') }}" class="cursor-pointer">
