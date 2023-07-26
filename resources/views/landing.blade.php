@@ -79,7 +79,7 @@
                                                 <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
                                                     <div class="sm:flex">
                                                         <div class="min-w-0 flex-1">
-                                                            <label for="email" class="sr-only">Email address</label>
+                                                            <label for="email" class="sr-only">Saisissez votre adresse électronique</label>
                                                             <input id="email" type="email"
                                                                 placeholder="Saisissez votre adresse électronique"
                                                                 class="block w-full px-4 py-3 rounded-md border-0 text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">
