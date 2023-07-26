@@ -512,7 +512,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- More items... -->
                                 </div>
                             </div>
                         </div>
