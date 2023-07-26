@@ -7,6 +7,7 @@ use App\Models\Concour;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class AdminController extends Controller
 {
@@ -29,11 +30,13 @@ class AdminController extends Controller
     // Store the newly created category
     public function storeCategory(Request $request)
     {
+        App::setLocale('fr');
         // Validate the input data
         $request->validate([
             'name' => 'required|string|unique:categories,name|max:255',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the mime types and max size as per your requirement
         ]);
-
         // Create and save the category
         $category = new Category();
         $category->name = $request->input('name');
