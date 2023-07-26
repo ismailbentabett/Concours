@@ -74,26 +74,20 @@
             <!-- Contact grid -->
             <section aria-labelledby="offices-heading">
                 <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-                    <h2 id="offices-heading" class="text-5xl font-extrabold text-white">Rules</h2>
+                    <h2 id="offices-heading" class="text-5xl font-extrabold text-white">Règles</h2>
                     <p class="mt-6 text-lg text-white max-w-3xl">Varius facilisi mauris sed sit. Non sed et duis
-                        dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
-                    <div class="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                        <div>
-                            <h3 class="text-lg font-medium text-white">Rule One</h3>
-                            <p class="mt-2 text-base text-white">
-                                <span class="block">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit
-                                    magni, in doloribus voluptas explicabo, nihil mollitia labore eos, magnam pariatur
-                                    repellat earum dolorem. Earum accusantium velit commodi cupiditate rerum
-                                    veritatis!</span>
+                        dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames Lorem
+                        ipsum dolor sit amet consectetur adipisicing elit. Alias et at exercitationem dolore ad animi
+                        dignissimos nostrum dolorem repellendus maxime ratione quia, dicta ipsa laudantium quis
+                        voluptatibus dolorum sed enim Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Similique, corporis officia. Labore quibusdam placeat itaque saepe, maxime inventore laborum
+                        quis aspernatur dolores dolore ad natus vitae, facere molestias odit beatae Lorem ipsum dolor
+                        sit amet consectetur adipisicing elit. Reiciendis velit, fuga voluptatem nisi nihil corrupti
+                        vero, id est deserunt, illum repudiandae ea totam aspernatur consectetur molestiae obcaecati
+                        recusandae repellat assumenda Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+                        quasi tempore alias deserunt architecto laborum voluptatem asperiores quia voluptatibus
+                        consequatur, provident corporis nostrum a sunt impedit natus nemo sint? Exercitationem?</p>
 
-                                <span class="block">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                    Laudantium corrupti, magni est optio obcaecati necessitatibus quos repudiandae
-                                    libero doloremque velit doloribus aliquid similique eius accusantium dolores vitae
-                                    voluptas placeat asperiores.</span>
-                            </p>
-                        </div>
-
-                    </div>
                 </div>
             </section>
         </main>
