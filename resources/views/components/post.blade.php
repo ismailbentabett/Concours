@@ -178,6 +178,9 @@
                     </div>
                     <div class="mt-6 flex justify-between space-x-8">
                         <div class="flex space-x-6">
+                            @if(
+                               $post->user_id !== Auth::user()->id
+                            )
                             <span class="inline-flex items-center text-sm">
                                 @if ($post->liked())
                                     <form action="{{ route('unlike.post', $post->id) }}" method="post">
@@ -218,6 +221,7 @@
                                     </form>
                                 @endif
                             </span>
+                            @endif
 
                         </div>
                     </div>
