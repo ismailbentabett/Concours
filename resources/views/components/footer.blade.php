@@ -40,7 +40,7 @@
         </div> --}}
         <div class="mt-12 border-t border-gray-200 py-8">
             <p class="text-base text-white xl:text-center">
-                &copy; 2023 Councours, Inc. All rights reserved.
+                &copy; 2023 Councours, Inc. Tous droits réservés.
             </p>
         </div>
     </div>
