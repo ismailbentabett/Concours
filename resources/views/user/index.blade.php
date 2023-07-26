@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12 grid gap-4 sm:grid-cols-12">
-        <div class="col-span-12 sm:col-span-4 ">
+        <div class="col-span-12 md:col-span-4 ">
             <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                 <section aria-labelledby="profile-overview-title ">
                     <div class="overflow-hidden rounded-lg bg-concgreen-600 shadow">
@@ -119,7 +119,7 @@
 
             </div>
         </div>
-        <div class="col-span-12 sm:col-span-8">
+        <div class="col-span-12 md:col-span-8">
             <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-10">
                     @yield('content')
