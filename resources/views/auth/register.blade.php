@@ -43,7 +43,7 @@
                     class="rounded dark:bg-concgreen-500 border-gray-300 dark:border-gray-700 text-bittersweet-600 shadow-sm focus:ring-bittersweet-500 dark:focus:ring-bittersweet-600 dark:focus:ring-offset-gray-800"
                     type="checkbox" id="terms" name="terms" value="1">
                 <span class="ml-2 text-sm text-white dark:white">
-                    'J\'accepte les <a href="{{ route('terms') }}"
+                    J'accepte les <a href="{{ route('terms') }}"
                         class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500 dark:focus:ring-offset-gray-800">termes
                         du service</a>
                 </span>
