@@ -445,7 +445,7 @@
                                 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                                     <h2
                                         class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
-                                        Les Profiles  </h2>
+                                        Les Profiles </h2>
 
                                     <p class="text-xl text-white">Ornare sagittis, suspendisse in hendrerit quis.
                                         Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
