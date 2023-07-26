@@ -39,7 +39,7 @@
 
                                 </div>
                                 <div class="mt-5 flex justify-center sm:mt-0">
-                                    <!-- This example requires Tailwind CSS v2.0+ -->
+
                                     <a href="#" class="flex-shrink-0 group block">
                                         <div class="flex items-center">
                                             <div>

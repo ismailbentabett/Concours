@@ -154,7 +154,7 @@
                                                                         </li>
                                                                     @endforeach
                                                                 @else
-                                                                    <!-- This example requires Tailwind CSS v2.0+ -->
+
                                                                     <a type="button"
                                                                         class="
                                                                         col-span-12
@@ -174,7 +174,7 @@
                                                                     </a>
                                                                 @endif
 
-                                                                <!-- More people... -->
+
                                                             </ul>
                                                         </div>
                                                     </div>

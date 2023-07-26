@@ -11,7 +11,7 @@
             <x-post :post="$post" :user="$user" />
         @endforeach
     @else
-        <!-- This example requires Tailwind CSS v2.0+ -->
+
         <a href="{{ url('posts/create') }}" type="button"
             class="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
             <svg class="mx-auto h-12 w-12 text-gray-400" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"

@@ -177,7 +177,7 @@
         </div>
 
         {{-- top users --}}
-        <!-- This example requires Tailwind CSS v2.0+ -->
+
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
@@ -218,7 +218,7 @@
                                                 </a>
                                             </li>
                                         @endforeach
-                                        <!-- More people... -->
+
                                     </ul>
                                 </div>
                             </div>

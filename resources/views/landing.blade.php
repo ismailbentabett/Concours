@@ -141,7 +141,7 @@
                             </div>
                         </div> --}}
                     </div>
-                    <!-- This example requires Tailwind CSS v2.0+ -->
+
                     <div class="pt-10 bg-transparent sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden bg-fixed bg-cover bg-center bg-gradient-to-r from-red-500 to-red-500 bg-red-200"
                         style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.4), rgba(250,114,105,0.4)),url({{ URL('image/time_left.jpg') }})">
                         >
@@ -287,7 +287,7 @@
 
                     </div>
 
-                    <!-- This example requires Tailwind CSS v2.0+ -->
+
                     {{--  <div class="bg-concgreen-600 mt-10">
                         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                             <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
@@ -427,7 +427,7 @@
                                             </div>
                                         </li>
                                     @endforeach
-                                    <!-- More people... -->
+
                                 </ul>
                             </div>
                         </div>
@@ -435,7 +435,7 @@
 
 
                     {{-- top users --}}
-                    <!-- This example requires Tailwind CSS v2.0+ -->
+
                     <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
                         style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/candidates.jpg') }})">
 
@@ -476,7 +476,7 @@
                                         </li>
                                     @endforeach
 
-                                    <!-- More people... -->
+
                                 </ul>
                             </div>
                         </div>

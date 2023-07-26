@@ -12,8 +12,8 @@
             </h2>
         </div>
     </header>
-    <!-- This example requires Tailwind CSS v2.0+ -->
-    <!-- This example requires Tailwind CSS v2.0+ -->
+
+
     <div class="bg-concgreen-700 shadow sm:rounded-lg mt-5 flex justify-center items-center">
         <div class="px-4 py-5 sm:p-6">
 
@@ -90,7 +90,7 @@
                                     </form>
                                 </tr>
 
-                                <!-- More people... -->
+
                             </tbody>
                         @endforeach
 
