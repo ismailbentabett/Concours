@@ -139,7 +139,6 @@
 
     @endauth
 
-    {{-- categories --}}
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
@@ -149,7 +148,7 @@
                             <div class="space-y-12">
                                 <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
                                     <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-                                        Catégories</h2>
+                                        Association Concours de Mode</h2>
                                     <p class="text-xl text-white">Cette association a pour objet la valorisation et la
                                         représentation de l'artisanat des métiers d'arts par
                                         le biais
@@ -170,6 +169,26 @@
                                         Enfin, l'association se veut intergénérationnelle en ce qu'elle souhaite
                                         préserver et transmettre un
                                         savoir-faire artisanal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- categories --}}
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-800 dark:text-gray-100">
+                    <div class="bg-concgreen-600">
+                        <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+                            <div class="space-y-12">
+                                <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+                                    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
+                                        Catégories</h2>
+
                                 </div>
 
                                 <div class="bg-concgreen-600">
