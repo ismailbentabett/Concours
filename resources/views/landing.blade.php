@@ -411,7 +411,7 @@
                                                 <div class="aspect-w-3 aspect-h-2 hover:scale-125">
                                                     <a href={{ url('concours') }}>
                                                         <img class="object-cover 1-lg rounded-lg"
-                                                            src="{{ asset('image/categories/' . $category->name . '.jpg') }}"
+                                                        src="{{ asset('storage/' . $category->image) }}"
                                                             alt="1" alt="">
                                                     </a>
 
