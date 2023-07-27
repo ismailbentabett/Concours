@@ -90,6 +90,16 @@
                                                 </form>
                                             </a>
                                         @endif
+
+                                        @if ($user->isAdmin())
+                                        <a class="text-cyan-600 hover:text-indigo-900">
+
+                                            <form action="{{ route('admin.unmakeadmin', $user->id) }}" method="GET">
+                                                @csrf
+                                                <button type="submit">Supprimer un admin</button>
+                                            </form>
+                                        </a>
+                                    @endif
                                         @if (
                                             !$user->isAdmin() ||
                                                 $user->email !==

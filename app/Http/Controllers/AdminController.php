@@ -334,4 +334,23 @@ class AdminController extends Controller
         return redirect()->back()
             ->with(['toastr' => $toastr]);
     }
+
+
+    //unmake admin
+    public function unmakeAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->roles()->detach(1);
+
+        $toastr = [
+            'type' => 'success',
+            'title' => 'Utilisateur est pas Admin',
+            'message' => 'Utilisateur est pas Admin'
+        ];
+
+
+
+        return redirect()->back()
+            ->with(['toastr' => $toastr]);
+    }
 }
