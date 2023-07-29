@@ -43,7 +43,8 @@
                             @foreach ($posts as $post)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
+                                        <a href="{{ route('visituser.posts', ['id' => $post->user->id]) }}"
+                                            class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
                                                 @if ($post->images->count() > 0)
                                                     <img src="{{ asset('storage/' . $post->images[0]) }}"
@@ -62,12 +63,13 @@
                                                     {{ $post->content }}
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="ml-4">
-                                            <div class="flex items-center">
+                                            <a href="{{ route('visituser.concours', ['id' => $post->user->id]) }}"
+                                                class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
                                                     @if ($post->user->avatar)
                                                         <img src="{{ asset('storage/' . $post->user->avatar) }}"
@@ -86,7 +88,7 @@
                                                         {{ $post->user->email }}
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     </td>
 

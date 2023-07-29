@@ -24,7 +24,7 @@
                                     <select id="tabs" name="tabs"
                                         class="text-white bg-concgreen-600 block w-full rounded-md border-gray-600 py-2 pl-3 pr-10 text-base focus:border-bittersweet-500 focus:outline-none focus:ring-bittersweet-500 sm:text-sm"
                                         onchange="this.form.submit()">
-                                        <option value="all" {{ Request::input('tabs') == 'all' ? 'selected' : '' }}>All
+                                        <option value="all" {{ Request::input('tabs') == 'all' ? 'selected' : '' }}>Tous
                                         </option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->name }}"
@@ -42,7 +42,7 @@
                                             <a href="{{ route('user.concours', ['tabs' => 'all']) }}" aria-current="page"
                                                 class="whitespace-nowrap px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
                                                     {{ Request::input('tabs') == 'all' && Route::currentRouteName() === 'user.concours' ? 'border-b-2 border-bittersweet-500 text-bittersweet-600' : '' }}">
-                                                All
+                                                Tous
                                             </a>
                                             @foreach ($categories as $category)
                                                 <a href="{{ route('user.concours', ['tabs' => $category->name]) }}"
@@ -135,7 +135,7 @@
                                                 d="M8 14v20c0 4.418 7.163 8 16 8 1.381 0 2.721-.087 4-.252M8 14c0 4.418 7.163 8 16 8s16-3.582 16-8M8 14c0-4.418 7.163-8 16-8s16 3.582 16 8m0 0v14m0-4c0 4.418-7.163 8-16 8S8 28.418 8 24m32 10v6m0 0v6m0-6h6m-6 0h-6" />
                                         </svg>
                                         <span class="mt-2 block text-sm font-medium text-white">
-                                            Aucune Soumission Trouvée
+                                            Aucun article trouvé
                                         </span>
                                     </a>
                                 @endif

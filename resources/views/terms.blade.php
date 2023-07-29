@@ -29,18 +29,18 @@
                 <div class="py-24 lg:py-32">
                     <div class="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
                         <h1 class="text-5xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                            Termes Du Service</h1>
-                        <p class="mt-6 text-xl text-white max-w-3xl">Vel nunc non ut montes, viverra tempor.
-                            Proin lectus nibh phasellus morbi non morbi. In elementum urna ut volutpat. Sagittis et vel
-                            et fermentum amet consequat Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
-                            nostrum deleniti minima magnam minus mollitia iure, rem, quos quod, voluptate vel
-                            consequuntur facere reiciendis. Adipisci eligendi officiis molestiae aliquam amet
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos at inventore
-                            voluptates debitis, distinctio enim fugit, reiciendis architecto saepe earum obcaecati
-                            ratione, cum corrupti ipsa excepturi ea quaerat sapiente Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Quod illum ipsa illo excepturi numquam architecto, neque
-                            necessitatibus sint sit est fugit recusandae vero tempora obcaecati dolorum. Eveniet nulla
-                            nesciunt magni.
+                            RGPD</h1>
+                        <p class="mt-6 text-xl text-white max-w-3xl">Une donnée personnelle est toute information se rapportant à une personne physique identifiée ou identifiable. Mais, parce qu’elles concernent des personnes, celles-ci doivent en conserver la maîtrise.
+
+                            Une personne physique peut être identifiée :
+                            
+                            directement (exemple : nom et prénom) ;
+                            indirectement (exemple : par un numéro de téléphone ou de plaque d’immatriculation, un identifiant tel que le numéro de sécurité sociale, une adresse postale ou courriel, mais aussi la voix ou l’image).
+                            L’identification d’une personne physique peut être réalisée :
+                            
+                            à partir d’une seule donnée (exemple : nom) ;
+                            à partir du croisement d’un ensemble de données (exemple : une femme vivant à telle adresse, née tel jour et membre dans telle association).
+                            Par contre, des coordonnées d’entreprises (par exemple, l’entreprise « Compagnie A » avec son adresse postale, le numéro de téléphone de son standard et un courriel de contact générique) ne sont pas, en principe, des données personnelles.
                         </p>
                     </div>
                 </div>
@@ -74,19 +74,28 @@
             <!-- Contact grid -->
             <section aria-labelledby="offices-heading">
                 <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-                    <h2 id="offices-heading" class="text-5xl font-extrabold text-white">Règles</h2>
-                    <p class="mt-6 text-lg text-white max-w-3xl">Varius facilisi mauris sed sit. Non sed et duis
-                        dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames Lorem
-                        ipsum dolor sit amet consectetur adipisicing elit. Alias et at exercitationem dolore ad animi
-                        dignissimos nostrum dolorem repellendus maxime ratione quia, dicta ipsa laudantium quis
-                        voluptatibus dolorum sed enim Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Similique, corporis officia. Labore quibusdam placeat itaque saepe, maxime inventore laborum
-                        quis aspernatur dolores dolore ad natus vitae, facere molestias odit beatae Lorem ipsum dolor
-                        sit amet consectetur adipisicing elit. Reiciendis velit, fuga voluptatem nisi nihil corrupti
-                        vero, id est deserunt, illum repudiandae ea totam aspernatur consectetur molestiae obcaecati
-                        recusandae repellat assumenda Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-                        quasi tempore alias deserunt architecto laborum voluptatem asperiores quia voluptatibus
-                        consequatur, provident corporis nostrum a sunt impedit natus nemo sint? Exercitationem?</p>
+                    <h2 id="offices-heading" class="text-5xl font-extrabold text-white">Réglement</h2>
+                    <p class="mt-6 text-xl text-white max-w-3xl">Cette association a pour objet la valorisation et la représentation de l'artisanat des métiers d'arts par le biais de concours, défilés, présentations et expositions de mode. L'association souhaite mettre en avant la mode : Prêt-à-porter ; accessoires, et Haute Couture pour les catégories Hommes-Femmes-Enfants. Le but de l'association est de transmettre ce patrimoine immatériel français qu'est la couture (techniques spécifiques de couture, broderie etc...). En outre l'association souhaite faire émerger de nouveaux talents et faire découvrir les techniques de création traditionnelles (artisanat local, matières utilisées etc.) de tous les pays du monde. Enfin, l'association se veut intergénérationnelle en ce qu'elle souhaite préserver et transmettre un savoir-faire artisanal.</p>
+
+                </div>
+            </section>
+            <section aria-labelledby="offices-heading">
+                <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+                    <h2 id="offices-heading" class="text-5xl font-extrabold text-white">Mention Légale</h2>
+                    <p class="mt-6 text-lg text-white max-w-3xl">Les mentions légales sont les informations qui permettent à l'internaute de vous identifier.
+
+                        Les mentions légales sont obligatoires sur tout site internet professionnel et doivent être facilement accessibles.
+                        
+                        Elles peuvent être insérées dans vos conditions générales de vente (CGV) ou dans une page dédiée.
+                        
+                        Vous devez renseigner les informations suivantes :
+                        
+                        Identité de l'entreprise : dénomination sociale, forme juridique, adresse du siège social et montant du capital social.
+                        Numéro d'immatriculation au RCS: RCS : Registre du commerce et des sociétés et/ou numéro Siren
+                        Mail et numéro de téléphone pour contacter votre entreprise
+                        Numéro d'identification à la TVA
+                        Identité de l'hébergeur: Entreprise en charge de stocker sur ses serveurs les données du site internet du site : nom ou dénomination sociale, adresse et numéro de téléphone
+                        Si vous exercez une activité réglementée et soumise à autorisation (pharmacie ou débit de boissons, par exemple) : nom et adresse de l'autorité qui a délivré l'autorisation</p>
 
                 </div>
             </section>

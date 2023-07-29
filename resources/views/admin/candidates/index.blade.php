@@ -42,7 +42,8 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
+                                        <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
+                                            class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
                                                 @if ($user->avatar)
                                                     <img src="{{ asset('storage/' . $user->avatar) }}"
@@ -61,7 +62,7 @@
                                                     {{ $user->email }}
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-white">{{ $user->postslikes + $user->concourslikes }}</div>

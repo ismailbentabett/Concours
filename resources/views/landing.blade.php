@@ -27,86 +27,102 @@
             <div class="relative overflow-hidden">
 
                 <main>
+
                     <div class="h-screen  bg-transparent  lg:overflow-hidden bg-fixed bg-cover bg-center flex flex-col justify-between "
                         style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }})">
                         @include('layouts.navigation')
-
                         <div class="mx-auto max-w-7xl lg:px-8 mt-20">
-                            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                            <div class="">
                                 <div
-                                    class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
-                                    <div class="lg:py-24">
-                                        @guest
-                                            <a href="{{ 'login' }}"
-                                                class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
-                                                <span
-                                                    class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 rounded-full">
-                                                    Nous sommes Candidat ?
-                                                </span>
-                                                <span class="ml-4 text-sm">Connexion</span>
-                                                <!-- Heroicon name: solid/chevron-right -->
-                                                <svg class="ml-2 w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </a>
-                                        @endguest
+                                    class=" sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
+                                    <div class="lg:py-2">
                                         <h1
-                                            class="mt-4 text-xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                                            <span class="block mb-5"> Association Concours de Mode
-
+                                            class="mt-12 text-xl tracking-tight font-extrabold text-white sm:mt-8 sm:text-6xl lg:mt-1 xl:text-6xl">
+                                            <span class="block mb-20"> Foire Internationale de Marseille 2023
                                             </span>
-
-                                            <span
-                                                class="italic underline decoration-pink-700 decoration-wavy bg-gradient-to-r from-bittersweet-900 text-white">
-                                                le 26 Septembre 2023</span>
                                         </h1>
-                                        <p class="mt-4 text-2xl bg-gradient-to-r from-bittersweet-900 text-white "> Pour
-                                            fêter cet événement qui réunira des créateurs et des passionnés de mode
-                                            venez
-                                            participer au défilé de mode !
-                                            <span class="block my-4 underline underline-offset-5 text-xl"> Les médias
-                                                seront aussi présent pour cet occasion</span>
-                                            Inscription <span
-                                                class="font-bold underline decoration-pink-700 decoration-wavy"> OFFERT
-                                            </span> auprès de l' association
-                                            Concours de Mode
-                                        </p>
-                                        @guest
-                                            <div class="mt-10 sm:mt-12">
-                                                <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
-                                                    <div class="sm:flex">
-                                                        <div class="min-w-0 flex-1">
-                                                            <label for="email" class="sr-only">Saisissez votre adresse électronique</label>
-                                                            <input id="email" type="email"
-                                                                placeholder="Saisissez votre adresse électronique"
-                                                                class="block w-full px-4 py-3 rounded-md border-0 text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">
-                                                        </div>
+                                    
+                                    @guest
+                                        <a href="{{ 'login' }}"
+                                            class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
+                                            <span
+                                                class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 rounded-full">
+                                                Nous sommes Candidat ?
+                                            </span>
+                                            <span class="ml-4 text-sm">Connexion</span>
+                                            <!-- Heroicon name: solid/chevron-right -->
+                                            <svg class="ml-2 w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </a>
+                                    @endguest
+                                    <h1
+                                        class="mt-4 text-xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                        <span class="block mb-5"> Défilé De Mode
 
-                                                        <div class="mt-3 sm:mt-0 sm:ml-3">
-                                                            <a href="{{ url('register') }}"
-                                                                class="block w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 text-white font-medium hover:from-bittersweet-600 hover:to-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">INSCRIRE</a>
-                                                        </div>
+                                        </span>
+
+                                        <span
+                                            class="italic underline decoration-pink-700 decoration-wavy bg-gradient-to-r from-bittersweet-900 text-white">
+                                            le 26 Septembre 2023 <br>
+
+                                        </span>
+                                    </h1>
+
+                                    <p class="mt-4 text-2xl bg-gradient-to-r from-bittersweet-900 text-white "> Pour
+                                        fêter cet événement qui réunira des créateurs et des passionnés de mode
+                                        venez
+                                        participer au défilé de mode qui aura lieu devant le palais des congrès du Parc
+                                        Chanot! <a class="text-blue-600 visited:text-purple-300"
+                                            href="https://www.foiredemarseille.com/"> Foire Internationale de
+                                            Marseille</a><span
+                                            class="font-bold underline decoration-pink-700 decoration-wavy"> De 14h à
+                                            19h en l'honneur des femmes
+                                        </span>
+                                        <span class="block my-4 underline underline-offset-5 text-xl"> Les médias
+                                            seront aussi présent pour cet occasion</span>
+                                        Inscription <span
+                                            class="font-bold underline decoration-pink-700 decoration-wavy"> OFFERT
+                                        </span> auprès de l' association
+                                        Concours de Mode
+                                    </p>
+                                    @guest
+                                        <div class="mt-10 sm:mt-12">
+                                            <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
+                                                <div class="sm:flex">
+                                                    <div class="min-w-0 flex-1">
+                                                        <label for="email" class="sr-only">Saisissez votre adresse
+                                                            électronique</label>
+                                                        <input id="email" type="email"
+                                                            placeholder="Saisissez votre adresse électronique"
+                                                            class="block w-full px-4 py-3 rounded-md border-0 text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">
                                                     </div>
 
-                                                </form>
-                                            </div>
-                                        @endguest
+                                                    <div class="mt-3 sm:mt-0 sm:ml-3">
+                                                        <a href="{{ url('register') }}"
+                                                            class="block w-full py-3 px-4 rounded-md 1 bg-gradient-to-r from-bittersweet-500 to-bittersweet-600 text-white font-medium hover:from-bittersweet-600 hover:to-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-400 focus:ring-offset-gray-900">Inscription</a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    @endguest
 
 
 
 
 
-                                    </div>
                                 </div>
-
                             </div>
+
                         </div>
+                    </div>
 
 
-                        {{--      <div class="space-y-8 xl:col-span-1 w-full flex justify-center ">
+                    {{--      <div class="space-y-8 xl:col-span-1 w-full flex justify-center ">
 
                             <div class="flex space-x-6">
                                 <a href="#" class="text-white hover:text-white">
@@ -141,155 +157,155 @@
 
                             </div>
                         </div> --}}
+            </div>
+
+            <div class="pt-10 bg-transparent sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden bg-fixed bg-cover bg-center bg-gradient-to-r from-red-500 to-red-500 bg-red-200"
+                style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.4), rgba(250,114,105,0.4)),url({{ URL('image/time_left.jpg') }})">
+                >
+                <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h2 id="headline" class="text-3xl font-extrabold text-white sm:text-4xl">
+                            Défilé
+                        </h2>
+
                     </div>
+                    <dl id="countdown"
+                        class="mt-10 text-center sm:max-w-3xl sm:mx-auto sm:grid sm:grid-cols-4 sm:gap-8">
+                        <div class="flex flex-col">
+                            <dt class="order-2 mt-2 text-lg leading-6 font-medium text-bittersweet-200">
+                                Days
+                            </dt>
+                            <dd id="days" class="order-1 text-5xl font-extrabold text-white">
 
-                    <div class="pt-10 bg-transparent sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden bg-fixed bg-cover bg-center bg-gradient-to-r from-red-500 to-red-500 bg-red-200"
-                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.4), rgba(250,114,105,0.4)),url({{ URL('image/time_left.jpg') }})">
-                        >
-                        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
-                            <div class="max-w-4xl mx-auto text-center">
-                                <h2 id="headline" class="text-3xl font-extrabold text-white sm:text-4xl">
-                                    IL REST
-                                </h2>
-
-                            </div>
-                            <dl id="countdown"
-                                class="mt-10 text-center sm:max-w-3xl sm:mx-auto sm:grid sm:grid-cols-4 sm:gap-8">
-                                <div class="flex flex-col">
-                                    <dt class="order-2 mt-2 text-lg leading-6 font-medium text-bittersweet-200">
-                                        Days
-                                    </dt>
-                                    <dd id="days" class="order-1 text-5xl font-extrabold text-white">
-
-                                    </dd>
-                                </div>
-                                <div class="flex flex-col mt-10 sm:mt-0">
-                                    <dt class="order-2 mt-2 text-lg leading-6 font-medium text-bittersweet-200">
-                                        HOURS
-                                    </dt>
-                                    <dd id="hours" class="order-1 text-5xl font-extrabold text-white">
-
-                                    </dd>
-                                </div>
-                                <div class="flex flex-col mt-10 sm:mt-0">
-                                    <dt class="order-2 mt-2 text-lg leading-6 font-medium text-bittersweet-200">
-                                        MINUTES
-                                    </dt>
-                                    <dd id="minutes" class="order-1 text-5xl font-extrabold text-white">
-
-                                    </dd>
-                                </div>
-                                <div class="flex flex-col mt-10 sm:mt-0">
-                                    <dt class="order-2 mt-2 text-lg leading-6 font-medium text-bittersweet-200">
-                                        SECONDS
-                                    </dt>
-                                    <dd id="seconds" class="order-1 text-5xl font-extrabold text-white">
-
-                                    </dd>
-                                </div>
-                            </dl>
-                            @guest
-                                <div class="flex justify-center items-center mt-5">
-                                    <a href="{{ url('register') }}"
-                                        class="block w-full py-3 px-7 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto">INSCRIRE</a>
-                                </div>
-                            @endguest
-
+                            </dd>
                         </div>
+                        <div class="flex flex-col mt-10 sm:mt-0">
+                            <dt class="order-2 mt-2 text-lg leading-6 font-medium text-bittersweet-200">
+                                HOURS
+                            </dt>
+                            <dd id="hours" class="order-1 text-5xl font-extrabold text-white">
+
+                            </dd>
+                        </div>
+                        <div class="flex flex-col mt-10 sm:mt-0">
+                            <dt class="order-2 mt-2 text-lg leading-6 font-medium text-bittersweet-200">
+                                MINUTES
+                            </dt>
+                            <dd id="minutes" class="order-1 text-5xl font-extrabold text-white">
+
+                            </dd>
+                        </div>
+                        <div class="flex flex-col mt-10 sm:mt-0">
+                            <dt class="order-2 mt-2 text-lg leading-6 font-medium text-bittersweet-200">
+                                SECONDS
+                            </dt>
+                            <dd id="seconds" class="order-1 text-5xl font-extrabold text-white">
+
+                            </dd>
+                        </div>
+                    </dl>
+                    @guest
+                        <div class="flex justify-center items-center mt-5">
+                            <a href="{{ url('register') }}"
+                                class="block w-full py-3 px-7 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto">Inscription</a>
+                        </div>
+                    @endguest
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Feature section with screenshot -->
+            <div class="relative mt-10">
+
+                <div class="relative   bg-concgreen-500">
+                    <div class="hidden absolute top-0 inset-x-0 h-1/2 bg-concgreen-500 lg:block" aria-hidden="true">
                     </div>
+                    <div class=" mx-auto  lg:bg-transparent lg:px-8">
+                        <div class="lg:grid lg:grid-cols-12">
+                            <div
+                                class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-4 lg:py-16 lg:bg-transparent">
 
-
-
-
-
-
-
-
-                    <!-- Feature section with screenshot -->
-                    <div class="relative mt-10">
-
-                        <div class="relative   bg-concgreen-500">
-                            <div class="hidden absolute top-0 inset-x-0 h-1/2 bg-concgreen-500 lg:block"
-                                aria-hidden="true">
-                            </div>
-                            <div class=" mx-auto  lg:bg-transparent lg:px-8">
-                                <div class="lg:grid lg:grid-cols-12">
-                                    <div
-                                        class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-4 lg:py-16 lg:bg-transparent">
-
-                                        <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
-                                            <div
-                                                class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
-                                                <img class="object-cover object-center rounded-3xl 1-2xl"
-                                                    src="{{ URL('image/Le_concours.jpg') }}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="relative bg-concgreen-600 lg:col-start-3 lg:row-start-1 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center"
-                                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }}); background-attachment: fixed; background-size: cover;">
-                                        <div class="hidden absolute inset-0 overflow-hidden rounded-3xl lg:block"
-                                            aria-hidden="true">
-                                            <svg class="absolute bottom-full left-full transform translate-y-1/3 -translate-x-2/3 xl:bottom-auto xl:top-0 xl:translate-y-0"
-                                                width="404" height="384" fill="none" viewBox="0 0 404 384"
-                                                aria-hidden="true">
-                                                <defs>
-                                                    <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0"
-                                                        y="0" width="20" height="20"
-                                                        patternUnits="userSpaceOnUse">
-                                                        <rect x="0" y="0" width="4"
-                                                            height="4" class="text-white" fill="currentColor" />
-                                                    </pattern>
-                                                </defs>
-                                                <rect width="404" height="384"
-                                                    fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
-                                            </svg>
-                                            <svg class="absolute top-full transform -translate-y-1/3 -translate-x-1/3 xl:-translate-y-1/2"
-                                                width="404" height="384" fill="none" viewBox="0 0 404 384"
-                                                aria-hidden="true">
-                                                <defs>
-                                                    <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0"
-                                                        y="0" width="20" height="20"
-                                                        patternUnits="userSpaceOnUse">
-                                                        <rect x="0" y="0" width="4"
-                                                            height="4" class="text-white" fill="currentColor" />
-                                                    </pattern>
-                                                </defs>
-                                                <rect width="404" height="384"
-                                                    fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
-                                            </svg>
-                                        </div>
-
-                                        <div
-                                            class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-3 lg:col-span-6">
-                                            <h2 class="text-2xl sm:text-8xl font-extrabold text-white uppercase"
-                                                id="join-heading"> le concours</h2>
-                                            <p class="text-xl text-white">Durant 15 jours nous vous proposons d'exposer
-                                                vos modèles au sein du Palais des Arts <br> durant la Foire
-                                                Internationale de Marseille du <span class="font-bold text-2xl">22
-                                                    septembre au 2 octobre 2023</span>
-
-                                                <br>Cet évènement est organisée avec la FoireInternationale de Marseille
-                                                et <br> l 'Association Concours de Mode.
-                                                <span class="block my-2 underline underline-offset-5 text-xl"> Soyez
-                                                    visible et exposer vos plus belles créations ! </span>
-                                                La participation est libre.
-                                            </p>
-                                            @guest
-                                                <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
-                                                    href="{{ url('register') }}">INSCRIRE</a>
-                                            @endguest
-                                        </div>
-
+                                <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
+                                    <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
+                                        <img class="object-cover object-center rounded-3xl 1-2xl"
+                                            src="{{ URL('image/Le_concours.jpg') }}" alt="">
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="relative bg-concgreen-600 lg:col-start-3 lg:row-start-1 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center"
+                                style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/header-bg.jpg') }}); background-attachment: fixed; background-size: cover;">
+                                <div class="hidden absolute inset-0 overflow-hidden rounded-3xl lg:block"
+                                    aria-hidden="true">
+                                    <svg class="absolute bottom-full left-full transform translate-y-1/3 -translate-x-2/3 xl:bottom-auto xl:top-0 xl:translate-y-0"
+                                        width="404" height="384" fill="none" viewBox="0 0 404 384"
+                                        aria-hidden="true">
+                                        <defs>
+                                            <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0"
+                                                y="0" width="20" height="20"
+                                                patternUnits="userSpaceOnUse">
+                                                <rect x="0" y="0" width="4" height="4"
+                                                    class="text-white" fill="currentColor" />
+                                            </pattern>
+                                        </defs>
+                                        <rect width="404" height="384"
+                                            fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+                                    </svg>
+                                    <svg class="absolute top-full transform -translate-y-1/3 -translate-x-1/3 xl:-translate-y-1/2"
+                                        width="404" height="384" fill="none" viewBox="0 0 404 384"
+                                        aria-hidden="true">
+                                        <defs>
+                                            <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0"
+                                                y="0" width="20" height="20"
+                                                patternUnits="userSpaceOnUse">
+                                                <rect x="0" y="0" width="4" height="4"
+                                                    class="text-white" fill="currentColor" />
+                                            </pattern>
+                                        </defs>
+                                        <rect width="404" height="384"
+                                            fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+                                    </svg>
+                                </div>
+
+                                <div
+                                    class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-3 lg:col-span-6">
+                                    <h2 class="text-2xl sm:text-8xl font-extrabold text-white uppercase"
+                                        id="join-heading"> Exposition</h2>
+                                    <p class="text-xl text-white">Durant 15 jours nous vous proposons d'exposer
+                                        vos modèles au sein du Palais des Arts à la salle Gyptis durant <a
+                                            class="text-blue-600 visited:text-purple-600"
+                                            href="https://www.foiredemarseille.com/">la Foire
+                                            Internationale de Marseille </a> du <span class="font-bold text-2xl">22
+                                            septembre au 2 octobre 2023</span>
+
+                                        <br>Cet évènement est organisée avec la FoireInternationale de Marseille
+                                        et <br> l 'Association Concours de Mode.
+                                        <span class="block my-2 underline underline-offset-5 text-xl"> Soyez
+                                            visible et exposer vos plus belles créations ! </span>
+                                        La participation est libre.
+                                    </p>
+                                    @guest
+                                        <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md 1 text-base font-medium text-bittersweet-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
+                                            href="{{ url('register') }}">Inscription</a>
+                                    @endguest
+                                </div>
+
+                            </div>
                         </div>
-
                     </div>
+                </div>
+
+            </div>
 
 
-                    {{--  <div class="bg-concgreen-600 mt-10">
+            {{--  <div class="bg-concgreen-600 mt-10">
                         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                             <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
                                 <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
@@ -322,239 +338,234 @@
 
 
 
-                    <!-- carousel -->
+            <!-- carousel -->
 
-                    <div class="flex justify-center items-center bg-concgreen-600 my-10">
-                        <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
-                            <div class="w-full relative flex items-center justify-center">
-                                <button aria-label="slide backward"
-                                    class="backward absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
-                                    id="prev">
-                                    <svg class="dark:text-white w-7 h-7" width="8" height="14"
-                                        viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                                <div class="owl-carousel owl-theme mt-5">
+            <div class="flex justify-center items-center bg-concgreen-600 my-10">
+                <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
+                    <div class="w-full relative flex items-center justify-center">
+                        <button aria-label="slide backward"
+                            class="backward absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
+                            id="prev">
+                            <svg class="dark:text-white w-7 h-7" width="8" height="14" viewBox="0 0 8 14"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="owl-carousel owl-theme mt-5">
 
-                                    <div class="item">
-                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                            <img src="{{ URL('image/carousel/1.jpg') }}" alt="1"
-                                                class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
-                                            </div>
-                                        </div>
+                            <div class="item">
+                                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                                    <img src="{{ URL('image/carousel/1.jpg') }}" alt="1"
+                                        class="object-cover object-center w-full sm:w-96" />
+                                    <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
                                     </div>
-                                    <div class="item">
-                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                            <img src="{{ URL('image/carousel/2.jpg') }}" alt="1"
-                                                class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                            <img src="{{ URL('image/carousel/3.jpg') }}" alt="1"
-                                                class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                            <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
-                                                class="object-cover object-center w-full sm:w-96" />
-                                            <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
                                 </div>
-
-                                <button aria-label="slide forward"
-                                    class="forward absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                                    id="next">
-                                    <svg class="dark:text-white w-7 h-7" width="8" height="14"
-                                        viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
                             </div>
-                        </div>
-                    </div>
-
-
-                    {{-- categories --}}
-                    <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
-                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/concours.jpg') }})">
-                        <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
-                            <div class="space-y-12">
-                                <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-                                    <h2
-                                        class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
-                                        Catégories</h2>
-                                    <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
-                                        vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
+                            <div class="item">
+                                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                                    <img src="{{ URL('image/carousel/2.jpg') }}" alt="1"
+                                        class="object-cover object-center w-full sm:w-96" />
+                                    <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                    </div>
                                 </div>
-                                <ul role="list"
-                                    class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
-
-                                    @foreach ($categories as $category)
-                                        <li>
-                                            <div class="space-y-4" data-popover-target="{{ $category->name }}">
-                                                <div class="aspect-w-3 aspect-h-2 hover:scale-125">
-                                                    <a href={{ url('concours') }}>
-                                                        <img class="object-cover 1-lg rounded-lg"
-                                                        src="{{ asset('storage/' . $category->image) }}"
-                                                            alt="1" alt="">
-                                                    </a>
-
-                                                </div>
-
-                                                <div class="space-y-2">
-                                                    <div class="text-lg leading-6 font-medium space-y-1">
-
-                                                        <p class="text-white text-5xl hover:bg-pink-900">
-                                                            {{ $category->name }}</p>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </li>
-                                    @endforeach
-
-                                </ul>
                             </div>
-                        </div>
-                    </div>
-
-
-                    {{-- top users --}}
-
-                    <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
-                        style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/candidates.jpg') }})">
-
-                        >
-                        <div class="max-w-7xl mx-auto py-12 px-4  sm:px-6 lg:px-8 lg:py-24">
-                            <div class="space-y-12">
-                                <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-                                    <h2
-                                        class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
-                                        Les Profiles </h2>
-
-                                    <p class="text-xl text-white">Ornare sagittis, suspendisse in hendrerit quis.
-                                        Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
+                            <div class="item">
+                                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                                    <img src="{{ URL('image/carousel/3.jpg') }}" alt="1"
+                                        class="object-cover object-center w-full sm:w-96" />
+                                    <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                    </div>
                                 </div>
-                                <ul role="list"
-                                    class="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
-                                    @foreach ($topUsers as $user)
-                                        <li>
-                                            <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
-                                                class="space-y-6">
+                            </div>
+                            <div class="item">
+                                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                                    <img src="{{ URL('image/carousel/4.jpg') }}" alt="1"
+                                        class="object-cover object-center w-full sm:w-96" />
+                                    <div class="bg-concgreen-600 bg-opacity-30 absolute w-full h-full p-6">
+                                    </div>
+                                </div>
+                            </div>
 
-                                                @if ($user->avatar)
-                                                    <img src="{{ asset('storage/' . $user->avatar) }}"
-                                                        class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
-                                                        alt="" />
-                                                @else
-                                                    <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
-                                                        src="{{ URL('image/profileplaceholder.jpg') }}"
-                                                        alt="1" alt="" />
-                                                @endif
-                                                <div class="space-y-2">
-                                                    <div class="text-lg leading-6 font-medium space-y-1 text-center">
-                                                        <h3 class="text-white">{{ $user->name }}</h3>
-                                                        <p class="text-white">{{ $user->email }}</p>
-                                                    </div>
 
-                                                </div>
+
+
+                        </div>
+
+                        <button aria-label="slide forward"
+                            class="forward absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                            id="next">
+                            <svg class="dark:text-white w-7 h-7" width="8" height="14" viewBox="0 0 8 14"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            {{-- categories --}}
+            <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
+                style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/concours.jpg') }})">
+                <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+                    <div class="space-y-12">
+                        <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+                            <h2
+                                class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
+                                Catégories</h2>
+                            {{-- <p class="text-xl text-white">Odio nisi, lectus dis nulla. Ultrices maecenas
+                                        vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p> --}}
+                        </div>
+                        <ul role="list"
+                            class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+
+                            @foreach ($categories as $category)
+                                <li>
+                                    <div class="space-y-4" data-popover-target="{{ $category->name }}">
+                                        <div class="aspect-w-3 aspect-h-2 hover:scale-125">
+                                            <a href={{ url('concours') }}>
+                                                <img class="object-cover 1-lg rounded-lg"
+                                                    src="{{ asset('storage/' . $category->image) }}" alt="1"
+                                                    alt="">
                                             </a>
-                                        </li>
-                                    @endforeach
 
+                                        </div>
 
-                                </ul>
-                            </div>
-                        </div>
+                                        <div class="space-y-2">
+                                            <div class="text-lg leading-6 font-medium space-y-1">
+
+                                                <p class="text-white text-5xl hover:bg-pink-900">
+                                                    {{ $category->name }}</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+
+                        </ul>
                     </div>
-                    {{-- contact --}}
+                </div>
+            </div>
 
-                    <div class="bg-concgreen-600">
-                        <div class=" mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-                            <div class="relative bg-concgreen-600500 1-xl">
-                                <h2 class="sr-only">Contact us</h2>
-                                <h2
-                                    class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
-                                    Contactez-nous</h2>
 
-                                <div class="grid grid-cols-1 lg:grid-cols-3">
-                                    <!-- Contact information -->
-                                    <div class="relative overflow-hidden py-10 px-6 bg-black sm:px-10 xl:p-12"
-                                        style="background-image:url({{ URL('image/map-image.png') }})">
-                                        <div class="absolute inset-0 pointer-events-none sm:hidden"
-                                            aria-hidden="true">
-                                            <svg class="absolute inset-0 w-full h-full" width="343" height="388"
-                                                viewBox="0 0 343 388" fill="none"
-                                                preserveAspectRatio="xMidYMid slice"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M-99 461.107L608.107-246l707.103 707.107-707.103 707.103L-99 461.107z"
-                                                    fill="url(#linear1)" fill-opacity=".1" />
-                                                <defs>
-                                                    <linearGradient id="linear1" x1="254.553" y1="107.554"
-                                                        x2="961.66" y2="814.66" gradientUnits="userSpaceOnUse">
-                                                        <stop stop-color="#fff"></stop>
-                                                        <stop offset="1" stop-color="#fff" stop-opacity="0">
-                                                        </stop>
-                                                    </linearGradient>
-                                                </defs>
-                                            </svg>
+            {{-- top users --}}
+
+            <div class="bg-concgreen-500 bg-fixed bg-cover bg-center flex flex-col justify-between "
+                style="background-image:linear-gradient(0deg, rgba(250,114,105, 0.2), rgba(250,114,105,0.2)),url({{ URL('image/candidates.jpg') }})">
+
+                >
+                <div class="max-w-7xl mx-auto py-12 px-4  sm:px-6 lg:px-8 lg:py-24">
+                    <div class="space-y-12">
+                        <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+                            <h2
+                                class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
+                                Les Profiles </h2>
+
+                            <p class="text-xl text-white">Ornare sagittis, suspendisse in hendrerit quis.
+                                Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p>
+                        </div>
+                        <ul role="list"
+                            class="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
+                            @foreach ($topUsers as $user)
+                                <li>
+                                    <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
+                                        class="space-y-6">
+
+                                        @if ($user->avatar)
+                                            <img src="{{ asset('storage/' . $user->avatar) }}"
+                                                class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                                                alt="" />
+                                        @else
+                                            <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56"
+                                                src="{{ URL('image/profileplaceholder.jpg') }}" alt="1"
+                                                alt="" />
+                                        @endif
+                                        <div class="space-y-2">
+                                            <div class="text-lg leading-6 font-medium space-y-1 text-center">
+                                                <h3 class="text-white">{{ $user->name }}</h3>
+                                                <p class="text-white">{{ $user->email }}</p>
+                                            </div>
+
                                         </div>
-                                        <div class="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden"
-                                            aria-hidden="true">
-                                            <svg class="absolute inset-0 w-full h-full" width="359" height="339"
-                                                viewBox="0 0 359 339" fill="none"
-                                                preserveAspectRatio="xMidYMid slice"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M-161 382.107L546.107-325l707.103 707.107-707.103 707.103L-161 382.107z"
-                                                    fill="url(#linear2)" fill-opacity=".1" />
-                                                <defs>
-                                                    <linearGradient id="linear2" x1="192.553" y1="28.553"
-                                                        x2="899.66" y2="735.66" gradientUnits="userSpaceOnUse">
-                                                        <stop stop-color="#fff"></stop>
-                                                        <stop offset="1" stop-color="#fff" stop-opacity="0">
-                                                        </stop>
-                                                    </linearGradient>
-                                                </defs>
-                                            </svg>
-                                        </div>
-                                        <div class="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
-                                            aria-hidden="true">
-                                            <svg class="absolute inset-0 w-full h-full" width="160" height="678"
-                                                viewBox="0 0 160 678" fill="none"
-                                                preserveAspectRatio="xMidYMid slice"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M-161 679.107L546.107-28l707.103 707.107-707.103 707.103L-161 679.107z"
-                                                    fill="url(#linear3)" fill-opacity=".1" />
-                                                <defs>
-                                                    <linearGradient id="linear3" x1="192.553" y1="325.553"
-                                                        x2="899.66" y2="1032.66" gradientUnits="userSpaceOnUse">
-                                                        <stop stop-color="#fff"></stop>
-                                                        <stop offset="1" stop-color="#fff" stop-opacity="0">
-                                                        </stop>
-                                                    </linearGradient>
-                                                </defs>
-                                            </svg>
-                                        </div>
-                                        {{--                     <h3 class="text-lg font-medium text-white">Contact information</h3>
+                                    </a>
+                                </li>
+                            @endforeach
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {{-- contact --}}
+
+            <div class="bg-concgreen-600">
+                <div class=" mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+                    <div class="relative bg-concgreen-600500 1-xl">
+                        <h2 class="sr-only">Contact us</h2>
+                        <h2
+                            class="text-2xl sm:text-8xl font-extrabold tracking-tight sm:text-4xl text-white uppercase">
+                            Contactez-nous</h2>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3">
+                            <!-- Contact information -->
+                            <div class="relative overflow-hidden py-10 px-6 bg-black sm:px-10 xl:p-12"
+                                style="background-image:url({{ URL('image/map-image.png') }})">
+                                <div class="absolute inset-0 pointer-events-none sm:hidden" aria-hidden="true">
+                                    <svg class="absolute inset-0 w-full h-full" width="343" height="388"
+                                        viewBox="0 0 343 388" fill="none" preserveAspectRatio="xMidYMid slice"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M-99 461.107L608.107-246l707.103 707.107-707.103 707.103L-99 461.107z"
+                                            fill="url(#linear1)" fill-opacity=".1" />
+                                        <defs>
+                                            <linearGradient id="linear1" x1="254.553" y1="107.554"
+                                                x2="961.66" y2="814.66" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#fff"></stop>
+                                                <stop offset="1" stop-color="#fff" stop-opacity="0">
+                                                </stop>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden"
+                                    aria-hidden="true">
+                                    <svg class="absolute inset-0 w-full h-full" width="359" height="339"
+                                        viewBox="0 0 359 339" fill="none" preserveAspectRatio="xMidYMid slice"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M-161 382.107L546.107-325l707.103 707.107-707.103 707.103L-161 382.107z"
+                                            fill="url(#linear2)" fill-opacity=".1" />
+                                        <defs>
+                                            <linearGradient id="linear2" x1="192.553" y1="28.553"
+                                                x2="899.66" y2="735.66" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#fff"></stop>
+                                                <stop offset="1" stop-color="#fff" stop-opacity="0">
+                                                </stop>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
+                                    aria-hidden="true">
+                                    <svg class="absolute inset-0 w-full h-full" width="160" height="678"
+                                        viewBox="0 0 160 678" fill="none" preserveAspectRatio="xMidYMid slice"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M-161 679.107L546.107-28l707.103 707.107-707.103 707.103L-161 679.107z"
+                                            fill="url(#linear3)" fill-opacity=".1" />
+                                        <defs>
+                                            <linearGradient id="linear3" x1="192.553" y1="325.553"
+                                                x2="899.66" y2="1032.66" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#fff"></stop>
+                                                <stop offset="1" stop-color="#fff" stop-opacity="0">
+                                                </stop>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                                    {{-- <h3 class="text-lg font-medium text-white">Contact information</h3>
                                         <p class="mt-6 text-base text-bittersweet-50 max-w-3xl">Nullam risus blandit ac
                                             aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor
                                             lacus arcu.</p>
@@ -584,7 +595,7 @@
                                                 <span class="ml-3">support@concours.com</span>
                                             </dd>
                                         </dl> --}}
-                                        {{-- <ul role="list" class="mt-8 flex space-x-12">
+                                {{-- <ul role="list" class="mt-8 flex space-x-12">
                                             <li>
                                                 <a class="text-bittersweet-200 hover:text-bittersweet-100"
                                                     href="#">
@@ -624,123 +635,119 @@
                                                 </a>
                                             </li>
                                         </ul> --}}
+                            </div>
+
+                            <!-- Contact form -->
+                            <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
+                                <h3 class="text-lg font-medium text-white">Envoyez-nous un message</h3>
+                                <form id="contactForm" class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                                    action="{{ route('contact.store') }}" method="POST">
+
+                                    @csrf
+
+                                    <div>
+                                        <x-input-label for="firstName" :value="__('Prénom')" />
+                                        <x-text-input id="firstName" class="block mt-1 w-full" type="text"
+                                            name="firstName" :value="old('firstName')" autocomplete="firstName" />
+                                        <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
+                                    </div>
+                                    <div>
+                                        <x-input-label for="lastName" :value="__('Nom')" />
+                                        <x-text-input id="lastName" class="block mt-1 w-full" type="text"
+                                            name="lastName" :value="old('lastName')" autocomplete="lastName" />
+                                        <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
+                                    </div>
+                                    <div>
+                                        <x-input-label for="email" :value="__('Email')" />
+                                        <x-text-input id="email" class="block mt-1 w-full" type="email"
+                                            name="email" :value="old('email')" autocomplete="email" />
+                                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <x-input-label for="phone" :value="__('Téléphone')" />
+                                            <x-text-input id="phone" class="block mt-1 w-full" type="text"
+                                                name="phone" :value="old('phone')" autocomplete="phone" />
+                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                        </div>
+
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <div>
+                                            <x-input-label for="subject" :value="__('Sujet')" />
+                                            <x-text-input id="subject" class="block mt-1 w-full" type="text"
+                                                name="subject" :value="old('subject')" autocomplete="subject" />
+                                            <x-input-error :messages="$errors->get('subject')" class="mt-2" />
+                                        </div>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <div class="flex justify-between">
+                                            <label for="message"
+                                                class="block text-sm font-medium text-white">Message</label>
+                                            <span id="message-max" class="text-sm text-white">Max. 500
+                                                caractères</span>
+                                        </div>
+                                        <div class="mt-1">
+                                            <textarea id="message" name="message" rows="4"
+                                                class="py-3 px-4 block w-full 1 text-black bg-white focus:ring-bittersweet-500 focus:border-bittersweet-500 border border-gray-300 rounded-md"
+                                                aria-describedby="message-max"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="sm:col-span-2 sm:flex sm:justify-end">
+                                        <button type="submit"
+                                            class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md 1 text-base font-medium text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500 sm:w-auto">
+                                            Envoyer
+                                        </button>
                                     </div>
 
-                                    <!-- Contact form -->
-                                    <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-                                        <h3 class="text-lg font-medium text-white">Envoyez-nous un message</h3>
-                                        <form id="contactForm"
-                                            class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
-                                            action="{{ route('contact.store') }}" method="POST">
-
-                                            @csrf
-
-                                            <div>
-                                                <x-input-label for="firstName" :value="__('Prénom')" />
-                                                <x-text-input id="firstName" class="block mt-1 w-full" type="text"
-                                                    name="firstName" :value="old('firstName')" autocomplete="firstName" />
-                                                <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
-                                            </div>
-                                            <div>
-                                                <x-input-label for="lastName" :value="__('Nom')" />
-                                                <x-text-input id="lastName" class="block mt-1 w-full" type="text"
-                                                    name="lastName" :value="old('lastName')" autocomplete="lastName" />
-                                                <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
-                                            </div>
-                                            <div>
-                                                <x-input-label for="email" :value="__('Email')" />
-                                                <x-text-input id="email" class="block mt-1 w-full" type="email"
-                                                    name="email" :value="old('email')" autocomplete="email" />
-                                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                                            </div>
-                                            <div>
-                                                <div>
-                                                    <x-input-label for="phone" :value="__('Téléphone')" />
-                                                    <x-text-input id="phone" class="block mt-1 w-full"
-                                                        type="text" name="phone" :value="old('phone')"
-                                                        autocomplete="phone" />
-                                                    <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                    @if ($errors->any())
+                                        <div class="error-message sm:col-span-2 rounded-md bg-red-50  p-4 opacity-80">
+                                            <div class="flex">
+                                                <div class="flex-shrink-0">
+                                                    <!-- Heroicon name: solid/x-circle -->
+                                                    <svg class="h-5 w-5 text-red-400"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                        fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
                                                 </div>
-
-                                            </div>
-                                            <div class="sm:col-span-2">
-                                                <div>
-                                                    <x-input-label for="subject" :value="__('Sujet')" />
-                                                    <x-text-input id="subject" class="block mt-1 w-full"
-                                                        type="text" name="subject" :value="old('subject')"
-                                                        autocomplete="subject" />
-                                                    <x-input-error :messages="$errors->get('subject')" class="mt-2" />
-                                                </div>
-                                            </div>
-                                            <div class="sm:col-span-2">
-                                                <div class="flex justify-between">
-                                                    <label for="message"
-                                                        class="block text-sm font-medium text-white">Message</label>
-                                                    <span id="message-max" class="text-sm text-white">Max. 500
-                                                        caractères</span>
-                                                </div>
-                                                <div class="mt-1">
-                                                    <textarea id="message" name="message" rows="4"
-                                                        class="py-3 px-4 block w-full 1 text-black bg-white focus:ring-bittersweet-500 focus:border-bittersweet-500 border border-gray-300 rounded-md"
-                                                        aria-describedby="message-max"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="sm:col-span-2 sm:flex sm:justify-end">
-                                                <button type="submit"
-                                                    class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md 1 text-base font-medium text-white bg-bittersweet-400 hover:bg-bittersweet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500 sm:w-auto">
-                                                    Envoyer
-                                                </button>
-                                            </div>
-
-                                            @if ($errors->any())
-                                                <div
-                                                    class="error-message sm:col-span-2 rounded-md bg-red-50  p-4 opacity-80">
-                                                    <div class="flex">
-                                                        <div class="flex-shrink-0">
-                                                            <!-- Heroicon name: solid/x-circle -->
-                                                            <svg class="h-5 w-5 text-red-400"
-                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                                fill="currentColor" aria-hidden="true">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                                                                    clip-rule="evenodd" />
-                                                            </svg>
-                                                        </div>
-                                                        <div class="ml-3">
-                                                            <h3 class="text-sm font-medium text-red-800">
-                                                                Il y a eu {{ $errors->count() }} erreurs dans votre
-                                                                soumission
-                                                            </h3>
-                                                            <div class="mt-2 text-sm text-red-700">
-                                                                <ul role="list" class="list-disc pl-5 space-y-1">
+                                                <div class="ml-3">
+                                                    <h3 class="text-sm font-medium text-red-800">
+                                                        Il y a eu {{ $errors->count() }} erreurs dans votre
+                                                        Article
+                                                    </h3>
+                                                    <div class="mt-2 text-sm text-red-700">
+                                                        <ul role="list" class="list-disc pl-5 space-y-1">
 
 
-                                                                    @foreach ($errors->all() as $error)
-                                                                        <li>{{ $error }}</li>
-                                                                    @endforeach
+                                                            @foreach ($errors->all() as $error)
+                                                                <li>{{ $error }}</li>
+                                                            @endforeach
 
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                            @endif
-                                        </form>
-                                    </div>
-                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </form>
                             </div>
                         </div>
                     </div>
-
-                </main>
-
-
-
-
-                <x-footer />
-
+                </div>
             </div>
-        </div>
+
+    </main>
+
+
+
+
+    <x-footer />
+
+    </div>
+    </div>
     </main>
     </div>
     <x-fab />

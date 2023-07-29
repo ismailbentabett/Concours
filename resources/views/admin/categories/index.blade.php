@@ -25,7 +25,6 @@
             </div>
         </div>
     </div>
-    </div>
 
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -44,9 +43,7 @@
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-
                                 </th>
-
 
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Supprimer</span>

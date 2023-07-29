@@ -17,12 +17,10 @@
             <div class="bg-concgreen-600 dark:bg-concgreen-600 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
-
                     <form class="relative" action="{{ route('admin.categories.store') }}" method="POST"
                         enctype="multipart/form-data">
 
                         @csrf
-
 
                         <div
                             class="border border-whiterounded-lg shadow-sm overflow-hidden focus-within:border-bittersweet-500 focus-within:ring-1 focus-within:ring-bittersweet-500">
@@ -88,7 +86,7 @@
                                     </div>
                                     <div class="ml-3">
                                         <h3 class="text-sm font-medium text-red-800">
-                                            Il y a eu {{ $errors->count() }} erreurs dans votre soumission
+                                            Il y a eu {{ $errors->count() }} erreurs dans votre Article
                                         </h3>
                                         <div class="mt-2 text-sm text-red-700">
                                             <ul role="list" class="list-disc pl-5 space-y-1">

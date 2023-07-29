@@ -344,8 +344,8 @@ class AdminController extends Controller
 
         $toastr = [
             'type' => 'success',
-            'title' => 'Utilisateur est pas Admin',
-            'message' => 'Utilisateur est pas Admin'
+            'title' => "Utilisateur n'est pas Admin",
+            'message' => "Utilisateur n'est pas Admin"
         ];
 
 

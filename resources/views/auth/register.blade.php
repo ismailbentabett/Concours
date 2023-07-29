@@ -20,7 +20,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Mot de passe')" />
+            <x-input-label for="password" :value="__('Créer votre mot de passe')" />
 
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
                 autocomplete="new-password" />
@@ -73,7 +73,7 @@
                     </div>
                     <div class="ml-3">
                         <h3 class="text-sm font-medium text-red-800">
-                            Il y a eu {{ $errors->count() }} erreurs dans votre soumission
+                            Il y a eu {{ $errors->count() }} erreurs dans votre article
                         </h3>
                         <div class="mt-2 text-sm text-red-700">
                             <ul role="list" class="list-disc pl-5 space-y-1">

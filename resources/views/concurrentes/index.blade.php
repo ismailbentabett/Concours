@@ -40,7 +40,7 @@
                                                             onchange="this.form.submit()">
                                                             <option
                                                                 value="all"{{ Request::input('tabs') == 'all' ? ' selected' : '' }}>
-                                                                All</option>
+                                                                Tous</option>
                                                             @foreach ($categories as $category)
                                                                 <option
                                                                     value="{{ $category->name }}"{{ Request::input('tabs') == $category->name ? ' selected' : '' }}>
@@ -59,7 +59,7 @@
                                                                     class="whitespace-nowrap   px-1 py-4 text-sm font-medium hover:border-gray-600 hover:text-gray-700
                                                                     @if (Request::input('tabs') == 'all' && Route::currentRouteName() === 'concurrentes.index') border-b-2 border-bittersweet-500  text-bittersweet-600 @endif
                                                                     ">
-                                                                    All
+                                                                    Tous
                                                                 </a>
 
                                                                 @foreach ($categories as $category)

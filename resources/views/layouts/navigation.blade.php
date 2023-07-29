@@ -268,7 +268,7 @@
 
                                 @if (Route::has('register') && Route::current()->getName() !== 'register')
                                     <a href="{{ route('register') }}"
-                                        class=" hidden sm:inline-flex  items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Inscrire</a>
+                                        class=" hidden sm:inline-flex  items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Inscription</a>
                                 @endif
                             @endauth
                         </div>
@@ -410,7 +410,7 @@
 
                     @if (Route::has('register') && Route::current()->getName() !== 'register')
                         <a href="{{ route('register') }}"
-                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Inscrire
+                            class="m-5 inline-flex lg:hidden items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-bittersweet-600 bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">Inscription
                         </a>
                     @endif
                 </div>

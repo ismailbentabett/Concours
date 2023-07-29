@@ -8,7 +8,7 @@
     <header class="bg-white dark:bg-concgreen-700 shadow hadow rounded-lg">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                SOUMISSIONS
+                Participations
             </h2>
         </div>
     </header>
@@ -22,7 +22,7 @@
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    SOUMISSIONS
+                                    Profiles
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
@@ -45,7 +45,9 @@
                             @foreach ($concours as $concour)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
+                                        <a
+                                        href="{{ route('visituser.concours', ['id' => $concour->user->id]) }}"
+                                        class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
                                                 @if ($concour->image)
                                                     <img src="{{ asset('storage/' . $concour->image) }}"
@@ -65,11 +67,13 @@
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="ml-4">
-                                            <div class="flex items-center">
+                                            <a 
+                                            href="{{ route('visituser.concours', ['id' => $concour->user->id]) }}"
+                                            class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
                                                     @if ($concour->user->avatar)
                                                         <img src="{{ asset('storage/' . $concour->user->avatar) }}"
@@ -88,7 +92,7 @@
                                                         {{ $concour->user->email }}
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">

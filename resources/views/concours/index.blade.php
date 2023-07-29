@@ -35,9 +35,9 @@
                                                     ?</label>
                                                 <select id="profession" name="profession"
                                                     class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bittersweet-500 focus:border-bittersweet-500 sm:text-sm rounded-md bg-concgreen-500">
-                                                    <option>Professional</option>
-                                                    <option selected>Artisan</option>
-                                                    <option>Rather Not Say</option>
+                                                    <option>Professionnel</option>
+                                                    <option selected>Passionné</option>
+                                                    <option>Autre</option>
                                                 </select>
                                             </div>
 
@@ -104,7 +104,7 @@
                                                         <div class="ml-3">
                                                             <h3 class="text-sm font-medium text-red-800">
                                                                 Il y a eu {{ $errors->count() }} erreurs dans votre
-                                                                soumission
+                                                                article
                                                             </h3>
                                                             <div class="mt-2 text-sm text-red-700">
                                                                 <ul role="list" class="list-disc pl-5 space-y-1">

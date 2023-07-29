@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Concours') }}</title>
+    <title>{{ config('app.name', 'Dashboard') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -30,32 +30,26 @@
             $query->where('name', '=', 'candidat');
         })->count();
         $inboxCount = App\Models\Message::count();
-
+        
         $users = App\Models\User::withCount(['posts', 'concours'])->get();
-
+        
         foreach ($users as $user) {
             $user->postslikes = $user->posts->sum(function ($post) {
                 return $post->likes->count();
             });
-
+        
             $user->concourslikes = $user->concours->sum(function ($concour) {
                 return $concour->likes->count();
             });
-
+        
             $user->save();
         }
-
+        
     @endphp
     <div class=" min-h-screen bg-gray-100 dark:bg-concgreen-500">
 
-
-
-
-
         <!-- Page Content -->
         <main>
-
-
 
             <div class="min-h-full">
 
@@ -70,10 +64,6 @@
 
                     </div>
 
-
-
-
-
                     <!-- drawer component -->
                     <div id="drawer-navigation"
                         class="fixed z-50 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-concgreen-700"
@@ -86,8 +76,6 @@
                                         class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                                         aria-controls="dashboard-menu" aria-expanded="false">
                                         <span class="sr-only">Open dashboard menu</span>
-
-
 
                                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -172,7 +160,7 @@
                                         </svg>
 
 
-                                        <span class="flex-1 ml-3 whitespace-nowrap">Les Soumissions</span>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Participations</span>
                                     </a>
                                 </li>
                                 <li>
@@ -248,8 +236,10 @@
                             <div class="px-4 sm:px-6 lg:max-w-7xl lg:mx-auto lg:px-8">
                                 <div class="py-6 md:flex md:items-center md:justify-between ">
                                     <div class="flex-1 min-w-0">
+
                                         <!-- Profile -->
                                         <div class="flex items-center">
+                                            {{-- Avatar form --}}
                                             <form class="" id="profileForm"
                                                 action="{{ route('user.upload') }}" method="POST"
                                                 enctype="multipart/form-data">
@@ -447,7 +437,7 @@
                                                 <div class="ml-5 w-0 flex-1">
                                                     <dl>
                                                         <dt class="text-sm font-medium text-white truncate">
-                                                            Les Soumissions
+                                                            Paricipation au concours
                                                         </dt>
                                                         <dd>
                                                             <div class="text-lg font-medium text-white">
