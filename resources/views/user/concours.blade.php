@@ -96,7 +96,7 @@
 
                                                     {{ $concour->profession }}
                                                 </p>
-                                                <form action="{{ route('concour.destroy', $concour) }}" method="POST"
+                                                <form class="z-50"  action="{{ route('concour.destroy', $concour) }}" method="POST"
                                                     class="mt-2">
                                                     @csrf
                                                     @method('DELETE')
