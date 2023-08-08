@@ -44,7 +44,8 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
 
                                         {{-- better add link to show profile --}}
-
+                                        {{-- user avatar --}}
+                                        
                                         <a href="{{ route('visituser.concours', ['id' => $user->id]) }}"
                                             class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
@@ -76,7 +77,7 @@
                                             Admin,
                                         @endif
                                         @if ($user->isUser())
-                                            User,
+                                            Utilisateur,
                                         @endif
                                         @if ($user->isCandidat())
                                             Candidat
@@ -103,7 +104,7 @@
                                                 </form>
                                             </a>
                                         @endif
-                                        @if (!$user->isAdmin() || $user->email !== 'master@concour.com')
+                                        @if ($user->email !== 'master@concour.com')
                                             <a class="text-red-600 hover:text-indigo-900">
 
                                                 <form action="{{ route('admin.users.delete', $user->id) }}" method="POST">

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class MessageController extends Controller
 {
     // Show all messages (Admin Inbox)
+    
     public function index()
     {
         $messages = Message::latest()->paginate(10);

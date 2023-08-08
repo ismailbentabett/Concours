@@ -5,17 +5,46 @@ import Alpine from "alpinejs";
 window.Alpine = Alpine;
 Alpine.start();
 
+// carousel
 var owl = $(".owl-carousel");
 owl.owlCarousel({
+    responsive: {
+        // breakpoint from 0 up
+        0: {
+            items: 1,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+        },
+        480: {
+            items: 2,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+        },
+        // breakpoint from 768 up
+        768: {
+            items: 3,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+        },
+    },
     items: 4,
     loop: true,
     margin: 10,
     autoplay: true,
-    autoplayTimeout: 2000,
+    autoplayTimeout: 1000,
     autoplayHoverPause: true,
 });
 $(".play").on("click", function () {
-    owl.trigger("play.owl.autoplay", [1000]);
+    owl.trigger("play.owl.autoplay", [2000]);
 });
 $(".stop").on("click", function () {
     owl.trigger("stop.owl.autoplay");
@@ -28,6 +57,8 @@ $(".forward").on("click", function () {
     owl.trigger("next.owl.carousel");
 });
 
+
+// chrono
 (function () {
     const second = 1000,
         minute = second * 60,
