@@ -111,7 +111,7 @@
                                         </li>
                                     @endforeach
                                 @else
-                                    <a type="button"
+                                    <a href="{{ url('concours') }}" type="button"
                                         class="
                                     col-span-12
                                     relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bittersweet-500">
